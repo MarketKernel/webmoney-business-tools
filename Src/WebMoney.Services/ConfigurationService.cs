@@ -58,38 +58,9 @@ namespace WebMoney.Services
         private static void Configure()
         {
             if (PlatformID.Unix == Environment.OSVersion.Platform)
-            {
                 CertificateValidator.DisableValidation = true;
-            }
             else
-            {
-                string assemblyFile = new Uri(Assembly.GetExecutingAssembly().CodeBase).AbsolutePath;
-                string assemblyDirectory = Path.GetDirectoryName(assemblyFile);
-
-                if (null == assemblyDirectory)
-                    throw new InvalidOperationException("null == assemblyDirectory");
-
-                var trustedRootCertificatesDirectory =
-                    Path.Combine(assemblyDirectory, TrustedCertificatesFolder);
-
-                foreach (var file in Directory.GetFiles(trustedRootCertificatesDirectory, "*.cer"))
-                {
-                    X509Certificate2 x509Certificate2;
-
-                    try
-                    {
-                        x509Certificate2 = new X509Certificate2(file);
-                    }
-                    catch (Exception exception)
-                    {
-                        Logger.Error(exception.Message, exception);
-                        continue;
-                    }
-
-                    CertificateValidator.RegisterTrustedCertificate(x509Certificate2);
-                    Logger.DebugFormat("Trusted certificate registered [thumbprint={0}].", x509Certificate2.Thumbprint);
-                }
-            }
+                ConfigureCertificateValidator();
 
             ServicePointManager.ServerCertificateValidationCallback =
                 CertificateValidator.RemoteCertificateValidationCallback;
@@ -116,6 +87,36 @@ namespace WebMoney.Services
                 cfg.CreateMap<ITransferBundleSettings, TransferBundleSettings>();
                 cfg.CreateMap<ITransferSettings, TransferSettings>();
             });
+        }
+
+        private static void ConfigureCertificateValidator()
+        {
+            string assemblyFile = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
+            string assemblyDirectory = Path.GetDirectoryName(assemblyFile);
+
+            if (null == assemblyDirectory)
+                throw new InvalidOperationException("null == assemblyDirectory");
+
+            var trustedRootCertificatesDirectory =
+                Path.Combine(assemblyDirectory, TrustedCertificatesFolder);
+
+            foreach (var file in Directory.GetFiles(trustedRootCertificatesDirectory, "*.cer"))
+            {
+                X509Certificate2 x509Certificate2;
+
+                try
+                {
+                    x509Certificate2 = new X509Certificate2(file);
+                }
+                catch (Exception exception)
+                {
+                    Logger.Error(exception.Message, exception);
+                    continue;
+                }
+
+                CertificateValidator.RegisterTrustedCertificate(x509Certificate2);
+                Logger.DebugFormat("Trusted certificate registered [thumbprint={0}].", x509Certificate2.Thumbprint);
+            }
         }
     }
 }
