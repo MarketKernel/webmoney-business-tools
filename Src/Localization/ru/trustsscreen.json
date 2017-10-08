@@ -1,0 +1,21 @@
+﻿{
+  "-": "-",
+  "&Change trust": "&Изменить доверенность",
+  "&Create trust": "&Создать доверенность",
+  "&Find master certificate": "&Найти аттестат мастера",
+  "Cop&y number": "Скопировать &номер",
+  "Day limit": "Дневной лимит",
+  "Day total amount": "Потрачено дневного лимита",
+  "Invoices allowed": "Выписка счетов разрешена",
+  "Last transfer time": "Время последней операции",
+  "Master WMID": "WMID мастера",
+  "Month limit": "Месячный лимит",
+  "Month total amount": "Потрачено месячного лимита",
+  "Purse": "Кошелек",
+  "Store WMID": "Кошелек магазина",
+  "Transfers allowed": "Перевод средств разрешен",
+  "View balance allowed": "Просмотр баланса разрешен",
+  "View history allowed": "Просмотр истории операций разрешен",
+  "Week limit": "Недельный лимит",
+  "Week total amount": "Потрачено недельного лимита"
+}

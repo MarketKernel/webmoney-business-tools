@@ -1,0 +1,13 @@
+﻿{
+  "&Create": "&Создать",
+  "&Ok": "&Ок",
+  "Amount": "Сумма:",
+  "Description cannot be empty!": "Назначение не может быть пустым!",
+  "Description:": "Назначение:",
+  "Order number:": "Номер заказа:",
+  "Payment Link": "Платежная ссылка:",
+  "Payment link:": "Платежная ссылка:",
+  "Store purse:": "Кошелек магазина:",
+  "Validity period (hours): ": "Срок действия (часов):",
+  "Wrong amount!": "Неверная сумма!"
+}

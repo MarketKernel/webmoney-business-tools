@@ -1,0 +1,15 @@
+﻿{
+  "Contracts": "Контракты",
+  "History by bundle": "История по пакету",
+  "History by purse": "История по кошельку",
+  "IN": "ПРИХ:",
+  "Income": "Приход",
+  "Incoming invoices": "Входящие счета",
+  "OUT": "РАСХ:",
+  "Outcome": "Расход",
+  "Outgoing invoices by purse": "Исходящие счета по кошельку",
+  "PAID": "ОПЛ",
+  "REF": "ОТК",
+  "Transfer bundles": "Массовые платежи",
+  "UNP": "НЕ ОПЛ"
+}

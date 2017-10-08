@@ -1,0 +1,11 @@
+﻿{
+  "&Publish": "&Создать",
+  "Access list (separate with coma or new line):": "Список доступа (разделение запятой или с новой строки):",
+  "Access list cannot be empty!": "Список доступа не может быть пустым!",
+  "Limited access": "Ограниченный доступ",
+  "Name cannot be empty!": "Название не может быть пустым!",
+  "Name:": "Название:",
+  "Publish contract": "Опубликовать контракт",
+  "Text cannot be empty!": "Текст не может быть пустым!",
+  "Text:": "Текст:"
+}

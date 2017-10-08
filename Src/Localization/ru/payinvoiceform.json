@@ -1,0 +1,19 @@
+﻿{
+  "&Pay": "&Оплатить",
+  "Address:": "Адрес:",
+  "Amount": "Адрес",
+  "Description:": "Назначение",
+  "For purse:": "Для кошелька",
+  "From WMID:": "От WMID",
+  "Income Invoice": "Входящий счет",
+  "Maximum protection period (days):": "Максимальный срок протекции (дней):",
+  "Maximum protection period (days): ": "Максимальный срок протекции (дней):",
+  "Order number:": "Номер заказа:",
+  "Pay from:": "Оплатить с",
+  "Pay Invoice": "Оплата счета",
+  "Payment period (days):": "Срок оплаты (дней)",
+  "Payment Protection": "Протекция платежа",
+  "Protection code:": "Код протекции:",
+  "Transfer Number:": "Номер перевода:",
+  "Use payment protection": "Использовать протекцию платежа"
+}

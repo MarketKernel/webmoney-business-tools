@@ -1,0 +1,17 @@
+﻿{
+  "&Details": "&Детали",
+  "Amount": "Сумма",
+  "CreationTime": "Создано",
+  "Description": "Назначение",
+  "ErrorMessage": "Ошибка",
+  "Force": "Действие",
+  "Id": "ID",
+  "SecondaryId": "Вторичный ID системы",
+  "SourcePurse": "Откуда",
+  "State": "Состояние",
+  "TargetPurse": "Куда",
+  "TransferBundleId": "",
+  "TransferCreationTime": "ID перевода пакета",
+  "TransferId": "ID перевода",
+  "UpdateTime": "Обновлено"
+}

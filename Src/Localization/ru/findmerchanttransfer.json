@@ -1,0 +1,20 @@
+﻿{
+  "Amount": "Сумма",
+  "Cashier amount": "Сумма Cashier",
+  "Cashier date": "Дата Cashier",
+  "Cashier number": "Номер Cashier",
+  "Creation time": "Создано",
+  "Description": "Назначение",
+  "IP Address": "IP-адрес",
+  "Is Capitaller": "Capitaller",
+  "Is enum": "Enum",
+  "Paymer email": "",
+  "Paymer number": "Номер чека Paymer",
+  "Paymer type": "Тип платежа Paymer",
+  "Source purse": "Откуда",
+  "Source WMID": "WMID плательщика",
+  "System invoice ID": "ID счета системы",
+  "System transfer ID": "ID перевода системы",
+  "Telepat method": "Способ оплаты Telepat",
+  "Telepat phone": "Номер телефона Telepat"
+}

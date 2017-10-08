@@ -1,0 +1,8 @@
+﻿{
+  "&Update": "&Обновить",
+  "Password can not be empty!": "Пароль не может быть пустым!",
+  "Password to backup file:": "Пароль к файлу ключей:",
+  "Path to keys' backup file (*.kwm):": "Путь к файлу ключей (*.kwm):",
+  "Security settings": "Настройки безопасности",
+  "Specify path to the keys' backup file!": "Укажите путь к файлу ключей!"
+}

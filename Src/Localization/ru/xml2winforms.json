@@ -1,0 +1,17 @@
+﻿{
+  "Canceled": "Отменен",
+  "Completed": "Завершен",
+  "Created": "Создан",
+  "Failed": "Ошибка",
+  "False": "Нет",
+  "NotPaid": "Не оплачен",
+  "Paid": "Оплачен",
+  "Pended": "В очереди",
+  "Processed": "Обработан",
+  "Protected": "Протекция",
+  "Refusal": "Отказан",
+  "Registered": "Зарегистрирован",
+  "Regular": "Обычный",
+  "Signed": "Подписан",
+  "True": "Да"
+}

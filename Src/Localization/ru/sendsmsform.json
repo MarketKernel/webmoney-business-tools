@@ -1,0 +1,9 @@
+﻿{
+  "&Send": "&Отправить",
+  "Message cannot be empty!": "Сообщение не может быть пустым!",
+  "Message:": "Сообщение:",
+  "Phone number (international format):": "Номер телефона (в международном формате):",
+  "Send SMS": "Отправить СМС",
+  "Use transliteration": "Использовать транслитерацию",
+  "Wrong number length!": "Неверная длина номера!"
+}

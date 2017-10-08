@@ -1,0 +1,15 @@
+﻿{
+  "&Connect": "&Подключиться",
+  "Confirm password:": "Подтверждение пароля:",
+  "Connection string can not be empty!": "Строка подключения не может быть пустой!",
+  "Connection string:": "Строка подключения:",
+  "Data provider:": "Провайдер данных:",
+  "DB Settings": "Настройки базы данных",
+  "MS SQL Server": "",
+  "Password and password confirmation do not match.": "Пароль и подтверждение пароля не совпадают.",
+  "Password can not be empty!": "Пароль не может быть пустым!",
+  "Password:": "Пароль:",
+  "Path to database:": "Путь к базе данных:",
+  "SQL Server CE": "",
+  "Use password": "Использовать пароль"
+}

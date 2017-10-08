@@ -1,0 +1,16 @@
+﻿{
+  "&Database settings": "Настройки &базы данных",
+  "&Key settings": "Изменить &ключ",
+  "&Password settings": "Изменить &пароль",
+  "&Request number settings": "&Задать номер запроса",
+  "&Settings": "&Общие настройки",
+  "&Verify client": "&Проверить клиента",
+  "Create cont&ract": "&Создать контракт",
+  "Find &certificate": "Найти &аттестат",
+  "Find &identifier": "&Найти WMID по кошельку",
+  "Mass &payments": "&Массовые платежи",
+  "S&how contracts": "Показать &контракты",
+  "Send &message": "&Отправить сообщение на WMID",
+  "Send &SMS": "О&тправить SMS",
+  "Show i&ncoming invoices": "Отобразить &входящие счета"
+}

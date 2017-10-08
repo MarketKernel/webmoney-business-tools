@@ -1,0 +1,17 @@
+﻿{
+  "&Pay": "&Перевести",
+  "Amount": "Сумма:",
+  "Description:": "Назначение:",
+  "From purse:": "С кошелька:",
+  "Maximum protection period (days): ": "Максимальный срок протекции (дней):",
+  "Number:": "Номер:",
+  "Payment Protection": "Протекция платежа",
+  "Protection code cannot be empty!": "Код протекции не может быть пустым!",
+  "Protection code:": "Код протекции:",
+  "To purse:": "На кошелек:",
+  "Transfer": "Перевод",
+  "Use payment protection": "Использовать протекцию платежа",
+  "Wrong amount!": "Неверная сумма!",
+  "Wrong code length!": "Неверная длина кода!",
+  "Wrong purse number!": "Неверный номер кошелька!"
+}

@@ -1,0 +1,16 @@
+﻿{
+  "&Copy value": "&Скопировать",
+  "&Find": "&Найти",
+  "&Ok": "&Ок",
+  "Auto": "Авто",
+  "Find Merchant Transfer": "Найти операцию Merchant",
+  "From purse:": "С кошелька:",
+  "Invoice system id": "Системный ID счета",
+  "Name": "Название",
+  "Number type:": "Тип номера:",
+  "Number:": "Номер:",
+  "Order id": "Номер заказа",
+  "Payment:": "Платеж:",
+  "Transfer system id": "Системный ID операции",
+  "Value": "Значение"
+}

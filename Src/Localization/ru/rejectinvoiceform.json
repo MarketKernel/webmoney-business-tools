@@ -1,0 +1,13 @@
+﻿{
+  "&Reject": "&Отказаться",
+  "Address:": "Адрес:",
+  "Amount": "Сумма:",
+  "Description:": "Назначение:",
+  "For purse:": "На кошелек:",
+  "From WMID:": "От WMID:",
+  "Income Invoice": "Входящий счет",
+  "Invoice number:": "Номер счета:",
+  "Maximum protection period (days):": "Максимальный срок протекции (дней):",
+  "Payment period (days):": "Срок платежа (дней):",
+  "Reject Invoice": "Отказаться от счета"
+}
