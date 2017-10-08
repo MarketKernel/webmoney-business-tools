@@ -1,0 +1,79 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Reject Invoice",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "GroupBox",
+                "name": "IncomeInvoiceGroup",
+                "desc": "Income Invoice",
+                "column": {
+                  "controls": [
+                    {
+                      "prototype": "WMIDTemplate",
+                      "desc": "From WMID:",
+                      "name": "TargetIdentifier",
+                      "readOnly": true,
+                      "inspectionRules": [
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "For purse:",
+                      "name": "TargetPurse",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Amount",
+                      "name": "Amount",
+                      "currencyName": "WMZ",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Description:",
+                      "name": "Description",
+                      "readOnly": true,
+                      "multiline": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Invoice number:",
+                      "name": "OrderId",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Address:",
+                      "name": "Address",
+                      "readOnly": true,
+                      "multiline": true
+                    },
+                    {
+                      "type": "NumericUpDown",
+                      "desc": "Payment period (days):",
+                      "name": "PaymentPeriod",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "NumericUpDown",
+                      "desc": "Maximum protection period (days):",
+                      "name": "ProtectionPeriod",
+                      "readOnly": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Reject"
+    }
+  ]
+}

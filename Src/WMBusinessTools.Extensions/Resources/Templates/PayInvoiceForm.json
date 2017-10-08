@@ -1,0 +1,121 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Pay Invoice",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "GroupBox",
+                "name": "IncomeInvoiceGroup",
+                "desc": "Income Invoice",
+                "column": {
+                  "controls": [
+                    {
+                      "type": "TextBoxWithButton",
+                      "desc": "From WMID:",
+                      "name": "TargetIdentifier",
+                      "iconPath": "../Pictures/FindWmId.gif",
+                      "readOnly": true,
+                      "behaviorRules": [
+                        {
+                          "trigger": "ButtonClick",
+                          "action": "FindPassport"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "For purse:",
+                      "name": "TargetPurse",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Amount",
+                      "name": "Amount",
+                      "currencyName": "WMZ",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Description:",
+                      "name": "Description",
+                      "readOnly": true,
+                      "multiline": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Order number:",
+                      "name": "OrderId",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Address:",
+                      "name": "Address",
+                      "readOnly": true,
+                      "multiline": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Payment period (days):",
+                      "name": "PaymentPeriod",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Maximum protection period (days):",
+                      "name": "MaxProtectionPeriod",
+                      "readOnly": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "controls": [
+              {
+                "type": "NumericUpDown",
+                "desc": "Transfer Number:",
+                "name": "TransferId",
+                "minValue": 1,
+                "maxValue": 2147483647
+              },
+              {
+                "type": "AccountDropDownList",
+                "desc": "Pay from:",
+                "items": [
+                  {
+                    "number": "Z123456789012",
+                    "name": "Temp",
+                    "amount": "123",
+                    "availableAmount": "453",
+                    "currency": "WMZ"
+                  },
+                  {
+                    "number": "E123456789012",
+                    "name": "Кошелек 2",
+                    "amount": "321",
+                    "availableAmount": "123",
+                    "currency": "WME"
+                  }
+                ]
+              },
+              {
+                "prototype": "ProtectionCheckBox"
+              },
+              {
+                "prototype": "ProtectionGroup"
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Pay"
+    }
+  ]
+}

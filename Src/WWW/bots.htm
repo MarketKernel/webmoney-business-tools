@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Бизнес-автоматы</title>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <meta name="description" content="WebMoney Business Tools. Бизнес-автоматы." />
+    <meta name="keywords" content="WebMoney Business Tools, управление бизнесом в системе WebMoney, бизнес-автоматы, автоматизация сервисов" />
+    <meta name="copyright" content="Copyright © 2009 WMSigner Team" />
+    <meta http-equiv="Site-Enter" content="revealTrans(Duration=0.5,Transition=12)" />
+    <link rel="stylesheet" type="text/css" href="style/common.css" />
+</head>
+<body>
+    <div class="header">
+        <a href="/" style="float: left; padding: 15px 15px 20px 20px;">
+            <img alt="WebMoney Business Tools" src="images/logo.gif" style="border-style: none;" /></a>
+        <div style="float: right; padding: 20px; text-align: center;">
+            <div>
+                <a href="sitemap.htm">
+                    <img alt="Карта сайта" src="images/sitemap.gif" style="border-style: none;" /></a>
+            </div>
+            <div>
+                <small><a href="sitemap.htm">карта сайта</a></small>
+            </div>
+        </div>
+        <h1>
+            <a href="/">WebMoney Business Tools</a></h1>
+        <div style="clear: both;">
+        </div>
+    </div>
+    <div>
+        <div class="top-block">
+            <div class="site-path">
+                <span><a href="index.htm">Главная</a></span><span>::</span><span>Бизнес-автоматы</span>
+            </div>
+            <div style="padding: 10px; width: 700px;">
+                <h2>
+                    Бизнес-автоматы</h2>
+                <p>
+                    <strong>Бизнес-автомат</strong> — это робот, который автоматически выполнять 
+                    определенные функции сервиса. Каждая уникальная задача требует создания своего автомата. Программа WebMoney
+                    Business Tools позволяет создавать бизнес-автоматы с минимальными затратами.</p>
+                <h3>
+                    Готовые бизнес-автоматы</h3>
+                <p>
+                    На этой странице планируется публикация готовых бизнес-автоматов на основе WebMoney
+                    Business Tools. <strong>На данный момент нет автоматов с открытым доступом.</strong>
+                    Вы можете <a href="newbot.htm">предложить</a> бизнес-автомат для реализации или
+                    <a href="specification.htm">создать</a> его своими силами.</p>
+                <div class="box">
+                    <p>
+                        <strong><span style="color: #ff0000">Внимание!</span></strong> Используйте только
+                        проверенные бизнес-автоматы, размещенные в нашем каталоге.</p>
+                </div>
+                <h3>
+                    Кандидаты на открытую реализацию</h3>
+                <p>
+                    <strong>1. Контроль оплаченных счетов.</strong> Автоматическая отправка товара клиенту
+                    после оплаты счета (для тех случаев, когда не была нажата кнопка «завершить заказ»
+                    на сайте). Оповещение о проблемных платежах (когда товар был оплачен, но клиент
+                    его не получил). Быстрая отправка товара клиенту (вызов диалога в меню операции).</p>
+                <p>
+                    <strong>2. Контроль операций, которые могут иметь незавершенное или ошибочное состояние.</strong>
+                    Пример: автомат для контроля прямого пополнения мобильной связи. Возможности: автоматическое
+                    перепроведение операции, автоматический возврат средств клиенту, оповещение об изменении
+                    статуса операции и т.д.</p>
+                <p>
+                    <strong>3. Кредитный сервис, работающий по максимально простой схеме:</strong></p>
+                <ol>
+                    <li>Клиент открывает доступ к персональным данным аттестата, выписывает счет на оплату
+                        сервису (указывает в счете нужную ему сумму).</li>
+                    <li>Через 1 минуту, если возможно проведение операции в автоматическом режиме (к примеру,
+                        клиент имеет персональный аттестат, BL 100, требуемая сумма 20 WMZ), программа выписывает
+                        клиенту счет для кошелька D. Иначе, программа отправляет сообщение администратору
+                        (для ручного принятия решения) и завершает работу с клиентом.</li>
+                    <li>После оплаты счета клиентом на D-кошелек сервиса, программа самостоятельно оплачивает тот счет, который изначально выписал клиент для своего 
+                        Z-кошелька.</li>
+                </ol>
+                <p>
+                    <a href="newbot.htm">Предложить</a> бизнес-автомат для реализации (бесплатно, для
+                    общего использования).</p>
+                <p>
+                    &nbsp;</p>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 35px;">
+        &copy; <a href="http://wmsigner.com/">WMSigner Team</a> 2009
+    </div>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-10644079-1");
+            pageTracker._trackPageview();
+            }
+            catch(err) {}
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿{
+  "readOnly": false,
+  "columnHeaderDefaultCellStyle": {
+    "font": {
+      "isBold": true
+    },
+    "backColor": "DarkCyan",
+    "foreColor": "White",
+    "alignment": "MiddleCenter",
+    "padding": 2,
+    "wrapMode": "True"
+  },
+  "rowHeaderDefaultCellStyle": {
+    "font": {
+      "isBold": true
+    },
+    "backColor": "DarkCyan",
+    "foreColor": "White",
+    "alignment": "MiddleCenter",
+    "padding": 2,
+    "wrapMode": "True"
+  },
+  "rowsDefaultCellStyle": {
+    "font": {
+      "isBold": false
+    },
+    "selectionBackColor": "204;232;255",
+    "selectionForeColor": "Black",
+    "alignment": "MiddleLeft",
+    "padding": 1,
+    "wrapMode": "False"
+  },
+  "columns": [
+    {
+      "name": "TargetPurse",
+      "headerText": "Target purse",
+      "maxInputLength": 13,
+      "width": 250,
+      "sortable": false
+    },
+    {
+      "name": "Amount",
+      "headerText": "Amount",
+      "maxInputLength": 16,
+      "width": 150,
+      "sortable": false
+    },
+    {
+      "name": "Description",
+      "headerText": "Description",
+      "maxInputLength": 255,
+      "sortable": false,
+      "fill": true
+    },
+    {
+      "name": "TransferId",
+      "headerText": "Transfer ID",
+      "maxInputLength": 10,
+      "width": 100,
+      "sortable": false
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+﻿{
+  "text": "DB Settings",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "ComboBox",
+                "desc": "Data provider:",
+                "name": "Provider",
+                "items": [
+                  {
+                    "text": "SQL Server CE",
+                    "value": "System.Data.SqlServerCe.4.0"
+                  },
+                  {
+                    "text": "MS SQL Server",
+                    "value": "System.Data.SqlClient"
+                  }
+                ],
+                "behaviorRules": [
+                  // CE
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "System.Data.SqlServerCe.4.0",
+                    "affectedControls": [
+                      "PathToDatabase",
+                      "UsePassword",
+                      "UsePassword",
+                      "Password",
+                      "PasswordConfirmation"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "System.Data.SqlServerCe.4.0",
+                    "affectedControls": [
+                      "ConnectionString"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // MS SQL
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "System.Data.SqlClient",
+                    "affectedControls": [
+                      "ConnectionString"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "System.Data.SqlClient",
+                    "affectedControls": [
+                      "PathToDatabase",
+                      "UsePassword",
+                      "UsePassword",
+                      "Password",
+                      "PasswordConfirmation"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  }
+                ]
+              },
+              // SE
+              {
+                "type": "TextBoxWithButton",
+                "desc": "Path to database:",
+                "name": "PathToDatabase",
+                "iconPath": "../Pictures/OpenFile.gif",
+                "readonly": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Specify path to database!"
+                  }
+                ],
+                "behaviorRules": [
+                  {
+                    "trigger": "ButtonClick",
+                    "action": "SelectFile",
+                    "actionParameter": "SQL Server CE file|*.sdf"
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Use password",
+                "name": "UsePassword",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "Password",
+                      "PasswordConfirmation"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Password:",
+                "name": "Password",
+                "useSystemPasswordChar": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Password can not be empty!"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Confirm password:",
+                "name": "PasswordConfirmation",
+                "useSystemPasswordChar": true,
+                "inspectionRules": [
+                  {
+                    "type": "EqualsToControl",
+                    "argument": "Password",
+                    "message": "Password and password confirmation do not match."
+                  }
+                ]
+              },
+              // MS SQL
+              {
+                "type": "TextBox",
+                "desc": "Connection string:",
+                "name": "ConnectionString",
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Connection string can not be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Connect"
+    }
+  ]
+}

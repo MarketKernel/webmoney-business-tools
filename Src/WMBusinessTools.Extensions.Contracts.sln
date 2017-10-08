@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMBusinessTools.Extensions.Contracts", "WMBusinessTools.Extensions.Contracts\WMBusinessTools.Extensions.Contracts.csproj", "{824026EA-0C6F-48F7-A204-9F083C6C80E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMoney.Services.Contracts", "WebMoney.Services.Contracts\WebMoney.Services.Contracts.csproj", "{204EC8D5-9F26-4E6E-93CD-3A356D3003E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensibilityAssistant", "..\Ext\ExtensibilityAssistant\ExtensibilityAssistant.csproj", "{69F04CA1-2E30-4E6C-B7AB-16E570F5565C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{824026EA-0C6F-48F7-A204-9F083C6C80E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{824026EA-0C6F-48F7-A204-9F083C6C80E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{824026EA-0C6F-48F7-A204-9F083C6C80E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{824026EA-0C6F-48F7-A204-9F083C6C80E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{204EC8D5-9F26-4E6E-93CD-3A356D3003E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204EC8D5-9F26-4E6E-93CD-3A356D3003E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204EC8D5-9F26-4E6E-93CD-3A356D3003E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204EC8D5-9F26-4E6E-93CD-3A356D3003E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F04CA1-2E30-4E6C-B7AB-16E570F5565C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F04CA1-2E30-4E6C-B7AB-16E570F5565C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F04CA1-2E30-4E6C-B7AB-16E570F5565C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F04CA1-2E30-4E6C-B7AB-16E570F5565C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

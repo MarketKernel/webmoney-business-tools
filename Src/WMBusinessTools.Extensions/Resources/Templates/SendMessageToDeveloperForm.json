@@ -1,0 +1,34 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Send Message To Developer",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Your Name:",
+                "maxLength": 50
+              },
+              {
+                "type": "TextBox",
+                "desc": "Message:",
+                "maxLength": 1024,
+                "multiline": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Message cannot be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Send message"
+    }
+  ]
+}

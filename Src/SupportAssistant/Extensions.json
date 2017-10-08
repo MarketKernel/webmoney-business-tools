@@ -1,0 +1,10 @@
+﻿{
+  "extensions": [
+    {
+      "id": "SupportService",
+      "name": "SupportService",
+      "assemblyFile": "SupportAssistant.dll",
+      "type": "SupportAssistant.SupportService"
+    }
+  ]
+}

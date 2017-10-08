@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{204EC8D5-9F26-4E6E-93CD-3A356D3003E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebMoney.Services.Contracts</RootNamespace>
+    <AssemblyName>WebMoney.Services.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>BasicDesignGuidelineRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Properties\key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=1.4.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.4.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasicTypes\AuthenticationMethod.cs" />
+    <Compile Include="BasicTypes\ContractState.cs" />
+    <Compile Include="BasicTypes\CryptoCurrency.cs" />
+    <Compile Include="BasicTypes\CurrencyCapabilities.cs" />
+    <Compile Include="BasicTypes\FileFormat.cs" />
+    <Compile Include="BasicTypes\PaymentSystem.cs" />
+    <Compile Include="BasicTypes\TaskState.cs" />
+    <Compile Include="BasicTypes\TransferBundleState.cs" />
+    <Compile Include="BusinessObjects\AuthenticationSettings\IAuthenticationSettings.cs" />
+    <Compile Include="BusinessObjects\AuthenticationSettings\IConnectionSettings.cs" />
+    <Compile Include="BusinessObjects\AuthenticationSettings\ILightCertificate.cs" />
+    <Compile Include="BusinessObjects\AuthenticationSettings\IRequestNumberSettings.cs" />
+    <Compile Include="BusinessObjects\Notifications\IPreparedTransferNotification.cs" />
+    <Compile Include="BusinessObjects\Notifications\ITransferBundleNotification.cs" />
+    <Compile Include="BusinessObjects\Settings\ComplexObjectConverter.cs" />
+    <Compile Include="BusinessObjects\ISession.cs" />
+    <Compile Include="BusinessObjects\Settings\IColumnsSettings.cs" />
+    <Compile Include="BusinessObjects\Settings\IContractSettings.cs" />
+    <Compile Include="BusinessObjects\Settings\IOperationSettings.cs" />
+    <Compile Include="BusinessObjects\Settings\IIncomingInvoiceSettings.cs" />
+    <Compile Include="BusinessObjects\Settings\IOutgoingInvoiceSettings.cs" />
+    <Compile Include="BusinessObjects\Settings\IPreparedTransferSettings.cs" />
+    <Compile Include="BusinessObjects\AuthenticationSettings\IProxyCredential.cs" />
+    <Compile Include="BusinessObjects\AuthenticationSettings\IProxySettings.cs" />
+    <Compile Include="BusinessObjects\Settings\IRequestSettings.cs" />
+    <Compile Include="BusinessObjects\Settings\ITransferBundleSettings.cs" />
+    <Compile Include="BusinessObjects\Settings\ITransferSettings.cs" />
+    <Compile Include="Exceptions\AlienPurseException.cs" />
+    <Compile Include="Exceptions\BusinessException.cs" />
+    <Compile Include="Exceptions\DuplicateIdentifierException.cs" />
+    <Compile Include="Exceptions\DuplicateRegistrationException.cs" />
+    <Compile Include="Exceptions\ExternalException.cs" />
+    <Compile Include="Exceptions\KeyNotFoundException.cs" />
+    <Compile Include="Exceptions\PurseNotFoundException.cs" />
+    <Compile Include="Exceptions\WrongFileFormatException.cs" />
+    <Compile Include="Exceptions\WrongPasswordException.cs" />
+    <Compile Include="BasicTypes\ExchangeType.cs" />
+    <Compile Include="BasicTypes\CertificateAppointment.cs" />
+    <Compile Include="BasicTypes\CertificateRecordAspects.cs" />
+    <Compile Include="BasicTypes\ConfirmationType.cs" />
+    <Compile Include="BasicTypes\ExtendedIdentifierType.cs" />
+    <Compile Include="BasicTypes\InvoiceState.cs" />
+    <Compile Include="BasicTypes\Language.cs" />
+    <Compile Include="BasicTypes\CertificateDegree.cs" />
+    <Compile Include="BasicTypes\CertificateStatus.cs" />
+    <Compile Include="BasicTypes\PaymerType.cs" />
+    <Compile Include="BasicTypes\PreparedTransferState.cs" />
+    <Compile Include="BasicTypes\SmsState.cs" />
+    <Compile Include="BasicTypes\TelepatMethod.cs" />
+    <Compile Include="BasicTypes\TransferType.cs" />
+    <Compile Include="BusinessObjects\IRegistration.cs" />
+    <Compile Include="BusinessObjects\Identifier\IAttachedIdentifierSummary.cs" />
+    <Compile Include="BusinessObjects\Payment\IPaymentConfirmation.cs" />
+    <Compile Include="BusinessObjects\Payment\IPaymentConfirmationReport.cs" />
+    <Compile Include="BusinessObjects\Contract\IContract.cs" />
+    <Compile Include="BusinessObjects\Contract\IContractSignature.cs" />
+    <Compile Include="BusinessObjects\Payment\IExpressPayment.cs" />
+    <Compile Include="BusinessObjects\Trust\IExpressTrust.cs" />
+    <Compile Include="BusinessObjects\Trust\ITrustConfirmationReport.cs" />
+    <Compile Include="BusinessObjects\Verification\IExtendedIdentifier.cs" />
+    <Compile Include="BusinessObjects\Invoice\IIncomingInvoice.cs" />
+    <Compile Include="BusinessObjects\Payment\IMerchantPayment.cs" />
+    <Compile Include="BusinessObjects\Payment\IOriginalExpressPayment.cs" />
+    <Compile Include="BusinessObjects\Trust\IOriginalExpressTrust.cs" />
+    <Compile Include="BusinessObjects\Invoice\IOriginalOutgoingInvoice.cs" />
+    <Compile Include="BusinessObjects\Transfer\IOriginalTransfer.cs" />
+    <Compile Include="BusinessObjects\Trust\IOriginalTrust.cs" />
+    <Compile Include="BusinessObjects\Invoice\IOutgoingInvoice.cs" />
+    <Compile Include="BusinessObjects\IPageOfT.cs" />
+    <Compile Include="BusinessObjects\Identifier\ICertificate.cs" />
+    <Compile Include="BusinessObjects\Payment\IPaymentConfirmationInstruction.cs" />
+    <Compile Include="BusinessObjects\Payment\IPaymentLinkRequest.cs" />
+    <Compile Include="BasicTypes\PaymentNumberKind.cs" />
+    <Compile Include="BusinessObjects\TransferBundle\IPreparedTransfer.cs" />
+    <Compile Include="BusinessObjects\IAccount.cs" />
+    <Compile Include="BasicTypes\RequestNumberGenerationMethod.cs" />
+    <Compile Include="BusinessObjects\Identifier\IIdentifierSummary.cs" />
+    <Compile Include="BusinessObjects\Settings\ISettings.cs" />
+    <Compile Include="BusinessObjects\Verification\ISuspectedClientInfo.cs" />
+    <Compile Include="BusinessObjects\Transfer\ITransfer.cs" />
+    <Compile Include="BusinessObjects\TransferBundle\ITransferBundle.cs" />
+    <Compile Include="BusinessObjects\Trust\ITrust.cs" />
+    <Compile Include="BusinessObjects\Trust\ITrustConfirmation.cs" />
+    <Compile Include="BusinessObjects\Trust\ITrustConfirmationInstruction.cs" />
+    <Compile Include="BusinessObjects\Verification\IVerificationReport.cs" />
+    <Compile Include="IConfigurationService.cs" />
+    <Compile Include="IContractService.cs" />
+    <Compile Include="ICurrencyService.cs" />
+    <Compile Include="IEventBroker.cs" />
+    <Compile Include="IFormattingService.cs" />
+    <Compile Include="IImportExportService.cs" />
+    <Compile Include="BusinessObjects\Notifications\INotification.cs" />
+    <Compile Include="IPaymentService.cs" />
+    <Compile Include="IAuthenticationService.cs" />
+    <Compile Include="IEntranceService.cs" />
+    <Compile Include="IIdentifierService.cs" />
+    <Compile Include="IInvoiceService.cs" />
+    <Compile Include="IMessageService.cs" />
+    <Compile Include="ISettingsService.cs" />
+    <Compile Include="ISubscriber.cs" />
+    <Compile Include="ISupportService.cs" />
+    <Compile Include="ITransferBundleProcessor.cs" />
+    <Compile Include="ITransferBundleService.cs" />
+    <Compile Include="ITransferService.cs" />
+    <Compile Include="ITrustService.cs" />
+    <Compile Include="IVerificationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IPurseService.cs" />
+    <Compile Include="ISmsService.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\key.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

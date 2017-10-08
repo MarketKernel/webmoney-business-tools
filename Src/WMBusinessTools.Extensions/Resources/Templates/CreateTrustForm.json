@@ -1,0 +1,97 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Create Trust",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "WMIDTemplate",
+                "desc": "Trusted WMID:",
+                "name": "MasterIdentifier"
+              },
+              {
+                "prototype": "AccountListTemplate",
+                "desc": "Trusted purse:",
+                "name": "PurseNumber",
+                "behaviorRules": [
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "action": "UpdateCurrency",
+                    "affectedControls": [
+                      "DailyAmountLimit",
+                      "DayAmountLimit",
+                      "WeeklyAmountLimit",
+                      "MonthlyAmountLimit"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Create invoice",
+                "name": "InvoiceAllowed"
+              },
+              {
+                "type": "CheckBox",
+                "desc": "View balance",
+                "name": "BalanceAllowed"
+              },
+              {
+                "type": "CheckBox",
+                "desc": "View history",
+                "name": "HistoryAllowed"
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Transfer funds",
+                "name": "TransferAllowed",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "AmountLimitsGroup"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
+                "type": "GroupBox",
+                "name": "AmountLimitsGroup",
+                "desc": "Transfer limits",
+                "column": {
+                  "controls": [
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Daily limit",
+                      "name": "DailyAmountLimit"
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Day limit",
+                      "name": "DayAmountLimit"
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Weekly limit",
+                      "name": "WeeklyAmountLimit"
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Monthly limit",
+                      "name": "MonthlyAmountLimit"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "Create &trust"
+    }
+  ]
+}

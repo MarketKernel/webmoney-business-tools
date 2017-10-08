@@ -1,0 +1,10 @@
+﻿{
+  "extensions": [
+    {
+      "id": "ConfigurationService",
+      "name": "ConfigurationService",
+      "assemblyFile": "WebMoney.Services.dll",
+      "type": "WebMoney.Services.ConfigurationService"
+    }
+  ]
+}

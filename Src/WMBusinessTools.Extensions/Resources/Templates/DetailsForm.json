@@ -1,0 +1,43 @@
+﻿{
+  "text": "Details",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "Table",
+                "desc": "Details:",
+                "name": "Details",
+                "controlWidth": 450,
+                "headerClickable": true,
+                "columns": [
+                  {
+                    "name": "Name",
+                    "headerText": "Name"
+                  },
+                  {
+                    "name": "Value",
+                    "headerText": "Value",
+                    "width": 300
+                  }
+                ],
+                "commandMenu": {
+                  "items": [
+                    {
+                      "text": "&Copy value",
+                      "command": "Copy",
+                      "iconPath": "../Pictures/Copy.gif"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&OK"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Find WMID",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Purse number:",
+                "name": "Purse",
+                "maxLength": 13,
+                "inspectionRules": [
+                  {
+                    "type": "RegExp",
+                    "argument": "^[A-Z][0-9]{12}$",
+                    "message": "Wrong purse number!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Find"
+    },
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "WMIDTemplate",
+                "name": "WmId",
+                "readonly": true
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Ok"
+    }
+  ]
+}

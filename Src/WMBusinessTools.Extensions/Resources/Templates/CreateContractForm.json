@@ -1,0 +1,65 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Publish contract",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Name:",
+                "maxLength": 255,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Name cannot be empty!"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Text:",
+                "multiline": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Text cannot be empty!"
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Limited access",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "AccessList",
+                      "WMID"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Access list (separate with coma or new line):",
+                "name": "AccessList",
+                "multiline": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Access list cannot be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Publish"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Paymer",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "AccountListTemplate",
+                "desc": "Redeem to:"
+              },
+              {
+                "type": "TextBox",
+                "desc": "Number:",
+                "digitsOnly": true,
+                "maxLength": 30,
+                "inspectionRules": [
+                  {
+                    "type": "RegExp",
+                    "argument": "^[0-9]{8,30}$",
+                    "message": "Wrong number length!"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Code:",
+                "digitsOnly": true,
+                "maxLength": 99,
+                "inspectionRules": [
+                  {
+                    "type": "RegExp",
+                    "argument": "^[0-9]{12,99}$",
+                    "message": "Wrong code length!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Redeem"
+    }
+  ]
+}

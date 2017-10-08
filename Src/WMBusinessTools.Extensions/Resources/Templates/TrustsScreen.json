@@ -1,0 +1,93 @@
+﻿{
+  "tunableList": {
+    "headerClickable": true,
+    "groups": [
+      {
+        "key": "Z",
+        "headerText": "Z-purses"
+      },
+      {
+        "key": "E",
+        "headerText": "E-purses"
+      }
+    ],
+    "columns": [
+      {
+        "name": "Purse",
+        "headerText": "Purse",
+        "width": 125
+      },
+      {
+        "name": "MasterIdentifier",
+        "headerText": "Master WMID",
+        "width": 125
+      },
+      {
+        "name": "InvoiceAllowed",
+        "headerText": "Invoices allowed",
+        "width": 75
+      },
+      {
+        "name": "TransferAllowed",
+        "headerText": "Transfers allowed",
+        "width": 75
+      },
+      {
+        "name": "BalanceAllowed",
+        "headerText": "View balance allowed",
+        "width": 75
+      },
+      {
+        "name": "HistoryAllowed",
+        "headerText": "View history allowed",
+        "width": 75
+      },
+      {
+        "name": "DayLimit",
+        "headerText": "Day limit"
+      },
+      {
+        "name": "WeekLimit",
+        "headerText": "Week limit"
+      },
+      {
+        "name": "MonthLimit",
+        "headerText": "Month limit"
+      },
+      {
+        "name": "DayTotalAmount",
+        "headerText": "Day total amount"
+      },
+      {
+        "name": "WeekTotalAmount",
+        "headerText": "Week total amount"
+      },
+      {
+        "name": "MonthTotalAmount",
+        "headerText": "Month total amount"
+      },
+      {
+        "name": "LastTransferTime",
+        "headerText": "Last transfer time",
+        "width": 125
+      },
+      {
+        "name": "StoreIdentifier",
+        "headerText": "Store WMID",
+        "width": 125
+      }
+    ],
+    "icons": [
+      {
+        "name": "Z",
+        "iconPath": "../Pictures/Purses/WMZ.gif"
+      },
+      {
+        "name": "E",
+        "iconPath": "../Pictures/Purses/WME.gif"
+      }
+    ],
+    "commandMenu": null
+  },
+  "commandButtons": null
+}

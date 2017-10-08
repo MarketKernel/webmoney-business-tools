@@ -1,0 +1,26 @@
+﻿{
+  "text": "Set Merchant Key",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Merchant key:",
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Key can not be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Finish"
+    }
+  ]
+}

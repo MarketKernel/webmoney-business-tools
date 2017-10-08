@@ -1,0 +1,11 @@
+{
+  "description": "{\\rtf1\\ansi\\ansicpg1251\\deff0\\nouicompat\\deflang1049{\\fonttbl{\\f0\\fnil\\fcharset204 Calibri;}{\\f1\\fnil\\fcharset0 Calibri;}}{\\*\\generator Riched20 10.0.15063}\\viewkind4\\uc1 \\pard\\sa200\\sl276\\slmult1\\f0\\fs22\\'ce\\'ef\\'e8\\'f1\\'e0\\'ed\\'e8\\'e5 \\'e2 \\'f4\\'ee\\'f0\\'ec\\'e0\\'f2\\'e5 \\b\\f1\\lang1033 RTF\\b0 .\\lang9\\par}",
+  "license": {
+    "licenseName": "MIT",
+    "licenseUrl": "https://opensource.org/licenses/MIT"
+  },
+  "logo": {
+    "imagePath": "../Pictures/Logo120x120.png",
+    "url": "http://webmoney-business-tools.com/"
+  }
+}

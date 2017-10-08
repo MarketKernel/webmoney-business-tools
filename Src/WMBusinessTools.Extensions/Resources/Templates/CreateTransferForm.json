@@ -1,0 +1,78 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Transfer",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "NumericUpDown",
+                "desc": "Number:",
+                "name": "TransferId",
+                "minValue": 1,
+                "maxValue": 2147483647
+              },
+              {
+                "prototype": "PurseTemplate",
+                "desc": "To purse:"
+              },
+              {
+                "prototype": "AccountListTemplate",
+                "desc": "From purse:"
+              },
+              {
+                "prototype": "AmountTemplate",
+                "name": "Amount",
+                "desc": "Amount"
+              },
+              {
+                "type": "TextBox",
+                "desc": "Description:",
+                "multiline": true
+              },
+              {
+                "prototype": "ProtectionCheckBox"
+              },
+              {
+                "templateName": "ProtectionGroup",
+                "type": "GroupBox",
+                "name": "PaymentProtectionGroup",
+                "desc": "Payment Protection",
+                "column": {
+                  "controls": [
+                    {
+                      "type": "NumericUpDown",
+                      "name": "ProtectionPeriod",
+                      "desc": "Maximum protection period (days): ",
+                      "minValue": 1,
+                      "maxValue": 255
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Protection code:",
+                      "maxLength": 255,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Protection code cannot be empty!"
+                        },
+                        {
+                          "type": "RegExp",
+                          "argument": "^[a-zA-Z0-9]{5,255}$",
+                          "message": "Wrong code length!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Pay"
+    }
+  ]
+}

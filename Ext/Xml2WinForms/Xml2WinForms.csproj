@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97458CD7-F0C1-465B-939D-83D175333729}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Xml2WinForms</RootNamespace>
+    <AssemblyName>Xml2WinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Properties\key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox.designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AtomControls\TunableCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AtomControls\TunableComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AtomControls\TunableDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AtomControls\TunableTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ChartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChartForm.Designer.cs">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlHolders\ControlHolderHelper.cs" />
+    <Compile Include="ControlHolders\IControlHolder.cs" />
+    <Compile Include="ControlHolders\InspectionReport.cs" />
+    <Compile Include="IServiceControl.cs" />
+    <Compile Include="BusinessObjects\FilterFormContent.cs" />
+    <Compile Include="BusinessObjects\ComboBoxItem.cs" />
+    <Compile Include="TunableButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TunableGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AtomControls\TunableNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AtomControls\IAtomControl.cs" />
+    <Compile Include="ControlHolders\AtomControlHolder.cs" />
+    <Compile Include="ControlHolders\GroupBoxControlHolder.cs" />
+    <Compile Include="FilterScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FilterScreen.Designer.cs">
+      <DependentUpon>FilterScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FilterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterForm.Designer.cs">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ListScreen.Designer.cs">
+      <DependentUpon>ListScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\AboutBox\LicenseTemplate.cs" />
+    <Compile Include="Templates\AboutBox\LogoTemplate.cs" />
+    <Compile Include="Templates\BadTemplateException.cs" />
+    <Compile Include="Templates\TunableMenu\MenuItemTemplate.cs" />
+    <Compile Include="Templates\ErrorForm\ErrorFormTemplate.cs" />
+    <Compile Include="Templates\ErrorForm\ErrorLevel.cs" />
+    <Compile Include="Templates\TunableButtonTemplate.cs" />
+    <Compile Include="BusinessObjects\ChartPoint.cs" />
+    <Compile Include="BusinessObjects\FilterScreenContent.cs" />
+    <Compile Include="Templates\FilterScreen\FilterScreenTemplate.cs" />
+    <Compile Include="Templates\FilterForm\FilterFormTemplate.cs" />
+    <Compile Include="Templates\FilterForm\StatusLabelTemplate.cs" />
+    <Compile Include="BusinessObjects\GridColumnSettings.cs" />
+    <Compile Include="BusinessObjects\GridRowContent.cs" />
+    <Compile Include="BusinessObjects\ListtemContent.cs" />
+    <Compile Include="TunableMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TunableList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Utils\DisplayContentHelper.cs" />
+    <Compile Include="Utils\FormUtils.cs" />
+    <Compile Include="Utils\IconHolder.cs" />
+    <Compile Include="Templates\ITemplate.cs" />
+    <Compile Include="Templates\ListScreen\ListScreenTemplate.cs" />
+    <Compile Include="Templates\SubmitForm\StepTemplate.cs" />
+    <Compile Include="Templates\Template.cs" />
+    <Compile Include="Templates\TunableGrid\CellStyleTemplate.cs" />
+    <Compile Include="Templates\TunableGrid\ColumnKind.cs" />
+    <Compile Include="Templates\TunableGrid\GridColumnTemplate.cs" />
+    <Compile Include="Templates\TunableGrid\FontTemplate.cs" />
+    <Compile Include="Templates\TunableList\ListColumnTemplate.cs" />
+    <Compile Include="Templates\TunableList\ListGroupTemplate.cs" />
+    <Compile Include="Templates\TunableList\ListIconTemplate.cs" />
+    <Compile Include="Templates\TunableShape\BehaviorRule.cs" />
+    <Compile Include="Templates\TunableShape\Controls\CheckBoxTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\ComboBoxTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\Converter\ControlTemplateJsonConverter.cs" />
+    <Compile Include="Templates\TunableShape\Controls\Converter\ConverterLogics.cs" />
+    <Compile Include="Templates\TunableShape\Controls\DateTimePickerTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\GroupBoxTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\NumericUpDownTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\TableTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\TextBoxTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\TextBoxWithButtonTemplate.cs" />
+    <Compile Include="Templates\TunableShape\IShapeColumnTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\ComboBoxItemTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\ControlTemplate.cs" />
+    <Compile Include="Templates\TunableShape\Controls\ControlType.cs" />
+    <Compile Include="Templates\TunableShape\InspectionRule.cs" />
+    <Compile Include="Templates\TunableShape\InspectionType.cs" />
+    <Compile Include="Templates\TunableShape\ShapeColumnTemplate.cs" />
+    <Compile Include="AtomControls\TunableTextBoxWithButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AtomControls\TunableTextBoxWithButton.Designer.cs">
+      <DependentUpon>TunableTextBoxWithButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventArgs\CommandEventArgs.cs" />
+    <Compile Include="Templates\AboutBox\AboutBoxTemplate.cs" />
+    <Compile Include="Templates\TunableMenu\TunableMenuTemplate.cs" />
+    <Compile Include="Templates\TunableShape\TunableShapeTemplate.cs" />
+    <Compile Include="Templates\TunableGrid\TunableGridTemplate.cs" />
+    <Compile Include="Templates\TunableList\TunableListTemplate.cs" />
+    <Compile Include="Templates\SubmitForm\SubmitFormTemplate.cs" />
+    <Compile Include="AtomControls\TunableTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TunableShape.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TunableShape.designer.cs">
+      <DependentUpon>TunableShape.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorForm.designer.cs">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TunableGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TunableGrid.designer.cs">
+      <DependentUpon>TunableGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ListViewItemSorter.cs" />
+    <Compile Include="EventArgs\NavigatorEventArgs.cs" />
+    <Compile Include="TunableGridColumnAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubmitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubmitForm.designer.cs">
+      <DependentUpon>SubmitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventArgs\ValueChangedEventArgs.cs" />
+    <Compile Include="Utils\ImageDeserializer.cs" />
+    <Compile Include="Utils\ApplicationUtility.cs" />
+    <Compile Include="Utils\TemplateLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutBox.ru.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChartForm.resx">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChartForm.ru.resx">
+      <DependentUpon>ChartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorForm.ru.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterForm.ru.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterScreen.resx">
+      <DependentUpon>FilterScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterForm.resx">
+      <DependentUpon>FilterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterScreen.ru.resx">
+      <DependentUpon>FilterScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListScreen.resx">
+      <DependentUpon>ListScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListScreen.ru.resx">
+      <DependentUpon>ListScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.ru.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubmitForm.ru.resx">
+      <DependentUpon>SubmitForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AtomControls\TunableTextBoxWithButton.resx">
+      <DependentUpon>TunableTextBoxWithButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TunableList.resx">
+      <DependentUpon>TunableList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TunableShape.resx">
+      <DependentUpon>TunableShape.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorForm.resx">
+      <DependentUpon>ErrorForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TunableGrid.resx">
+      <DependentUpon>TunableGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubmitForm.resx">
+      <DependentUpon>SubmitForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LocalizationAssistant\LocalizationAssistant.csproj">
+      <Project>{f6e6f0e0-ff6c-47b8-9675-1a21e44d41f7}</Project>
+      <Name>LocalizationAssistant</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\key.snk" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

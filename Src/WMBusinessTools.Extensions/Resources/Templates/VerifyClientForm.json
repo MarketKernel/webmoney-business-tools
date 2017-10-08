@@ -1,0 +1,507 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Client verification",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "ComboBox",
+                "desc": "Instrument:",
+                "items": [
+                  {
+                    "text": "Cash",
+                    "value": "Cash"
+                  },
+                  {
+                    "text": "SDP",
+                    "value": "OfflineSystem"
+                  },
+                  {
+                    "text": "Bank account",
+                    "value": "BankAccount"
+                  },
+                  {
+                    "text": "Card",
+                    "value": "Bankcard"
+                  },
+                  {
+                    "text": "Emoney",
+                    "value": "InternetSystem"
+                  },
+                  {
+                    "text": "SMS",
+                    "value": "Sms"
+                  },
+                  {
+                    "text": "Mobile",
+                    "value": "Mobile"
+                  },
+                  {
+                    "text": "Blockchain",
+                    "value": "Blockchain"
+                  }
+                ],
+                "behaviorRules": [
+                  // Cash
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Cash",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "SecondName",
+                      "FirstName"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Cash",
+                    "affectedControls": [
+                      "BankName",
+                      "BankAccount",
+                      "CardNumber",
+                      "PaymentSystem",
+                      "PaymentSystemClientId",
+                      "Phone",
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // SDP
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "OfflineSystem",
+                    "affectedControls": [
+                      "SecondName",
+                      "FirstName"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "OfflineSystem",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "BankName",
+                      "BankAccount",
+                      "CardNumber",
+                      "PaymentSystem",
+                      "PaymentSystemClientId",
+                      "Phone",
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // Bank account
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "BankAccount",
+                    "affectedControls": [
+                      "SecondName",
+                      "FirstName",
+                      "BankName",
+                      "BankAccount"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "BankAccount",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "CardNumber",
+                      "PaymentSystem",
+                      "PaymentSystemClientId",
+                      "Phone",
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // Card
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Bankcard",
+                    "affectedControls": [
+                      "SecondName",
+                      "FirstName",
+                      "BankName",
+                      "CardNumber"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Bankcard",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "BankAccount",
+                      "PaymentSystem",
+                      "PaymentSystemClientId",
+                      "Phone",
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // Emoney
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "InternetSystem",
+                    "affectedControls": [
+                      "PaymentSystem",
+                      "PaymentSystemClientId"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "InternetSystem",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "SecondName",
+                      "FirstName",
+                      "BankName",
+                      "BankAccount",
+                      "CardNumber",
+                      "Phone",
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // SMS
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Sms",
+                    "affectedControls": [
+                      "Phone"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Sms",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "SecondName",
+                      "FirstName",
+                      "BankName",
+                      "BankAccount",
+                      "CardNumber",
+                      "PaymentSystem",
+                      "PaymentSystemClientId",
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // Mobile
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Mobile",
+                    "affectedControls": [
+                      "Phone"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Mobile",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "SecondName",
+                      "FirstName",
+                      "BankName",
+                      "BankAccount",
+                      "CardNumber",
+                      "PaymentSystem",
+                      "PaymentSystemClientId",
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // Blockchain
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Blockchain",
+                    "affectedControls": [
+                      "CryptoCurrency",
+                      "CryptoCurrencyAddress"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Blockchain",
+                    "affectedControls": [
+                      "PassportNumber",
+                      "SecondName",
+                      "FirstName",
+                      "BankName",
+                      "BankAccount",
+                      "CardNumber",
+                      "PaymentSystem",
+                      "PaymentSystemClientId",
+                      "Phone"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  }
+                ]
+              },
+              {
+                "type": "ComboBox",
+                "desc": "Direction:",
+                "items": [
+                  {
+                    "text": "Output",
+                    "value": "Output"
+                  },
+                  {
+                    "text": "Input",
+                    "value": "Input"
+                  }
+                ]
+              },
+              {
+                "prototype": "PurseTypeTemplate",
+                "behaviorRules": [
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "action": "UpdateCurrency",
+                    "affectedControls": [
+                      "Amount"
+                    ]
+                  }
+                ]
+              },
+              {
+                "prototype": "AmountTemplate"
+              },
+              {
+                "type": "NumericUpDown",
+                "desc": "Order number:",
+                "maxValue": 2147483647
+              },
+              {
+                "type": "GroupBox",
+                "desc": "Client info",
+                "column": {
+                  "controls": [
+                    {
+                      "prototype": "WMIDTemplate"
+                    },
+                    {
+                      "type": "TextBox",
+                      "name": "FirstName",
+                      "desc": "First name:",
+                      "maxLength": 50,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "First name cannot be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "name": "SecondName",
+                      "desc": "Last name:",
+                      "maxLength": 50,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Last name cannot be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Passport number:",
+                      "name": "PassportNumber",
+                      "maxLength": 50,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Passport number cannot be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Bank name:",
+                      "name": "BankName",
+                      "maxLength": 50,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Bank name cannot be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "name": "BankAccount",
+                      "desc": "Bank account number:",
+                      "maxLength": 50,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Bank account number cannot be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "name": "CardNumber",
+                      "desc": "Bank card number:",
+                      "digitsOnly": true,
+                      "maxLength": 20,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Bank card number cannot be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "ComboBox",
+                      "name": "PaymentSystem",
+                      "desc": "Emoney:",
+                      "items": [
+                        {
+                          "text": "PayPal",
+                          "value": "PayPal"
+                        },
+                        {
+                          "text": "Skrill",
+                          "value": "Skrill"
+                        },
+                        {
+                          "text": "Alipay",
+                          "value": "Alipay"
+                        },
+                        {
+                          "text": "QIWI",
+                          "value": "Qiwi"
+                        },
+                        {
+                          "text": "Yandex.Money",
+                          "value": "YandexMoney"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Payment system user ID:",
+                      "name": "PaymentSystemClientId",
+                      "maxLength": 50,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Payment system user ID cannot be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "prototype": "PhoneNumberTemplate",
+                      "name": "Phone"
+                    },
+                    {
+                      "type": "ComboBox",
+                      "name": "CryptoCurrency",
+                      "desc": "Crypto-currency name:",
+                      "items": [
+                        {
+                          "text": "Bitcoin",
+                          "value": "Bitcoin"
+                        },
+                        {
+                          "text": "Bitcoin Cash",
+                          "value": "BitcoinCash"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "name": "CryptoCurrencyAddress",
+                      "desc": "Crypto-currency address:",
+                      "maxLength": 50,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Crypto-currency address cannot be empty!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Verify"
+    },
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "Table",
+                "desc": "Result",
+                "name": "Result",
+                "headerClickable": true,
+                "columns": [
+                  {
+                    "name": "Name",
+                    "headerText": "Name",
+                    "width": 110
+                  },
+                  {
+                    "name": "Value",
+                    "headerText": "Value",
+                    "width": 130
+                  }
+                ],
+                "commandMenu": {
+                  "items": [
+                    {
+                      "text": "&Copy value",
+                      "command": "Copy",
+                      "iconPath": "../Pictures/Copy.gif"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&OK"
+    }
+  ]
+}

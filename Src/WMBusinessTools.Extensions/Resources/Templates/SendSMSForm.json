@@ -1,0 +1,46 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Send SMS",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Phone number (international format):",
+                "digitsOnly": true,
+                "maxLength": 15,
+                "inspectionRules": [
+                  {
+                    "type": "RegExp",
+                    "argument": "^[0-9]{11,15}$",
+                    "message": "Wrong number length!"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Message:",
+                "multiline": true,
+                "maxLength": 140,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Message cannot be empty!"
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Use transliteration"
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Send"
+    }
+  ]
+}

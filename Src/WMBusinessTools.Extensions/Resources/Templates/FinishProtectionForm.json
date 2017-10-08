@@ -1,0 +1,88 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Finish Protection",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "GroupBox",
+                "name": "FinishProtectionGroup",
+                "desc": "Finish Protection",
+                "column": {
+                  "controls": [
+                    {
+                      "prototype": "PurseTemplate",
+                      "desc": "From purse:",
+                      "name": "SourcePurse",
+                      "readOnly": true,
+                      "inspectionRules": [
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "To purse:",
+                      "name": "TargetPurse",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Amount",
+                      "name": "Amount",
+                      "currencyName": "WMZ",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Description:",
+                      "name": "Description",
+                      "readOnly": true,
+                      "multiline": true
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Protection code:",
+                "name": "Code",
+                "maxLength": 255,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Protection code cannot be empty!"
+                  },
+                  {
+                    "type": "RegExp",
+                    "argument": "^[a-zA-Z0-9]{5,255}$",
+                    "message": "Spaces at beginning and end are not allowed!"
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Holding feature is used",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "Code"
+                    ],
+                    "action": "Disable"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Finish"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Create Purse",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "PurseTypeTemplate"
+              },
+              {
+                "type": "TextBox",
+                "desc": "Purse name:",
+                "maxLength": 255,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Purse name cannot be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "Create &purse"
+    }
+  ]
+}

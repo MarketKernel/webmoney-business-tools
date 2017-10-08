@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AC68622-DD96-4821-B3CF-B1BC44FEC77C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WMBusinessTools.Extensions</RootNamespace>
+    <AssemblyName>WMBusinessTools.Extensions</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\WMBusinessTools\bin\Debug\BasicExtensions\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\WMBusinessTools\bin\Release\BasicExtensions\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Properties\key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=1.4.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.4.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessObjects\Account.cs" />
+    <Compile Include="BusinessObjects\AccountFilterCriteria.cs" />
+    <Compile Include="BusinessObjects\AttachedIdentifierRecord.cs" />
+    <Compile Include="BusinessObjects\AuthenticationSettings.cs" />
+    <Compile Include="BusinessObjects\CertificateRecord.cs" />
+    <Compile Include="BusinessObjects\ConnectionSettings.cs" />
+    <Compile Include="BusinessObjects\ExtendedIdentifier.cs" />
+    <Compile Include="BusinessObjects\IdentifierSummary.cs" />
+    <Compile Include="BusinessObjects\OriginalExpressPayment.cs" />
+    <Compile Include="BusinessObjects\OriginalExpressTrust.cs" />
+    <Compile Include="BusinessObjects\OriginalPayment.cs" />
+    <Compile Include="BusinessObjects\OriginalTrust.cs" />
+    <Compile Include="BusinessObjects\OriginalOutgoingInvoice.cs" />
+    <Compile Include="BusinessObjects\OriginalTransfer.cs" />
+    <Compile Include="BusinessObjects\PaymentLinkRequest.cs" />
+    <Compile Include="BusinessObjects\ResultRecord.cs" />
+    <Compile Include="BusinessObjects\SuspectedClientInfo.cs" />
+    <Compile Include="BusinessObjects\TrustConfirmation.cs" />
+    <Compile Include="ContractExtensions\ContractDetailsFormProvider.cs" />
+    <Compile Include="ContractExtensions\RefreshContractActionProvider.cs" />
+    <Compile Include="DisplayHelpers\AccountDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\CommandBarDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\ErrorFormDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\Origins\AccountDropDownListOrigin.cs" />
+    <Compile Include="DisplayHelpers\Origins\AccountListScreenOrigin.cs" />
+    <Compile Include="DisplayHelpers\Origins\AccountSource.cs" />
+    <Compile Include="DisplayHelpers\Origins\FilterOrigin.cs" />
+    <Compile Include="DisplayHelpers\Origins\ListScreenOrigin.cs" />
+    <Compile Include="DisplayHelpers\TrustDisplayHelper.cs" />
+    <Compile Include="Forms\CertificateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CertificateForm.Designer.cs">
+      <DependentUpon>CertificateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="AddIdentifierFormProvider.cs" />
+    <Compile Include="Forms\RequestNumberSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RequestNumberSettingsForm.designer.cs">
+      <DependentUpon>RequestNumberSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\FinishProtectionFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\RejectInvoiceFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\TransferBundleFilterFormValuesWrapper.cs" />
+    <Compile Include="TopExtensions\IncomingInvoiceFilterFormProvider.cs" />
+    <Compile Include="BusinessObjects\PaymentConfirmation.cs" />
+    <Compile Include="PurseExtensions\RemovePurseActionProvider.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\CreateOutgoingInvoiceFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\CreatePaymentLinkFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\CreatePurseFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\CreateTransferFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\CreateTrustFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\DbSettingsFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\FindMerchantTransferFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\MoneybackFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\PayInvoiceFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\RedeemPaymerFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\SendSmsFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\StronglyTypedTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\TakePaymentFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\TakeTrustFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\TemplateWrappers\VerifyClientFormTemplateWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\ContractDetailsFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\ContractFilterFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\FindCertificateFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\SendMessageToDeveloperFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\TakeTrustFormValuesWrapper.cs" />
+    <Compile Include="Services\DbSettingsService.cs" />
+    <Compile Include="DisplayHelpers\FilterDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\IdentifierDisplayHelper.cs" />
+    <Compile Include="Services\KeySettingsService.cs" />
+    <Compile Include="DisplayHelpers\ListScreenDisplayHelper.cs" />
+    <Compile Include="DisplayHelpers\MenuDisplayHelper.cs" />
+    <Compile Include="Services\Service.cs" />
+    <Compile Include="DisplayHelpers\SubmitFormDisplayHelper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\AddIdentifierFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\AddPurseFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\ClassicKeySettingsFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\CreateContractFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\CreateOutgoingInvoiceFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\CreatePaymentLinkFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\CreatePurseFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\CreateTransferFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\CreateTrustFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\DbSettingsFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\FindIdentifierFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\FindMerchantTransferFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\FinishProtectionFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\IncomingInvoiceFilterFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\LightKeySettingsFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\MoneybackFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\OutgoingInvoiceFilterFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\PasswordSettingsFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\PayInvoiceFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\RedeemPaymerFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\RegistrationFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\RejectInvoiceFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\RequestNumberSettingsFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\SendMessageFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\SendSmsFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\SetMerchantKeyFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\StronglyTypedValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\TakePaymentFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\TransferFilterFormValuesWrapper.cs" />
+    <Compile Include="StronglyTypedWrappers\ValuesWrappers\VerifyClientFormValuesWrapper.cs" />
+    <Compile Include="Templates\CertificateFormTemplate.cs" />
+    <Compile Include="FindCertificateExtensions\CertificateFormProvider.cs" />
+    <Compile Include="TransferBundleExtensions\PreparedTransferFilterFormProvider.cs" />
+    <Compile Include="TransferBundleExtensions\StartTransferBundleActionProvider.cs" />
+    <Compile Include="TransferBundleExtensions\StopTransferBundleActionProvider.cs" />
+    <Compile Include="Utils\ApplicationUtility.cs" />
+    <Compile Include="Utils\ColorUtility.cs" />
+    <Compile Include="Utils\SessionExtensions.cs" />
+    <Compile Include="Controls\AccountDropDownList.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BusinessObjects\AccountDropDownListItem.cs" />
+    <Compile Include="Controls\AmountNumericUpDown.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AmountNumericUpDown.designer.cs">
+      <DependentUpon>AmountNumericUpDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EnterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EnterForm.Designer.cs">
+      <DependentUpon>EnterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PasswordForm.Designer.cs">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AboutFormProvider.cs" />
+    <Compile Include="ContentActionProvider.cs" />
+    <Compile Include="TopExtensions\ContractFilterFormProvider.cs" />
+    <Compile Include="TopExtensions\CreateContractFormProvider.cs" />
+    <Compile Include="TopExtensions\FindIdentifierFormProvider.cs" />
+    <Compile Include="TopExtensions\FindCertificateFormProvider.cs" />
+    <Compile Include="TopExtensions\SendMessageFormProvider.cs" />
+    <Compile Include="TopExtensions\SendSmsFormProvider.cs" />
+    <Compile Include="TopExtensions\VerifyClientFormProvider.cs" />
+    <Compile Include="TopScreens\IncomingInvoiceFilterScreenProvider.cs" />
+    <Compile Include="TopScreens\PursesScreenProvider.cs" />
+    <Compile Include="TopScreens\TrustsScreenProvider.cs" />
+    <Compile Include="PurseExtensions\ClearMerchantKeyActionProvider.cs" />
+    <Compile Include="PurseExtensions\SetMerchantKeyFormProvider.cs" />
+    <Compile Include="TopExtensions\TransferBundleFilterFormProvider.cs" />
+    <Compile Include="TrustsScreenExtensions\CreateTrustFormProvider.cs" />
+    <Compile Include="TrustExtensions\UpdateTrustFormProvider.cs" />
+    <Compile Include="PurseExtensions\CopyPurseNumberActionProvider.cs" />
+    <Compile Include="PurseExtensions\CreateOutgoingInvoiceFormProvider.cs" />
+    <Compile Include="PurseExtensions\CreateTransferFormProvider.cs" />
+    <Compile Include="PurseExtensions\CreatePaymentLinkFormProvider.cs" />
+    <Compile Include="PurseExtensions\FindMerchantTransferFormProvider.cs" />
+    <Compile Include="PurseExtensions\OutgoingInvoiceFilterFormProvider.cs" />
+    <Compile Include="PurseExtensions\RedeemPaymerFormProvider.cs" />
+    <Compile Include="PurseExtensions\TakePaymentFormProvider.cs" />
+    <Compile Include="PurseExtensions\TransferFilterFormProvider.cs" />
+    <Compile Include="PurseExtensions\TransferRegisterFormProvider.cs" />
+    <Compile Include="PursesScreenExtensions\AddPurseFormProvider.cs" />
+    <Compile Include="PursesScreenExtensions\CreatePurseFormProvider.cs" />
+    <Compile Include="PursesScreenExtensions\TakeTrustFormProvider.cs" />
+    <Compile Include="RegistrationFormProvider.cs" />
+    <Compile Include="SendMessageToDeveloperFormProvider.cs" />
+    <Compile Include="SettingsExtensions\DbSettingsFormProvider.cs" />
+    <Compile Include="SettingsExtensions\GeneralSettingsFormProvider.cs" />
+    <Compile Include="SettingsExtensions\KeySettingsFormProvider.cs" />
+    <Compile Include="SettingsExtensions\PasswordSettingsFormProvider.cs" />
+    <Compile Include="SettingsExtensions\RequestNumberSettingsFormProvider.cs" />
+    <Compile Include="TransferExtensions\FinishProtectionFormProvider.cs" />
+    <Compile Include="TransferExtensions\MoneybackFormProvider.cs" />
+    <Compile Include="IncomingInvoiceExtensions\PayInvoiceFormProvider.cs" />
+    <Compile Include="IncomingInvoiceExtensions\RejectInvoiceFormProvider.cs" />
+    <Compile Include="TransferExtensions\DetailsFormProvider.cs" />
+    <Compile Include="SessionContextProvider.cs" />
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorFormProvider.cs" />
+    <Compile Include="MainFormProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\Controls\AccountDropDownListItemTemplate.cs" />
+    <Compile Include="Templates\Controls\AccountDropDownListTemplate.cs" />
+    <Compile Include="Templates\Controls\AmountNumericUpDownTemplate.cs" />
+    <Compile Include="Templates\Controls\Converter\WMConverterLogics.cs" />
+    <Compile Include="Templates\Controls\WMControlType.cs" />
+    <Compile Include="Templates\Controls\WMColumnTemplate.cs" />
+    <Compile Include="Forms\TransferRegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TransferRegisterForm.Designer.cs">
+      <DependentUpon>TransferRegisterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\FileUtility.cs" />
+    <Compile Include="Utils\LocalizationUtility.cs" />
+    <Compile Include="Utils\TemplateLoader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\CertificateForm.resx">
+      <DependentUpon>CertificateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\AmountNumericUpDown.resx">
+      <DependentUpon>AmountNumericUpDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CertificateForm.ru.resx">
+      <DependentUpon>CertificateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnterForm.resx">
+      <DependentUpon>EnterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EnterForm.ru.resx">
+      <DependentUpon>EnterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.ru.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordForm.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PasswordForm.ru.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressForm.ru.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TransferRegisterForm.ru.resx">
+      <DependentUpon>TransferRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RequestNumberSettingsForm.resx">
+      <DependentUpon>RequestNumberSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RequestNumberSettingsForm.ru.resx">
+      <DependentUpon>RequestNumberSettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TransferRegisterForm.resx">
+      <DependentUpon>TransferRegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Ext\ExtensibilityAssistant\ExtensibilityAssistant.csproj">
+      <Project>{69f04ca1-2e30-4e6c-b7ab-16e570f5565c}</Project>
+      <Name>ExtensibilityAssistant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ext\LocalizationAssistant\LocalizationAssistant.csproj">
+      <Project>{f6e6f0e0-ff6c-47b8-9675-1a21e44d41f7}</Project>
+      <Name>LocalizationAssistant</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ext\Xml2WinForms\Xml2WinForms.csproj">
+      <Project>{97458cd7-f0c1-465b-939d-83d175333729}</Project>
+      <Name>Xml2WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebMoney.Services.Contracts\WebMoney.Services.Contracts.csproj">
+      <Project>{204ec8d5-9f26-4e6e-93cd-3a356d3003e8}</Project>
+      <Name>WebMoney.Services.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WMBusinessTools.Extensions.Contracts\WMBusinessTools.Extensions.Contracts.csproj">
+      <Project>{824026ea-0c6f-48f7-a204-9f083c6c80e5}</Project>
+      <Name>WMBusinessTools.Extensions.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Extensions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\key.snk" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Templates\AboutForm.json" />
+    <None Include="Resources\Templates\AddIdentifierForm.json" />
+    <None Include="Resources\Templates\AddPurseForm.json" />
+    <None Include="Resources\Templates\CertificateForm.json" />
+    <None Include="Resources\Templates\ClassicKeySettingsForm.json" />
+    <None Include="Resources\Templates\ContractFilterForm.json" />
+    <None Include="Resources\Templates\CreateContractForm.json" />
+    <None Include="Resources\Templates\CreateOutgoingInvoiceForm.json" />
+    <None Include="Resources\Templates\CreatePaymentLinkForm.json" />
+    <None Include="Resources\Templates\CreatePurseForm.json" />
+    <None Include="Resources\Templates\CreateTransferForm.json" />
+    <None Include="Resources\Templates\CreateTrustForm.json" />
+    <None Include="Resources\Templates\DbSettingsForm.json" />
+    <None Include="Resources\Templates\ContractDetailsForm.json" />
+    <None Include="Resources\Templates\EnterForm.json" />
+    <None Include="Resources\Templates\FindIdentifierForm.json" />
+    <None Include="Resources\Templates\FindMerchantTransferForm.json" />
+    <None Include="Resources\Templates\FindCertificateForm.json" />
+    <None Include="Resources\Templates\FinishProtectionForm.json" />
+    <None Include="Resources\Templates\DetailsForm.json" />
+    <None Include="Resources\Templates\IncomingInvoiceFilterForm.json" />
+    <None Include="Resources\Templates\IncomingInvoiceFilterScreen.json" />
+    <None Include="Resources\Templates\LightKeySettingsForm.json" />
+    <None Include="Resources\Templates\MoneybackForm.json" />
+    <None Include="Resources\Templates\OutgoingInvoiceFilterForm.json" />
+    <None Include="Resources\Templates\PasswordSettingsForm.json" />
+    <None Include="Resources\Templates\PayInvoiceForm.json" />
+    <None Include="Resources\Templates\PreparedTransferFilterForm.json" />
+    <None Include="Resources\Templates\PursesScreen.json" />
+    <None Include="Resources\Templates\RedeemPaymerForm.json" />
+    <None Include="Resources\Templates\RegistrationForm.json" />
+    <None Include="Resources\Templates\RejectInvoiceForm.json" />
+    <None Include="Resources\Templates\RejectProtectionForm.json" />
+    <None Include="Resources\Templates\RequestNumberSettingsForm.json" />
+    <None Include="Resources\Templates\SendMessageForm.json" />
+    <None Include="Resources\Templates\SendMessageToDeveloperForm.json" />
+    <None Include="Resources\Templates\SendSMSForm.json" />
+    <None Include="Resources\Templates\SetMerchantKeyForm.json" />
+    <None Include="Resources\Templates\TakePaymentForm.json" />
+    <None Include="Resources\Templates\TakeTrustForm.json" />
+    <None Include="Resources\Templates\TransferBundleFilterForm.json" />
+    <None Include="Resources\Templates\TransferFilterForm.json" />
+    <None Include="Resources\Templates\TransferRegisterForm.json" />
+    <None Include="Resources\Templates\TrustsScreen.json" />
+    <None Include="Resources\Templates\VerifyClientForm.json" />
+    <None Include="Resources\Templates\_TemplateLibrary.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Pictures\Ant.gif" />
+    <Content Include="Resources\Pictures\Certificates\Alias.gif" />
+    <Content Include="Resources\Pictures\Certificates\Capitaller.gif" />
+    <Content Include="Resources\Pictures\Certificates\Cashier.gif" />
+    <Content Include="Resources\Pictures\Certificates\Developer.gif" />
+    <Content Include="Resources\Pictures\Certificates\Formal.gif" />
+    <Content Include="Resources\Pictures\Certificates\Guarantor.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Alias.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Capitaller.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Cashier.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Developer.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Formal.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Guarantor.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Initial.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Merchant.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Operator.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Personal.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Registrar.gif" />
+    <Content Include="Resources\Pictures\Certificates\Inactive\Service.gif" />
+    <Content Include="Resources\Pictures\Certificates\Initial.gif" />
+    <Content Include="Resources\Pictures\Certificates\Merchant.gif" />
+    <Content Include="Resources\Pictures\Certificates\Operator.gif" />
+    <Content Include="Resources\Pictures\Certificates\Personal.gif" />
+    <Content Include="Resources\Pictures\Certificates\Registrar.gif" />
+    <Content Include="Resources\Pictures\Certificates\Service.gif" />
+    <Content Include="Resources\Pictures\Refresh.gif" />
+    <Content Include="Resources\Pictures\Start.gif" />
+    <Content Include="Resources\Pictures\Stop.gif" />
+    <Content Include="Resources\Pictures\Unverified.gif" />
+    <Content Include="Resources\Pictures\ClearMerchantKey.gif" />
+    <Content Include="Resources\Pictures\Contracts.gif" />
+    <Content Include="Resources\Pictures\Copy.gif" />
+    <Content Include="Resources\Pictures\CreateContract.gif" />
+    <Content Include="Resources\Pictures\CreateOutgoingInvoice.gif" />
+    <Content Include="Resources\Pictures\DbSettings.gif" />
+    <Content Include="Resources\Pictures\FinishProtection.gif" />
+    <Content Include="Resources\Pictures\KeySettings.gif" />
+    <Content Include="Resources\Pictures\UnverifiedProtected.gif" />
+    <Content Include="Resources\Pictures\Verified.gif" />
+    <Content Include="Resources\Pictures\PayInvoice.gif" />
+    <Content Include="Resources\Pictures\Link.gif" />
+    <Content Include="Resources\Pictures\RedeemPaymer.gif" />
+    <Content Include="Resources\Pictures\RejectInvoice.gif" />
+    <Content Include="Resources\Pictures\Remove.gif" />
+    <Content Include="Resources\Pictures\Find.gif" />
+    <Content Include="Resources\Pictures\FindCertificate.gif" />
+    <Content Include="Resources\Pictures\FindWmId.gif" />
+    <Content Include="Resources\Pictures\IncomingInvoiceFilter.gif" />
+    <Content Include="Resources\Pictures\OpenFile.gif" />
+    <Content Include="Resources\Pictures\Logo120x120.png" />
+    <Content Include="Resources\Pictures\OutgoingInvoiceFilter.gif" />
+    <Content Include="Resources\Pictures\Purses\WMB.gif" />
+    <Content Include="Resources\Pictures\Purses\WMC.gif" />
+    <Content Include="Resources\Pictures\Purses\WMD.gif" />
+    <Content Include="Resources\Pictures\Purses\WME.gif" />
+    <Content Include="Resources\Pictures\Purses\WMG.gif" />
+    <Content Include="Resources\Pictures\Purses\WMK.gif" />
+    <Content Include="Resources\Pictures\Purses\WML.gif" />
+    <Content Include="Resources\Pictures\Purses\WMR.gif" />
+    <Content Include="Resources\Pictures\Purses\WMU.gif" />
+    <Content Include="Resources\Pictures\Purses\WMV.gif" />
+    <Content Include="Resources\Pictures\Purses\WMX.gif" />
+    <Content Include="Resources\Pictures\Purses\WMY.gif" />
+    <Content Include="Resources\Pictures\Purses\WMZ.gif" />
+    <Content Include="Resources\Pictures\RecordEdit.gif" />
+    <Content Include="Resources\Pictures\Details.gif" />
+    <Content Include="Resources\Pictures\SendMessage.gif" />
+    <Content Include="Resources\Pictures\SendSms.gif" />
+    <Content Include="Resources\Pictures\PasswordSettings.gif" />
+    <Content Include="Resources\Pictures\CreateTransfer.gif" />
+    <Content Include="Resources\Pictures\SetMerchantKey.gif" />
+    <Content Include="Resources\Pictures\Settings.gif" />
+    <Content Include="Resources\Pictures\TransferFilter.gif" />
+    <Content Include="Resources\Pictures\VerifiedProtected.gif" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(SolutionDir)WMBusinessTools.Extensions\Resources" "$(TargetDir)\Resources\" /S /Y</PostBuildEvent>
+  </PropertyGroup>
+</Project>
