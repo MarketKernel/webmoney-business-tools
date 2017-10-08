@@ -19,6 +19,8 @@ bld/
 [Bb]in/
 [Oo]bj/
 
+!Ext/NativeBinaries/x86
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
