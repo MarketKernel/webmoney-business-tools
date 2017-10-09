@@ -94,11 +94,22 @@ namespace WebMoney.Services
             string assemblyFile = new Uri(Assembly.GetExecutingAssembly().CodeBase).LocalPath;
             string assemblyDirectory = Path.GetDirectoryName(assemblyFile);
 
-            if (null == assemblyDirectory)
-                throw new InvalidOperationException("null == assemblyDirectory");
+            string trustedRootCertificatesDirectory = null;
 
-            var trustedRootCertificatesDirectory =
-                Path.Combine(assemblyDirectory, TrustedCertificatesFolder);
+            if (null != assemblyDirectory && Directory.Exists(assemblyDirectory))
+                trustedRootCertificatesDirectory = Path.Combine(assemblyDirectory, TrustedCertificatesFolder);
+
+            if (null == trustedRootCertificatesDirectory || !Directory.Exists(trustedRootCertificatesDirectory))
+                trustedRootCertificatesDirectory =
+                    Path.Combine(AppDomain.CurrentDomain.BaseDirectory, TrustedCertificatesFolder);
+
+            if (!Directory.Exists(trustedRootCertificatesDirectory))
+            {
+                Logger.Warn("Certificate validator disabled!");
+
+                CertificateValidator.DisableValidation = true;
+                return;
+            }
 
             foreach (var file in Directory.GetFiles(trustedRootCertificatesDirectory, "*.cer"))
             {

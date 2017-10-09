@@ -162,17 +162,17 @@ namespace Xml2WinForms.Utils
                 if (null != innerColumnJToken)
                     ApplyTemplates(templateLibrary, innerColumnJToken);
 
-                var tempateIdJToken = controlJToken["prototype"];
+                var templateIdJToken = controlJToken["prototype"];
 
-                if (null == tempateIdJToken)
+                if (null == templateIdJToken)
                     continue;
 
-                var tempateId = (string)tempateIdJToken;
+                var templateId = (string)templateIdJToken;
 
                 JToken template;
 
-                if (!templateLibrary.TryGetValue(tempateId, out template))
-                    throw new BadTemplateException($"Template \"{tempateId}\" not found!");
+                if (!templateLibrary.TryGetValue(templateId, out template))
+                    throw new BadTemplateException($"Template \"{templateId}\" not found!");
 
                 var jProperties = ((JObject) template).Properties();
 
