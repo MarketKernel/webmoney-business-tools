@@ -19,7 +19,9 @@ namespace WebMoney.Services
     public sealed class PurseService : SessionBasedService, IPurseService
     {
         private static readonly object Anchor = new object();
-        private static readonly Dictionary<long, List<Account>> AccountsDictionary = new Dictionary<long, List<Account>>();
+
+        private static readonly Dictionary<long, List<Account>> AccountsDictionary =
+            new Dictionary<long, List<Account>>();
 
         public string CreatePurse(string currency, string name)
         {
@@ -43,7 +45,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return response.Purse.ToString();
@@ -161,7 +163,7 @@ namespace WebMoney.Services
             }
         }
 
-        public IReadOnlyCollection<IAccount> SelectAccounts(bool fresh = false, bool masterAccountsRequested = false)
+        public IEnumerable<IAccount> SelectAccounts(bool fresh = false, bool masterAccountsRequested = false)
         {
             List<Account> accounts;
 
@@ -184,7 +186,7 @@ namespace WebMoney.Services
                             return AccountsDictionary[identifier];
                     }
 
-                    return new List<IAccount>();
+                    return new List<Account>();
                 }
             }
             else
@@ -234,7 +236,7 @@ namespace WebMoney.Services
                 }
             }
 
-            return accounts.Select(a => (IAccount) a).ToList();
+            return accounts;
         }
     }
 }

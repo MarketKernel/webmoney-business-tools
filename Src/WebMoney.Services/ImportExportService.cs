@@ -18,7 +18,7 @@ namespace WebMoney.Services
 {
     public sealed class ImportExportService : IImportExportService
     {
-        public IReadOnlyCollection<IOriginalTransfer> LoadExportableTransfers(string fileName,
+        public IEnumerable<IOriginalTransfer> LoadExportableTransfers(string fileName,
             FileFormat fileFormat = FileFormat.Xml)
         {
             if (null == fileName)
@@ -38,12 +38,11 @@ namespace WebMoney.Services
             }
 
             return exportableTransferBundle.Transfers
-                .Select(et => new OriginalTransfer(et.TransferId, string.Empty, et.TargePurse, et.Amount,
-                    et.Description))
-                .ToList();
+                .Select(et => (IOriginalTransfer) new OriginalTransfer(et.TransferId, string.Empty, et.TargetPurse,
+                    et.Amount, et.Description));
         }
 
-        public IReadOnlyCollection<TObject> Load<TObject>(string fileName, FileFormat fileFormat = FileFormat.Xlsx)
+        public IEnumerable<TObject> Load<TObject>(string fileName, FileFormat fileFormat = FileFormat.Xlsx)
             where TObject : class
         {
             if (null == fileName)

@@ -20,14 +20,10 @@ namespace WMBusinessTools.Extensions.Utils
                 case Language.Russian:
                     Thread.CurrentThread.CurrentCulture = new CultureInfo(RuCultureName);
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(RuCultureName);
-                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(RuCultureName);
-                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(RuCultureName);
                     break;
                 default:
                     Thread.CurrentThread.CurrentCulture = new CultureInfo(EnCultureName);
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo(EnCultureName);
-                    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(EnCultureName);
-                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(EnCultureName);
                     break;
             }
         }

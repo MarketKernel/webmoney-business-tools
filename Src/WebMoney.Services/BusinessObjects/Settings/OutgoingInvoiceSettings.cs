@@ -59,7 +59,7 @@ namespace WebMoney.Services.BusinessObjects
         [TypeConverter(typeof(LocalizedBooleanConverter))]
         [LocalizedDisplayName("Display creation time")]
         [XmlAttribute("creationTimeVisibility")]
-        public bool СreationTimeVisibility { get; set; } = true;
+        public bool CreationTimeVisibility { get; set; } = true;
 
         [Browsable(false)]
         [XmlArray(ElementName = "columnOrders")]
@@ -107,7 +107,7 @@ namespace WebMoney.Services.BusinessObjects
                   ProtectionPeriodVisibility == other.ProtectionPeriodVisibility &&
                   ExpirationPeriodVisibility == other.ExpirationPeriodVisibility &&
                   TransferPrimaryIdVisibility == other.TransferPrimaryIdVisibility &&
-                  СreationTimeVisibility == other.СreationTimeVisibility))
+                  CreationTimeVisibility == other.CreationTimeVisibility))
                 return false;
 
             if (!ColumnOrders.SequenceEqual(other.ColumnOrders))

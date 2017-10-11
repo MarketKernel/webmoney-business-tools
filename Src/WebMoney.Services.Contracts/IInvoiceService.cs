@@ -8,7 +8,7 @@ namespace WebMoney.Services.Contracts
     {
         void CreateOutgoingInvoice(IOriginalOutgoingInvoice outgoingInvoice);
         void RejectInvoice(long id);
-        IReadOnlyCollection<IIncomingInvoice> SelectIncomingInvoices(DateTime fromTime, DateTime toTime, bool fresh = false);
-        IReadOnlyCollection<IOutgoingInvoice> SelectOutgoingInvoices(string purse, DateTime fromTime, DateTime toTime, bool fresh = false);
+        IEnumerable<IIncomingInvoice> SelectIncomingInvoices(DateTime fromTime, DateTime toTime, bool fresh = false);
+        IEnumerable<IOutgoingInvoice> SelectOutgoingInvoices(string purse, DateTime fromTime, DateTime toTime, bool fresh = false);
     }
 }

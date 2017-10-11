@@ -15,7 +15,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         DateTime CreationTime { get; }
         long IssuerIdentifier { get; }
         string IssuerAlias { get; }
-        IReadOnlyCollection<IAttachedIdentifierSummary> AttachedIdentifierSummaries { get; }
+        IEnumerable<IAttachedIdentifierSummary> AttachedIdentifierSummaries { get; }
 
         // userinfo
         CertificateStatus Status { get; }

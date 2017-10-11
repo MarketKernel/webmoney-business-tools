@@ -24,11 +24,18 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            ErrorForm.SupportAction = (exceptionType, message, details) =>
+            // Support configuration
+            var supportService = context.ExtensionManager.TryCreateExtension<ISupportService>();
+
+            if (null != supportService)
             {
-                var supportService = context.UnityContainer.Resolve<ISupportService>();
-                supportService.SendMessage(exceptionType, message, details);
-            };
+                context.UnityContainer.RegisterInstance(supportService);
+
+                ErrorForm.SupportAction = (exceptionType, message, details) =>
+                {
+                    context.UnityContainer.Resolve<ISupportService>().SendMessage(exceptionType, message, details);
+                };
+            }
 
             return new MainForm(context);
         }

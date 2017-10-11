@@ -116,7 +116,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return new VerificationReport(response.Id, response.FirstName, response.Patronymic);

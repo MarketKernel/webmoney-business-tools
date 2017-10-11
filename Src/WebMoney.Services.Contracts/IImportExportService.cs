@@ -6,10 +6,10 @@ namespace WebMoney.Services.Contracts
 {
     public interface IImportExportService
     {
-        IReadOnlyCollection<IOriginalTransfer> LoadExportableTransfers(string fileName,
+        IEnumerable<IOriginalTransfer> LoadExportableTransfers(string fileName,
             FileFormat fileFormat = FileFormat.Xml);
 
-        IReadOnlyCollection<TObject> Load<TObject>(string fileName, FileFormat fileFormat = FileFormat.Xlsx)
+        IEnumerable<TObject> Load<TObject>(string fileName, FileFormat fileFormat = FileFormat.Xlsx)
             where TObject : class;
 
         void SaveExportableTransfers(IEnumerable<IOriginalTransfer> transfers, string fileName,

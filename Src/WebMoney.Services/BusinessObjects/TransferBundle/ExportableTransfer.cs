@@ -3,13 +3,13 @@ using System.Xml.Serialization;
 
 namespace WebMoney.Services.BusinessObjects
 {
-    public class ExportableTransfer
+    internal class ExportableTransfer
     {
         [XmlElement("Id")]
         public int TransferId { get; set; }
 
         [XmlElement("Destination")]
-        public string TargePurse { get; set; }
+        public string TargetPurse { get; set; }
 
         [XmlElement("Amount")]
         public decimal Amount { get; set; }
@@ -21,13 +21,13 @@ namespace WebMoney.Services.BusinessObjects
         {
         }
 
-        public ExportableTransfer(int transferId, string targePurse, decimal amount, string description)
+        public ExportableTransfer(int transferId, string targetPurse, decimal amount, string description)
         {
             if (amount <= 0)
                 throw new ArgumentOutOfRangeException(nameof(amount));
 
             TransferId = transferId;
-            TargePurse = targePurse ?? throw new ArgumentNullException(nameof(targePurse));
+            TargetPurse = targetPurse ?? throw new ArgumentNullException(nameof(targetPurse));
             Amount = amount;
             Description = description ?? throw new ArgumentNullException(nameof(description));
         }

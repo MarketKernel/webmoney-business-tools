@@ -66,7 +66,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return new PaymentConfirmationInstruction(response.InvoiceId,
@@ -92,7 +92,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             var expressPayment = new ExpressPayment((int) response.TransferId, (int) response.InvoiceId,
@@ -121,7 +121,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return response.Token;
@@ -147,7 +147,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             var merchantPayment = new MerchantPayment(response.OperationId, response.InvoiceId,

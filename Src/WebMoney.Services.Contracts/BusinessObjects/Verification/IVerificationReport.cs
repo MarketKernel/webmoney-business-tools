@@ -4,6 +4,6 @@
     {
         string Reference { get; }
         string ClientName { get; }
-        string ClientМiddleName { get; }
+        string ClientMiddleName { get; }
     }
 }

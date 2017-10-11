@@ -59,11 +59,7 @@ namespace WMBusinessTools
 
             IUnityContainer unityContainer = new UnityContainer();
             configurationService.RegisterServices(unityContainer);
-
-            // Support configuration
-            var supportService = _extensionManager.CreateExtension<ISupportService>();
-            unityContainer.RegisterInstance(supportService);
-
+            
             // Set session
             var enterContext = new EntranceContext(_extensionManager, unityContainer);
             var sessionContextProvider = _extensionManager.GetSessionContextProvider();

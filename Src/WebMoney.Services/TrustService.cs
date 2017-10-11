@@ -45,7 +45,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
         }
 
@@ -111,7 +111,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             var instruction = new TrustConfirmationInstruction((int)response.Reference,
@@ -139,7 +139,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             var expressTrust = new ExpressTrust((int)response.TrustId,
@@ -148,7 +148,7 @@ namespace WebMoney.Services
             return expressTrust;
         }
 
-        public IReadOnlyCollection<ITrust> SelectTrusts(bool fresh = false)
+        public IEnumerable<ITrust> SelectTrusts(bool fresh = false)
         {
             List<Trust> trusts;
 
@@ -185,7 +185,7 @@ namespace WebMoney.Services
                 }
             }
 
-            return trusts.Select(t => (ITrust) t).ToList();
+            return trusts;
         }
     }
 }

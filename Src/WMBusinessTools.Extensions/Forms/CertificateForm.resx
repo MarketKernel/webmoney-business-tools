@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;mPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;wmidLabel.Name" xml:space="preserve">
     <value>wmidLabel</value>
   </data>
@@ -130,10 +127,6 @@
   <data name="wmIdTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 3</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="generalInfoTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="&gt;&gt;aboutTextBox.Name" xml:space="preserve">
     <value>aboutTextBox</value>
   </data>
@@ -141,6 +134,7 @@
   <data name="certificateLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="nameLabel.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -165,6 +159,9 @@
   <data name="wmIdsTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="wmidLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="commandBarGroupBox.Text" xml:space="preserve">
     <value>Commands</value>
   </data>
@@ -174,8 +171,8 @@
   <data name="&gt;&gt;wmidLabel.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
   </data>
-  <data name="&gt;&gt;generalInfoTabPage.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;wmIdTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="commandBarFlowLayoutPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -195,9 +192,6 @@
   <data name="bottomFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="levelsTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;aboutLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -206,9 +200,6 @@
   </data>
   <data name="&gt;&gt;wmidLabel.ZOrder" xml:space="preserve">
     <value>9</value>
-  </data>
-  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>631, 16</value>
   </data>
   <data name="commandBarFlowLayoutPanel.WrapContents" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -222,17 +213,23 @@
   <data name="&gt;&gt;wmIdTextBox.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
   </data>
+  <data name="&gt;&gt;generalInfoTableLayoutPanel.Name" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
+  </data>
+  <data name="commandBarGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 8, 8, 8</value>
+  </data>
   <data name="&gt;&gt;commandBarGroupBox.Name" xml:space="preserve">
     <value>commandBarGroupBox</value>
   </data>
-  <data name="&gt;&gt;certificateTunableList.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="certificateTunableList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>686, 301</value>
+  <data name="wmIdTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="commandBarFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="contactsLabel.Text" xml:space="preserve">
+    <value>Communication:</value>
   </data>
   <data name="mTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -243,14 +240,17 @@
   <data name="certificateTunableList.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
+  <data name="&gt;&gt;certificateLabel.Parent" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 411</value>
+  </data>
   <data name="claimsLabel.Text" xml:space="preserve">
     <value>Claims:</value>
   </data>
   <data name="&gt;&gt;mTabControl.Parent" xml:space="preserve">
     <value>mTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;mTableLayoutPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="certificateDataTabPage.Text" xml:space="preserve">
     <value>Certificate</value>
@@ -258,35 +258,41 @@
   <data name="&gt;&gt;contactsTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="generalInfoTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
   <data name="certificateTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="generalInfoTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;addressTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="nameLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Certificate</value>
   </data>
-  <data name="mPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 16</value>
+  <data name="commandBarFlowLayoutPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
   </data>
-  <data name="commandBarFlowLayoutPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
-  </data>
-  <data name="&gt;&gt;generalInfoTabPage.Name" xml:space="preserve">
-    <value>generalInfoTabPage</value>
-  </data>
-  <data name="bottomFlowLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;claimsTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;contactsTextBox.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
-    <value>bottomFlowLayoutPanel</value>
+  <data name="bottomFlowLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;nameTextBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;contactsTextBox.Name" xml:space="preserve">
+    <value>contactsTextBox</value>
   </data>
   <data name="&gt;&gt;levelsLabel.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -303,6 +309,9 @@
   <data name="certificateDataTabPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>692, 307</value>
   </data>
+  <data name="levelsTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="commandBarGroupBox.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
@@ -318,20 +327,23 @@
   <data name="levelsTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 55</value>
   </data>
-  <data name="generalInfoTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;certificateTunableList.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="claimsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="claimsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 13</value>
+  <data name="mTableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="nameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="certificateDataTabPage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="generalInfoTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="claimsTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
   <data name="okButton.Text" xml:space="preserve">
     <value>&amp;Search again</value>
@@ -342,14 +354,17 @@
   <data name="&gt;&gt;contactsTextBox.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
   </data>
-  <data name="&gt;&gt;claimsLabel.ZOrder" xml:space="preserve">
-    <value>15</value>
+  <data name="&gt;&gt;generalInfoTabPage.Name" xml:space="preserve">
+    <value>generalInfoTabPage</value>
   </data>
-  <data name="&gt;&gt;wmIdTextBox.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;certificateTextBox.Name" xml:space="preserve">
+    <value>certificateTextBox</value>
   </data>
   <data name="certificateTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>592, 20</value>
+  </data>
+  <data name="&gt;&gt;certificateTunableList.Type" xml:space="preserve">
+    <value>Xml2WinForms.TunableList, Xml2WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f</value>
   </data>
   <data name="aboutLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 235</value>
@@ -363,8 +378,8 @@
   <data name="levelsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="mTabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;nameTextBox.Parent" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
   </data>
   <data name="certificateLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 13</value>
@@ -372,29 +387,29 @@
   <data name="&gt;&gt;levelsTextBox.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="&gt;&gt;claimsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="levelsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="bottomFlowLayoutPanel.WrapContents" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="cancelButton.Text" xml:space="preserve">
-    <value>&amp;Close</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
-    <value>bottomFlowLayoutPanel</value>
+  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
+    <value>okButton</value>
   </data>
   <data name="aboutTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 185</value>
   </data>
-  <data name="claimsTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="&gt;&gt;claimsLabel.ZOrder" xml:space="preserve">
+    <value>15</value>
   </data>
   <data name="bottomFlowLayoutPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="&gt;&gt;certificateTextBox.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;levelsLabel.Name" xml:space="preserve">
+    <value>levelsLabel</value>
   </data>
   <data name="aboutLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 13</value>
@@ -402,8 +417,8 @@
   <data name="addressLabel.Text" xml:space="preserve">
     <value>Address:</value>
   </data>
-  <data name="&gt;&gt;mTabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;addressLabel.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="certificateLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -416,12 +431,6 @@
   </data>
   <data name="levelsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
-  </data>
-  <data name="okButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="attachedIdentifierTunableList.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;levelsTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -444,14 +453,14 @@
   <data name="&gt;&gt;certificateDataTabPage.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;mPictureBox.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="addressLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
   <data name="commandBarGroupBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;claimsTextBox.Parent" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>CertificateForm</value>
@@ -459,14 +468,14 @@
   <data name="contactsTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 133</value>
   </data>
+  <data name="wmIdsTabPage.Text" xml:space="preserve">
+    <value>Attached Identifiers</value>
+  </data>
   <data name="addressLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="mTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;wmIdTextBox.Name" xml:space="preserve">
     <value>wmIdTextBox</value>
@@ -477,11 +486,8 @@
   <data name="aboutLabel.Text" xml:space="preserve">
     <value>Info:</value>
   </data>
-  <data name="&gt;&gt;wmIdsTabPage.Parent" xml:space="preserve">
-    <value>mTabControl</value>
-  </data>
-  <data name="wmIdTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 20</value>
+  <data name="&gt;&gt;certificateTunableList.Name" xml:space="preserve">
+    <value>certificateTunableList</value>
   </data>
   <data name="certificateLabel.Text" xml:space="preserve">
     <value>Degree:</value>
@@ -489,11 +495,8 @@
   <data name="commandBarFlowLayoutPanel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="certificateTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 29</value>
-  </data>
-  <data name="&gt;&gt;certificateTunableList.Parent" xml:space="preserve">
-    <value>certificateDataTabPage</value>
+  <data name="cancelButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="addressLabel.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -507,11 +510,8 @@
   <data name="generalInfoTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="aboutLabel" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="wmIdTextBox" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="certificateTextBox" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="levelsTextBox" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="nameTextBox" Row="3" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="addressTextBox" Row="4" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="contactsTextBox" Row="5" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="claimsTextBox" Row="6" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="aboutTextBox" Row="7" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="wmidLabel" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="certificateLabel" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="levelsLabel" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="nameLabel" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="addressLabel" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="contactsLabel" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="claimsLabel" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,AutoSize,0,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="&gt;&gt;okButton.Name" xml:space="preserve">
-    <value>okButton</value>
-  </data>
-  <data name="&gt;&gt;generalInfoTableLayoutPanel.Parent" xml:space="preserve">
-    <value>generalInfoTabPage</value>
+  <data name="nameLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="mTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -525,14 +525,11 @@
   <data name="&gt;&gt;contactsLabel.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
   </data>
-  <data name="&gt;&gt;attachedIdentifierTunableList.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="cancelButton.Text" xml:space="preserve">
+    <value>&amp;Close</value>
   </data>
-  <data name="&gt;&gt;contactsTextBox.Name" xml:space="preserve">
-    <value>contactsTextBox</value>
-  </data>
-  <data name="mTabControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 16, 3, 3</value>
+  <data name="certificateTunableList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
@@ -540,14 +537,14 @@
   <data name="aboutTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="claimsTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="wmidLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
   </data>
   <data name="wmidLabel.Text" xml:space="preserve">
     <value>WMID:</value>
   </data>
-  <data name="&gt;&gt;wmidLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;okButton.Parent" xml:space="preserve">
+    <value>bottomFlowLayoutPanel</value>
   </data>
   <data name="generalInfoTabPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>692, 307</value>
@@ -570,14 +567,14 @@
   <data name="okButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 23</value>
   </data>
-  <data name="nameTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="wmIdTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>592, 20</value>
   </data>
   <data name="&gt;&gt;aboutTextBox.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="claimsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 162</value>
+  <data name="&gt;&gt;generalInfoTabPage.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="addressTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>592, 20</value>
@@ -588,17 +585,11 @@
   <data name="&gt;&gt;aboutTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>800, 450</value>
+  <data name="&gt;&gt;certificateImageList.Name" xml:space="preserve">
+    <value>certificateImageList</value>
   </data>
   <data name="attachedIdentifierTunableList.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
-  </data>
-  <data name="&gt;&gt;addressLabel.Name" xml:space="preserve">
-    <value>addressLabel</value>
-  </data>
-  <data name="mTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="commandBarGroupBox" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="mTabControl" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="bottomFlowLayoutPanel" Row="1" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="mPictureBox" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;mTabControl.Name" xml:space="preserve">
     <value>mTabControl</value>
@@ -624,59 +615,47 @@
   <data name="&gt;&gt;generalInfoTableLayoutPanel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="generalInfoTableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;generalInfoTableLayoutPanel.Parent" xml:space="preserve">
+    <value>generalInfoTabPage</value>
   </data>
   <data name="wmidLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 6</value>
   </data>
-  <data name="levelsLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 58</value>
+  <data name="generalInfoTabPage.Text" xml:space="preserve">
+    <value>Primary Info</value>
+  </data>
+  <data name="mTabControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 16, 3, 3</value>
   </data>
   <data name="bottomFlowLayoutPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>RightToLeft</value>
   </data>
-  <data name="&gt;&gt;generalInfoTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="claimsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
+  <data name="&gt;&gt;mPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nameTextBox.Name" xml:space="preserve">
     <value>nameTextBox</value>
   </data>
-  <data name="mTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="cancelButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 8, 8, 8</value>
   </data>
-  <data name="&gt;&gt;generalInfoTableLayoutPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;attachedIdentifierTunableList.Parent" xml:space="preserve">
-    <value>wmIdsTabPage</value>
+  <data name="&gt;&gt;attachedIdentifierTunableList.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;generalInfoTabPage.Parent" xml:space="preserve">
     <value>mTabControl</value>
   </data>
-  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;certificateImageList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="addressTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
   <data name="mTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>784, 411</value>
   </data>
-  <data name="&gt;&gt;generalInfoTableLayoutPanel.Name" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
+  <data name="mTabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="contactsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
-  </data>
-  <data name="&gt;&gt;mTabControl.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="wmIdsTabPage.Size" type="System.Drawing.Size, System.Drawing">
     <value>692, 307</value>
@@ -684,35 +663,35 @@
   <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 84</value>
   </data>
-  <data name="nameTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 20</value>
-  </data>
-  <data name="&gt;&gt;certificateDataTabPage.Type" xml:space="preserve">
+  <data name="&gt;&gt;generalInfoTabPage.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;certificateTextBox.Name" xml:space="preserve">
-    <value>certificateTextBox</value>
+  <data name="&gt;&gt;mTableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="generalInfoTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="mTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="generalInfoTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;certificateImageList.Name" xml:space="preserve">
-    <value>certificateImageList</value>
-  </data>
-  <data name="levelsTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 20</value>
-  </data>
-  <data name="&gt;&gt;wmIdsTabPage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;certificateLabel.Parent" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;certificateTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;addressLabel.ZOrder" xml:space="preserve">
+  <data name="claimsTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
+  </data>
+  <data name="mPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="&gt;&gt;cancelButton.Parent" xml:space="preserve">
+    <value>bottomFlowLayoutPanel</value>
+  </data>
+  <data name="cancelButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>631, 16</value>
+  </data>
+  <data name="&gt;&gt;mTabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;levelsTextBox.Name" xml:space="preserve">
     <value>levelsTextBox</value>
@@ -723,8 +702,8 @@
   <data name="addressTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="certificateTunableList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;wmIdsTabPage.Parent" xml:space="preserve">
+    <value>mTabControl</value>
   </data>
   <data name="&gt;&gt;addressTextBox.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
@@ -741,17 +720,20 @@
   <data name="&gt;&gt;commandBarGroupBox.Parent" xml:space="preserve">
     <value>mTableLayoutPanel</value>
   </data>
-  <data name="&gt;&gt;claimsLabel.Parent" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
+  <data name="attachedIdentifierTunableList.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;certificateTunableList.Name" xml:space="preserve">
-    <value>certificateTunableList</value>
+  <data name="mTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="commandBarGroupBox" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="mTabControl" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="bottomFlowLayoutPanel" Row="1" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="mPictureBox" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="addressLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 110</value>
+  <data name="&gt;&gt;attachedIdentifierTunableList.Parent" xml:space="preserve">
+    <value>wmIdsTabPage</value>
+  </data>
+  <data name="&gt;&gt;claimsLabel.Parent" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
   </data>
   <data name="aboutLabel.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -759,8 +741,11 @@
   <data name="&gt;&gt;mPictureBox.Parent" xml:space="preserve">
     <value>mTableLayoutPanel</value>
   </data>
-  <data name="&gt;&gt;commandBarFlowLayoutPanel.Parent" xml:space="preserve">
-    <value>commandBarGroupBox</value>
+  <data name="claimsLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="certificateTunableList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>686, 301</value>
   </data>
   <data name="contactsLabel.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -768,81 +753,15 @@
   <data name="certificateDataTabPage.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;contactsLabel.Name" xml:space="preserve">
-    <value>contactsLabel</value>
-  </data>
-  <data name="attachedIdentifierTunableList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>686, 301</value>
-  </data>
-  <data name="&gt;&gt;bottomFlowLayoutPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="wmIdTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
-  </data>
-  <data name="bottomFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 352</value>
-  </data>
-  <data name="wmidLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="bottomFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>784, 59</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.Parent" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;certificateTunableList.Type" xml:space="preserve">
-    <value>Xml2WinForms.TunableList, Xml2WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f</value>
-  </data>
-  <data name="&gt;&gt;aboutTextBox.Parent" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
-  </data>
-  <data name="generalInfoTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="&gt;&gt;mTableLayoutPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;aboutLabel.Name" xml:space="preserve">
-    <value>aboutLabel</value>
-  </data>
-  <data name="&gt;&gt;mPictureBox.Name" xml:space="preserve">
-    <value>mPictureBox</value>
-  </data>
-  <data name="wmidLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="bottomFlowLayoutPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>4, 59</value>
-  </data>
-  <data name="&gt;&gt;commandBarGroupBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;nameTextBox.Parent" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;wmIdsTabPage.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bottomFlowLayoutPanel.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="generalInfoTabPage.Text" xml:space="preserve">
-    <value>Primary Info</value>
-  </data>
-  <data name="&gt;&gt;bottomFlowLayoutPanel.Parent" xml:space="preserve">
-    <value>mTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;certificateTextBox.Parent" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
+  <data name="&gt;&gt;wmidLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="certificateImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAA2
-        YAAAAk1TRnQBSQFMAgEBGAEAAYABAAGEAQABIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        YAAAAk1TRnQBSQFMAgEBGAEAAYwBAAGUAQABIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAeADAAEBAQABCAYAAXAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1255,14 +1174,83 @@
         Av8BgAEDAv8BgAEDBv8B8AEfAv8B8AEfAv8B4AEPBf8WAAs=
 </value>
   </data>
-  <data name="mTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 333</value>
+  <data name="&gt;&gt;bottomFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="wmIdTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
+  <data name="bottomFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 352</value>
+  </data>
+  <data name="attachedIdentifierTunableList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>686, 301</value>
+  </data>
+  <data name="wmIdsTabPage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="bottomFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>784, 59</value>
+  </data>
+  <data name="&gt;&gt;contactsLabel.Name" xml:space="preserve">
+    <value>contactsLabel</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Parent" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
+  </data>
+  <data name="wmidLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;aboutTextBox.Parent" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
+  </data>
+  <data name="generalInfoTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="&gt;&gt;mTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mPictureBox.Name" xml:space="preserve">
+    <value>mPictureBox</value>
+  </data>
+  <data name="&gt;&gt;aboutLabel.Name" xml:space="preserve">
+    <value>aboutLabel</value>
+  </data>
+  <data name="&gt;&gt;addressLabel.Name" xml:space="preserve">
+    <value>addressLabel</value>
+  </data>
+  <data name="generalInfoTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;bottomFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="nameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>592, 20</value>
+  </data>
+  <data name="&gt;&gt;bottomFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>mTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;certificateLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;certificateTextBox.Parent" xml:space="preserve">
+    <value>generalInfoTableLayoutPanel</value>
+  </data>
+  <data name="addressLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 13</value>
+  </data>
+  <data name="&gt;&gt;claimsTextBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="claimsTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>592, 20</value>
   </data>
   <data name="commandBarGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 35</value>
   </data>
-  <data name="wmidLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
+  <data name="mTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="contactsLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>82, 13</value>
@@ -1273,32 +1261,41 @@
   <data name="claimsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="commandBarFlowLayoutPanel.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
-    <value>GrowAndShrink</value>
+  <data name="mTabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 333</value>
   </data>
-  <data name="aboutLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left</value>
+  <data name="nameTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
   </data>
-  <data name="contactsTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+  <data name="&gt;&gt;mTabControl.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;commandBarFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>commandBarGroupBox</value>
   </data>
   <data name="&gt;&gt;bottomFlowLayoutPanel.Name" xml:space="preserve">
     <value>bottomFlowLayoutPanel</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 411</value>
-  </data>
-  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;claimsTextBox.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="nameLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="aboutLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;claimsLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="levelsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 58</value>
+  </data>
+  <data name="addressLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 110</value>
+  </data>
+  <data name="&gt;&gt;wmIdsTabPage.Name" xml:space="preserve">
+    <value>wmIdsTabPage</value>
+  </data>
+  <data name="&gt;&gt;generalInfoTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;wmIdsTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bottomFlowLayoutPanel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>4, 59</value>
   </data>
   <data name="&gt;&gt;certificateLabel.Name" xml:space="preserve">
     <value>certificateLabel</value>
@@ -1306,29 +1303,29 @@
   <data name="mPictureBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>32, 32</value>
   </data>
-  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
-    <value>cancelButton</value>
+  <data name="generalInfoTableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="commandBarGroupBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 8, 8, 8</value>
-  </data>
-  <data name="&gt;&gt;mTableLayoutPanel.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;certificateTextBox.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;attachedIdentifierTunableList.Type" xml:space="preserve">
     <value>Xml2WinForms.TunableList, Xml2WinForms, Version=1.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f</value>
   </data>
-  <data name="&gt;&gt;certificateLabel.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="commandBarFlowLayoutPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="&gt;&gt;commandBarGroupBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="nameTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 81</value>
   </data>
-  <data name="&gt;&gt;levelsLabel.Name" xml:space="preserve">
-    <value>levelsLabel</value>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="wmIdTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="claimsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 13</value>
   </data>
   <data name="&gt;&gt;commandBarGroupBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1336,11 +1333,14 @@
   <data name="wmIdsTabPage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
+  <data name="&gt;&gt;cancelButton.Name" xml:space="preserve">
+    <value>cancelButton</value>
+  </data>
   <data name="&gt;&gt;wmIdTextBox.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;claimsTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;certificateDataTabPage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="certificateLabel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1348,14 +1348,14 @@
   <data name="&gt;&gt;claimsLabel.Name" xml:space="preserve">
     <value>claimsLabel</value>
   </data>
-  <data name="&gt;&gt;wmIdsTabPage.Name" xml:space="preserve">
-    <value>wmIdsTabPage</value>
+  <data name="&gt;&gt;certificateImageList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="claimsTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>592, 20</value>
+  <data name="&gt;&gt;certificateTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="contactsLabel.Text" xml:space="preserve">
-    <value>Communication:</value>
+  <data name="contactsTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
   <data name="levelsTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
@@ -1366,35 +1366,35 @@
   <data name="contactsLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;claimsTextBox.Parent" xml:space="preserve">
-    <value>generalInfoTableLayoutPanel</value>
+  <data name="&gt;&gt;wmIdsTabPage.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="generalInfoTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="levelsTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>592, 20</value>
   </data>
-  <data name="mTableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="certificateTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 29</value>
   </data>
-  <data name="addressLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 13</value>
+  <data name="&gt;&gt;certificateTunableList.Parent" xml:space="preserve">
+    <value>certificateDataTabPage</value>
   </data>
   <data name="certificateTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>
   </data>
-  <data name="addressTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="&gt;&gt;mTableLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;cancelButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="mTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="claimsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 162</value>
   </data>
   <data name="mPictureBox.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="wmIdsTabPage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
+  <data name="&gt;&gt;okButton.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="cancelButton.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 23</value>
@@ -1402,11 +1402,11 @@
   <data name="bottomFlowLayoutPanel.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 8, 8, 8</value>
   </data>
-  <data name="&gt;&gt;nameTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;mPictureBox.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="wmIdsTabPage.Text" xml:space="preserve">
-    <value>Attached Identifiers</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>800, 450</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

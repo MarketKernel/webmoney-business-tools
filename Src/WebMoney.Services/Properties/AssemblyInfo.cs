@@ -10,11 +10,15 @@ using log4net.Config;
 
 
 [assembly: AssemblyTitle("WebMoney.Services")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WebMoney.Services")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyDescription("See: www.webmoney-business-tools.com")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
+[assembly: AssemblyCompany("MarketKernel Team")]
+[assembly: AssemblyProduct("WebMoney Business Tools")]
+[assembly: AssemblyCopyright("© MarketKernel Team <global@marketkernel.com> 2009-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

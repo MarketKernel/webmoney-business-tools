@@ -120,6 +120,9 @@
   <data name="commandBarGroupBox.Text" xml:space="preserve">
     <value>Команды</value>
   </data>
+  <data name="generalInfoTabPage.Text" xml:space="preserve">
+    <value>Сводная информация</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="aboutLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 13</value>
@@ -211,9 +214,6 @@
   <data name="claimsLabel.Text" xml:space="preserve">
     <value>Отзывы:</value>
   </data>
-  <data name="generalInfoTabPage.Text" xml:space="preserve">
-    <value>Сводная информация</value>
-  </data>
   <data name="certificateDataTabPage.Text" xml:space="preserve">
     <value>Данные аттестата</value>
   </data>
@@ -231,7 +231,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAA0
-        YAAAAk1TRnQBSQFMAgEBGAEAAXgBAAF4AQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        YAAAAk1TRnQBSQFMAgEBGAEAAYABAAGAAQABIAEAASABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAeADAAEBAQABCAYAAXAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -645,6 +645,6 @@
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Сертификат</value>
+    <value>Аттестат</value>
   </data>
 </root>

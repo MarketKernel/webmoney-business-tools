@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading;
 using log4net;
 using Microsoft.Practices.Unity;
@@ -22,8 +23,15 @@ namespace WebMoney.Services
             if (isBusy != 0)
                 return;
 
+            var currentCulture = (CultureInfo) Thread.CurrentThread.CurrentCulture.Clone();
+            var currentUICulture = (CultureInfo) Thread.CurrentThread.CurrentUICulture.Clone();
+
             ThreadPool.QueueUserWorkItem(state =>
             {
+
+                Thread.CurrentThread.CurrentCulture = currentCulture;
+                Thread.CurrentThread.CurrentUICulture = currentUICulture;
+
                 while (true)
                 {
                     if (_cancellationPending)

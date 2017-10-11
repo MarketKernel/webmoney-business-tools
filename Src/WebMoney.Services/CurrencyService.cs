@@ -127,7 +127,7 @@ namespace WebMoney.Services
             return currency.Remove(0, Prefix.Length);
         }
 
-        public IReadOnlyCollection<string> SelectCurrencies(CurrencyCapabilities currencyCapabilities)
+        public IEnumerable<string> SelectCurrencies(CurrencyCapabilities currencyCapabilities)
         {
             var currencies = new List<string>();
 

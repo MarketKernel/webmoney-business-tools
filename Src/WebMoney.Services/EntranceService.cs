@@ -69,7 +69,8 @@ namespace WebMoney.Services
                 x509Store.Open(OpenFlags.MaxAllowed);
 
                 return x509Store.Certificates.OfType<X509Certificate2>()
-                    .Select(ConvertToLightCertificate).Where(c => c != null);
+                    .Select(ConvertToLightCertificate)
+                    .Where(c => c != null);
             }
             finally
             {
@@ -182,9 +183,9 @@ namespace WebMoney.Services
                 File.Delete(settingsFilePath);
         }
 
-        public IReadOnlyCollection<IRegistration> SelectRegistrations()
+        public IEnumerable<IRegistration> SelectRegistrations()
         {
-            var registrations = new List<IRegistration>();
+            var registrations = new List<Registration>();
 
             var baseDirectoryPath = SettingsUtility.GetBaseDirectoryPath();
 

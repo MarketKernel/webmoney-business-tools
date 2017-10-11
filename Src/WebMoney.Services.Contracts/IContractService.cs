@@ -8,6 +8,6 @@ namespace WebMoney.Services.Contracts
     {
         int CreateContract(string name, string text, IEnumerable<long> authorizedIdentifiers = null);
         void RefreshContract(int id);
-        IReadOnlyCollection<IContract> SelectContracts(DateTime fromTime, DateTime toTime, bool fresh = false);
+        IEnumerable<IContract> SelectContracts(DateTime fromTime, DateTime toTime, bool fresh = false);
     }
 }

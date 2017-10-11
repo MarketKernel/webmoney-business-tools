@@ -41,13 +41,13 @@ namespace WebMoney.Services.ExternalServices
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return response.Transfer.Id;
         }
 
-        public IReadOnlyCollection<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime)
+        public IEnumerable<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime)
         {
             if (null == purse)
                 throw new ArgumentNullException(nameof(purse));
@@ -65,29 +65,28 @@ namespace WebMoney.Services.ExternalServices
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return response.TransferList.Select(t =>
+            {
+                var transfer = new BusinessObjects.Transfer(Session.CurrentIdentifier, t.Id, t.Ts,
+                    t.SourcePurse.ToString(), t.TargetPurse.ToString(), t.Amount,
+                    t.Commission, ConvertFrom.ApiTypeToContractType(t.TransferType), t.Description, t.Partner,
+                    t.Rest,
+                    t.CreateTime.ToUniversalTime(), t.UpdateTime.ToUniversalTime())
                 {
-                    var transfer = new BusinessObjects.Transfer(Session.CurrentIdentifier, t.Id, t.Ts,
-                        t.SourcePurse.ToString(), t.TargetPurse.ToString(), t.Amount,
-                        t.Commission, ConvertFrom.ApiTypeToContractType(t.TransferType), t.Description, t.Partner,
-                        t.Rest,
-                        t.CreateTime.ToUniversalTime(), t.UpdateTime.ToUniversalTime())
-                    {
-                        InvoiceId = t.InvoiceId,
-                        OrderId = (int) t.OrderId,
-                        TransferId = (int) t.TransferId,
-                        ProtectionPeriod = t.Period,
-                        Locked = t.IsLocked,
-                        Description = !string.IsNullOrEmpty(t.Description) ? t.Description : "[empty]"
-                    };
+                    InvoiceId = t.InvoiceId,
+                    OrderId = (int) t.OrderId,
+                    TransferId = (int) t.TransferId,
+                    ProtectionPeriod = t.Period,
+                    Locked = t.IsLocked,
+                    Description = !string.IsNullOrEmpty(t.Description) ? t.Description : "[empty]"
+                };
 
 
-                    return (ITransfer) transfer;
-                })
-                .ToList();
+                return transfer;
+            });
         }
     }
 }

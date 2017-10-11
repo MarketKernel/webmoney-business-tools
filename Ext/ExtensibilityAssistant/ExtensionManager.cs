@@ -153,12 +153,25 @@ namespace ExtensibilityAssistant
                 select ei).ToList());
         }
 
-        public object TryCreateExtension(string extensionName)
+        public TExtension TryCreateExtension<TExtension>()
+            where TExtension : class
         {
-            if (null == extensionName)
-                throw new ArgumentNullException(nameof(extensionName));
+            var extensionType = typeof(TExtension);
 
-            var extensionConfiguration = TryObtainExtensionConfiguration(extensionName);
+            var extensionId = extensionType.Name;
+
+            if (extensionType.IsInterface && extensionId.StartsWith("I", StringComparison.Ordinal))
+                extensionId = extensionId.Remove(0, 1);
+
+            return (TExtension) TryCreateExtension(extensionId);
+        }
+
+        public object TryCreateExtension(string extensionId)
+        {
+            if (null == extensionId)
+                throw new ArgumentNullException(nameof(extensionId));
+
+            var extensionConfiguration = TryObtainExtensionConfiguration(extensionId);
 
             if (null == extensionConfiguration)
                 return null;

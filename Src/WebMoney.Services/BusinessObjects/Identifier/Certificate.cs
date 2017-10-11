@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
 using WebMoney.Services.Contracts.BasicTypes;
 using WebMoney.Services.Contracts.BusinessObjects;
 
@@ -42,9 +41,7 @@ namespace WebMoney.Services.BusinessObjects
         public List<AttachedIdentifierSummary> AttachedIdentifierSummaries { get; }
 
         [NotMapped]
-        IReadOnlyCollection<IAttachedIdentifierSummary> ICertificate.AttachedIdentifierSummaries => AttachedIdentifierSummaries
-            .Select(ais => (IAttachedIdentifierSummary) ais)
-            .ToList();
+        IEnumerable<IAttachedIdentifierSummary> ICertificate.AttachedIdentifierSummaries => AttachedIdentifierSummaries;
 
         // userinfo
         [Required]

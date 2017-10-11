@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Security;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
@@ -8,12 +7,12 @@ using System.Security;
 
 //[assembly: AllowPartiallyTrustedCallers]
 
-[assembly: AssemblyTitle("Xml2Gui")]
+[assembly: AssemblyTitle("Xml2WinForms")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Xml2Gui")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("MarketKernel Team")]
+[assembly: AssemblyProduct("Xml2WinForms")]
+[assembly: AssemblyCopyright("© MarketKernel Team <global@marketkernel.com> 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

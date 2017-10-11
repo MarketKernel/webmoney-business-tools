@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using Xml2WinForms.Templates;
@@ -240,12 +242,19 @@ namespace Xml2WinForms
             ServiceCommand?.Invoke(this, new CommandEventArgs {Command = BeginUpdateServiceCommand});
 
             var values = mTunableShape.SelectValues();
-            mBackgroundWorker.RunWorkerAsync(values);
+            mBackgroundWorker.RunWorkerAsync(new object[]
+                {values, Thread.CurrentThread.CurrentCulture, Thread.CurrentThread.CurrentUICulture});
         }
 
         private void mBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            e.Result = WorkCallback?.Invoke((List<object>) e.Argument);
+            object[] parameters = (object[])e.Argument;
+
+            var values = (List<object>)parameters[0];
+            Thread.CurrentThread.CurrentCulture = (CultureInfo)parameters[1];
+            Thread.CurrentThread.CurrentUICulture = (CultureInfo)parameters[2];
+
+            e.Result = WorkCallback?.Invoke(values);
         }
 
         private void mBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)

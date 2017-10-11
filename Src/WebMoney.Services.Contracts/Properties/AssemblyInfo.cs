@@ -12,11 +12,15 @@ using System.Security;
 [assembly: CLSCompliant(true)]
 
 [assembly: AssemblyTitle("WebMoney.Services.Contracts")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WebMoney.Services.Contracts")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyDescription("See: www.webmoney-business-tools.com")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
+[assembly: AssemblyCompany("MarketKernel Team")]
+[assembly: AssemblyProduct("WebMoney Business Tools")]
+[assembly: AssemblyCopyright("© MarketKernel Team <global@marketkernel.com> 2009-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

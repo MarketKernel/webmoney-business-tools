@@ -11,7 +11,7 @@ namespace WebMoney.Services.Contracts
         void FinishProtection(long transferPrimaryId, string protectionCode);
         void RejectProtection(long transferPrimaryId);
         void RedeemPaymer(string purse, string number, string key);
-        IReadOnlyCollection<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime, bool fresh = false);
+        IEnumerable<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime, bool fresh = false);
         decimal CalculateCommission(decimal amount, string currency);
     }
 }

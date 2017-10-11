@@ -26,11 +26,11 @@ namespace WebMoney.Services.BusinessObjects
         public byte ProtectionPeriod { get; set; }
         public InvoiceState State { get; }
         public long? TransferPrimaryId { get; set; }
-        public DateTime СreationTime { get; }
+        public DateTime CreationTime { get; }
         public DateTime UpdateTime { get; }
 
         public OutgoingInvoice(long primaryId, long secondaryId, int orderId, long clientIdentifier,
-            string targetPurse, decimal amount, string description, byte expirationPeriod, InvoiceState state, DateTime сreationTime,
+            string targetPurse, decimal amount, string description, byte expirationPeriod, InvoiceState state, DateTime creationTime,
             DateTime updateTime)
         {
             PrimaryId = primaryId;
@@ -42,7 +42,7 @@ namespace WebMoney.Services.BusinessObjects
             Description = description ?? throw new ArgumentNullException(nameof(description));
             ExpirationPeriod = expirationPeriod;
             State = state;
-            СreationTime = сreationTime;
+            CreationTime = creationTime;
             UpdateTime = updateTime;
         }
     }

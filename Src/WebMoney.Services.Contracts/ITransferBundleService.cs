@@ -7,7 +7,7 @@ namespace WebMoney.Services.Contracts
     public interface ITransferBundleService
     {
         int RegisterBundle(IEnumerable<IOriginalTransfer> transfers, string name);
-        IReadOnlyCollection<ITransferBundle> SelectBundles(DateTime fromTime, DateTime toTime);
+        IEnumerable<ITransferBundle> SelectBundles(DateTime fromTime, DateTime toTime);
         ITransferBundle ObtainBundle(int bundleId, bool includeTransfers);
         IPreparedTransfer ObtainPreparedTransfer(int id);
 

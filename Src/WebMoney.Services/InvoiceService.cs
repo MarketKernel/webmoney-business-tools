@@ -9,8 +9,6 @@ using WebMoney.XmlInterfaces;
 using WebMoney.XmlInterfaces.BasicObjects;
 using WebMoney.XmlInterfaces.Exceptions;
 using WebMoney.XmlInterfaces.Responses;
-using IncomingInvoice = WebMoney.Services.BusinessObjects.IncomingInvoice;
-using OutgoingInvoice = WebMoney.Services.BusinessObjects.OutgoingInvoice;
 
 namespace WebMoney.Services
 {
@@ -44,7 +42,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
         }
 
@@ -62,11 +60,11 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
         }
 
-        public IReadOnlyCollection<IIncomingInvoice> SelectIncomingInvoices(DateTime fromTime, DateTime toTime, bool fresh = false)
+        public IEnumerable<IIncomingInvoice> SelectIncomingInvoices(DateTime fromTime, DateTime toTime, bool fresh = false)
         {
             var request = new IncomingInvoiceFilter((WmId) Session.CurrentIdentifier, fromTime, toTime)
             {
@@ -81,12 +79,13 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
-            return response.IncomingInvoiceList.Select(ii =>
+            var incomingInvoices = response.IncomingInvoiceList.Select(ii =>
                 {
-                    var incomingInvoice = new IncomingInvoice(ii.Id, ii.Ts, (int) ii.OperationId, ii.TargetWmId,
+                    var incomingInvoice = new BusinessObjects.IncomingInvoice(ii.Id, ii.Ts, (int) ii.OperationId,
+                        ii.TargetWmId,
                         ii.TargetPurse.ToString(),
                         ii.Amount, ii.Description, ii.Expiration, ConvertFrom.ApiTypeToContractType(ii.InvoiceState),
                         ii.CreateTime,
@@ -99,13 +98,15 @@ namespace WebMoney.Services
                     if (ii.OperationId > 0)
                         incomingInvoice.TransferPrimaryId = ii.OperationId;
 
-                    return (IIncomingInvoice) incomingInvoice;
+                    return incomingInvoice;
                 })
                 .OrderByDescending(ii => ii.UpdateTime)
                 .ToList();
+
+            return incomingInvoices;
         }
 
-        public IReadOnlyCollection<IOutgoingInvoice> SelectOutgoingInvoices(string purse, DateTime fromTime, DateTime toTime,
+        public IEnumerable<IOutgoingInvoice> SelectOutgoingInvoices(string purse, DateTime fromTime, DateTime toTime,
             bool fresh = false)
         {
             var request =
@@ -122,12 +123,13 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
-            return response.OutgoingInvoiceList.Select(oi =>
+            var outgoingInvoices = response.OutgoingInvoiceList.Select(oi =>
                 {
-                    var outgoingInvoice = new OutgoingInvoice(oi.Id, oi.Ts, (int) oi.OperationId, oi.SourceWmId,
+                    var outgoingInvoice = new BusinessObjects.OutgoingInvoice(oi.Id, oi.Ts, (int) oi.OperationId,
+                        oi.SourceWmId,
                         oi.TargetPurse.ToString(), oi.Amount, oi.Description, oi.Expiration,
                         ConvertFrom.ApiTypeToContractType(oi.InvoiceState), oi.CreateTime, oi.UpdateTime)
                     {
@@ -140,10 +142,12 @@ namespace WebMoney.Services
                     if (oi.OperationId > 0)
                         outgoingInvoice.TransferPrimaryId = oi.OperationId;
 
-                    return (IOutgoingInvoice) outgoingInvoice;
+                    return outgoingInvoice;
                 })
                 .OrderByDescending(oi => oi.UpdateTime)
                 .ToList();
+
+            return outgoingInvoices;
         }
     }
 }

@@ -38,13 +38,13 @@ namespace WebMoney.Services.ExternalServices
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return (int)response.ContractId;
         }
 
-        public IReadOnlyCollection<IContractSignature> SelectContractSignatures(int contractId)
+        public IEnumerable<IContractSignature> SelectContractSignatures(int contractId)
         {
             var request = new AcceptorFilter((uint) contractId)
             {
@@ -59,16 +59,15 @@ namespace WebMoney.Services.ExternalServices
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             return response.AcceptorList
-                .Select(acceptor => (IContractSignature) new ContractSignature(acceptor.WmId)
+                .Select(acceptor => new ContractSignature(acceptor.WmId)
                 {
                     ContractId = (int) acceptor.ContractId,
                     AcceptTime = acceptor.AcceptTime?.ToUniversalTime()
-                })
-                .ToList();
+                });
         }
     }
 }

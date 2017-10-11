@@ -7,6 +7,6 @@ namespace WebMoney.Services.ExternalServices.Contracts
     public interface IExternalTransferService
     {
         long CreateTransfer(IOriginalTransfer originalTransfer);
-        IReadOnlyCollection<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime);
+        IEnumerable<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime);
     }
 }

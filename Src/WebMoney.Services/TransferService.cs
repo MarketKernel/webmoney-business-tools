@@ -42,7 +42,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
         }
 
@@ -59,7 +59,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
         }
 
@@ -77,7 +77,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
         }
 
@@ -104,11 +104,11 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
         }
 
-        public IReadOnlyCollection<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime,
+        public IEnumerable<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime,
             bool fresh = false)
         {
             if (null == purse)
@@ -145,7 +145,7 @@ namespace WebMoney.Services
                     transfer.IncomeAmount = transfer.Amount;
             }
 
-            return transfers.Select(t => (ITransfer) t).OrderByDescending(t => t.UpdateTime).ToList();
+            return transfers.OrderByDescending(t => t.UpdateTime);
         }
 
         public decimal CalculateCommission(decimal amount, string currency)

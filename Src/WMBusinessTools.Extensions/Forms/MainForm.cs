@@ -55,7 +55,7 @@ namespace WMBusinessTools.Extensions.Forms
             EventBroker.LanguageChanged += EventBrokerOnLanguageChanged;
         }
 
-        private void UpdateComboBox(long? selectIdentifier = null)
+        private void UpdateComboBox(long? identifierToSelect = null)
         {
             var identifiers = _identifierService.SelectIdentifiers();
 
@@ -73,8 +73,14 @@ namespace WMBusinessTools.Extensions.Forms
 
                 identifierComboBox.Items.Add(new ComboBoxItem(text, identifierInfo));
 
-                if (null != selectIdentifier && selectIdentifier.Value == identifierInfo.Identifier)
-                    selectedIndex = index;
+                if (null != identifierToSelect)
+                {
+                    if (identifierToSelect.Value == identifierInfo.Identifier)
+                        selectedIndex = index;
+                }
+                else
+                    if (identifierInfo.IsMaster)
+                        selectedIndex = index;
 
                 index++;
             }
@@ -117,11 +123,11 @@ namespace WMBusinessTools.Extensions.Forms
             if (DialogResult.OK != formProvider?.GetForm(_sessionContext).ShowDialog(this))
                 return;
 
-            removeIdentifierButton.Enabled = _sessionContext.Session.IsMaster();
-
             UpdateComboBox(_sessionContext.Session.CurrentIdentifier);
             BuildMainMenu();
             BuildScreens();
+
+            removeIdentifierButton.Enabled = !_sessionContext.Session.IsMaster();
         }
 
         private void removeIdentifierButton_Click(object sender, EventArgs e)

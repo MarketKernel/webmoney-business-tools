@@ -13,11 +13,15 @@ using log4net.Config;
 [assembly: InternalsVisibleTo("Xml2WinForms.Utility, PublicKey=0024000004800000940000000602000000240000525341310004000001000100f5b1dfa496f2b6f98741d92cf19d468e3f4b948b8b0e571468b18a73ef6371d0fa53622a1188c03cc6b6715ca3c6b8f3ba0ff5816da2a4c9520831d4000920d8265a573e8c0aee453547e149c060419e88c2ef4829e84973e58a0601989b07e0fab346784ebb4df9620c2665d233c30b07240a2af8611c90289bebdf80e780cc")]
 
 [assembly: AssemblyTitle("WMBusinessTools.Extensions")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WMBusinessTools.Extensions")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyDescription("See: www.webmoney-business-tools.com")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
+[assembly: AssemblyCompany("MarketKernel Team")]
+[assembly: AssemblyProduct("WebMoney Business Tools")]
+[assembly: AssemblyCopyright("© MarketKernel Team <global@marketkernel.com> 2009-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

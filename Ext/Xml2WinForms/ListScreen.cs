@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using Xml2WinForms.Templates;
 
@@ -120,11 +122,17 @@ namespace Xml2WinForms
             ServiceCommand?.Invoke(this, new CommandEventArgs {Command = "BeginRefresh"});
             refreshButton.Enabled = false;
 
-            mBackgroundWorker.RunWorkerAsync();
+            mBackgroundWorker.RunWorkerAsync(new object[]
+                {Thread.CurrentThread.CurrentCulture, Thread.CurrentThread.CurrentUICulture});
         }
 
         private void mBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
+            object[] parameters = (object[])e.Argument;
+
+            Thread.CurrentThread.CurrentCulture = (CultureInfo)parameters[0];
+            Thread.CurrentThread.CurrentUICulture = (CultureInfo)parameters[1];
+
             e.Result = RefreshCallback?.Invoke();
         }
 

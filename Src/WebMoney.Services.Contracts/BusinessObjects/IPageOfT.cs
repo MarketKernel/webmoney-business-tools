@@ -7,6 +7,6 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         int CurrentPage { get; }
         int TotalPages { get; }
 
-        IReadOnlyCollection<TItem> Items { get; }
+        IEnumerable<TItem> Items { get; }
     }
 }

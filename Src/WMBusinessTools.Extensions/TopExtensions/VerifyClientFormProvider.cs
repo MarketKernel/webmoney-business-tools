@@ -152,8 +152,8 @@ namespace WMBusinessTools.Extensions
 
                         var listItems = new List<ListItemContent>
                         {
-                            new ListItemContent(new ResultRecord("ClientName", verificationReport.ClientName)),
-                            new ListItemContent(new ResultRecord("ClientМiddleName", verificationReport.ClientМiddleName)),
+                            new ListItemContent(new ResultRecord("Client name", verificationReport.ClientName)),
+                            new ListItemContent(new ResultRecord("Client middle name", verificationReport.ClientMiddleName)),
                             new ListItemContent(new ResultRecord("Reference", verificationReport.Reference))
                         };
 

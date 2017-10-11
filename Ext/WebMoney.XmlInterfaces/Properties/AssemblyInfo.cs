@@ -16,7 +16,7 @@ using System.Security;
 #endif
 [assembly: AssemblyCompany("WMTransfer Ltd.")]
 [assembly: AssemblyProduct("WebMoney API for .Net Framework")]
-[assembly: AssemblyCopyright("© Dmitry Kukushkin <support@wmsigner.com> 2007-2016")]
+[assembly: AssemblyCopyright("© Dmitry Kukushkin <support@wmsigner.com> 2007-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -38,5 +38,5 @@ using System.Security;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.4.0")]
-[assembly: AssemblyFileVersion("1.1.4.0")]
+[assembly: AssemblyVersion("1.1.5.0")]
+[assembly: AssemblyFileVersion("1.1.5.0")]

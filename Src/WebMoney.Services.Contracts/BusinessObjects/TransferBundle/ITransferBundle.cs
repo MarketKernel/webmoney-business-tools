@@ -25,6 +25,6 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         DateTime CreationTime { get; }
         DateTime UpdateTime { get; }
 
-        IReadOnlyCollection<IPreparedTransfer> Transfers { get; }
+        IEnumerable<IPreparedTransfer> Transfers { get; }
     }
 }

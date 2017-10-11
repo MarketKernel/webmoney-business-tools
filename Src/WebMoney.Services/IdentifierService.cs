@@ -22,11 +22,11 @@ namespace WebMoney.Services
         private static readonly ILog Logger = LogManager.GetLogger(typeof(IdentifierService));
 
         private static readonly object Anchor = new object();
-        private static readonly List<IIdentifierSummary> IdentifierSummaries;
+        private static readonly List<IdentifierSummary> IdentifierSummaries;
 
         static IdentifierService()
         {
-            IdentifierSummaries = new List<IIdentifierSummary>();
+            IdentifierSummaries = new List<IdentifierSummary>();
         }
 
         public void AddSecondaryIdentifier(IIdentifierSummary identifierSummary)
@@ -65,7 +65,7 @@ namespace WebMoney.Services
                     if (IdentifierSummaries.Any(e => e.Identifier == identifierSummary.Identifier))
                         return;
 
-                    IdentifierSummaries.Add(identifierSummary);
+                    IdentifierSummaries.Add(entity);
                 }
             }
         }
@@ -119,21 +119,21 @@ namespace WebMoney.Services
             }
         }
 
-        public IReadOnlyCollection<IIdentifierSummary> SelectIdentifiers()
+        public IEnumerable<IIdentifierSummary> SelectIdentifiers()
         {
-            List<IIdentifierSummary> identifierSummaries;
+            List<IdentifierSummary> identifierSummaries;
 
             if (Session.AuthenticationService.HasConnectionSettings)
                 using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
                 {
-                    identifierSummaries = new List<IIdentifierSummary>();
+                    identifierSummaries = new List<IdentifierSummary>();
                     identifierSummaries.AddRange(context.IdentifierSummaries.ToList());
                 }
             else
             {
                 lock (Anchor)
                 {
-                    identifierSummaries = new List<IIdentifierSummary>(IdentifierSummaries);
+                    identifierSummaries = new List<IdentifierSummary>(IdentifierSummaries);
 
                     var masterIdentifier = Session.AuthenticationService.MasterIdentifier;
 
@@ -170,7 +170,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             if (null == response.WmId)
@@ -212,7 +212,7 @@ namespace WebMoney.Services
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             int? bl = null;

@@ -62,7 +62,7 @@ namespace WebMoney.Services
                 throw new InvalidOperationException("!Session.AuthenticationService.HasConnectionSettings");
 
             var externalContractService = Container.Resolve<IExternalContractService>();
-            var contractSignatures = externalContractService.SelectContractSignatures(id);
+            var contractSignatures = externalContractService.SelectContractSignatures(id).ToList();
 
             using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
             {
@@ -93,7 +93,7 @@ namespace WebMoney.Services
             }
         }
 
-        public IReadOnlyCollection<IContract> SelectContracts(DateTime fromTime, DateTime toTime, bool fresh = false)
+        public IEnumerable<IContract> SelectContracts(DateTime fromTime, DateTime toTime, bool fresh = false)
         {
             if (fresh)
                 throw new ArgumentOutOfRangeException(nameof(fresh));

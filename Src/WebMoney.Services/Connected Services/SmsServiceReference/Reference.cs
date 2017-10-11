@@ -15,28 +15,22 @@ namespace WebMoney.Services.SmsServiceReference {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SmsServiceReference.SmsSenderSvcSoap")]
     public interface SmsSenderSvcSoap {
         
+        // CODEGEN: Generating message contract since element name phoneNumber from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SendSingleSMS", ReplyAction="*")]
         WebMoney.Services.SmsServiceReference.SendSingleSMSResponse SendSingleSMS(WebMoney.Services.SmsServiceReference.SendSingleSMSRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SendSingleSMS", ReplyAction="*")]
-        System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.SendSingleSMSResponse> SendSingleSMSAsync(WebMoney.Services.SmsServiceReference.SendSingleSMSRequest request);
-        
+        // CODEGEN: Generating message contract since element name dateTime from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSMSStatus", ReplyAction="*")]
         WebMoney.Services.SmsServiceReference.GetSMSStatusResponse GetSMSStatus(WebMoney.Services.SmsServiceReference.GetSMSStatusRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetSMSStatus", ReplyAction="*")]
-        System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.GetSMSStatusResponse> GetSMSStatusAsync(WebMoney.Services.SmsServiceReference.GetSMSStatusRequest request);
         
         // CODEGEN: Generating message contract since element name phoneNumber from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetMessageCost", ReplyAction="*")]
         WebMoney.Services.SmsServiceReference.GetMessageCostResponse GetMessageCost(WebMoney.Services.SmsServiceReference.GetMessageCostRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetMessageCost", ReplyAction="*")]
-        System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.GetMessageCostResponse> GetMessageCostAsync(WebMoney.Services.SmsServiceReference.GetMessageCostRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class SendSingleSMSRequest {
         
@@ -53,6 +47,7 @@ namespace WebMoney.Services.SmsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class SendSingleSMSRequestBody {
         
@@ -97,6 +92,7 @@ namespace WebMoney.Services.SmsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class SendSingleSMSResponse {
         
@@ -113,6 +109,7 @@ namespace WebMoney.Services.SmsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class SendSingleSMSResponseBody {
         
@@ -133,6 +130,7 @@ namespace WebMoney.Services.SmsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetSMSStatusRequest {
         
@@ -149,6 +147,7 @@ namespace WebMoney.Services.SmsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class GetSMSStatusRequestBody {
         
@@ -177,6 +176,7 @@ namespace WebMoney.Services.SmsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetSMSStatusResponse {
         
@@ -193,6 +193,7 @@ namespace WebMoney.Services.SmsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class GetSMSStatusResponseBody {
         
@@ -340,25 +341,6 @@ namespace WebMoney.Services.SmsServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.SendSingleSMSResponse> WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap.SendSingleSMSAsync(WebMoney.Services.SmsServiceReference.SendSingleSMSRequest request) {
-            return base.Channel.SendSingleSMSAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.SendSingleSMSResponse> SendSingleSMSAsync(string phoneNumber, string messageText, bool transliterate, string wmid, string senderPursue, string dateTime, bool internalpayment, string requestSign) {
-            WebMoney.Services.SmsServiceReference.SendSingleSMSRequest inValue = new WebMoney.Services.SmsServiceReference.SendSingleSMSRequest();
-            inValue.Body = new WebMoney.Services.SmsServiceReference.SendSingleSMSRequestBody();
-            inValue.Body.phoneNumber = phoneNumber;
-            inValue.Body.messageText = messageText;
-            inValue.Body.transliterate = transliterate;
-            inValue.Body.wmid = wmid;
-            inValue.Body.senderPursue = senderPursue;
-            inValue.Body.dateTime = dateTime;
-            inValue.Body.internalpayment = internalpayment;
-            inValue.Body.requestSign = requestSign;
-            return ((WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap)(this)).SendSingleSMSAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         WebMoney.Services.SmsServiceReference.GetSMSStatusResponse WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap.GetSMSStatus(WebMoney.Services.SmsServiceReference.GetSMSStatusRequest request) {
             return base.Channel.GetSMSStatus(request);
         }
@@ -376,21 +358,6 @@ namespace WebMoney.Services.SmsServiceReference {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.GetSMSStatusResponse> WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap.GetSMSStatusAsync(WebMoney.Services.SmsServiceReference.GetSMSStatusRequest request) {
-            return base.Channel.GetSMSStatusAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.GetSMSStatusResponse> GetSMSStatusAsync(int smsID, string dateTime, string wmid, string requestSign) {
-            WebMoney.Services.SmsServiceReference.GetSMSStatusRequest inValue = new WebMoney.Services.SmsServiceReference.GetSMSStatusRequest();
-            inValue.Body = new WebMoney.Services.SmsServiceReference.GetSMSStatusRequestBody();
-            inValue.Body.smsID = smsID;
-            inValue.Body.dateTime = dateTime;
-            inValue.Body.wmid = wmid;
-            inValue.Body.requestSign = requestSign;
-            return ((WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap)(this)).GetSMSStatusAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         WebMoney.Services.SmsServiceReference.GetMessageCostResponse WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap.GetMessageCost(WebMoney.Services.SmsServiceReference.GetMessageCostRequest request) {
             return base.Channel.GetMessageCost(request);
         }
@@ -404,21 +371,6 @@ namespace WebMoney.Services.SmsServiceReference {
             inValue.Body.profileID = profileID;
             WebMoney.Services.SmsServiceReference.GetMessageCostResponse retVal = ((WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap)(this)).GetMessageCost(inValue);
             return retVal.Body.GetMessageCostResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.GetMessageCostResponse> WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap.GetMessageCostAsync(WebMoney.Services.SmsServiceReference.GetMessageCostRequest request) {
-            return base.Channel.GetMessageCostAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WebMoney.Services.SmsServiceReference.GetMessageCostResponse> GetMessageCostAsync(string phoneNumber, string firstPurseLetter, int packageSize, int profileID) {
-            WebMoney.Services.SmsServiceReference.GetMessageCostRequest inValue = new WebMoney.Services.SmsServiceReference.GetMessageCostRequest();
-            inValue.Body = new WebMoney.Services.SmsServiceReference.GetMessageCostRequestBody();
-            inValue.Body.phoneNumber = phoneNumber;
-            inValue.Body.firstPurseLetter = firstPurseLetter;
-            inValue.Body.packageSize = packageSize;
-            inValue.Body.profileID = profileID;
-            return ((WebMoney.Services.SmsServiceReference.SmsSenderSvcSoap)(this)).GetMessageCostAsync(inValue);
         }
     }
 }

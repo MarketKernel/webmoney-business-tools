@@ -10,6 +10,6 @@ namespace WebMoney.Services.Contracts
         void RemovePurse(string purse);
         void SetMerchantKey(string purse, string key);
         void ClearMerchantKey(string purse);
-        IReadOnlyCollection<IAccount> SelectAccounts(bool fresh = false, bool masterAccountsRequested = false);
+        IEnumerable<IAccount> SelectAccounts(bool fresh = false, bool masterAccountsRequested = false);
     }
 }

@@ -17,7 +17,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         byte ExpirationPeriod { get; }
         InvoiceState State { get; }
         long? TransferPrimaryId { get; }
-        DateTime СreationTime { get; }
+        DateTime CreationTime { get; }
         DateTime UpdateTime { get; }
     }
 }

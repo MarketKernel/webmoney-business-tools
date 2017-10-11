@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 using Xml2WinForms.Templates;
 using Xml2WinForms.Utils;
@@ -199,7 +201,10 @@ namespace Xml2WinForms
 
             mToolStripProgressBar.Visible = true;
 
-            mBackgroundWorker.RunWorkerAsync(new object[] {_currentShapeIndex, values});
+            mBackgroundWorker.RunWorkerAsync(new object[]
+            {
+                _currentShapeIndex, values, Thread.CurrentThread.CurrentCulture, Thread.CurrentThread.CurrentUICulture
+            });
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -214,6 +219,8 @@ namespace Xml2WinForms
 
             int currentStepNumber = (int) parameters[0];
             var shapeValues = (List<object>) parameters[1];
+            Thread.CurrentThread.CurrentCulture = (CultureInfo)parameters[2];
+            Thread.CurrentThread.CurrentUICulture = (CultureInfo) parameters[3];
 
             e.Result = WorkCallback?.Invoke(currentStepNumber, shapeValues);
         }

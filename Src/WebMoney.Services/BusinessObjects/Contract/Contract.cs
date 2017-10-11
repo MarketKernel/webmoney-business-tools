@@ -67,7 +67,7 @@ namespace WebMoney.Services.BusinessObjects
         public List<ContractSignature> Signatures { get; }
 
         [NotMapped]
-        IReadOnlyCollection<IContractSignature> IContract.Signatures => Signatures?.Select(s => (IContractSignature) s).ToList();
+        IEnumerable<IContractSignature> IContract.Signatures => Signatures;
 
         internal Contract()
         {

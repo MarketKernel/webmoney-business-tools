@@ -6,6 +6,6 @@ namespace WebMoney.Services.ExternalServices.Contracts
     public interface IExternalContractService
     {
         int CreateContract(string name, string text, IEnumerable<long> authorizedIdentifiers);
-        IReadOnlyCollection<IContractSignature> SelectContractSignatures(int contractId);
+        IEnumerable<IContractSignature> SelectContractSignatures(int contractId);
     }
 }

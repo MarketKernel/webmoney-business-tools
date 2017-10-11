@@ -66,7 +66,7 @@ namespace WebMoney.Services
             return transferBundle.Id;
         }
 
-        public IReadOnlyCollection<ITransferBundle> SelectBundles(DateTime fromTime, DateTime toTime)
+        public IEnumerable<ITransferBundle> SelectBundles(DateTime fromTime, DateTime toTime)
         {
             if (!Session.AuthenticationService.HasConnectionSettings)
                 throw new InvalidOperationException("!Session.AuthenticationService.HasConnectionSettings");

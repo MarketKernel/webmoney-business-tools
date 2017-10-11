@@ -13,7 +13,7 @@ namespace WebMoney.Services.Contracts
         bool CheckRegistration(long identifier);
         void Register(IAuthenticationSettings authenticationSettings, SecureString password);
         void RemoveRegistration(long identifier);
-        IReadOnlyCollection<IRegistration> SelectRegistrations();
+        IEnumerable<IRegistration> SelectRegistrations();
         ISession CreateSession(long identifier, SecureString password = null);
         void Handshake(ISession session);
     }

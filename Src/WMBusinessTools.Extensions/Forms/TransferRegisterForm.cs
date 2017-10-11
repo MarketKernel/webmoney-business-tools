@@ -110,12 +110,13 @@ namespace WMBusinessTools.Extensions.Forms
             {
                 case XmlExtension:
                 {
-                    IReadOnlyCollection<IOriginalTransfer> originalTransfers;
+                    List<IOriginalTransfer> originalTransfers;
 
                     try
                     {
                         originalTransfers = _context.UnityContainer.Resolve<IImportExportService>()
-                            .LoadExportableTransfers(fileName);
+                            .LoadExportableTransfers(fileName)
+                            .ToList();
                     }
                     catch (Exception exception)
                     {

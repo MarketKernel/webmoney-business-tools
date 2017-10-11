@@ -14,6 +14,6 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         ContractState State { get; }
         int AcceptedCount { get; }
         int AccessCount { get; }
-        IReadOnlyCollection<IContractSignature> Signatures { get; }
+        IEnumerable<IContractSignature> Signatures { get; }
     }
 }

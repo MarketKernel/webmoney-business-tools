@@ -12,7 +12,7 @@ namespace LocalizationAssistant
 
         private static readonly object Anchor = new object();
 
-        private readonly string _languageDirectory;
+        private readonly string _twoLetterIsoLanguageName;
         private readonly SortedDictionary<string, ValueDictionaryHolder> _categoryDictionary;
 
         private static volatile Translator _instance;
@@ -34,24 +34,18 @@ namespace LocalizationAssistant
             }
         }
 
-        public Translator(string storageDirectory = null)
+        public Translator()
         {
-
-            if (null == storageDirectory)
-                storageDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, StorageDirectory);
-
-            if (!Directory.Exists(storageDirectory))
-                Directory.CreateDirectory(storageDirectory);
-
-            var twoLetterIsoLanguageName = Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
-
-            _languageDirectory = Path.Combine(storageDirectory, twoLetterIsoLanguageName);
-
-            if (!Directory.Exists(_languageDirectory))
-                Directory.CreateDirectory(_languageDirectory);
-
             _categoryDictionary = new SortedDictionary<string, ValueDictionaryHolder>();
-            var files = Directory.GetFiles(_languageDirectory, "*.json", SearchOption.TopDirectoryOnly);
+            _twoLetterIsoLanguageName = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
+
+            var storageDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, StorageDirectory);
+            var languageDirectory = Path.Combine(storageDirectory, _twoLetterIsoLanguageName);
+
+            if (!Directory.Exists(languageDirectory))
+                return;
+
+            var files = Directory.GetFiles(languageDirectory, "*.json", SearchOption.TopDirectoryOnly);
 
             foreach (var file in files)
             {
@@ -114,6 +108,11 @@ namespace LocalizationAssistant
 
         public void Save()
         {
+            var storageDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, StorageDirectory);
+            var languageDirectory = Path.Combine(storageDirectory, _twoLetterIsoLanguageName);
+
+            if (!Directory.Exists(languageDirectory))
+
             lock (Anchor)
             {
                 foreach (var keyValue in _categoryDictionary)
@@ -121,7 +120,7 @@ namespace LocalizationAssistant
                     if (!keyValue.Value.Changed)
                         continue;
 
-                    var filePath = Path.Combine(_languageDirectory, keyValue.Key);
+                    var filePath = Path.Combine(languageDirectory, keyValue.Key);
                     filePath = Path.ChangeExtension(filePath, ".json");
 
                     keyValue.Value.SaveToFile(filePath);

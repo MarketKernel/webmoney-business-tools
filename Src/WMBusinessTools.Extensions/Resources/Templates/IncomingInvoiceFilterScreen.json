@@ -94,8 +94,8 @@
         "sortable": true
       },
       {
-        "name": "СreationTime",
-        "headerText": "Сreation time",
+        "name": "CreationTime",
+        "headerText": "Creation time",
         "width": 125,
         "sortable": true
       },

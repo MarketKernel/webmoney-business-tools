@@ -7,13 +7,13 @@ namespace WebMoney.Services.BusinessObjects
     {
         public string Reference { get; }
         public string ClientName { get; }
-        public string ClientМiddleName { get; }
+        public string ClientMiddleName { get; }
 
-        public VerificationReport(string reference, string clientName, string clientМiddleName)
+        public VerificationReport(string reference, string clientName, string clientMiddleName)
         {
             Reference = reference ?? throw new ArgumentNullException(nameof(reference));
             ClientName = clientName ?? throw new ArgumentNullException(nameof(clientName));
-            ClientМiddleName = clientМiddleName ?? throw new ArgumentNullException(nameof(clientМiddleName));
+            ClientMiddleName = clientMiddleName ?? throw new ArgumentNullException(nameof(clientMiddleName));
         }
     }
 }

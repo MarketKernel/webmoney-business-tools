@@ -37,16 +37,16 @@ namespace WebMoney.Services
                 case 0:
                     return;
                 case 1:
-                    throw new ExternalException("Внутренняя ошибка сервиса sms.webmoney.ru");
+                    throw new ExternalServiceException("Внутренняя ошибка сервиса sms.webmoney.ru");
                 case 2:
-                    throw new ExternalException("Неверный параметр dateTime (более, чем на сутки отличается от времени на сервере)");
+                    throw new ExternalServiceException("Неверный параметр dateTime (более, чем на сутки отличается от времени на сервере)");
                 case 3:
-                    throw new ExternalException("Неверная подпись запроса");
+                    throw new ExternalServiceException("Неверная подпись запроса");
                 case 4:
-                    throw new ExternalException(
+                    throw new ExternalServiceException(
                         "Невозможно осуществить оплату (недостаточно средств или неверный кошелек). Пополните ваш баланс на sms.webmoney.ru");
                 default:
-                    throw new ExternalException(
+                    throw new ExternalServiceException(
                         "Другая неизвестная ошибка sms.webmoney.ru. Номер ошибки " + result + ". Обратитесь к администратору sms.webmoney.ru.");
             }
         }

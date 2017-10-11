@@ -5,6 +5,6 @@ namespace WebMoney.Services.ExternalServices.Contracts
 {
     public interface IExternalTrustService
     {
-        IReadOnlyCollection<ITrust> SelectTrusts();
+        IEnumerable<ITrust> SelectTrusts();
     }
 }

@@ -9,6 +9,6 @@ namespace WebMoney.Services.Contracts
         bool CheckCapabilities(string currency, CurrencyCapabilities capabilitiesToCheck);
         string AddPrefix(string currency);
         string RemovePrefix(string currency);
-        IReadOnlyCollection<string> SelectCurrencies(CurrencyCapabilities currencyCapabilities);
+        IEnumerable<string> SelectCurrencies(CurrencyCapabilities currencyCapabilities);
     }
 }

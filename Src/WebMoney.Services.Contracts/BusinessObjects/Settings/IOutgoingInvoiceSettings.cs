@@ -14,6 +14,6 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         bool ProtectionPeriodVisibility { get; set; }
         bool ExpirationPeriodVisibility { get; set; }
         bool TransferPrimaryIdVisibility { get; set; }
-        bool СreationTimeVisibility { get; set; }
+        bool CreationTimeVisibility { get; set; }
     }
 }

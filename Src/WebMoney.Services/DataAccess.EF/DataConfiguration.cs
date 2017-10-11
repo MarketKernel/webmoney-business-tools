@@ -5,6 +5,7 @@ using System.Data.SqlServerCe;
 
 namespace WebMoney.Services.DataAccess.EF
 {
+
     internal sealed class DataConfiguration : DbConfiguration
     {
         public const string SqlServerCompactProviderInvariantName = "System.Data.SqlServerCe.4.0";
@@ -12,9 +13,12 @@ namespace WebMoney.Services.DataAccess.EF
 
         public DataConfiguration()
         {
+            SetProviderFactory(SqlServerCompactProviderInvariantName, new SqlCeProviderFactory());
             SetProviderServices(SqlServerCompactProviderInvariantName, SqlCeProviderServices.Instance);
+
             SetProviderServices(SqlServerProviderInvariantName, SqlProviderServices.Instance);
-            SetProviderFactory(SqlServerCompactProviderInvariantName, SqlCeProviderFactory.Instance);
+
+            SetProviderFactoryResolver(new ProviderFactoryResolver());
         }
     }
 }

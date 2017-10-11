@@ -20,7 +20,7 @@ namespace WebMoney.Services.ExternalServices
 
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ExternalPurseService));
 
-        public IReadOnlyCollection<IAccount> SelectAccounts()
+        public IEnumerable<IAccount> SelectAccounts()
         {
             long currentIdentifier = Session.CurrentIdentifier;
 
@@ -39,30 +39,30 @@ namespace WebMoney.Services.ExternalServices
                 }
                 catch (WmException exception)
                 {
-                    throw new ExternalException(exception.Message, exception);
+                    throw new ExternalServiceException(exception.Message, exception);
                 }
 
                 return response.PurseInfoList.Select(
-                        pi =>
-                        {
-                            string description = pi.Description;
+                    pi =>
+                    {
+                        string description = pi.Description;
 
-                            if (string.IsNullOrWhiteSpace(pi.Description))
-                                description = EmptyPurseName;
+                        if (string.IsNullOrWhiteSpace(pi.Description))
+                            description = EmptyPurseName;
 
-                            var account =
-                                new Account(pi.Purse.ToString(), currentIdentifier,
-                                    description) {Amount = pi.Amount};
+                        var account =
+                            new Account(pi.Purse.ToString(), currentIdentifier,
+                                    description)
+                                {Amount = pi.Amount};
 
-                            if (pi.LastIncomingTransfer > 0)
-                                account.LastIncomingTransferPrimaryId = pi.LastIncomingTransfer;
+                        if (pi.LastIncomingTransfer > 0)
+                            account.LastIncomingTransferPrimaryId = pi.LastIncomingTransfer;
 
-                            if (pi.LastOutgoingTransfer > 0)
-                                account.LastOutgoingTransferPrimaryId = pi.LastOutgoingTransfer;
+                        if (pi.LastOutgoingTransfer > 0)
+                            account.LastOutgoingTransferPrimaryId = pi.LastOutgoingTransfer;
 
-                            return (IAccount) account;
-                        })
-                    .ToList();
+                        return account;
+                    });
             }
 
             var trustFilter = new IncomingTrustFilter((WmId) currentIdentifier)
@@ -83,7 +83,7 @@ namespace WebMoney.Services.ExternalServices
             }
             catch (WmException exception)
             {
-                throw new ExternalException(exception.Message, exception);
+                throw new ExternalServiceException(exception.Message, exception);
             }
 
             PurseInfoRegister purseInfoRegister;
@@ -98,7 +98,7 @@ namespace WebMoney.Services.ExternalServices
                 purseInfoRegister = null;
             }
 
-            var accounts = new List<IAccount>();
+            var accounts = new List<Account>();
 
             foreach (var trust in trustRegister.TrustList)
             {

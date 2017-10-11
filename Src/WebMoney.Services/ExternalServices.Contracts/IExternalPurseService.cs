@@ -5,6 +5,6 @@ namespace WebMoney.Services.ExternalServices.Contracts
 {
     public interface IExternalPurseService
     {
-        IReadOnlyCollection<IAccount> SelectAccounts();
+        IEnumerable<IAccount> SelectAccounts();
     }
 }
