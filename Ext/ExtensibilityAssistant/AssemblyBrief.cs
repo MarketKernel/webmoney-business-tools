@@ -11,7 +11,7 @@ namespace ExtensibilityAssistant
         public AssemblyBrief(string assemblyFullName, byte[] publicKeyToken)
         {
             AssemblyFullName = assemblyFullName ?? throw new ArgumentNullException(nameof(assemblyFullName));
-            _publicKeyToken = publicKeyToken ?? throw new ArgumentNullException(nameof(publicKeyToken));
+            _publicKeyToken = publicKeyToken;
         }
 
         public byte[] GetPublicKeyToken()

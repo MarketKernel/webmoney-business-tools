@@ -2,7 +2,6 @@
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Security;
-using System.Security.Permissions;
 
 namespace ExtensibilityAssistant
 {

@@ -3,7 +3,7 @@
     {
       "id": "ConfigurationService",
       "name": "ConfigurationService",
-      "assemblyFile": "WebMoney.Services.dll",
+      "assemblyFullName": "WebMoney.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WebMoney.Services.ConfigurationService"
     }
   ]

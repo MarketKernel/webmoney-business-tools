@@ -25,9 +25,6 @@ namespace ExtensibilityAssistant
         private const string JsonManifestFileName = "Extensions.json";
         private const string XmlManifestFileName = "Extensions.xml";
 
-        private readonly Dictionary<string, AssemblyBrief> _assemblyBriefByFilePathRegister =
-            new Dictionary<string, AssemblyBrief>();
-
         private readonly Dictionary<string, List<ExtensionConfiguration>> _extensionConfigurationsByIdRegister =
             new Dictionary<string, List<ExtensionConfiguration>>();
 
@@ -50,21 +47,9 @@ namespace ExtensibilityAssistant
 
                 foreach (var extensionConfiguration in register.ExtensionConfigurations)
                 {
-                    var assemblyFilePath = Path.Combine(directory, extensionConfiguration.AssemblyFile);
-
-                    if (!File.Exists(assemblyFilePath))
-                        continue;
-
                     extensionConfiguration.BaseDirectory = directory;
-
-                    if (!_assemblyBriefByFilePathRegister.ContainsKey(assemblyFilePath))
-                    {
-                        var assemblyName = AssemblyName.GetAssemblyName(assemblyFilePath);
-                        _assemblyBriefByFilePathRegister[assemblyFilePath] =
-                            new AssemblyBrief(assemblyName.FullName, assemblyName.GetPublicKeyToken());
-                    }
-
-                    extensionConfiguration.AssemblyBrief = _assemblyBriefByFilePathRegister[assemblyFilePath];
+                    extensionConfiguration.AssemblyBrief =
+                        new AssemblyBrief(extensionConfiguration.AssemblyFullName, null);
 
                     // By name.
                     if (!_extensionConfigurationsByIdRegister.ContainsKey(extensionConfiguration.Id))
@@ -84,23 +69,23 @@ namespace ExtensibilityAssistant
                             extensionIdList.Add(extensionConfiguration.Id);
                     }
                 }
+            }
 
-                foreach (var assemblyFilePath in Directory.GetFiles(directory, "*.dll", SearchOption.AllDirectories))
+            foreach (var assemblyFilePath in Directory.GetFiles(basePath, "*.dll", SearchOption.AllDirectories))
+            {
+                AssemblyName assemblyName;
+
+                try
                 {
-                    AssemblyName assemblyName;
-
-                    try
-                    {
-                        assemblyName = AssemblyName.GetAssemblyName(assemblyFilePath);
-                    }
-                    catch (BadImageFormatException)
-                    {
-                        continue;
-                    }
-
-                    if (!_assemblyByFullNameRegister.ContainsKey(assemblyName.FullName))
-                        _assemblyByFullNameRegister.Add(assemblyName.FullName, assemblyFilePath);
+                    assemblyName = AssemblyName.GetAssemblyName(assemblyFilePath);
                 }
+                catch (BadImageFormatException)
+                {
+                    continue;
+                }
+
+                if (!_assemblyByFullNameRegister.ContainsKey(assemblyName.FullName))
+                    _assemblyByFullNameRegister.Add(assemblyName.FullName, assemblyFilePath);
             }
         }
 

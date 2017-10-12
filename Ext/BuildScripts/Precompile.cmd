@@ -8,6 +8,7 @@ IF NOT EXIST %NETFX% SET NETFX=%SystemRoot%\Microsoft.NET\Framework\v4.0.30319
 
 SET NGEN=%NETFX%\ngen.exe
 
-%NGEN% install EntityFramework.dll
+%NGEN% install WebMoney.Services.dll
 
 popd
+pause

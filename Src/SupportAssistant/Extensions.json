@@ -3,7 +3,7 @@
     {
       "id": "SupportService",
       "name": "SupportService",
-      "assemblyFile": "SupportAssistant.dll",
+      "assemblyFullName": "SupportAssistant, Version=1.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "SupportAssistant.SupportService"
     }
   ]

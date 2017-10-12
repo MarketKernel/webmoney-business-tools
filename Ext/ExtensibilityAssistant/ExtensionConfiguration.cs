@@ -9,7 +9,7 @@ namespace ExtensibilityAssistant
     {
         private string _id;
         private string _name;
-        private string _assemblyFile;
+        private string _assemblyFullName;
         private string _extensionType;
         private Collection<TagConfiguration> _tags;
 
@@ -37,12 +37,12 @@ namespace ExtensibilityAssistant
         [XmlAttribute("priority")]
         public byte Priority { get; set; } = 127;
 
-        [JsonProperty("assemblyFile", Required = Required.Always)]
-        [XmlAttribute("assemblyFile")]
-        public string AssemblyFile
+        [JsonProperty("assemblyFullName", Required = Required.Always)]
+        [XmlAttribute("assemblyFullName")]
+        public string AssemblyFullName
         {
-            get => _assemblyFile;
-            set => _assemblyFile = value ?? throw new ArgumentNullException(nameof(value));
+            get => _assemblyFullName;
+            set => _assemblyFullName = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         [JsonProperty("type", Required = Required.Always)]
@@ -86,11 +86,11 @@ namespace ExtensibilityAssistant
         {
         }
 
-        public ExtensionConfiguration(string id, string name, string assemblyFile, string extensionType)
+        public ExtensionConfiguration(string id, string name, string assemblyFullName, string extensionType)
         {
             Id = id ?? throw new ArgumentNullException(nameof(id));
             Name = name ?? throw new ArgumentNullException(nameof(name));
-            AssemblyFile = assemblyFile ?? throw new ArgumentNullException(nameof(assemblyFile));
+            AssemblyFullName = assemblyFullName ?? throw new ArgumentNullException(nameof(assemblyFullName));
             ExtensionType = extensionType ?? throw new ArgumentNullException(nameof(extensionType));
             _tags = new Collection<TagConfiguration>();
         }
