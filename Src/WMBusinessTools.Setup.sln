@@ -27,6 +27,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMBusinessTools.Extensions"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportAssistant", "SupportAssistant\SupportAssistant.csproj", "{7B3B8ABD-C411-4E55-9FC0-33D8D4FA4F14}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Setup", "Setup", "{B98C221A-78AE-4D83-9631-43270B2CA4A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetupAssistant", "..\Setup\SetupAssistant\SetupAssistant.csproj", "{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "WMBusinessTools.Setup", "..\Setup\Setup\Setup.vdproj", "{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +129,22 @@ Global
 		{7B3B8ABD-C411-4E55-9FC0-33D8D4FA4F14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7B3B8ABD-C411-4E55-9FC0-33D8D4FA4F14}.Release|x86.ActiveCfg = Release|Any CPU
 		{7B3B8ABD-C411-4E55-9FC0-33D8D4FA4F14}.Release|x86.Build.0 = Release|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Debug|x86.Build.0 = Debug|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Release|x86.ActiveCfg = Release|Any CPU
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30}.Release|x86.Build.0 = Release|Any CPU
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Debug|Any CPU.ActiveCfg = Debug
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Debug|Any CPU.Build.0 = Debug
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Debug|x86.ActiveCfg = Debug
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Debug|x86.Build.0 = Debug
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Release|Any CPU.ActiveCfg = Release
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Release|Any CPU.Build.0 = Release
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Release|x86.ActiveCfg = Release
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +155,8 @@ Global
 		{862A440D-B4C1-4F81-828A-7FAA781FD5C7} = {072D68F7-4F31-41F4-8486-12359118995A}
 		{F810F3AD-9AC5-4A29-A25E-1F49DC5D621D} = {072D68F7-4F31-41F4-8486-12359118995A}
 		{97458CD7-F0C1-465B-939D-83D175333729} = {072D68F7-4F31-41F4-8486-12359118995A}
+		{5ABA0A39-2CF2-4A14-A67F-DAD2A38D7D30} = {B98C221A-78AE-4D83-9631-43270B2CA4A3}
+		{14E470A0-F2DB-42D8-9E4F-37D3C543B1BC} = {B98C221A-78AE-4D83-9631-43270B2CA4A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = kages\Unity.2.1.505.2\lib\NET35

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
@@ -167,16 +168,19 @@ namespace WMBusinessTools
 
         private static void ApplicationOnApplicationExit(object sender, EventArgs eventArgs)
         {
-#if DEBUG
-            try
+            var translationMode = ConfigurationManager.AppSettings["TranslationMode"];
+
+            if (null != translationMode && translationMode.Equals("On", StringComparison.OrdinalIgnoreCase))
             {
-                Translator.Instance.Save();
+                try
+                {
+                    Translator.Instance.Save();
+                }
+                catch (Exception exception)
+                {
+                    Logger.Error(exception.Message, exception);
+                }
             }
-            catch (Exception exception)
-            {
-                Logger.Error(exception.Message, exception);
-            }
-#endif
         }
     }
 }

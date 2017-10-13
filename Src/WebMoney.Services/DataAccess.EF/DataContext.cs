@@ -85,7 +85,7 @@ namespace WebMoney.Services.DataAccess.EF
                 throw new ArgumentNullException(nameof(modelBuilder));
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             // AccountEntity
             modelBuilder.Entity<Account>().Property(a => a.Amount).HasPrecision(16, 2);

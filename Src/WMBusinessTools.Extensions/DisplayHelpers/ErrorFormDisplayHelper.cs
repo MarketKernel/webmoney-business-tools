@@ -92,7 +92,7 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
 
         public static Form BuildErrorForm(ExtensionManager extensionManager, Exception exception)
         {
-            if (null == exception)
+            if (null == extensionManager)
                 throw new ArgumentNullException(nameof(extensionManager));
 
             if (null == exception)

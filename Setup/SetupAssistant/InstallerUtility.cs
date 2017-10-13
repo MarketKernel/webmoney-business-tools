@@ -16,8 +16,7 @@ namespace SetupAssistant
         public InstallerUtility()
         {
             InitializeComponent();
-        }
-        public override void Install(IDictionary stateSaver)
+        }public override void Install(IDictionary stateSaver)
         {
             base.Install(stateSaver);
 

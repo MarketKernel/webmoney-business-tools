@@ -132,7 +132,7 @@ namespace WMBusinessTools.Extensions.Forms
 
         private void removeIdentifierButton_Click(object sender, EventArgs e)
         {
-            var identifierSummary = (IIdentifierSummary)((ComboBoxItem)identifierComboBox.SelectedItem).Value;
+            var identifierSummary = (IIdentifierSummary) ((ComboBoxItem) identifierComboBox.SelectedItem).Value;
 
             var identifierValue = _formattingService.FormatIdentifier(identifierSummary.Identifier);
 
@@ -141,13 +141,22 @@ namespace WMBusinessTools.Extensions.Forms
                 Translator.Instance.Translate(ExtensionCatalog.Main, "will be deleted."));
 
             if (DialogResult.OK != MessageBox.Show(this, message,
-                    Translator.Instance.Translate(ExtensionCatalog.Main, "Сonfirm deletion"), MessageBoxButtons.OKCancel,
+                    Translator.Instance.Translate(ExtensionCatalog.Main, "Сonfirm deletion"),
+                    MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button2))
                 return;
 
-            _identifierService.RemoveSecondaryIdentifier(identifierSummary.Identifier);
-            removeIdentifierButton.Enabled = false;
+            try
+            {
+                _identifierService.RemoveSecondaryIdentifier(identifierSummary.Identifier);
+            }
+            catch (Exception exception)
+            {
+                ErrorFormDisplayHelper.BuildErrorForm(_sessionContext.ExtensionManager, exception).ShowDialog(this);
+                return;
+            }
 
+            removeIdentifierButton.Enabled = false;
             UpdateComboBox();
         }
 
