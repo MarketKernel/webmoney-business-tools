@@ -9,7 +9,7 @@
             "controls": [
               {
                 "prototype": "AccountListTemplate",
-                "desc": "From purse:"
+                "desc": "Store purse:"
               },
               {
                 "type": "NumericUpDown",

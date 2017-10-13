@@ -1,5 +1,6 @@
 ﻿{
   "Not paid": "Не оплачен",
   "Paid": "Оплачен",
-  "Refused": "Отказан"
+  "Refused": "Отказан",
+  "PaidWithProtection": "Оплачен с протекцией"
 }
