@@ -375,131 +375,372 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Content Include="Resources\Templates\AboutForm.json" />
-    <Content Include="Resources\Templates\AddIdentifierForm.json" />
-    <Content Include="Resources\Templates\AddPurseForm.json" />
-    <Content Include="Resources\Templates\CertificateForm.json" />
-    <Content Include="Resources\Templates\ClassicKeySettingsForm.json" />
-    <Content Include="Resources\Templates\ContractFilterForm.json" />
-    <Content Include="Resources\Templates\CreateContractForm.json" />
-    <Content Include="Resources\Templates\CreateOutgoingInvoiceForm.json" />
-    <Content Include="Resources\Templates\CreatePaymentLinkForm.json" />
-    <Content Include="Resources\Templates\CreatePurseForm.json" />
-    <Content Include="Resources\Templates\CreateTransferForm.json" />
-    <Content Include="Resources\Templates\CreateTrustForm.json" />
-    <Content Include="Resources\Templates\DbSettingsForm.json" />
-    <Content Include="Resources\Templates\ContractDetailsForm.json" />
-    <Content Include="Resources\Templates\EnterForm.json" />
-    <Content Include="Resources\Templates\FindIdentifierForm.json" />
-    <Content Include="Resources\Templates\FindMerchantTransferForm.json" />
-    <Content Include="Resources\Templates\FindCertificateForm.json" />
-    <Content Include="Resources\Templates\FinishProtectionForm.json" />
-    <Content Include="Resources\Templates\DetailsForm.json" />
-    <Content Include="Resources\Templates\IncomingInvoiceFilterForm.json" />
-    <Content Include="Resources\Templates\IncomingInvoiceFilterScreen.json" />
-    <Content Include="Resources\Templates\LightKeySettingsForm.json" />
-    <Content Include="Resources\Templates\MoneybackForm.json" />
-    <Content Include="Resources\Templates\OutgoingInvoiceFilterForm.json" />
-    <Content Include="Resources\Templates\PasswordSettingsForm.json" />
-    <Content Include="Resources\Templates\PayInvoiceForm.json" />
-    <Content Include="Resources\Templates\PreparedTransferFilterForm.json" />
-    <Content Include="Resources\Templates\PursesScreen.json" />
-    <Content Include="Resources\Templates\RedeemPaymerForm.json" />
-    <Content Include="Resources\Templates\RegistrationForm.json" />
-    <Content Include="Resources\Templates\RejectInvoiceForm.json" />
-    <Content Include="Resources\Templates\RejectProtectionForm.json" />
-    <Content Include="Resources\Templates\RequestNumberSettingsForm.json" />
-    <Content Include="Resources\Templates\SendMessageForm.json" />
-    <Content Include="Resources\Templates\SendMessageToDeveloperForm.json" />
-    <Content Include="Resources\Templates\SendSMSForm.json" />
-    <Content Include="Resources\Templates\SetMerchantKeyForm.json" />
-    <Content Include="Resources\Templates\TakePaymentForm.json" />
-    <Content Include="Resources\Templates\TakeTrustForm.json" />
-    <Content Include="Resources\Templates\TransferBundleFilterForm.json" />
-    <Content Include="Resources\Templates\TransferFilterForm.json" />
-    <Content Include="Resources\Templates\TransferRegisterForm.json" />
-    <Content Include="Resources\Templates\TrustsScreen.json" />
-    <Content Include="Resources\Templates\VerifyClientForm.json" />
-    <Content Include="Resources\Templates\_TemplateLibrary.json" />
+    <Content Include="Resources\Templates\AboutForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\AddIdentifierForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\AddPurseForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\CertificateForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\ClassicKeySettingsForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\ContractFilterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\CreateContractForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\CreateOutgoingInvoiceForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\CreatePaymentLinkForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\CreatePurseForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\CreateTransferForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\CreateTrustForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\DbSettingsForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\ContractDetailsForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\EnterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\FindIdentifierForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\FindMerchantTransferForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\FindCertificateForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\FinishProtectionForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\DetailsForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\IncomingInvoiceFilterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\IncomingInvoiceFilterScreen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\LightKeySettingsForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\MoneybackForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\OutgoingInvoiceFilterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\PasswordSettingsForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\PayInvoiceForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\PreparedTransferFilterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\PursesScreen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\RedeemPaymerForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\RegistrationForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\RejectInvoiceForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\RejectProtectionForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\RequestNumberSettingsForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\SendMessageForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\SendMessageToDeveloperForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\SendSMSForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\SetMerchantKeyForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\TakePaymentForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\TakeTrustForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\TransferBundleFilterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\TransferFilterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\TransferRegisterForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\TrustsScreen.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\VerifyClientForm.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Templates\_TemplateLibrary.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Pictures\Ant.gif" />
-    <Content Include="Resources\Pictures\Certificates\Alias.gif" />
-    <Content Include="Resources\Pictures\Certificates\Capitaller.gif" />
-    <Content Include="Resources\Pictures\Certificates\Cashier.gif" />
-    <Content Include="Resources\Pictures\Certificates\Developer.gif" />
-    <Content Include="Resources\Pictures\Certificates\Formal.gif" />
-    <Content Include="Resources\Pictures\Certificates\Guarantor.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Alias.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Capitaller.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Cashier.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Developer.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Formal.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Guarantor.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Initial.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Merchant.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Operator.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Personal.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Registrar.gif" />
-    <Content Include="Resources\Pictures\Certificates\Inactive\Service.gif" />
-    <Content Include="Resources\Pictures\Certificates\Initial.gif" />
-    <Content Include="Resources\Pictures\Certificates\Merchant.gif" />
-    <Content Include="Resources\Pictures\Certificates\Operator.gif" />
-    <Content Include="Resources\Pictures\Certificates\Personal.gif" />
-    <Content Include="Resources\Pictures\Certificates\Registrar.gif" />
-    <Content Include="Resources\Pictures\Certificates\Service.gif" />
-    <Content Include="Resources\Pictures\Refresh.gif" />
-    <Content Include="Resources\Pictures\Start.gif" />
-    <Content Include="Resources\Pictures\Stop.gif" />
-    <Content Include="Resources\Pictures\Unverified.gif" />
-    <Content Include="Resources\Pictures\ClearMerchantKey.gif" />
-    <Content Include="Resources\Pictures\Contracts.gif" />
-    <Content Include="Resources\Pictures\Copy.gif" />
-    <Content Include="Resources\Pictures\CreateContract.gif" />
-    <Content Include="Resources\Pictures\CreateOutgoingInvoice.gif" />
-    <Content Include="Resources\Pictures\DbSettings.gif" />
-    <Content Include="Resources\Pictures\FinishProtection.gif" />
-    <Content Include="Resources\Pictures\KeySettings.gif" />
-    <Content Include="Resources\Pictures\UnverifiedProtected.gif" />
-    <Content Include="Resources\Pictures\Verified.gif" />
-    <Content Include="Resources\Pictures\PayInvoice.gif" />
-    <Content Include="Resources\Pictures\Link.gif" />
-    <Content Include="Resources\Pictures\RedeemPaymer.gif" />
-    <Content Include="Resources\Pictures\RejectInvoice.gif" />
-    <Content Include="Resources\Pictures\Remove.gif" />
-    <Content Include="Resources\Pictures\Find.gif" />
-    <Content Include="Resources\Pictures\FindCertificate.gif" />
-    <Content Include="Resources\Pictures\FindWmId.gif" />
-    <Content Include="Resources\Pictures\IncomingInvoiceFilter.gif" />
-    <Content Include="Resources\Pictures\OpenFile.gif" />
-    <Content Include="Resources\Pictures\Logo120x120.png" />
-    <Content Include="Resources\Pictures\OutgoingInvoiceFilter.gif" />
-    <Content Include="Resources\Pictures\Purses\WMB.gif" />
-    <Content Include="Resources\Pictures\Purses\WMC.gif" />
-    <Content Include="Resources\Pictures\Purses\WMD.gif" />
-    <Content Include="Resources\Pictures\Purses\WME.gif" />
-    <Content Include="Resources\Pictures\Purses\WMG.gif" />
-    <Content Include="Resources\Pictures\Purses\WMK.gif" />
-    <Content Include="Resources\Pictures\Purses\WML.gif" />
-    <Content Include="Resources\Pictures\Purses\WMR.gif" />
-    <Content Include="Resources\Pictures\Purses\WMU.gif" />
-    <Content Include="Resources\Pictures\Purses\WMV.gif" />
-    <Content Include="Resources\Pictures\Purses\WMX.gif" />
-    <Content Include="Resources\Pictures\Purses\WMY.gif" />
-    <Content Include="Resources\Pictures\Purses\WMZ.gif" />
-    <Content Include="Resources\Pictures\RecordEdit.gif" />
-    <Content Include="Resources\Pictures\Details.gif" />
-    <Content Include="Resources\Pictures\SendMessage.gif" />
-    <Content Include="Resources\Pictures\SendSms.gif" />
-    <Content Include="Resources\Pictures\PasswordSettings.gif" />
-    <Content Include="Resources\Pictures\CreateTransfer.gif" />
-    <Content Include="Resources\Pictures\SetMerchantKey.gif" />
-    <Content Include="Resources\Pictures\Settings.gif" />
-    <Content Include="Resources\Pictures\TransferFilter.gif" />
-    <Content Include="Resources\Pictures\VerifiedProtected.gif" />
+    <Content Include="Resources\Pictures\Ant.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Alias.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Capitaller.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Cashier.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Developer.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Formal.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Guarantor.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Alias.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Capitaller.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Cashier.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Developer.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Formal.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Guarantor.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Initial.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Merchant.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Operator.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Personal.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Registrar.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Inactive\Service.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Initial.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Merchant.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Operator.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Personal.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Registrar.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Certificates\Service.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Refresh.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Start.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Stop.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Unverified.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\ClearMerchantKey.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Contracts.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Copy.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\CreateContract.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\CreateOutgoingInvoice.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\DbSettings.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\FinishProtection.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\KeySettings.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\UnverifiedProtected.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Verified.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\PayInvoice.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Link.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\RedeemPaymer.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\RejectInvoice.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Remove.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Find.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\FindCertificate.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\FindWmId.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\IncomingInvoiceFilter.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\OpenFile.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Logo120x120.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\OutgoingInvoiceFilter.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMB.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMC.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMD.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WME.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMG.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMK.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WML.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMR.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMU.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMV.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMX.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMY.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Purses\WMZ.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\RecordEdit.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Details.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\SendMessage.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\SendSms.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\PasswordSettings.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\CreateTransfer.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\SetMerchantKey.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\Settings.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\TransferFilter.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Pictures\VerifiedProtected.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>XCOPY "$(SolutionDir)WMBusinessTools.Extensions\Resources" "$(TargetDir)\Resources\" /S /Y</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
