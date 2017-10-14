@@ -1,0 +1,18 @@
+﻿{
+  "extensions": [
+    {
+      "id": "ServicesFormExtension",
+      "name": "Проверка обращения к сервисам",
+      "assemblyFullName": "ServicesFormExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "type": "ServicesFormExtension.FormProvider1",
+      "iconPath": "Images/turn-on_16x16.gif",
+      "tags": [
+        {
+          "tagName": "TopExtension",
+          "groupOrder": 6,
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

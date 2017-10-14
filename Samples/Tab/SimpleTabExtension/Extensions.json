@@ -1,0 +1,16 @@
+﻿{
+  "extensions": [
+    {
+      "id": "SimpleTabExtension",
+      "name": "Тестовая вкладка",
+      "assemblyFullName": "SimpleTabExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "type": "SimpleTabExtension.ScreenProvider",
+      "tags": [
+        {
+          "tagName": "TopScreen",
+          "order": 4
+        }
+      ]
+    }
+  ]
+}

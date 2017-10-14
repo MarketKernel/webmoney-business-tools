@@ -1,0 +1,23 @@
+﻿{
+  "extensions": [
+    {
+      "id": "SimpleFormExtension",
+      "name": "Тестовый плагин",
+      "assemblyFullName": "SimpleFormExtension, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "type": "SimpleFormExtension.SimpleFormProvider",
+      "iconPath": "Images/turn-on_16x16.gif",
+      "tags": [
+        {
+          "tagName": "TopExtension",
+          "groupOrder": 6,
+          "order": 1
+        },
+        {
+          "tagName": "PurseExtension",
+          "groupOrder": 8,
+          "order": 1
+        }
+      ]
+    }
+  ]
+}
