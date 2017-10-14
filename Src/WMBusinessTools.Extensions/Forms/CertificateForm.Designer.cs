@@ -301,24 +301,24 @@
             this.certificateImageList.Images.SetKeyName(3, "Personal");
             this.certificateImageList.Images.SetKeyName(4, "Merchant");
             this.certificateImageList.Images.SetKeyName(5, "Capitaller");
-            this.certificateImageList.Images.SetKeyName(6, "Developer");
-            this.certificateImageList.Images.SetKeyName(7, "Registrar");
-            this.certificateImageList.Images.SetKeyName(8, "Guarantor");
-            this.certificateImageList.Images.SetKeyName(9, "Service");
-            this.certificateImageList.Images.SetKeyName(10, "Operator");
-            this.certificateImageList.Images.SetKeyName(11, "Cashier");
+            this.certificateImageList.Images.SetKeyName(6, "Cashier");
+            this.certificateImageList.Images.SetKeyName(7, "Developer");
+            this.certificateImageList.Images.SetKeyName(8, "Registrar");
+            this.certificateImageList.Images.SetKeyName(9, "Guarantor");
+            this.certificateImageList.Images.SetKeyName(10, "Service");
+            this.certificateImageList.Images.SetKeyName(11, "Operator");
             this.certificateImageList.Images.SetKeyName(12, "AliasRevoked");
             this.certificateImageList.Images.SetKeyName(13, "FormalRevoked");
             this.certificateImageList.Images.SetKeyName(14, "InitialRevoked");
             this.certificateImageList.Images.SetKeyName(15, "PersonalRevoked");
             this.certificateImageList.Images.SetKeyName(16, "MerchantRevoked");
             this.certificateImageList.Images.SetKeyName(17, "CapitallerRevoked");
-            this.certificateImageList.Images.SetKeyName(18, "DeveloperRevoked");
-            this.certificateImageList.Images.SetKeyName(19, "RegistrarRevoked");
-            this.certificateImageList.Images.SetKeyName(20, "GuarantorRevoked");
-            this.certificateImageList.Images.SetKeyName(21, "ServiceRevoked");
-            this.certificateImageList.Images.SetKeyName(22, "OperatorRevoked");
-            this.certificateImageList.Images.SetKeyName(23, "CashierRevoked");
+            this.certificateImageList.Images.SetKeyName(18, "CashierRevoked");
+            this.certificateImageList.Images.SetKeyName(19, "DeveloperRevoked");
+            this.certificateImageList.Images.SetKeyName(20, "RegistrarRevoked");
+            this.certificateImageList.Images.SetKeyName(21, "GuarantorRevoked");
+            this.certificateImageList.Images.SetKeyName(22, "ServiceRevoked");
+            this.certificateImageList.Images.SetKeyName(23, "OperatorRevoked");
             // 
             // CertificateForm
             // 

@@ -156,4 +156,8 @@
   <data name="CreateTrustFormProvider_GetForm_Please_refresh_the_list_of_purses_or_add_it_manually" xml:space="preserve">
     <value>Please refresh the list of purses or add add at least one purse manually.</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="About" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\About.rtf;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1251</value>
+  </data>
 </root>

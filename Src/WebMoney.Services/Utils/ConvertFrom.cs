@@ -147,6 +147,8 @@ namespace WebMoney.Services.Utils
                     return CertificateDegree.Capitaller;
                 case PassportDegree.Developer:
                     return CertificateDegree.Developer;
+                case PassportDegree.Cashier:
+                    return CertificateDegree.Cashier;
                 case PassportDegree.Registrar:
                     return CertificateDegree.Registrar;
                 case PassportDegree.Guarantor:
@@ -178,6 +180,8 @@ namespace WebMoney.Services.Utils
                     return PassportDegree.Merchant;
                 case CertificateDegree.Capitaller:
                     return PassportDegree.Capitaller;
+                case CertificateDegree.Cashier:
+                    return PassportDegree.Cashier;
                 case CertificateDegree.Developer:
                     return PassportDegree.Developer;
                 case CertificateDegree.Registrar:

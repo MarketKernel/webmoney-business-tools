@@ -11,6 +11,7 @@ namespace WebMoney.XmlInterfaces.BasicObjects
         Personal = 130,
         Merchant = 135,
         Capitaller = 136,
+        Cashier = 138,
         Developer = 140,
         Registrar = 150,
         Guarantor = 170,

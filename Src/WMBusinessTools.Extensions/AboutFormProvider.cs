@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using WMBusinessTools.Extensions.Contracts;
 using WMBusinessTools.Extensions.Contracts.Contexts;
+using WMBusinessTools.Extensions.Properties;
 using WMBusinessTools.Extensions.Utils;
 using Xml2WinForms;
 using Xml2WinForms.Templates;
@@ -27,6 +28,7 @@ namespace WMBusinessTools.Extensions
 
             var template =
                 TemplateLoader.LoadTemplate<AboutBoxTemplate>(context.ExtensionManager, ExtensionCatalog.About);
+            template.Description = Resources.About;
 
             aboutBox.ApplyTemplate(template);
 

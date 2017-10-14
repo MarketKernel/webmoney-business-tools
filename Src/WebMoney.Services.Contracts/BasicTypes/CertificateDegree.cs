@@ -8,6 +8,7 @@
         Personal,
         Merchant,
         Capitaller,
+        Cashier,
         Developer,
         Registrar,
         Guarantor,

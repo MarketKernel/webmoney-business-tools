@@ -513,6 +513,7 @@
     <Content Include="Resources\Templates\_TemplateLibrary.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\About.rtf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Pictures\Ant.gif">

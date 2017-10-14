@@ -61,6 +61,16 @@ namespace WMBusinessTools.Extensions.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff36\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi31507\deflang1033\deflangfe1033\themelang1033\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset204\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f34\fbidi \froman\fcharset1\fprq2{\*\panose 02040503050406030204}Cambria Math;}
+        ///{\f36\fbidi \fswiss\fcharset204\fprq2{\*\panose 020f0302020204030204}Calibri Light;}{\f37\fbidi \fswiss\fcharset204\fprq2{\*\panose 020f0502020204030204}Cali [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WMID#{0} already registered in the program!.
         /// </summary>
         internal static string AddIdentifierFormProvider_GetForm_WMID__0__already_registered_in_the_program {
