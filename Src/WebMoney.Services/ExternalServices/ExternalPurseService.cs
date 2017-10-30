@@ -55,10 +55,10 @@ namespace WebMoney.Services.ExternalServices
                                     description)
                                 {Amount = pi.Amount};
 
-                        if (pi.LastIncomingTransfer > 0)
+                        if (pi.LastIncomingTransfer.HasValue && pi.LastIncomingTransfer > 0)
                             account.LastIncomingTransferPrimaryId = pi.LastIncomingTransfer;
 
-                        if (pi.LastOutgoingTransfer > 0)
+                        if (pi.LastOutgoingTransfer.HasValue && pi.LastOutgoingTransfer > 0)
                             account.LastOutgoingTransferPrimaryId = pi.LastOutgoingTransfer;
 
                         return account;

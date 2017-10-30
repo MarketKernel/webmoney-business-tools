@@ -112,6 +112,7 @@ namespace LocalizationAssistant
             var languageDirectory = Path.Combine(storageDirectory, _twoLetterIsoLanguageName);
 
             if (!Directory.Exists(languageDirectory))
+                Directory.CreateDirectory(languageDirectory);
 
             lock (Anchor)
             {

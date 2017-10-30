@@ -15,9 +15,9 @@ namespace WebMoney.XmlInterfaces.Responses
         public Purse Purse { get; protected set; }
         public Amount Amount { get; protected set; }
         public Description Description { get; protected set; }
-        public bool Enable { get; protected set; }
-        public uint LastIncomingTransfer { get; protected set; }
-        public uint LastOutgoingTransfer { get; protected set; }
+        //public bool Enable { get; protected set; }
+        public uint? LastIncomingTransfer { get; protected set; }
+        public uint? LastOutgoingTransfer { get; protected set; }
 
         internal void Fill(WmXmlPackage wmXmlPackage)
         {
@@ -28,9 +28,13 @@ namespace WebMoney.XmlInterfaces.Responses
             Purse = wmXmlPackage.SelectPurse("pursename");
             Amount = wmXmlPackage.SelectAmount("amount");
             Description = (Description) wmXmlPackage.SelectString("desc");
-            Enable = wmXmlPackage.SelectBool("outsideopen");
-            LastIncomingTransfer = wmXmlPackage.SelectUInt32("lastintr");
-            LastOutgoingTransfer = wmXmlPackage.SelectUInt32("lastouttr");
+            //Enable = wmXmlPackage.SelectBool("outsideopen");
+
+            if (wmXmlPackage.Exists("lastintr"))
+                LastIncomingTransfer = wmXmlPackage.SelectUInt32("lastintr");
+
+            if (wmXmlPackage.Exists("lastouttr"))
+                LastOutgoingTransfer = wmXmlPackage.SelectUInt32("lastouttr");
         }
     }
 }

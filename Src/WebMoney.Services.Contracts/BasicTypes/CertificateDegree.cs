@@ -2,17 +2,18 @@
 {
     public enum CertificateDegree
     {
-        Alias,
-        Formal,
-        Initial,
-        Personal,
-        Merchant,
-        Capitaller,
-        Cashier,
-        Developer,
-        Registrar,
-        Guarantor,
-        Service,
-        Operator
+        Alias = 1,
+        Formal = 2,
+        Initial = 3,
+        Personal = 4,
+        Merchant = 5,
+        Capitaller = 6,
+        CapitallerLegalEntity = 7,
+        Cashier = 8,
+        Developer = 9,
+        Registrar = 10,
+        Guarantor = 11,
+        Service = 12,
+        Operator = 13
     }
 }

@@ -222,6 +222,9 @@
   <data name="&gt;&gt;wmIdTextBox.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
   </data>
+  <data name="okButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;commandBarGroupBox.Name" xml:space="preserve">
     <value>commandBarGroupBox</value>
   </data>
@@ -233,6 +236,9 @@
   </data>
   <data name="commandBarFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="contactsLabel.Text" xml:space="preserve">
+    <value>Communication:</value>
   </data>
   <data name="mTabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -269,6 +275,9 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Certificate</value>
+  </data>
+  <data name="wmIdsTabPage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>692, 307</value>
   </data>
   <data name="mPictureBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 16</value>
@@ -351,8 +360,8 @@
   <data name="certificateTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>592, 20</value>
   </data>
-  <data name="aboutLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 235</value>
+  <data name="mTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="commandBarGroupBox" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="mTabControl" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="bottomFlowLayoutPanel" Row="1" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="mPictureBox" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;certificateLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -366,8 +375,8 @@
   <data name="mTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="certificateLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 13</value>
+  <data name="aboutLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 235</value>
   </data>
   <data name="&gt;&gt;levelsTextBox.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -396,6 +405,9 @@
   <data name="&gt;&gt;certificateTextBox.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="contactsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 13</value>
+  </data>
   <data name="aboutLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 13</value>
   </data>
@@ -405,8 +417,8 @@
   <data name="&gt;&gt;mTabControl.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="certificateLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="wmidLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="aboutTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>592, 113</value>
@@ -453,6 +465,9 @@
   <data name="commandBarGroupBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="certificateLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>CertificateForm</value>
   </data>
@@ -492,6 +507,9 @@
   <data name="certificateTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>91, 29</value>
   </data>
+  <data name="levelsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;certificateTunableList.Parent" xml:space="preserve">
     <value>certificateDataTabPage</value>
   </data>
@@ -513,8 +531,8 @@
   <data name="&gt;&gt;generalInfoTableLayoutPanel.Parent" xml:space="preserve">
     <value>generalInfoTabPage</value>
   </data>
-  <data name="mTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="cancelButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="attachedIdentifierTunableList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -536,6 +554,9 @@
   </data>
   <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>55, 13</value>
+  </data>
+  <data name="mTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="aboutTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -596,9 +617,6 @@
   </data>
   <data name="&gt;&gt;addressLabel.Name" xml:space="preserve">
     <value>addressLabel</value>
-  </data>
-  <data name="mTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="commandBarGroupBox" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="mTabControl" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="bottomFlowLayoutPanel" Row="1" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="mPictureBox" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;mTabControl.Name" xml:space="preserve">
     <value>mTabControl</value>
@@ -678,8 +696,8 @@
   <data name="&gt;&gt;mTabControl.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="wmIdsTabPage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>692, 307</value>
+  <data name="contactsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 84</value>
@@ -723,11 +741,17 @@
   <data name="addressTextBox.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
+  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="certificateTunableList.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="&gt;&gt;addressTextBox.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
+  </data>
+  <data name="claimsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;nameLabel.Name" xml:space="preserve">
     <value>nameLabel</value>
@@ -759,6 +783,9 @@
   <data name="&gt;&gt;mPictureBox.Parent" xml:space="preserve">
     <value>mTableLayoutPanel</value>
   </data>
+  <data name="addressLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;commandBarFlowLayoutPanel.Parent" xml:space="preserve">
     <value>commandBarGroupBox</value>
   </data>
@@ -777,8 +804,8 @@
   <data name="&gt;&gt;bottomFlowLayoutPanel.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="wmIdTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Left, Right</value>
+  <data name="nameLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="bottomFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 352</value>
@@ -834,6 +861,9 @@
   <data name="&gt;&gt;bottomFlowLayoutPanel.Parent" xml:space="preserve">
     <value>mTableLayoutPanel</value>
   </data>
+  <data name="wmIdTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Left, Right</value>
+  </data>
   <data name="&gt;&gt;certificateTextBox.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
   </data>
@@ -842,7 +872,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABI
-        YAAAAk1TRnQBSQFMAgEBGAEAAagBAAGsAQABIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        YAAAAk1TRnQBSQFMAgEBGAEAAeABAAHkAQABIAEAASABAAT/AQkBEAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABgAMAAeADAAEBAQABCAYAAXAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -1264,8 +1294,8 @@
   <data name="wmidLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 13</value>
   </data>
-  <data name="contactsLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 13</value>
+  <data name="certificateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 13</value>
   </data>
   <data name="&gt;&gt;levelsLabel.Parent" xml:space="preserve">
     <value>generalInfoTableLayoutPanel</value>
@@ -1288,14 +1318,17 @@
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>784, 411</value>
   </data>
-  <data name="&gt;&gt;cancelButton.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="certificateLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;claimsTextBox.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="nameLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left</value>
+  </data>
+  <data name="mPictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;claimsLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1354,8 +1387,8 @@
   <data name="claimsTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>592, 20</value>
   </data>
-  <data name="contactsLabel.Text" xml:space="preserve">
-    <value>Communication:</value>
+  <data name="aboutLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="levelsTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Left, Right</value>

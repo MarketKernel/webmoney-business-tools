@@ -103,6 +103,7 @@ namespace WebMoney.XmlInterfaces.Responses
 
             OperationId = wmXmlPackage.SelectUInt32("operation/@wmtransid");
             InvoiceId = wmXmlPackage.SelectUInt32("operation/@wminvoiceid");
+            Amount = wmXmlPackage.SelectAmount("operation/amount");
             CreateTime = wmXmlPackage.SelectWmDateTime("operation/operdate");
             Description = (Description)wmXmlPackage.SelectString("operation/purpose");
             SourcePurse = wmXmlPackage.SelectPurse("operation/pursefrom");
@@ -118,7 +119,11 @@ namespace WebMoney.XmlInterfaces.Responses
             if (!string.IsNullOrEmpty(wmXmlPackage.SelectString(enumFlagFlagXPath)))
                 EnumFlag = wmXmlPackage.SelectUInt8(enumFlagFlagXPath);
 
-            IpAddress = IPAddress.Parse(wmXmlPackage.SelectNotEmptyString("operation/IPAddress"));
+            var ipAddressValue = wmXmlPackage.SelectString("operation/IPAddress");
+
+            if (!string.IsNullOrEmpty(ipAddressValue))
+                IpAddress = IPAddress.Parse(ipAddressValue);
+
             TelepatPhone = wmXmlPackage.SelectString("operation/telepat_phone");
 
             // TelepatMethod

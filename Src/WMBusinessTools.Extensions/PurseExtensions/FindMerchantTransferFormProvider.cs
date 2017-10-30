@@ -75,7 +75,7 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            return GetForm(context, context.Transfer.TargetPurse, context.Transfer.PrimaryId,
+            return GetForm(context, context.Account.Number, context.Transfer.PrimaryId,
                 PaymentNumberKind.TransferPrimaryId);
         }
 
@@ -84,7 +84,7 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            return GetForm(context, context.Invoice.TargetPurse, context.Invoice.PrimaryId,
+            return GetForm(context, context.Account.Number, context.Invoice.PrimaryId,
                 PaymentNumberKind.InvoicePrimaryId);
         }
 
@@ -167,7 +167,7 @@ namespace WMBusinessTools.Extensions
                             merchantPayment.IsEnum.ToString()));
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "IP Address"),
-                            merchantPayment.IPAddress?.ToString()));
+                            merchantPayment.IPAddress?.ToString() ?? string.Empty));
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "Telepat phone"),
                             merchantPayment.TelepatPhone ?? string.Empty));

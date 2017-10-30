@@ -136,8 +136,11 @@ namespace WebMoney.XmlInterfaces.Responses
 
             if (0 != errorNumber)
                 throw new WmException(errorNumber, xmlPackage.SelectString("@retdesc"));
-        }
 
+            // TODO: Спец. исключение!
+            if (!xmlPackage.Exists("certinfo/attestat"))
+                throw new WmException("WMID не существует!");
+        }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)
         {

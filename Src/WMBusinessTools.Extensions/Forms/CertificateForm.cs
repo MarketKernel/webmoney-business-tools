@@ -112,7 +112,17 @@ namespace WMBusinessTools.Extensions.Forms
             if (null == certificate)
                 throw new ArgumentNullException(nameof(certificate));
 
-            var imageKey = certificate.Degree.ToString();
+            string imageKey;
+
+            switch (certificate.Degree)
+            {
+                case CertificateDegree.CapitallerLegalEntity:
+                    imageKey = CertificateDegree.Capitaller.ToString();
+                    break;
+                default:
+                    imageKey = certificate.Degree.ToString();
+                    break;
+            }
 
             if (certificate.Revoked)
                 imageKey = $"{imageKey}Revoked";
