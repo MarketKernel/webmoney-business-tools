@@ -1,4 +1,4 @@
-SET CONFIGURATION=Release
+SET CONFIGURATION=Production
 
 nuget restore ".\..\WMBusinessTools.sln"
 
@@ -8,7 +8,7 @@ MSBuild.exe ".\..\WMBusinessTools.sln" /p:Configuration=%CONFIGURATION%
 XCOPY "..\..\Ext\NativeBinaries" "..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\" /S /Y
 XCOPY "..\Localization" "..\WMBusinessTools\bin\%CONFIGURATION%\Localization\" /S /Y
 
-:: SupportAssistant
+REM SupportAssistant
 move /y .\..\WMBusinessTools\bin\%CONFIGURATION%\SupportAssistant\ru\* .\..\WMBusinessTools\bin\%CONFIGURATION%\ru
 move .\..\WMBusinessTools\bin\%CONFIGURATION%\SupportAssistant\Microsoft.Azure.KeyVault.Core.dll .\..\WMBusinessTools\bin\%CONFIGURATION%\
 move .\..\WMBusinessTools\bin\%CONFIGURATION%\SupportAssistant\Microsoft.WindowsAzure.Storage.dll .\..\WMBusinessTools\bin\%CONFIGURATION%\
@@ -22,7 +22,7 @@ del .\..\WMBusinessTools\bin\%CONFIGURATION%\SupportAssistant\*.pdb
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\SupportAssistant\*.xml
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\SupportAssistant\*.config
 
-:: WebMoney.Services
+REM WebMoney.Services
 move .\..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\amd64 .\..\WMBusinessTools\bin\%CONFIGURATION%\
 move /y .\..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\ru\* .\..\WMBusinessTools\bin\%CONFIGURATION%\ru
 move .\..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\TrustedCertificates .\..\WMBusinessTools\bin\%CONFIGURATION%\
@@ -56,7 +56,7 @@ del .\..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\*.pdb
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\*.xml
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\*.config
 
-:: BasicExtensions
+REM BasicExtensions
 move /y .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\ru\* .\..\WMBusinessTools\bin\%CONFIGURATION%\ru
 move .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\WMBusinessTools.Extensions.dll .\..\WMBusinessTools\bin\%CONFIGURATION%\
 move .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\WMBusinessTools.Extensions.dll.config .\..\WMBusinessTools\bin\%CONFIGURATION%\
@@ -68,7 +68,7 @@ del .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\*.pdb
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\*.xml
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\*.config
 
-:: WMBusinessTools
+REM WMBusinessTools
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\*.pdb
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\*.xml
 
