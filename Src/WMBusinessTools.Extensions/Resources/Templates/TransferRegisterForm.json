@@ -53,8 +53,8 @@
       "fill": true
     },
     {
-      "name": "TransferId",
-      "headerText": "Transfer ID",
+      "name": "PaymentId",
+      "headerText": "Payment ID",
       "maxInputLength": 10,
       "width": 100,
       "sortable": false

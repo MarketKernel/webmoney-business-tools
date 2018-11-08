@@ -8,7 +8,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         int Id { get; }
         long? PrimaryId { get; }
         long? SecondaryId { get; }
-        int TransferId { get; }
+        int PaymentId { get; }
         string SourcePurse { get; }
         string TargetPurse { get; }
         decimal Amount { get; }

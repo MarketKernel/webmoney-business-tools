@@ -27,11 +27,11 @@
         "headerText": "Amount"
       },
       {
-        "name": "LastIncomingTransferPrimaryId",
+        "name": "LastIncomingTransferId",
         "headerText": "Incoming transfer ID"
       },
       {
-        "name": "LastOutgoingTransferPrimaryId",
+        "name": "LastOutgoingTransferId",
         "headerText": "Outgoing transfer ID"
       },
       {
@@ -96,11 +96,11 @@
     "icons": [
       {
         "name": "Z",
-        "iconPath": "../Pictures/Purses/WMZ.gif"
+        "iconPath": "../Pictures/Purses/WMZ.png"
       },
       {
         "name": "E",
-        "iconPath": "../Pictures/Purses/WME.gif"
+        "iconPath": "../Pictures/Purses/WME.png"
       }
     ],
     "commandMenu": null

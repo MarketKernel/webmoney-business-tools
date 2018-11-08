@@ -313,13 +313,13 @@
     <value>Fill</value>
   </data>
   <data name="mTabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 27</value>
+    <value>0, 33</value>
   </data>
   <data name="mTabControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="mTabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>734, 288</value>
+    <value>734, 282</value>
   </data>
   <data name="mTabControl.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -343,7 +343,7 @@
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
   <data name="identifierComboBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 3</value>
+    <value>54, 6</value>
   </data>
   <data name="identifierComboBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 3, 3, 3</value>
@@ -365,58 +365,6 @@
   </data>
   <data name="&gt;&gt;identifierComboBox.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="infoButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhEAAQAIcAAAAAACkpKS4uLjExMTw8Oz8/P0I0CkY3Ck08C1JBD1xKD1JAEFhGE1tIFUBAPl1T
-        PWRRHGRVL25ZI29aJH5oGXdhKn5pI0NDQ05OTm9jQWVjVmdlX3htTn10W2dnZ2lnYG1sY21tbXBvZoBp
-        MYRtNIlxN452O5N9J5R6P6J7CYd2UZl/Q4R6YYR+cZqDJJiDJZyHLpqFMpqEN6iTOq2YMLSXKrmjO5uB
-        RJmEQp6ER5mQWoiDd5WIZJiPd5+QY6OIS6mNT66WTqyQUa6SU6mVXqmcUKicWrOWVrSXV6+YbLqlRL+o
-        RMmcDtOeB9ulB96nB96oCMmyPNm/O+CrDOW1GOm9IcexT8y3XMeyZt/GPuzDKO7HLPHONdzHSt/MVuLK
-        Q+bOSeXOTePOVezVUPjdR+bTZO7bafLeavrhTPviU/rjXPzmZfzmZ/rmb/zmaPznavznbvzocPzocfzo
-        dvzpd/voe/3peICAgJKSkqeehK6plbqshbOrlbSskLeypLOxq7a2trq6usa2g87KtdPJrtHJuNfOuNXO
-        vufDgejdgv/zjPnntvjmt8zMzNbW1tfX19jY2NnZ2dzc3Pbmxvztz/Hs2Pnyzvnz0fr01uDg4OHh4efn
-        5+zq5O7r5e/t5uzs7P326P336fb29vf39/v69/n5+f38+/79/f///wAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        ACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAD/ACwAAAAAEAAQAAAI+QD/CRyI5MgQID9yrEBhosTAgUMU
-        SZwocYTAUncEFHiQiI0dNhO2QFFUQSCeAAMciNBQps4aNFqeKJIgEAMBEHouDTJiRsiNKjIhCLzwwZIl
-        TJV0eElDgorMBgJDbFjEKJShIl3ITJgiM8E/Unk8TAJFqYeNLFwYPJGJwBSWICpaIEqCY0mNBQgQsCV0
-        Zg6RU6g8yQhjgYmTtYoQCIpD58ohVJ1igDmRogliBHvgyGnjAxUnGF9cGDiQN28hK2/cKOHTh4YUCjsA
-        NZrd6B+PGWLUjInyQkGHQJA+Cf/0T5QfDhEiZGDxp5GmUQ8Fjtok6ZGjSJk+lYoeEAA7
-</value>
-  </data>
-  <data name="infoButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="infoButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Popup</value>
-  </data>
-  <data name="infoButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="infoButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 0, 3</value>
-  </data>
-  <data name="infoButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
-  </data>
-  <data name="infoButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;infoButton.Name" xml:space="preserve">
-    <value>infoButton</value>
-  </data>
-  <data name="&gt;&gt;infoButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;infoButton.Parent" xml:space="preserve">
-    <value>mTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;infoButton.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="addIdentifierButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -470,13 +418,13 @@
     <value>Fill</value>
   </data>
   <data name="IdentifierCommandFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>424, 0</value>
+    <value>454, 0</value>
   </data>
   <data name="IdentifierCommandFlowLayoutPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="IdentifierCommandFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>310, 27</value>
+    <value>280, 33</value>
   </data>
   <data name="IdentifierCommandFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -494,6 +442,135 @@
     <value>mTableLayoutPanel</value>
   </data>
   <data name="&gt;&gt;IdentifierCommandFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="IdentifierServiceFlowLayoutPanel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="infoButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        R0lGODlhEAAQAIcAAAAAACkpKS4uLjExMTw8Oz8/P0I0CkY3Ck08C1JBD1xKD1JAEFhGE1tIFUBAPl1T
+        PWRRHGRVL25ZI29aJH5oGXdhKn5pI0NDQ05OTm9jQWVjVmdlX3htTn10W2dnZ2lnYG1sY21tbXBvZoBp
+        MYRtNIlxN452O5N9J5R6P6J7CYd2UZl/Q4R6YYR+cZqDJJiDJZyHLpqFMpqEN6iTOq2YMLSXKrmjO5uB
+        RJmEQp6ER5mQWoiDd5WIZJiPd5+QY6OIS6mNT66WTqyQUa6SU6mVXqmcUKicWrOWVrSXV6+YbLqlRL+o
+        RMmcDtOeB9ulB96nB96oCMmyPNm/O+CrDOW1GOm9IcexT8y3XMeyZt/GPuzDKO7HLPHONdzHSt/MVuLK
+        Q+bOSeXOTePOVezVUPjdR+bTZO7bafLeavrhTPviU/rjXPzmZfzmZ/rmb/zmaPznavznbvzocPzocfzo
+        dvzpd/voe/3peICAgJKSkqeehK6plbqshbOrlbSskLeypLOxq7a2trq6usa2g87KtdPJrtHJuNfOuNXO
+        vufDgejdgv/zjPnntvjmt8zMzNbW1tfX19jY2NnZ2dzc3Pbmxvztz/Hs2Pnyzvnz0fr01uDg4OHh4efn
+        5+zq5O7r5e/t5uzs7P326P336fb29vf39/v69/n5+f38+/79/f///wAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        ACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAD/ACwAAAAAEAAQAAAI+QD/CRyI5MgQID9yrEBhosTAgUMU
+        SZwocYTAUncEFHiQiI0dNhO2QFFUQSCeAAMciNBQps4aNFqeKJIgEAMBEHouDTJiRsiNKjIhCLzwwZIl
+        TJV0eElDgorMBgJDbFjEKJShIl3ITJgiM8E/Unk8TAJFqYeNLFwYPJGJwBSWICpaIEqCY0mNBQgQsCV0
+        Zg6RU6g8yQhjgYmTtYoQCIpD58ohVJ1igDmRogliBHvgyGnjAxUnGF9cGDiQN28hK2/cKOHTh4YUCjsA
+        NZrd6B+PGWLUjInyQkGHQJA+Cf/0T5QfDhEiZGDxp5GmUQ8Fjtok6ZGjSJk+lYoeEAA7
+</value>
+  </data>
+  <data name="infoButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="infoButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="infoButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="infoButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 0, 3</value>
+  </data>
+  <data name="infoButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>21, 21</value>
+  </data>
+  <data name="infoButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;infoButton.Name" xml:space="preserve">
+    <value>infoButton</value>
+  </data>
+  <data name="&gt;&gt;infoButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;infoButton.Parent" xml:space="preserve">
+    <value>IdentifierServiceFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;infoButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="copyButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH4AsXFjgwSWO8gAAAAk9JREFU
+        OE+dkltIk2Echz8iCGzYCYZQSGcKYzFIClxGU8rMzWSWoYWipTESlVrURauVRoEdCMmLLgq6yMJCy5LC
+        DhAVYdKJLDu480l3PqXb4Nf7vW/vWHjR4Q+/mw/2PN/DPqGvswLiejrK0X2hDF3talw7vRVXWotw2VCI
+        S0c34uKRfJzT5eFMy1oIgpBJNp2MXW/HdkSdbUC4/Y8zaOUiYDmZhP5YvK6zakScrUg66pF065B0NSNh
+        r0bcXILAoBy2PilZNgUcrs0RATIy8S3YXW0rQthBAE4tTfnnnE69EiH7SQr4r5zzhxQI2k4gaa9DKsd9
+        kC7hbCE5jZi07MOP0TpEv+5G5FMFBaRyTjXlImA1IGGrBM9JuA4g7mjCpFWLCdNexL7XIPKlCuGPGgTf
+        qSiguWoZA+gbVsNvIQBLKXhO3L6fWY21iH5j1tCHbQi+LYbvdQEFNGiyGUBXsxI+83HERpTgOROmemYd
+        qUR4uByh9yoEhjbD92oDPM/XUUB1SRYDNO5cAq/pGPzkL+M5MbH1c5p1UAnPyzyMPcuF+7GMAnYUzmWA
+        PWUL4DHq4RpYCJ4THmat/qFN8P6yjj2Vw/UoB44HSylAvV7CALu2SDFOAObbs8Bzgm+KyRsVwPtCQaxr
+        4Hoig/PhCtj7F8F2dz4FqBQzGUCjnI3SfAl9wHO41S1aB5jVdi8b1jtZRDTvdwA58bteTLaK54yLrdx6
+        n1ktPVKYb82B8aZkCmAaWQaZhOekWy29zGrqzoTxRgZGr8+YAkhdes7fTBAE2U8Rk2v+DGaM8gAAAABJ
+        RU5ErkJggg==
+</value>
+  </data>
+  <data name="copyButton.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="copyButton.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="copyButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="copyButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>27, 3</value>
+  </data>
+  <data name="copyButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 0, 3</value>
+  </data>
+  <data name="copyButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>21, 21</value>
+  </data>
+  <data name="copyButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;copyButton.Name" xml:space="preserve">
+    <value>copyButton</value>
+  </data>
+  <data name="&gt;&gt;copyButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;copyButton.Parent" xml:space="preserve">
+    <value>IdentifierServiceFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;copyButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="IdentifierServiceFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="IdentifierServiceFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 27</value>
+  </data>
+  <data name="IdentifierServiceFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="IdentifierServiceFlowLayoutPanel.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;IdentifierServiceFlowLayoutPanel.Name" xml:space="preserve">
+    <value>IdentifierServiceFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;IdentifierServiceFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IdentifierServiceFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>mTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;IdentifierServiceFlowLayoutPanel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="mTableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -524,7 +601,7 @@
     <value>0</value>
   </data>
   <data name="mTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="mTabControl" Row="1" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="identifierComboBox" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="infoButton" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="IdentifierCommandFlowLayoutPanel" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,400,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="mTabControl" Row="1" RowSpan="1" Column="0" ColumnSpan="3" /&gt;&lt;Control Name="identifierComboBox" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="IdentifierCommandFlowLayoutPanel" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="IdentifierServiceFlowLayoutPanel" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="AutoSize,0,Absolute,400,Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2427,7 +2504,7 @@
     <value>750, 400</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>WebMoney Terminal</value>
+    <value>WebMoney Business Tools {0}</value>
   </data>
   <data name="&gt;&gt;sessionToolStripMenuItem.Name" xml:space="preserve">
     <value>sessionToolStripMenuItem</value>

@@ -1,0 +1,108 @@
+﻿{
+  "fileFilter": "Excel Workbook|*.xlsx",
+  "filterScreen": {
+    "tunableGrid": {
+      "columnHeaderDefaultCellStyle": {
+        "font": {
+          "isBold": true
+        },
+        "backColor": "225;225;225",
+        "foreColor": "Black",
+        "alignment": "MiddleCenter",
+        "padding": 2,
+        "wrapMode": "False"
+      },
+      "RowsDefaultCellStyle": {
+        "font": {
+          "isBold": false
+        },
+        "selectionBackColor": "204;232;255",
+        "selectionForeColor": "Black",
+        "alignment": "MiddleLeft",
+        "padding": 1,
+        "wrapMode": "False"
+      },
+      "columns": [
+        {
+          "name": "Id",
+          "headerText": "Id",
+          "width": 100
+        },
+        {
+          "name": "TransferBundleId",
+          "headerText": "TransferBundleId",
+          "width": 100
+        },
+        {
+          "name": "SecondaryId",
+          "headerText": "SecondaryId",
+          "width": 100
+        },
+        {
+          "name": "TransferId",
+          "headerText": "TransferId",
+          "width": 100
+        },
+        {
+          "name": "SourcePurse",
+          "headerText": "SourcePurse",
+          "width": 105
+        },
+        {
+          "name": "TargetPurse",
+          "headerText": "TargetPurse",
+          "width": 105
+        },
+        {
+          "name": "Amount",
+          "headerText": "Amount",
+          "width": 100
+        },
+        {
+          "name": "Description",
+          "headerText": "Description",
+          "width": 250
+        },
+        {
+          "name": "Force",
+          "headerText": "Force",
+          "width": 100
+        },
+        {
+          "name": "State",
+          "headerText": "State",
+          "width": 100
+        },
+        {
+          "name": "ErrorMessage",
+          "headerText": "ErrorMessage",
+          "width": 250
+        },
+        {
+          "name": "CreationTime",
+          "headerText": "CreationTime",
+          "width": 125,
+          "sortable": true
+        },
+        {
+          "name": "UpdateTime",
+          "headerText": "UpdateTime",
+          "width": 125
+        },
+        {
+          "name": "TransferCreationTime",
+          "headerText": "TransferCreationTime",
+          "width": 125
+        }
+      ]
+    }
+  },
+  "statusLabels": [
+    {
+      "textColor": "31;170;35"
+    },
+    {
+      "textColor": "255;0;0"
+    }
+  ]
+}

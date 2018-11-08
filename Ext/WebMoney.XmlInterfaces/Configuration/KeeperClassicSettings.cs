@@ -25,10 +25,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 
                 return _wmId.Value;
             }
-            set
-            {
-                _wmId = value;
-            }
+            set => _wmId = value;
         }
 
         [XmlElement("wmKey")]
@@ -41,10 +38,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 
                 return _wmKey;
             }
-            set
-            {
-                _wmKey = value;
-            }
+            set => _wmKey = value;
         }
     }
 }

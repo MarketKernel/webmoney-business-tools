@@ -40,39 +40,39 @@
             // 
             // okButton
             // 
-            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             resources.ApplyResources(this.okButton, "okButton");
+            this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.okButton.Name = "okButton";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // cButton
             // 
-            this.cButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             resources.ApplyResources(this.cButton, "cButton");
+            this.cButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cButton.Name = "cButton";
             this.cButton.UseVisualStyleBackColor = true;
             this.cButton.Click += new System.EventHandler(this.cButton_Click);
             // 
             // mPropertyGrid
             // 
-            this.mPropertyGrid.CommandsBackColor = System.Drawing.SystemColors.Control;
             resources.ApplyResources(this.mPropertyGrid, "mPropertyGrid");
+            this.mPropertyGrid.CommandsBackColor = System.Drawing.SystemColors.Control;
             this.mPropertyGrid.LineColor = System.Drawing.SystemColors.ControlDark;
             this.mPropertyGrid.Name = "mPropertyGrid";
             // 
             // bottomFlowLayoutPanel
             // 
+            resources.ApplyResources(this.bottomFlowLayoutPanel, "bottomFlowLayoutPanel");
             this.bottomFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.bottomFlowLayoutPanel.Controls.Add(this.cButton);
             this.bottomFlowLayoutPanel.Controls.Add(this.okButton);
-            resources.ApplyResources(this.bottomFlowLayoutPanel, "bottomFlowLayoutPanel");
             this.bottomFlowLayoutPanel.Name = "bottomFlowLayoutPanel";
             // 
             // mPanel
             // 
-            this.mPanel.Controls.Add(this.mPropertyGrid);
             resources.ApplyResources(this.mPanel, "mPanel");
+            this.mPanel.Controls.Add(this.mPropertyGrid);
             this.mPanel.Name = "mPanel";
             // 
             // SettingsForm

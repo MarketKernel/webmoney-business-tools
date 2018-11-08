@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X18. Getting transaction details via merchant.wmtransfer.com.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -13,31 +16,59 @@ namespace WebMoney.XmlInterfaces
     [Serializable]
     public class MerchantOperationObtainer : WmRequest<MerchantOperation>
     {
+        private long _number;
         protected override string ClassicUrl => "https://merchant.webmoney.ru/conf/xml/XMLTransGet.asp";
 
-        protected override string LightUrl
+        protected override string LightUrl => throw new NotSupportedException();
+
+        /// <summary>
+        /// WM purse of payment recipient. Purse number to which lmi_payment_no payment was received and for which the status needs to be determined.
+        /// </summary>
+        public Purse TargetPurse { get; set; }
+
+        /// <summary>
+        /// Payment number.
+        /// </summary>
+        public long Number
         {
-            get { throw new NotSupportedException(); }
+            get => _number;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(value));
+
+                _number = value;
+            }
         }
 
-        public Purse TargetPurse { get; set; }
-        public uint PaymentNumber { get; set; }
+        /// <summary>
+        /// Payment number type.
+        /// </summary>
         public PaymentNumberKind NumberType { get; set; }
 
         protected internal MerchantOperationObtainer()
         {
         }
 
-        public MerchantOperationObtainer(Purse targetPurse, uint paymentNumber, PaymentNumberKind numberType)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="targetPurse">WM purse of payment recipient.</param>
+        /// <param name="number">Payment number.</param>
+        /// <param name="numberType">Payment number type.</param>
+        public MerchantOperationObtainer(Purse targetPurse, long number, PaymentNumberKind numberType)
         {
+            if (number < 0)
+                throw new ArgumentOutOfRangeException(nameof(number));
+
             TargetPurse = targetPurse;
-            PaymentNumber = paymentNumber;
+            Number = number;
             NumberType = numberType;
         }
 
         protected override string BuildMessage(ulong requestNumber)
         {
-            return string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", Initializer.Id, TargetPurse, PaymentNumber);
+            return string.Format(CultureInfo.InvariantCulture, "{0}{1}{2}", Initializer.Id, TargetPurse, Number);
         }
 
         protected override void BuildXmlHead(XmlRequestBuilder xmlRequestBuilder)
@@ -73,7 +104,7 @@ namespace WebMoney.XmlInterfaces
 
             xmlRequestBuilder.WriteElement("lmi_payee_purse", TargetPurse.ToString());
             xmlRequestBuilder.WriteElement("lmi_payment_no_type", (int)NumberType);
-            xmlRequestBuilder.WriteElement("lmi_payment_no", PaymentNumber);
+            xmlRequestBuilder.WriteElement("lmi_payment_no", Number);
         }
 
         protected override void BuildXmlFoot(XmlRequestBuilder xmlRequestBuilder)

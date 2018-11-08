@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using ExtensibilityAssistant;
 using log4net;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WMBusinessTools.Extensions.Contracts;
 using WMBusinessTools.Extensions.Contracts.Contexts;
@@ -39,12 +39,51 @@ namespace WMBusinessTools
 #endif
             Application.ApplicationExit += ApplicationOnApplicationExit;
 
+
+            // Первичная инициализация
+            if (string.IsNullOrEmpty(Settings.Default.InstallationReference))
+            {
+                bool omitPrecompilation;
+
+                var omitPrecompilationValue = ConfigurationManager.AppSettings["OmitPrecompilation"];
+
+                if (null != omitPrecompilationValue)
+                    bool.TryParse(omitPrecompilationValue, out omitPrecompilation);
+                else
+                    omitPrecompilation = false;
+
+                var initializationForm = new InitializationForm(omitPrecompilation);
+
+                if (DialogResult.Cancel == initializationForm.ShowDialog())
+                    return;
+            }
+
+            SplashScreenForm splashScreen = null;
+
+            var autoResetEvent = new AutoResetEvent(false);
+
+            var thread = new Thread(() =>
+            {
+                splashScreen = new SplashScreenForm();
+                autoResetEvent.Set();
+                Application.Run(splashScreen);
+            })
+            {
+                IsBackground = true
+            };
+
+            thread.Start();
+            autoResetEvent.WaitOne();
+
             try
             {
                 _extensionManager = new ExtensionManager(Application.StartupPath);
             }
             catch (Exception exception)
             {
+                // Закрываем SplashScreen
+                splashScreen.SafeClose();
+
                 Logger.Fatal(exception.Message, exception);
 
                 MessageBox.Show(Resources.Program_Main_An_error_occurred_while_trying_to_load_the_extension_manager_,
@@ -58,11 +97,17 @@ namespace WMBusinessTools
             // WebMoney.Services configuration
             var configurationService = _extensionManager.CreateExtension<IConfigurationService>();
 
+            configurationService.InstallationReference = Settings.Default.InstallationReference;
+
             IUnityContainer unityContainer = new UnityContainer();
             configurationService.RegisterServices(unityContainer);
 
             // Set session
             var enterContext = new EntranceContext(_extensionManager, unityContainer);
+
+            // Закрываем SplashScreen
+            splashScreen.SafeClose();
+
             var sessionContextProvider = _extensionManager.GetSessionContextProvider();
 
             SessionContext sessionContext;

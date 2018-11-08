@@ -90,8 +90,8 @@
           "sortable": true
         },
         {
-          "name": "TransferId",
-          "headerText": "Transfer ID",
+          "name": "PaymentId",
+          "headerText": "Payment ID",
           "width": 100,
           "sortable": true
         },
@@ -115,7 +115,7 @@
         },
         {
           "name": "Locked",
-          "headerText": "Locked",
+          "headerText": "Protection by time",
           "width": 100,
           "sortable": true
         },

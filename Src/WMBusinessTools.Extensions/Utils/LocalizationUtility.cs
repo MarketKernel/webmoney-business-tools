@@ -44,9 +44,7 @@ namespace WMBusinessTools.Extensions.Utils
             {
                 object field = fieldInfo.GetValue(form);
 
-                var menu = field as Menu;
-
-                if (menu != null)
+                if (field is Menu menu)
                 {
                     foreach (MenuItem item in menu.MenuItems)
                     {
@@ -54,10 +52,8 @@ namespace WMBusinessTools.Extensions.Utils
                         item.Text = resourceText;
                     }
                 }
-                else if (field is DataGridView)
+                else if (field is DataGridView dataGridView)
                 {
-                    var dataGridView = (DataGridView)field;
-
                     foreach (DataGridViewColumn column in dataGridView.Columns)
                     {
                         string hText = (string)resourceManager.GetObject(column.Name + ".HeaderText");

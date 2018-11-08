@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security;
 using System.Windows.Forms;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;
 using WebMoney.Services.Contracts.Exceptions;

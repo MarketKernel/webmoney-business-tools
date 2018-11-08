@@ -55,11 +55,11 @@ namespace WebMoney.Services.ExternalServices
                                     description)
                                 {Amount = pi.Amount};
 
-                        if (pi.LastIncomingTransfer.HasValue && pi.LastIncomingTransfer > 0)
-                            account.LastIncomingTransferPrimaryId = pi.LastIncomingTransfer;
+                        if (pi.LastIncomingTransferId > 0)
+                            account.LastIncomingTransferId = pi.LastIncomingTransferId;
 
-                        if (pi.LastOutgoingTransfer.HasValue && pi.LastOutgoingTransfer > 0)
-                            account.LastOutgoingTransferPrimaryId = pi.LastOutgoingTransfer;
+                        if (pi.LastOutgoingTransferId > 0)
+                            account.LastOutgoingTransferId = pi.LastOutgoingTransferId;
 
                         return account;
                     });
@@ -128,11 +128,11 @@ namespace WebMoney.Services.ExternalServices
                 {
                     account.Amount = purseInfo.Amount;
 
-                    if (purseInfo.LastIncomingTransfer > 0)
-                        account.LastIncomingTransferPrimaryId = purseInfo.LastIncomingTransfer;
+                    if (purseInfo.LastIncomingTransferId > 0)
+                        account.LastIncomingTransferId = purseInfo.LastIncomingTransferId;
 
-                    if (purseInfo.LastOutgoingTransfer > 0)
-                        account.LastOutgoingTransferPrimaryId = purseInfo.LastOutgoingTransfer;
+                    if (purseInfo.LastOutgoingTransferId > 0)
+                        account.LastOutgoingTransferId = purseInfo.LastOutgoingTransferId;
                 }
 
                 account.InvoiceAllowed = trust.InvoiceAllowed;

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
 using WebMoney.Services.Contracts.BusinessObjects;
@@ -44,7 +44,7 @@ namespace WMBusinessTools.Extensions.Forms
             InitializeComponent();
 
             var origin = new AccountDropDownListOrigin(context.UnityContainer);
-            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Transfer;
+            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Actual | CurrencyCapabilities.Transfer;
 
             if (null != accountNumber)
                 origin.SelectedAccountNumber = accountNumber;
@@ -130,7 +130,7 @@ namespace WMBusinessTools.Extensions.Forms
                     {
                         var payment = new OriginalPayment
                         {
-                            TransferId = transfer.TransferId,
+                            PaymentId = transfer.PaymentId,
                             TargetPurse = transfer.TargetPurse,
                             Amount = transfer.Amount,
                             Description = transfer.Description
@@ -159,7 +159,7 @@ namespace WMBusinessTools.Extensions.Forms
                     throw new InvalidOperationException("fileExtension == " + fileExtension);
             }
 
-            var contentList = originalPayments.Select(op => new GridRowContent(op.TransferId.ToString(), op))
+            var contentList = originalPayments.Select(op => new GridRowContent(op.PaymentId.ToString(), op))
                 .ToList();
             mTunableGrid.DisplayContent(contentList);
 
@@ -206,14 +206,12 @@ namespace WMBusinessTools.Extensions.Forms
 
             switch (columnName)
             {
-                case "TransferId":
+                case "PaymentId":
                 {
-                    int transferId;
+                    if (!int.TryParse(value, out var paymentId))
+                        paymentId = _context.Session.SettingsService.AllocateTransferId();
 
-                    if (!int.TryParse(value, out transferId))
-                        transferId = _context.Session.SettingsService.AllocateTransferId();
-
-                    return new Tuple<string, object>(transferId.ToString(), transferId);
+                    return new Tuple<string, object>(paymentId.ToString(), paymentId);
                 }
                 case "TargetPurse":
                 {
@@ -250,9 +248,7 @@ namespace WMBusinessTools.Extensions.Forms
                     value = value.Replace(".", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
                     value = value.Replace(",", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
 
-                    decimal amount;
-
-                    if (!decimal.TryParse(value, out amount))
+                    if (!decimal.TryParse(value, out var amount))
                         return null;
 
                     return new Tuple<string, object>(_formattingService.FormatAmount(amount), amount);
@@ -379,7 +375,7 @@ namespace WMBusinessTools.Extensions.Forms
 
                     foreach (var originalPayment in originalPayments)
                     {
-                        originalTransfers.Add(new OriginalTransfer(originalPayment.TransferId, string.Empty,
+                        originalTransfers.Add(new OriginalTransfer(originalPayment.PaymentId, string.Empty,
                             originalPayment.TargetPurse,
                             originalPayment.Amount, originalPayment.Description));
                     }

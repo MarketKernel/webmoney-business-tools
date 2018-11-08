@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
 using WebMoney.Services.Contracts.BusinessObjects;
@@ -32,7 +32,8 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
 
             // Устанавливаем кошельки
             var origin = new AccountDropDownListOrigin(context.UnityContainer);
-            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Invoice;
+
+            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Actual;
 
             if (null != trust)
             {

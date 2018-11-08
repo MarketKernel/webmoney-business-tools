@@ -57,20 +57,26 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
 
         public int Control9TransferId
         {
-            get => (int)(decimal) GetValue(8);
-            set => SetValue("TransferId", (decimal)value);
+            get => (int) (decimal) GetValue(8);
+            set => SetValue("TransferId", (decimal) value);
         }
 
         public string Control10PayFrom => (string) GetValue(9);
-        public bool? Control11UsePaymentProtection => (bool?) GetValue(10);
+        public bool Control11UsePaymentProtection => (bool?) GetValue(10) ?? false;
 
         public byte Control12ProtectionPeriod
         {
             get => (byte) (decimal) GetValue(11);
-            set => SetValue("ProtectionPeriod", (decimal)value);
+            set => SetValue("ProtectionPeriod", (decimal) value);
         }
 
-        public string Control13ProtectionCode => (string) GetValue(12);
+        public string Control13ProtectionCode
+        {
+            get => (string) GetValue(12);
+            set => SetValue("ProtectionCode", value);
+        }
+
+        public bool Control14ProtectionByTime => (bool) GetValue(13);
 
         public PayInvoiceFormValuesWrapper()
         {

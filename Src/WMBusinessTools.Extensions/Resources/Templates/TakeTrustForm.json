@@ -92,7 +92,7 @@
                 "type": "TextBoxWithButton",
                 "desc": "SMS reference:",
                 "name": "SmsReference",
-                "iconPath": "../Pictures/Link.gif",
+                "iconPath": "../Pictures/Link.png",
                 "readOnly": true,
                 "behaviorRules": [
                   {

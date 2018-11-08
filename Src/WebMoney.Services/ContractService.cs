@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.BusinessObjects;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;

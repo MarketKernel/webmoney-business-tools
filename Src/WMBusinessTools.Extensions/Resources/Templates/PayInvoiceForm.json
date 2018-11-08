@@ -17,7 +17,7 @@
                       "type": "TextBoxWithButton",
                       "desc": "From WMID:",
                       "name": "TargetIdentifier",
-                      "iconPath": "../Pictures/FindWmId.gif",
+                      "iconPath": "../Pictures/FindWmId.png",
                       "readOnly": true,
                       "behaviorRules": [
                         {
@@ -34,7 +34,7 @@
                     },
                     {
                       "type": "AmountNumericUpDown",
-                      "desc": "Amount",
+                      "desc": "Amount:",
                       "name": "Amount",
                       "currencyName": "WMZ",
                       "readOnly": true

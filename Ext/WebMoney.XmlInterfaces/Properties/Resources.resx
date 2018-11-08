@@ -126,6 +126,9 @@
   <data name="Capitaller" xml:space="preserve">
     <value>capitaller</value>
   </data>
+  <data name="CapitallerEntity" xml:space="preserve">
+    <value>Capitaller (legal entity)</value>
+  </data>
   <data name="Developer" xml:space="preserve">
     <value>developer</value>
   </data>

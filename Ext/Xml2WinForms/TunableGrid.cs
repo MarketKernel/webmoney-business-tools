@@ -152,7 +152,7 @@ namespace Xml2WinForms
                     return;
 
                 ServiceCommand?.Invoke(this,
-                    new CommandEventArgs {Command = args.Command, Argument = CurrentEntity});
+                    new CommandEventArgs { Command = args.Command, Argument = CurrentEntity });
             };
 
             _commandMenu = commandMenu;
@@ -302,7 +302,7 @@ namespace Xml2WinForms
             mDataGridView.Rows.Clear();
 
             mDataGridView.Enabled = true;
-            ((ISupportInitialize) mDataGridView).EndInit();
+            ((ISupportInitialize)mDataGridView).EndInit();
 
             _commandMenu.Reset();
             mDataGridView.ContextMenuStrip = null;
@@ -355,10 +355,10 @@ namespace Xml2WinForms
             var gridColumnSettingses = new List<GridColumnSettings>();
 
             foreach (DataGridViewColumn column in mDataGridView.Columns.Cast<DataGridViewColumn>()
-                .OrderBy(c => (int) c.Tag))
+                .OrderBy(c => (int)c.Tag))
             {
                 gridColumnSettingses.Add(
-                    new GridColumnSettings {DisplayIndex = column.DisplayIndex, Width = column.Width});
+                    new GridColumnSettings { DisplayIndex = column.DisplayIndex, Width = column.Width });
             }
 
             return gridColumnSettingses;
@@ -403,7 +403,7 @@ namespace Xml2WinForms
             var name = mDataGridView.Columns[e.ColumnIndex].Name;
 
             var commandText = "CellContentClick:" + name;
-            ServiceCommand?.Invoke(this, new CommandEventArgs {Command = commandText});
+            ServiceCommand?.Invoke(this, new CommandEventArgs { Command = commandText });
         }
 
         private void mDataGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -722,7 +722,7 @@ namespace Xml2WinForms
                 var propertyInfo = contentItem.GetType().GetProperty(column.Name);
 
                 if (null == propertyInfo)
-                    throw new InvalidOperationException("null == propertyInfo");
+                    throw new InvalidOperationException($"null == propertyInfo [{column.Name}]");
 
                 var value = propertyInfo.GetValue(contentItem, null);
 

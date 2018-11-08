@@ -1,0 +1,147 @@
+﻿{
+  "fileFilter": "Excel Workbook|*.xlsx",
+  "filterScreen": {
+    "tunableGrid": {
+      "columnHeaderDefaultCellStyle": {
+        "font": {
+          "isBold": true
+        },
+        "backColor": "225;225;225",
+        "foreColor": "Black",
+        "alignment": "MiddleCenter",
+        "padding": 2,
+        "wrapMode": "False"
+      },
+      "rowsDefaultCellStyle": {
+        "font": {
+          "isBold": false
+        },
+        "selectionBackColor": "204;232;255",
+        "selectionForeColor": "Black",
+        "alignment": "MiddleLeft",
+        "padding": 1,
+        "wrapMode": "False"
+      },
+      "columns": [
+        {
+          "name": "PrimaryId",
+          "headerText": "Primary ID",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "SecondaryId",
+          "headerText": "Secondary ID",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "OrderId",
+          "headerText": "Order ID",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "TargetIdentifier",
+          "headerText": "Target WMID",
+          "width": 105,
+          "sortable": true
+        },
+        {
+          "name": "TargetPurse",
+          "headerText": "Target purse",
+          "width": 105,
+          "sortable": true
+        },
+        {
+          "name": "Amount",
+          "headerText": "Amount",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "Description",
+          "headerText": "Description",
+          "width": 400,
+          "sortable": true
+        },
+        {
+          "name": "Address",
+          "headerText": "Address",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "ProtectionPeriod",
+          "headerText": "Protection period",
+          "width": 50,
+          "sortable": true
+        },
+        {
+          "name": "ExpirationPeriod",
+          "headerText": "Expiration period",
+          "width": 50,
+          "sortable": true
+        },
+        {
+          "name": "TransferPrimaryId",
+          "headerText": "Transfer primary ID",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "State",
+          "headerText": "State",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "CreationTime",
+          "headerText": "Creation time",
+          "width": 125,
+          "sortable": true
+        },
+        {
+          "name": "UpdateTime",
+          "headerText": "Update time",
+          "width": 125,
+          "sortable": true
+        }
+      ]
+    },
+    "column": {
+      "controls": [
+        {
+          "type": "DateTimePicker",
+          "desc": "From:",
+          "name": "FromTime",
+          "controlWidth": 150
+        },
+        {
+          "type": "DateTimePicker",
+          "desc": "To:",
+          "name": "ToTime",
+          "controlWidth": 150
+        }
+      ]
+    },
+    "filterButtonText": "Show",
+    "commandButtons": [
+      {
+        "text": "Test1",
+        "command": "Test1"
+      }
+    ]
+  },
+  "statusLabels": [
+    {
+      "textColor": "0;0;255"
+    },
+    {
+      "textColor": "0;255;0"
+    },
+    {
+      "textColor": "255;0;0"
+    }
+  ]
+}

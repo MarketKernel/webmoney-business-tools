@@ -1,0 +1,168 @@
+﻿{
+  "fileFilter": "Excel Workbook|*.xlsx",
+  "filterScreen": {
+    "tunableGrid": {
+      "columnHeaderDefaultCellStyle": {
+        "font": {
+          "isBold": true
+        },
+        "backColor": "225;225;225",
+        "foreColor": "Black",
+        "alignment": "MiddleCenter",
+        "padding": 2,
+        "wrapMode": "False"
+      },
+      "rowsDefaultCellStyle": {
+        "font": {
+          "isBold": false
+        },
+        "selectionBackColor": "204;232;255",
+        "selectionForeColor": "Black",
+        "alignment": "MiddleLeft",
+        "padding": 1,
+        "wrapMode": "False"
+      },
+      "columns": [
+        {
+          "name": "Id",
+          "headerText": "Id",
+          "sortable": true,
+          "width": 100
+        },
+        {
+          "name": "Name",
+          "headerText": "Name",
+          "sortable": true,
+          "width": 200
+        },
+        {
+          "name": "SourceAccountName",
+          "headerText": "Source purse",
+          "sortable": true,
+          "width": 105
+        },
+        {
+          "name": "FailedCount",
+          "headerText": "Failed count",
+          "sortable": true,
+          "width": 50
+        },
+        {
+          "name": "RegisteredCount",
+          "headerText": "Registered count",
+          "sortable": true,
+          "width": 50
+        },
+        {
+          "name": "PendedCount",
+          "headerText": "Pended count",
+          "sortable": true,
+          "width": 50
+        },
+        {
+          "name": "ProcessedCount",
+          "headerText": "Processed count",
+          "sortable": true,
+          "width": 50
+        },
+        {
+          "name": "InterruptedCount",
+          "headerText": "Interrupted count",
+          "sortable": true,
+          "width": 50
+        },
+        {
+          "name": "CompletedCount",
+          "headerText": "Completed count",
+          "sortable": true,
+          "width": 50
+        },
+        {
+          "name": "FailedTotalAmount",
+          "headerText": "Failed amount",
+          "sortable": true,
+          "width": 75
+        },
+        {
+          "name": "RegisteredTotalAmount",
+          "headerText": "Registered amount",
+          "sortable": true,
+          "width": 75
+        },
+        {
+          "name": "PendedTotalAmount",
+          "headerText": "Pended amount",
+          "sortable": true,
+          "width": 75
+        },
+        {
+          "name": "ProcessedTotalAmount",
+          "headerText": "Processed amount",
+          "sortable": true,
+          "width": 75
+        },
+        {
+          "name": "InterruptedTotalAmount",
+          "headerText": "Interrupted amount",
+          "sortable": true,
+          "width": 75
+        },
+        {
+          "name": "CompletedTotalAmount",
+          "headerText": "Completed amount",
+          "sortable": true,
+          "width": 75
+        },
+        {
+          "name": "State",
+          "headerText": "State",
+          "sortable": true,
+          "width": 100
+        },
+        {
+          "name": "CreationTime",
+          "headerText": "Creation time",
+          "sortable": true,
+          "width": 125
+        },
+        {
+          "name": "UpdateTime",
+          "headerText": "Update time",
+          "sortable": true,
+          "width": 125
+        }
+      ]
+    },
+    "column": {
+      "controls": [
+        {
+          "type": "DateTimePicker",
+          "desc": "From:",
+          "name": "FromTime",
+          "controlWidth": 150
+        },
+        {
+          "type": "DateTimePicker",
+          "name": "ToTime",
+          "desc": "To:",
+          "controlWidth": 150
+        }
+      ]
+    },
+    "filterButtonText": "Show",
+    "commandButtons": [
+      {
+        "text": "Test1",
+        "command": "Test1"
+      }
+    ]
+  },
+  "statusLabels": [
+    {
+      "textColor": "31;170;35"
+    },
+    {
+      "textColor": "255;0;0"
+    }
+  ]
+}

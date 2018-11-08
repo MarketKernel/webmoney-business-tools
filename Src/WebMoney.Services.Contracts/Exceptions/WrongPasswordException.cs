@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.WrongPasswordException_Caption_Wrong_password;
 
         public WrongPasswordException()
+            : base(Resources.WrongPasswordException_Caption_Wrong_password)
         {
         }
 

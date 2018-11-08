@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.BusinessObjects;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;
@@ -140,6 +140,32 @@ namespace WebMoney.Services
             }
         }
 
+        public void SetSecretKeyX20(string purse, string key)
+        {
+            if (null == purse)
+                throw new ArgumentNullException(nameof(purse));
+
+            if (null == key)
+                throw new ArgumentNullException(nameof(key));
+
+            if (!Session.AuthenticationService.HasConnectionSettings)
+                throw new InvalidOperationException("!Session.AuthenticationService.HasConnectionSettings");
+
+            var currentIdentifier = Session.CurrentIdentifier;
+
+            using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
+            {
+                var entity = context.Accounts.FirstOrDefault(a => a.Identifier == currentIdentifier && a.Number == purse);
+
+                if (null == entity)
+                    throw new InvalidOperationException("null == entity");
+
+                entity.SecretKeyX20 = key;
+
+                context.SaveChanges();
+            }
+        }
+
         public void ClearMerchantKey(string purse)
         {
             if (null == purse)
@@ -158,6 +184,29 @@ namespace WebMoney.Services
                     throw new InvalidOperationException("null == entity");
 
                 entity.MerchantKey = null;
+
+                context.SaveChanges();
+            }
+        }
+
+        public void ClearSecretKeyX20(string purse)
+        {
+            if (null == purse)
+                throw new ArgumentNullException(nameof(purse));
+
+            if (!Session.AuthenticationService.HasConnectionSettings)
+                throw new InvalidOperationException("!Session.AuthenticationService.HasConnectionSettings");
+
+            var currentIdentifier = Session.CurrentIdentifier;
+
+            using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
+            {
+                var entity = context.Accounts.FirstOrDefault(a => a.Identifier == currentIdentifier && a.Number == purse);
+
+                if (null == entity)
+                    throw new InvalidOperationException("null == entity");
+
+                entity.SecretKeyX20 = null;
 
                 context.SaveChanges();
             }

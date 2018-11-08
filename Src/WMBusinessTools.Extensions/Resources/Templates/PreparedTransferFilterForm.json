@@ -25,32 +25,37 @@
       "columns": [
         {
           "name": "Id",
-          "headerText": "Id",
+          "headerText": "ID",
           "width": 100
         },
         {
           "name": "TransferBundleId",
-          "headerText": "TransferBundleId",
+          "headerText": "Bundle ID",
+          "width": 100
+        },
+        {
+          "name": "PrimaryId",
+          "headerText": "Primary ID",
           "width": 100
         },
         {
           "name": "SecondaryId",
-          "headerText": "SecondaryId",
+          "headerText": "Secondary ID",
           "width": 100
         },
         {
-          "name": "TransferId",
-          "headerText": "TransferId",
+          "name": "PaymentId",
+          "headerText": "Payment ID",
           "width": 100
         },
         {
           "name": "SourcePurse",
-          "headerText": "SourcePurse",
+          "headerText": "Source Purse",
           "width": 105
         },
         {
           "name": "TargetPurse",
-          "headerText": "TargetPurse",
+          "headerText": "Target Purse",
           "width": 105
         },
         {
@@ -75,23 +80,23 @@
         },
         {
           "name": "ErrorMessage",
-          "headerText": "ErrorMessage",
+          "headerText": "Error Message",
           "width": 250
         },
         {
           "name": "CreationTime",
-          "headerText": "CreationTime",
+          "headerText": "Creation Time",
           "width": 125,
           "sortable": true
         },
         {
           "name": "UpdateTime",
-          "headerText": "UpdateTime",
+          "headerText": "Update Time",
           "width": 125
         },
         {
           "name": "TransferCreationTime",
-          "headerText": "TransferCreationTime",
+          "headerText": "Transfer Creation Time",
           "width": 125
         }
       ]

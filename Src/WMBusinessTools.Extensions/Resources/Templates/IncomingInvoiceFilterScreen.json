@@ -82,8 +82,8 @@
         "sortable": true
       },
       {
-        "name": "TransferPrimaryId",
-        "headerText": "Transfer primary ID",
+        "name": "TransferId",
+        "headerText": "Transfer ID",
         "width": 100,
         "sortable": true
       },

@@ -5,6 +5,7 @@ using AutoMapper;
 using WebMoney.Services.BusinessObjects.Annotations;
 using WebMoney.Services.Contracts.BasicTypes;
 using WebMoney.Services.Contracts.BusinessObjects;
+using WebMoney.Services.Utils;
 
 namespace WebMoney.Services.BusinessObjects
 {
@@ -125,9 +126,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as Settings;
-
-            if (businessObject != null)
+            if (contractObject is Settings businessObject)
                 return businessObject;
 
             return Mapper.Map<Settings>(contractObject);
@@ -156,8 +155,7 @@ namespace WebMoney.Services.BusinessObjects
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            var settings = obj as Settings;
-            return settings != null && Equals(settings);
+            return obj is Settings settings && Equals(settings);
         }
 
         public override int GetHashCode()
@@ -167,7 +165,10 @@ namespace WebMoney.Services.BusinessObjects
 
         public object Clone()
         {
-            return Mapper.Map<Settings>(this);
+            var o = MemberwiseClone();
+            CloneUtility.CloneProperties(o);
+
+            return o;
         }
     }
 }

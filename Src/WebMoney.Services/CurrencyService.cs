@@ -23,54 +23,72 @@ namespace WebMoney.Services
                 {
                     "Z",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
                 },
                 {
                     "E",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
                 },
                 {
                     "R",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
                 },
                 {
                     "U",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
                 },
                 {
                     "B",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
                 },
                 {
                     "G",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
                 },
-                {"D", CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Invoice},
-                {"C", CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse},
                 {
                     "X",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
-                },
-                {
-                    "K",
-                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
-                },
-                {
-                    "V",
-                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
                 },
                 {
                     "H",
                     CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
-                    CurrencyCapabilities.Invoice
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
+                },
+                {
+                    "L",
+                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
+                },
+                {
+                    "K",
+                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
+                },
+                {
+                    "V",
+                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
+                },
+                {
+                    "Y",
+                    CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Transfer |
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Invoice
+                },
+                {
+                    "D",
+                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse | CurrencyCapabilities.Invoice |
+                    CurrencyCapabilities.Debit
+                },
+                {
+                    "C",
+                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse |
+                    CurrencyCapabilities.TransferByInvoice | CurrencyCapabilities.Credit
                 }
             };
         }
@@ -91,9 +109,7 @@ namespace WebMoney.Services
             if (CurrencyCapabilities.None == capabilitiesToCheck)
                 return true;
 
-            CurrencyCapabilities capabilities;
-
-            if (!_currencyRegister.TryGetValue(currency, out capabilities))
+            if (!_currencyRegister.TryGetValue(currency, out var capabilities))
             {
                 Logger.ErrorFormat("Currency {0} not supported.", currency);
                 return false;
@@ -131,16 +147,8 @@ namespace WebMoney.Services
         {
             var currencies = new List<string>();
 
-            foreach (WmCurrency wmCurrency in Enum.GetValues(typeof(WmCurrency)))
+            foreach (string currency in _currencyRegister.Keys)
             {
-                if (0 == wmCurrency)
-                    continue;
-
-                if ((int)wmCurrency >= 200)
-                    continue;
-
-                string currency = Purse.CurrencyToLetter(wmCurrency).ToString();
-
                 if (CurrencyCapabilities.None != currencyCapabilities)
                 {
                     if (!CheckCapabilities(currency, currencyCapabilities))

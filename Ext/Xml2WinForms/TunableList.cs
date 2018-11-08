@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using Xml2WinForms.Templates;
 using Xml2WinForms.Utils;
 
@@ -48,7 +50,7 @@ namespace Xml2WinForms
                     return;
 
                 ServiceCommand?.Invoke(this,
-                    new CommandEventArgs { Command = args.Command, Argument = CurrentEntity });
+                    new CommandEventArgs {Command = args.Command, Argument = CurrentEntity});
             };
 
             commandMenu.Opening += (sender, args) =>
@@ -66,6 +68,13 @@ namespace Xml2WinForms
 
             // ImageList
             _imageList = new ImageList(_container);
+            _imageList.ColorDepth = ColorDepth.Depth32Bit;
+
+            // OwnerDraw
+            DrawColumnHeader += OnDrawColumnHeader;
+            DrawItem += (sender, args) => args.DrawDefault = true;
+            DrawSubItem += (sender, args) => args.DrawDefault = true;
+            ColumnClick += OnColumnClick;
 
             InitializeComponent();
         }
@@ -181,6 +190,12 @@ namespace Xml2WinForms
                 SmallImageList = _imageList;
             }
 
+            if (template.CheckBoxes)
+            {
+                CheckBoxes = true;
+                OwnerDraw = true;
+            }
+
             Enabled = true;
             EndUpdate();
         }
@@ -190,47 +205,14 @@ namespace Xml2WinForms
             if (null == contentItems)
                 throw new ArgumentNullException(nameof(contentItems));
 
-            var items = new List<ListViewItem>();
+            var listViewItems = new List<ListViewItem>();
 
-            foreach (var template in contentItems)
+            foreach (var contentItem in contentItems)
             {
-                ListViewItem listViewItem = null;
-
-                var contentItem = template.ContentItem;
-
-                foreach (ColumnHeader column in Columns)
-                {
-                    var propertyInfo = contentItem.GetType().GetProperty(column.Name);
-
-                    if (null == propertyInfo)
-                        throw new BadTemplateException($"Property {column.Name} not found in ListItemContent!");
-
-                    var value = propertyInfo.GetValue(contentItem, null);
-
-                    string text = DisplayContentHelper.GetText(propertyInfo, value);
-
-                    if (null == listViewItem)
-                    {
-                        listViewItem = new ListViewItem(text) {Tag = contentItem};
-                        listViewItem.SubItems[0].Tag = value;
-                    }
-                    else
-                    {
-                        var subItem = new ListViewItem.ListViewSubItem {Text = text, Tag = value};
-                        listViewItem.SubItems.Add(subItem);
-                    }
-                }
+                var listViewItem = BuildListViewItem(contentItem);
 
                 if (null != listViewItem)
-                {
-                    if (null != template.Group)
-                        listViewItem.Group = Groups[template.Group];
-
-                    if (null != template.ImageKey)
-                        listViewItem.ImageKey = template.ImageKey;
-
-                    items.Add(listViewItem);
-                }
+                    listViewItems.Add(listViewItem);
             }
 
             BeginUpdate();
@@ -242,17 +224,35 @@ namespace Xml2WinForms
                 CurrentEntity = null;
             }
 
-            if (0 != items.Count)
-                Items.AddRange(items.ToArray());
+            if (0 != listViewItems.Count)
+                Items.AddRange(listViewItems.ToArray());
 
             Enabled = true;
             EndUpdate();
 
             if (!clear)
-                foreach (var listViewItem in items)
+                foreach (var listViewItem in listViewItems)
                 {
                     EnsureVisible(listViewItem.Index);
                 }
+        }
+
+        public void InsertItem(ListItemContent contentItem)
+        {
+            if (null == contentItem)
+                throw new ArgumentNullException(nameof(contentItem));
+
+            var listViewItem = BuildListViewItem(contentItem);
+
+            BeginUpdate();
+            Enabled = false;
+
+            Items.Insert(0, listViewItem);
+
+            Enabled = true;
+            EndUpdate();
+
+            EnsureVisible(listViewItem.Index);
         }
 
         public void Reset()
@@ -275,6 +275,9 @@ namespace Xml2WinForms
 
             _commandMenu.Reset();
             ContextMenuStrip = null;
+
+            CheckBoxes = false;
+            OwnerDraw = false;
 
             Enabled = true;
             EndUpdate();
@@ -333,6 +336,109 @@ namespace Xml2WinForms
 
             if (null != listViewItem && 0 != (MouseButtons.Right & e.Button))
                 _isCommandMenuAllowed = true;
+        }
+
+        private void OnDrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
+        {
+            // Только для первой колонки: рисуем CheckBox с надписью.
+            if (e.ColumnIndex != 0)
+            {
+                e.DrawDefault = true;
+                return;
+            }
+
+            e.DrawBackground();
+
+            bool value = false;
+
+            var tag = e.Header.Tag;
+
+            if (null != tag)
+                value = Convert.ToBoolean(tag);
+
+            var checkBoxState = value
+                ? CheckBoxState.CheckedNormal
+                : CheckBoxState.UncheckedNormal;
+
+            var glyphSize = CheckBoxRenderer.GetGlyphSize(e.Graphics, checkBoxState);
+
+            var textX = e.Bounds.Left + 4 + glyphSize.Width;
+
+            CheckBoxRenderer.DrawCheckBox(e.Graphics,
+                new Point(e.Bounds.Left + 4, e.Bounds.Top + 4),
+                new Rectangle(textX, e.Bounds.Top + 4, e.Header.Width - textX, FontHeight),
+                e.Header.Text,
+                Font,
+                TextFormatFlags.VerticalCenter | TextFormatFlags.Left | TextFormatFlags.WordEllipsis |
+                TextFormatFlags.LeftAndRightPadding,
+                false,
+                checkBoxState);
+        }
+
+        private void OnColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            if (!OwnerDraw)
+                return;
+
+            if (e.Column != 0)
+                return;
+
+            bool value = false;
+
+            var tag = Columns[e.Column].Tag;
+
+            if (null != tag)
+                value = Convert.ToBoolean(tag);
+
+            BeginUpdate();
+            Columns[e.Column].Tag = !value;
+
+            foreach (ListViewItem item in Items)
+                item.Checked = !value;
+
+            EndUpdate();
+            Invalidate();
+        }
+
+        private ListViewItem BuildListViewItem(ListItemContent contentItem)
+        {
+            ListViewItem listViewItem = null;
+
+            var entry = contentItem.Entry;
+
+            foreach (ColumnHeader column in Columns)
+            {
+                var propertyInfo = entry.GetType().GetProperty(column.Name);
+
+                if (null == propertyInfo)
+                    throw new BadTemplateException($"Property {column.Name} not found in ListItemContent!");
+
+                var value = propertyInfo.GetValue(entry, null);
+
+                string text = DisplayContentHelper.GetText(propertyInfo, value);
+
+                if (null == listViewItem)
+                {
+                    listViewItem = new ListViewItem(text) { Tag = entry };
+                    listViewItem.SubItems[0].Tag = value;
+                }
+                else
+                {
+                    var subItem = new ListViewItem.ListViewSubItem { Text = text, Tag = value };
+                    listViewItem.SubItems.Add(subItem);
+                }
+            }
+
+            if (null != listViewItem)
+            {
+                if (null != contentItem.Group)
+                    listViewItem.Group = Groups[contentItem.Group];
+
+                if (null != contentItem.ImageKey)
+                    listViewItem.ImageKey = contentItem.ImageKey;
+            }
+
+            return listViewItem;
         }
     }
 }

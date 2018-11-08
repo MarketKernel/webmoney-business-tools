@@ -60,9 +60,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as AuthenticationSettings;
-
-            if (businessObject != null)
+            if (contractObject is AuthenticationSettings businessObject)
                 return businessObject;
 
             return Mapper.Map<AuthenticationSettings>(contractObject);

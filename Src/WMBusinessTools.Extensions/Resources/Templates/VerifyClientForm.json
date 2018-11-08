@@ -492,7 +492,7 @@
                     {
                       "text": "&Copy value",
                       "command": "Copy",
-                      "iconPath": "../Pictures/Copy.gif"
+                      "iconPath": "../Pictures/Copy.png"
                     }
                   ]
                 }

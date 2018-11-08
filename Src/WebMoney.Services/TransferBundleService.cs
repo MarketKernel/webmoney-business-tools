@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using log4net;
-using Microsoft.Practices.Unity;
+using Npgsql;
+using Oracle.ManagedDataAccess.Client;
+using Unity;
 using WebMoney.Services.BusinessObjects;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
@@ -45,7 +47,7 @@ namespace WebMoney.Services
             }
 
             var preparedTransfers = transferList.Select(
-                    t => new PreparedTransfer(t.TransferId, t.SourcePurse, t.TargetPurse, t.Amount, t.Description))
+                    t => new PreparedTransfer(t.PaymentId, t.SourcePurse, t.TargetPurse, t.Amount, t.Description))
                 .ToList();
 
             var totalAmount = preparedTransfers.Sum(t => t.Amount);
@@ -133,13 +135,15 @@ namespace WebMoney.Services
             TransferBundle transferBundle;
             List<PreparedTransfer> updatedTransfers;
 
-            using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
+            var connectionSettings = Session.AuthenticationService.GetConnectionSettings();
+
+            using (var context = new DataContext(connectionSettings))
             {
                 var transaction = context.Database.BeginTransaction(IsolationLevel.ReadCommitted);
 
                 try
                 {
-                    LockBundle(context, bundleId);
+                    LockBundle(connectionSettings.ProviderInvariantName, context, bundleId);
 
                     transferBundle = context.TransferBundles.Include("Transfers").First(tb => tb.Id == bundleId);
 
@@ -190,13 +194,15 @@ namespace WebMoney.Services
             TransferBundle transferBundle;
             List<PreparedTransfer> updatedTransfers;
 
-            using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
+            var connectionSettings = Session.AuthenticationService.GetConnectionSettings();
+
+            using (var context = new DataContext(connectionSettings))
             {
                 var transaction = context.Database.BeginTransaction(IsolationLevel.ReadCommitted);
 
                 try
                 {
-                    LockBundle(context, bundleId);
+                    LockBundle(connectionSettings.ProviderInvariantName, context, bundleId);
 
                     transferBundle = context.TransferBundles.Include("Transfers").First(tb => tb.Id == bundleId);
 
@@ -262,13 +268,15 @@ namespace WebMoney.Services
             PreparedTransfer preparedTransfer;
             int bundleId = transferBundle.Id;
 
-            using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
+            var connectionSettings = Session.AuthenticationService.GetConnectionSettings();
+
+            using (var context = new DataContext(connectionSettings))
             {
                 var transaction = context.Database.BeginTransaction(IsolationLevel.ReadCommitted);
 
                 try
                 {
-                    LockBundle(context, bundleId);
+                    LockBundle(connectionSettings.ProviderInvariantName, context, bundleId);
 
                     transferBundle = (from tb in context.TransferBundles
                         where tb.Id == bundleId
@@ -332,55 +340,59 @@ namespace WebMoney.Services
             return preparedTransfer;
         }
 
-        public void ProcessPreparedTransfer()
+        public void ProcessPreparedTransfer(int preparedTransferId)
         {
             PreparedTransfer preparedTransfer;
 
             using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
             {
                 preparedTransfer =
-                    context.PreparedTransfers.FirstOrDefault(pt => pt.State == PreparedTransferState.Processed);
+                    context.PreparedTransfers.First(pt => pt.Id == preparedTransferId);
             }
 
-            if (null == preparedTransfer)
+            if (preparedTransfer.State != PreparedTransferState.Processed)
                 return;
 
             var transferBundleId = preparedTransfer.TransferBundleId;
 
             var transferService = Container.Resolve<IExternalTransferService>();
 
-            PreparedTransferState treparedTransferState;
+            PreparedTransferState preparedTransferState;
             string errrorMessage = null;
 
             try
             {
-                transferService.CreateTransfer(new OriginalTransfer(preparedTransfer.TransferId,
+                transferService.CreateTransfer(new OriginalTransfer(preparedTransfer.PaymentId,
                     preparedTransfer.SourcePurse, preparedTransfer.TargetPurse, preparedTransfer.Amount,
                     preparedTransfer.Description));
-                treparedTransferState = PreparedTransferState.Completed;
+
+
+                preparedTransferState = PreparedTransferState.Completed;
             }
             catch (Exception exception)
             {
                 Logger.Error(exception.Message, exception);
                 errrorMessage = exception.Message;
-                treparedTransferState = PreparedTransferState.Failed;
+                preparedTransferState = PreparedTransferState.Failed;
             }
 
             TransferBundle transferBundle;
-            var preparedTransferId = preparedTransfer.Id;
 
-            using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
+            var connectionSettings = Session.AuthenticationService.GetConnectionSettings();
+
+            using (var context = new DataContext(connectionSettings))
             {
                 var transaction = context.Database.BeginTransaction(IsolationLevel.ReadCommitted);
 
                 try
                 {
-                    LockBundle(context, transferBundleId);
+                    LockBundle(connectionSettings.ProviderInvariantName, context, transferBundleId);
 
                     preparedTransfer = context.PreparedTransfers.Include("TransferBundle")
                         .First(pt => pt.Id == preparedTransferId);
 
-                    preparedTransfer.State = treparedTransferState;
+                    // TODO [M] Получить данные платежа.
+                    preparedTransfer.State = preparedTransferState;
                     preparedTransfer.ErrorMessage = errrorMessage;
 
                     transferBundle = preparedTransfer.TransferBundle;
@@ -388,7 +400,7 @@ namespace WebMoney.Services
                     transferBundle.ProcessedCount--;
                     transferBundle.ProcessedTotalAmount -= preparedTransfer.Amount;
 
-                    switch (treparedTransferState)
+                    switch (preparedTransferState)
                     {
                         case PreparedTransferState.Failed:
                             transferBundle.FailedCount++;
@@ -399,7 +411,7 @@ namespace WebMoney.Services
                             transferBundle.CompletedTotalAmount += preparedTransfer.Amount;
                             break;
                         default:
-                            throw new InvalidOperationException("treparedTransferState == " + treparedTransferState);
+                            throw new InvalidOperationException("treparedTransferState == " + preparedTransferState);
                     }
 
                     context.SaveChanges();
@@ -481,13 +493,42 @@ namespace WebMoney.Services
             return updatedTransfers;
         }
 
-        private static void LockBundle(DataContext dataContext, int bundleId)
+        private static void LockBundle(string providerInvariantName, DataContext dataContext, int bundleId)
         {
-            const string sql = "UPDATE TransferBundle " +
-                               "SET UpdateTime = {0} " +
-                               "WHERE Id = {1}";
+            var updateTime = DateTime.UtcNow;
 
-            dataContext.Database.ExecuteSqlCommand(sql, DateTime.UtcNow, bundleId);
+            switch (providerInvariantName)
+            {
+                case DataConfiguration.PostgreSqlProviderInvariantName:
+                {
+                    const string sql = "UPDATE dbo.\"TransferBundle\" " +
+                                       "SET \"UpdateTime\" = @UpdateTime " +
+                                       "WHERE \"Id\" = @Id";
+                    dataContext.Database.ExecuteSqlCommand(sql,
+                        new NpgsqlParameter("UpdateTime", updateTime),
+                        new NpgsqlParameter("Id", bundleId));
+                }
+                    break;
+                case DataConfiguration.OracleDBProviderInvariantName:
+                {
+                    const string sql = "UPDATE \"TransferBundle\" " +
+                                       "SET \"UpdateTime\" = :UpdateTime " +
+                                       "WHERE \"Id\" = :Id";
+                    dataContext.Database.ExecuteSqlCommand(sql,
+                        new OracleParameter("UpdateTime", updateTime),
+                        new OracleParameter("Id", bundleId));
+                }
+                    break;
+                default:
+                {
+                    const string sql = "UPDATE TransferBundle " +
+                                       "SET UpdateTime = {0} " +
+                                       "WHERE Id = {1}";
+
+                    dataContext.Database.ExecuteSqlCommand(sql, updateTime, bundleId);
+                }
+                    break;
+            }
 
             var bundle = (from entity in dataContext.TransferBundles
                 where entity.Id == bundleId

@@ -6,8 +6,8 @@ namespace WebMoney.Services.Contracts.BusinessObjects
 {
     public interface IMerchantPayment
     {
-        long SystemTransferId { get; }
-        long SystemInvoiceId { get; }
+        long TransferId { get; }
+        long InvoiceId { get; }
         decimal Amount { get; }
         DateTime CreationTime { get; }
         string Description { get; }

@@ -1,0 +1,112 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Create Invoice",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "OrderNumberTemplate",
+                "name": "OrderId"
+              },
+              {
+                "prototype": "WMIDTemplate",
+                "desc": "Receiver's WMID:"
+              },
+              {
+                "prototype": "AccountListTemplate",
+                "desc": "Pay to:",
+                "behaviorRules": [
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "action": "UpdateCurrency",
+                    "affectedControls": [
+                      "Amount"
+                    ]
+                  }
+                ]
+              },
+              {
+                "prototype": "AmountTemplate"
+              },
+              {
+                "type": "TextBox",
+                "desc": "Description:",
+                "maxLength": 255,
+                "multiline": true
+              }
+            ]
+          },
+          {
+            "controls": [
+              {
+                "type": "CheckBox",
+                "desc": "Specify additional parameters",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "AdditionalParametersGroup"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
+                "type": "GroupBox",
+                "name": "AdditionalParametersGroup",
+                "desc": "Additional parameters",
+                "column": {
+                  "controls": [
+                    {
+                      "prototype": "AddressTemplate"
+                    },
+                    {
+                      "type": "CheckBox",
+                      "desc": "Specify payment period",
+                      "behaviorRules": [
+                        {
+                          "trigger": "CheckedChanged",
+                          "affectedControls": [
+                            "PaymentPeriod"
+                          ],
+                          "action": "Enable"
+                        }
+                      ]
+                    },
+                    {
+                      "prototype": "PeriodTemplate",
+                      "name": "PaymentPeriod",
+                      "desc": "Payment period (days):"
+                    },
+                    {
+                      "type": "CheckBox",
+                      "desc": "Allow payment with protection",
+                      "behaviorRules": [
+                        {
+                          "trigger": "CheckedChanged",
+                          "affectedControls": [
+                            "ProtectionPeriod"
+                          ],
+                          "action": "Enable"
+                        }
+                      ]
+                    },
+                    {
+                      "prototype": "PeriodTemplate",
+                      "name": "ProtectionPeriod",
+                      "desc": "Maximum protection period (days): "
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Send invoice"
+    }
+  ]
+}

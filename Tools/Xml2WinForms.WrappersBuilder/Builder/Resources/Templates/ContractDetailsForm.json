@@ -1,0 +1,68 @@
+﻿{
+  "text": "Details",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Name:",
+                "name": "Name",
+                "readonly": true
+              },
+              {
+                "type": "TextBox",
+                "desc": "Text:",
+                "name": "Text",
+                "multiline": true,
+                "readonly": true
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Limited access",
+                "name": "HasLimitedAccess",
+                "enabled": false
+              },
+              {
+                "type": "Table",
+                "desc": "Acceptors:",
+                "name": "Details",
+                "headerClickable": true,
+                "columns": [
+                  {
+                    "name": "Name",
+                    "headerText": "Identifier"
+                  },
+                  {
+                    "name": "Value",
+                    "headerText": "Accept time",
+                    "width": 150
+                  }
+                ],
+                "icons": [
+                  {
+                    "name": "Ant",
+                    "iconPath": "../Pictures/Ant.gif"
+                  }
+                ],
+                "commandMenu":
+                {
+                  "items": [
+                    {
+                      "text": "&Copy value",
+                      "command": "Copy",
+                      "iconPath": "../Pictures/Copy.gif"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&OK"
+    }
+  ]
+}

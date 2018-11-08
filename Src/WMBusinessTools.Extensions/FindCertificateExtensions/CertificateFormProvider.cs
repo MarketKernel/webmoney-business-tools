@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WMBusinessTools.Extensions.BusinessObjects;
 using WMBusinessTools.Extensions.Contracts;
@@ -58,17 +58,13 @@ namespace WMBusinessTools.Extensions
 
                 if ("Copy".Equals(args.Command))
                 {
-                    var certificateRecord = args.Argument as CertificateRecord;
-
-                    if (null != certificateRecord)
+                    if (args.Argument is CertificateRecord certificateRecord)
                     {
                         Clipboard.SetText(certificateRecord.Value, TextDataFormat.UnicodeText);
                         return;
                     }
 
-                    var attachedIdentifierRecord = args.Argument as AttachedIdentifierRecord;
-
-                    if (null != attachedIdentifierRecord)
+                    if (args.Argument is AttachedIdentifierRecord attachedIdentifierRecord)
                     {
                         var identifierValue = context.UnityContainer.Resolve<IFormattingService>()
                             .FormatIdentifier(attachedIdentifierRecord.Identifier);

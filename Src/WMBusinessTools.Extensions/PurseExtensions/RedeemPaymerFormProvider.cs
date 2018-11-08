@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
 using WMBusinessTools.Extensions.Contracts;
@@ -24,7 +24,7 @@ namespace WMBusinessTools.Extensions
             var currencyService = context.UnityContainer.Resolve<ICurrencyService>();
             var currency = currencyService.ObtainCurrencyByAccountNumber(context.Account.Number);
 
-            if (!currencyService.CheckCapabilities(currency, CurrencyCapabilities.Transfer))
+            if (!currencyService.CheckCapabilities(currency, CurrencyCapabilities.Actual | CurrencyCapabilities.Transfer))
                 return false;
 
             return true;

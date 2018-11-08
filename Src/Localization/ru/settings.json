@@ -1,5 +1,5 @@
 ﻿{
-  "Allow unauthorized extensions": "Разрешить несанкционированные расширения",
+  "Allow unauthorized extensions": "Использовать несертифицированные плагины",
   "Appearance": "Отображать",
   "Completed bundle color": "Цвет завершенного пакета массового платежа",
   "Completed transfer color": "Цвет завершенного перевода",
@@ -27,7 +27,7 @@
   "Display target WMID": "Отображать целевой WMID",
   "Display text": "Отображать текст",
   "Display transfer creation time": "Отображать время создания перевода",
-  "Display transfer ID": "Отображать ID перевода",
+  "Display payment ID": "Отображать ID платежа",
   "Display transfer system ID": "Отображать ID перевода системы",
   "Display transfer type": "Отображать тип перевода",
   "English": "",

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;
 using WMBusinessTools.Extensions.Contracts;
@@ -150,7 +150,7 @@ namespace WMBusinessTools.Extensions
                     new ListItemContent(trust)
                     {
                         ImageKey = currency,
-                        Group = currency
+                        Group = AccountDisplayHelper.BuildGroupKey(currencyService, currency)
                     };
 
                 listViewItems.Add(listItemContent);

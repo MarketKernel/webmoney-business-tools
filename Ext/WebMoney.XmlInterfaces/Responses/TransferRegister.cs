@@ -7,6 +7,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X3. Receiving Transaction History. Checking Transaction Status.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -15,6 +18,9 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class TransferRegister : WmResponse
     {
+        /// <summary>
+        /// List of transfers received in response.
+        /// </summary>
         public List<Transfer> TransferList { get; protected set; }
 
         protected override void Inspect(XmlPackage xmlPackage)

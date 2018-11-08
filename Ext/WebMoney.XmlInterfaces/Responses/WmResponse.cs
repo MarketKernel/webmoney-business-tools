@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 using log4net;
 using WebMoney.XmlInterfaces.Core;
@@ -7,8 +8,6 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
-    using System.Globalization;
-
     public abstract class WmResponse : XmlResponse
     {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(WmResponse));
@@ -30,18 +29,21 @@ namespace WebMoney.XmlInterfaces.Responses
             {
                 Inspect(wmXmlPackage);
                 Fill(wmXmlPackage);
+
+                if (Logger.IsInfoEnabled)
+                    Logger.Info(string.Format(CultureInfo.InvariantCulture, "RESPONSE:\r\n\r\n{0}\r\n", SelectXml()));
             }
             catch (Exception exception)
             {
                 if (exception is WmException)
                 {
                     Logger.Debug(exception.Message, exception);
-                    Logger.Debug(string.Format(CultureInfo.InvariantCulture, "RESPONSE:\r\n\r\n{0}", SelectXml()));
+                    Logger.Debug(string.Format(CultureInfo.InvariantCulture, "RESPONSE:\r\n\r\n{0}\r\n", SelectXml()));
                 }
                 else
                 {
                     Logger.Error(exception.Message, exception);
-                    Logger.Error(string.Format(CultureInfo.InvariantCulture, "RESPONSE:\r\n\r\n{0}", SelectXml()));
+                    Logger.Error(string.Format(CultureInfo.InvariantCulture, "RESPONSE:\r\n\r\n{0}\r\n", SelectXml()));
                 }
 
                 throw;

@@ -1,0 +1,136 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Express Payment",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "GroupBox",
+                "desc": "Store info",
+                "column": {
+                  "controls": [
+                    {
+                      "prototype": "AccountListTemplate",
+                      "desc": "Store purse:",
+                      "behaviorRules": [
+                        {
+                          "trigger": "SelectedIndexChanged",
+                          "action": "UpdateCurrency",
+                          "affectedControls": [
+                            "PaymentAmount"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "prototype": "OrderNumberTemplate",
+                      "name": "OrderId"
+                    }
+                  ]
+                }
+              },
+              {
+                "prototype": "ClientIdentifierTemplate"
+              },
+              {
+                "prototype": "AmountTemplate",
+                "name": "PaymentAmount"
+              },
+              {
+                "type": "ComboBox",
+                "desc": "Confirmation type:",
+                "items": [
+                  {
+                    "text": "Auto-detection",
+                    "value": "Auto"
+                  },
+                  {
+                    "text": "SMS",
+                    "value": "Sms"
+                  },
+                  {
+                    "text": "USSD",
+                    "value": "Ussd"
+                  },
+                  {
+                    "text": "WM invoice",
+                    "value": "Invoice"
+                  },
+                  {
+                    "text": "SMS without WM invoice",
+                    "value": "SmsWithoutInvoice"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Description:",
+                "multiline": true,
+                "maxLength": 235,
+                "inspectionRules": [
+                  {
+                    "type": "RegExp",
+                    "argument": "^.{5,235}$",
+                    "message": "Wrong description length!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Create"
+    },
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "GroupBox",
+                "desc": "Confirmation",
+                "column": {
+                  "controls": [
+                    {
+                      "type": "TextBox",
+                      "desc": "WM invoice number:",
+                      "name": "InvoiceId",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Message:",
+                      "name": "Message",
+                      "readOnly": true,
+                      "multiline":  true
+                    },
+                    {
+                      "prototype": "ConfirmationCodeTemplate"
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Cancel invoice",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "Code"
+                    ],
+                    "action": "Disable"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Finish"
+    }
+  ]
+}

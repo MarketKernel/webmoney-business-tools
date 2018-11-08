@@ -13,7 +13,7 @@ namespace WebMoney.Services.BusinessObjects
 
         [DisplayFormat(DataFormatString = FormattingService.IdentifierTemplate)]
         public long TargetIdentifier { get; }
-
+        public string SourcePurse { get; set; }
         public string TargetPurse { get; }
 
         [DisplayFormat(DataFormatString = FormattingService.AmountTemplate)]
@@ -24,7 +24,7 @@ namespace WebMoney.Services.BusinessObjects
         public byte? ProtectionPeriod { get; set; }
         public byte ExpirationPeriod { get; }
         public InvoiceState State { get; }
-        public long? TransferPrimaryId { get; set; }
+        public long? TransferId { get; set; }
         public DateTime CreationTime { get; }
         public DateTime UpdateTime { get; }
 

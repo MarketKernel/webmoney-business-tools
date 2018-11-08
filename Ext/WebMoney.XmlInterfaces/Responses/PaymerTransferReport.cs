@@ -6,7 +6,7 @@ namespace WebMoney.XmlInterfaces.Responses
 {
     public sealed class PaymerTransferReport : WmResponse
     {
-        public uint TransferId { get; set; }
+        public long TransferId { get; set; }
         public Amount Amount { get; set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)
@@ -14,7 +14,7 @@ namespace WebMoney.XmlInterfaces.Responses
             if (null == wmXmlPackage)
                 throw new ArgumentNullException(nameof(wmXmlPackage));
 
-            TransferId = wmXmlPackage.SelectUInt32("paymer2purse/tranid");
+            TransferId = wmXmlPackage.SelectInt64("paymer2purse/tranid");
             Amount = wmXmlPackage.SelectAmount("paymer2purse/amount");
         }
     }

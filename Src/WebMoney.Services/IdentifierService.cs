@@ -309,7 +309,7 @@ namespace WebMoney.Services
                 OrganizationZipCode = response.OrganizationZipCode,
                 OrganizationBankName = response.OrganizationBankName,
                 OrganizationBankId = response.OrganizationBankId,
-                OrganizationCorrespondentAccount = response.OrganizationCorrespondentAccount,
+                OrganizationCorrAccount = response.OrganizationCorrespondentAccount,
                 OrganizationAccount = response.OrganizationAccount,
                 HomePhone = response.HomePhone,
                 CellPhone = response.CellPhone,
@@ -356,7 +356,7 @@ namespace WebMoney.Services
                 OrganizationZipCodeAspects = (CertificateRecordAspects) response.OrganizationZipCodeConfirmation,
                 OrganizationBankNameAspects = (CertificateRecordAspects) response.OrganizationBankNameConfirmation,
                 OrganizationBankIdAspects = (CertificateRecordAspects) response.OrganizationBankIdConfirmation,
-                OrganizationCorrespondentAccountAspects =
+                OrganizationCorrAccountAspects =
                     (CertificateRecordAspects) response.OrganizationCorrespondentAccountConfirmation,
                 OrganizationAccountAspects = (CertificateRecordAspects) response.OrganizationAccountConfirmation,
                 HomePhoneAspects = (CertificateRecordAspects) response.HomePhoneConfirmation,

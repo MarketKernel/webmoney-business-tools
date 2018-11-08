@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
 using WMBusinessTools.Extensions.Contracts;
@@ -37,7 +37,7 @@ namespace WMBusinessTools.Extensions
             // Добавляем список валют
             var itemTemplates =
                 AccountDisplayHelper.BuildCurrencyDropDownListItemTemplates(context.UnityContainer,
-                    CurrencyCapabilities.CreatePurse);
+                    CurrencyCapabilities.Actual | CurrencyCapabilities.CreatePurse);
 
             var templateWrapper = new CreatePurseFormTemplateWrapper(template);
 

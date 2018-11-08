@@ -1,5 +1,12 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations.Infrastructure;
+using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -8,7 +15,6 @@ using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
-using log4net;
 using WebMoney.Cryptography;
 using WebMoney.Services.BusinessObjects;
 using WebMoney.Services.Contracts;
@@ -16,6 +22,7 @@ using WebMoney.Services.Contracts.BasicTypes;
 using WebMoney.Services.Contracts.BusinessObjects;
 using WebMoney.Services.Contracts.Exceptions;
 using WebMoney.Services.DataAccess.EF;
+using WebMoney.Services.Migrations;
 using WebMoney.Services.Properties;
 using WebMoney.Services.Utils;
 
@@ -101,6 +108,8 @@ namespace WebMoney.Services
                 throw new ArgumentNullException(nameof(providerInvariantName));
 
             var connectionSettings = new ConnectionSettings(connectionString, providerInvariantName);
+
+            UpdateDatabase(connectionSettings);
 
             using (var context = new DataContext(connectionSettings))
             {
@@ -195,9 +204,7 @@ namespace WebMoney.Services
             {
                 var identifierValue = Path.GetFileNameWithoutExtension(file);
 
-                long identifier;
-
-                if (!long.TryParse(identifierValue, out identifier))
+                if (!long.TryParse(identifierValue, out var identifier))
                     continue;
 
                 var creationUtcTime = File.GetCreationTimeUtc(file);
@@ -220,7 +227,10 @@ namespace WebMoney.Services
                 throw new ArgumentNullException(nameof(session));
 
             if (session.AuthenticationService.HasConnectionSettings)
+            {
+                UpdateDatabase(session.AuthenticationService.GetConnectionSettings());
                 IdentifierService.RegisterMasterIdentifierIfNeeded(session.AuthenticationService);
+            }
         }
 
         private static ILightCertificate ConvertToLightCertificate(X509Certificate2 x509Certificate2)
@@ -273,6 +283,163 @@ namespace WebMoney.Services
                 return null;
 
             return long.Parse(match.Value);
+        }
+
+        private static void UpdateDatabase(IConnectionSettings connectionSettings)
+        {
+            switch (connectionSettings.ProviderInvariantName)
+            {
+                case DataConfiguration.SqlServerProviderInvariantName:
+                    FixDatabase(connectionSettings, new Migrations.SqlServer.V1());
+                    break;
+                case DataConfiguration.SqlServerCompactProviderInvariantName:
+                    FixDatabase(connectionSettings, new Migrations.SqlCE.V1());
+                    break;
+                case DataConfiguration.OracleDBProviderInvariantName:
+                {
+                    var userId = ConnectionStringParser.TryGetValue(connectionSettings.ConnectionString, "USER ID");
+
+                    if (null == userId)
+                        throw new InvalidOperationException("null == userId");
+
+                    Migrations.OracleDB.V2.Schema = userId.ToUpper();
+                }
+                    break;
+            }
+
+            DataContext.ConnectionSettings = connectionSettings;
+
+            var configuration = new Configuration();
+            configuration.SetDirectoryAndNamespace(connectionSettings.ProviderInvariantName);
+
+            var migrator = new DbMigrator(configuration);
+            migrator.Update();
+        }
+
+        // В версии 2 не было поддержки миграций (исправляем только для SQL Server и SQL Server CE).
+        private static void FixDatabase(IConnectionSettings connectionSettings, IMigrationMetadata migrationMetadata)
+        {
+            DbConnection connection = null;
+            DbTransaction transaction = null;
+
+            try
+            {
+                switch (connectionSettings.ProviderInvariantName)
+                {
+                    case DataConfiguration.SqlServerProviderInvariantName:
+                        connection = new SqlConnection(connectionSettings.ConnectionString);
+                        break;
+                    case DataConfiguration.SqlServerCompactProviderInvariantName:
+                        connection = new SqlCeConnection(connectionSettings.ConnectionString);
+                        break;
+                    default:
+                        return;
+                }
+
+                try
+                {
+                    connection.Open();
+                }
+                catch (DbException exception)
+                {
+                    Logger.Error(exception.Message, exception);
+
+                    return; // Ожидаем что база данных не существует.
+                }
+                
+                string migrationId;
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "SELECT MigrationId FROM __MigrationHistory ORDER BY MigrationId";
+
+                    DbDataReader dataReader = null;
+
+                    try
+                    {
+                        dataReader = command.ExecuteReader();
+
+                        if (!dataReader.Read())
+                            throw new InvalidOperationException("!dataReader.Read()");
+
+                        migrationId = (string) dataReader["MigrationId"];
+
+                        if (migrationId.Equals(migrationMetadata.Id))
+                            return;
+
+                        if (dataReader.NextResult())
+                            throw new InvalidOperationException("reader.NextResult()");
+                    }
+                    catch (DbException exception)
+                    {
+                        Logger.Error(exception.Message, exception); // Ожидаем что таблицы не существует.
+                        return;
+                    }
+                    finally
+                    {
+                        if (null != dataReader)
+                        {
+                            dataReader.Close();
+                            dataReader.Dispose();
+                        }
+                    }
+                }
+
+                if (!migrationId.EndsWith("_InitialCreate", StringComparison.OrdinalIgnoreCase))
+                    throw new InvalidOperationException("migrationId == " + migrationId);
+
+                transaction = connection.BeginTransaction();
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.Transaction = transaction;
+
+                    command.CommandText = "DELETE FROM __MigrationHistory WHERE MigrationId = @MigrationId";
+                    AddParameterTo(command, "MigrationId", migrationId);
+                    command.ExecuteNonQuery();
+                }
+
+                using (var command = connection.CreateCommand())
+                {
+                    command.Transaction = transaction;
+
+                    command.CommandText =
+                        "INSERT INTO __MigrationHistory (MigrationId, ContextKey, Model, ProductVersion) VALUES (@MigrationId, @ContextKey, @Model, @ProductVersion)";
+
+                    AddParameterTo(command, "MigrationId", migrationMetadata.Id);
+                    AddParameterTo(command, "ContextKey", $"{typeof(Configuration).Namespace}.{nameof(Configuration)}");
+                    AddParameterTo(command, "Model", Convert.FromBase64String(migrationMetadata.Target));
+                    AddParameterTo(command, "ProductVersion", "6.1.3-40302");
+
+                    command.ExecuteNonQuery();
+                }
+
+                transaction.Commit();
+            }
+            catch (Exception exception)
+            {
+                Logger.Error(exception.Message, exception);
+                transaction?.Rollback();
+
+                throw;
+            }
+            finally
+            {
+                if (null != connection)
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+            }
+        }
+
+        public static void AddParameterTo(IDbCommand command, string name, object value)
+        {
+            var parameter = command.CreateParameter();
+            parameter.ParameterName = name;
+            parameter.Value = value;
+
+            command.Parameters.Add(parameter);
         }
     }
 }

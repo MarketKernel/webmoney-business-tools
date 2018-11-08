@@ -18,6 +18,18 @@
                   {
                     "text": "MS SQL Server",
                     "value": "System.Data.SqlClient"
+                  },
+                  {
+                    "text": "MySQL",
+                    "value": "MySql.Data.MySqlClient"
+                  },
+                  {
+                    "text": "PostgreSQL",
+                    "value": "Npgsql"
+                  },
+                  {
+                    "text": "Oracle Database",
+                    "value": "Oracle.ManagedDataAccess.Client"
                   }
                 ],
                 "behaviorRules": [
@@ -27,7 +39,6 @@
                     "activationСondition": "System.Data.SqlServerCe.4.0",
                     "affectedControls": [
                       "PathToDatabase",
-                      "UsePassword",
                       "UsePassword",
                       "Password",
                       "PasswordConfirmation"
@@ -60,6 +71,71 @@
                     "affectedControls": [
                       "PathToDatabase",
                       "UsePassword",
+                      "Password",
+                      "PasswordConfirmation"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // MySQL
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "MySql.Data.MySqlClient",
+                    "affectedControls": [
+                      "ConnectionString"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "MySql.Data.MySqlClient",
+                    "affectedControls": [
+                      "PathToDatabase",
+                      "UsePassword",
+                      "Password",
+                      "PasswordConfirmation"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // PostgreSQL
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Npgsql",
+                    "affectedControls": [
+                      "ConnectionString"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Npgsql",
+                    "affectedControls": [
+                      "PathToDatabase",
+                      "UsePassword",
+                      "Password",
+                      "PasswordConfirmation"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  //Oracle Database
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Oracle.ManagedDataAccess.Client",
+                    "affectedControls": [
+                      "ConnectionString"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Oracle.ManagedDataAccess.Client",
+                    "affectedControls": [
+                      "PathToDatabase",
                       "UsePassword",
                       "Password",
                       "PasswordConfirmation"
@@ -74,7 +150,7 @@
                 "type": "TextBoxWithButton",
                 "desc": "Path to database:",
                 "name": "PathToDatabase",
-                "iconPath": "../Pictures/OpenFile.gif",
+                "iconPath": "../Pictures/OpenFile.png",
                 "readonly": true,
                 "inspectionRules": [
                   {
@@ -130,7 +206,7 @@
                   }
                 ]
               },
-              // MS SQL
+              // Other
               {
                 "type": "TextBox",
                 "desc": "Connection string:",

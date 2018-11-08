@@ -4,7 +4,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
 {
     public interface IPaymentConfirmationInstruction
     {
-        long PrimaryInvoiceId { get; }
+        long InvoiceId { get; }
         ConfirmationType ConfirmationType { get; }
         string PublicMessage { get; }
     }

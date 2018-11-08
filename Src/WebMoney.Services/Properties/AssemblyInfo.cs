@@ -1,26 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using log4net.Config;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-
 [assembly: XmlConfigurator(Watch = true, ConfigFile = "Log4Net.config")]
-
+[assembly: InternalsVisibleTo("WebMoney.Services.Tests, PublicKey=00240000048000009400000006020000002400005253413100040000010001003d2a8cfbb1562e120500872972a8044ca1e811ae6c6a6f9ad486f95a7ff102c1a268b709b4530632a43f33ed4c06ab592c74bb8ac19444e027a547f6684b8ff9e57b5d24e5e48d6b0877c8b7810ae70ede4c1fb80fc38ada768d2c4d389f00afcf2b7a34eec08ae1d276cbf0ed41f41b78f792cc47738716810d24d3c8f4a89e")]
 
 [assembly: AssemblyTitle("WebMoney.Services")]
-[assembly: AssemblyDescription("See: www.webmoney-business-tools.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
-[assembly: AssemblyConfiguration("Release")]
-#endif
-[assembly: AssemblyCompany("MarketKernel Team")]
-[assembly: AssemblyProduct("WebMoney Business Tools")]
-[assembly: AssemblyCopyright("© MarketKernel Team <global@marketkernel.com> 2009-2017")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
@@ -40,5 +29,5 @@ using log4net.Config;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("2.1.0.0")]
+[assembly: AssemblyFileVersion("2.1.0.0")]

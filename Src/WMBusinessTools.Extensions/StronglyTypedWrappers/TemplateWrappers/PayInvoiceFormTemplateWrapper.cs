@@ -5,11 +5,11 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
 {
     internal sealed class PayInvoiceFormTemplateWrapper : StronglyTypedTemplateWrapper
     {
-        public GroupBoxTemplate<WMColumnTemplate> Control1IncomeInvoiceGroup => (GroupBoxTemplate<WMColumnTemplate>)
-            GetControlTemplate("IncomeInvoiceGroup");
+        public GroupBoxTemplate<WMColumnTemplate> Control1IncomeInvoiceGroup =>
+            (GroupBoxTemplate<WMColumnTemplate>) GetControlTemplate("IncomeInvoiceGroup");
 
-        public TextBoxWithButtonTemplate Control2TargetIdentifier => (TextBoxWithButtonTemplate) GetControlTemplate(
-            "TargetIdentifier");
+        public TextBoxWithButtonTemplate Control2TargetIdentifier =>
+            (TextBoxWithButtonTemplate) GetControlTemplate("TargetIdentifier");
 
         public TextBoxTemplate Control3TargetPurse => (TextBoxTemplate) GetControlTemplate("TargetPurse");
         public AmountNumericUpDownTemplate Control4Amount => (AmountNumericUpDownTemplate) GetControlTemplate("Amount");
@@ -18,20 +18,21 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
         public TextBoxTemplate Control7Address => (TextBoxTemplate) GetControlTemplate("Address");
         public TextBoxTemplate Control8PaymentPeriod => (TextBoxTemplate) GetControlTemplate("PaymentPeriod");
 
-        public TextBoxTemplate Control9MaxProtectionPeriod => (TextBoxTemplate) GetControlTemplate(
-            "MaxProtectionPeriod");
+        public TextBoxTemplate Control9MaxProtectionPeriod =>
+            (TextBoxTemplate) GetControlTemplate("MaxProtectionPeriod");
 
         public NumericUpDownTemplate Control10TransferId => (NumericUpDownTemplate) GetControlTemplate("TransferId");
         public AccountDropDownListTemplate Control11PayFrom => (AccountDropDownListTemplate) GetControlTemplate(10);
         public CheckBoxTemplate Control12UsePaymentProtection => (CheckBoxTemplate) GetControlTemplate(11);
 
-        public GroupBoxTemplate<WMColumnTemplate> Control13PaymentProtectionGroup => (GroupBoxTemplate<WMColumnTemplate>
-        ) GetControlTemplate("PaymentProtectionGroup");
+        public GroupBoxTemplate<WMColumnTemplate> Control13PaymentProtectionGroup =>
+            (GroupBoxTemplate<WMColumnTemplate>) GetControlTemplate("PaymentProtectionGroup");
 
-        public NumericUpDownTemplate Control14ProtectionPeriod => (NumericUpDownTemplate) GetControlTemplate(
-            "ProtectionPeriod");
+        public NumericUpDownTemplate Control14ProtectionPeriod =>
+            (NumericUpDownTemplate) GetControlTemplate("ProtectionPeriod");
 
-        public TextBoxTemplate Control15ProtectionCode => (TextBoxTemplate) GetControlTemplate(14);
+        public TextBoxTemplate Control15ProtectionCode => (TextBoxTemplate) GetControlTemplate("ProtectionCode");
+        public CheckBoxTemplate Control16ProtectionByTime => (CheckBoxTemplate) GetControlTemplate(15);
 
         public PayInvoiceFormTemplateWrapper(SubmitFormTemplate<WMColumnTemplate> template)
             : base(template.Steps[0])

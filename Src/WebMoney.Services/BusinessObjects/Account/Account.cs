@@ -24,8 +24,8 @@ namespace WebMoney.Services.BusinessObjects
         [DisplayFormat(DataFormatString = FormattingService.AmountTemplate)]
         public decimal? Amount { get; set; }
 
-        public long? LastIncomingTransferPrimaryId { get; set; }
-        public long? LastOutgoingTransferPrimaryId { get; set; }
+        public long? LastIncomingTransferId { get; set; }
+        public long? LastOutgoingTransferId { get; set; }
         public bool? InvoiceAllowed { get; set; }
         public bool? TransferAllowed { get; set; }
         public bool? BalanceAllowed { get; set; }
@@ -54,8 +54,13 @@ namespace WebMoney.Services.BusinessObjects
 
         public string MerchantKey { get; set; }
 
+        public string SecretKeyX20 { get; set; }
+
         [NotMapped]
         public bool HasMerchantKey => null != MerchantKey;
+
+        [NotMapped]
+        public bool HasSecretKeyX20 => null != SecretKeyX20;
 
         public bool IsManuallyAdded { get; set; }
 

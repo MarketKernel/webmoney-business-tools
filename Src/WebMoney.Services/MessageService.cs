@@ -1,4 +1,5 @@
-﻿using WebMoney.Services.Contracts;
+﻿using System;
+using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.Exceptions;
 using WebMoney.Services.Utils;
 using WebMoney.XmlInterfaces;
@@ -12,10 +13,16 @@ namespace WebMoney.Services
     {
         public long SendMessage(long toIdentifier, string subject, string message, bool force)
         {
-            var request = new OriginalMessage((WmId) toIdentifier, (Description) subject, (Message) message)
+            if (null == message)
+                throw new ArgumentNullException(nameof(message));
+
+            var request = new OriginalMessage((WmId) toIdentifier,(Message) message)
             {
                 Initializer = Session.AuthenticationService.ObtainInitializer()
             };
+
+            if (null != subject)
+                request.Subject = (Description) subject;
 
             RecentMessage response;
 

@@ -2,6 +2,6 @@
 {
     public interface ISmsService
     {
-        void SendSms(string payFromPurse, string phoneNumber, string message, bool transliterate = true);
+        int SendSms(string payFromPurse, string phoneNumber, string message, bool transliterate = true);
     }
 }

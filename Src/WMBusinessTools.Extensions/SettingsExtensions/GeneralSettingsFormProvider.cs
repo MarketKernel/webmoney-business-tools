@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using LocalizationAssistant;
 using WMBusinessTools.Extensions.Contracts;
 using WMBusinessTools.Extensions.Contracts.Contexts;
 using Xml2WinForms;
@@ -27,7 +28,9 @@ namespace WMBusinessTools.Extensions
             if (null == extensionConfiguration)
                 throw new InvalidOperationException("null == extensionConfiguration");
 
-            var settingsForm = new SettingsForm(extensionConfiguration.Name.Replace("&", string.Empty))
+            var caption = extensionConfiguration.Name.Replace("&", string.Empty);
+
+            var settingsForm = new SettingsForm(Translator.Instance.Translate(extensionConfiguration.Id, caption))
             {
                 SelectedObject = context.Session.SettingsService.GetSettings()
             };

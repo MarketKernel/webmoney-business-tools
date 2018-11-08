@@ -125,110 +125,10 @@
   <data name="mTunableList.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="mTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="removeButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="removeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhEAAQAIMOAP8zAMopAJMAAP/M//+DIP8pAP86Av9MDP9sFP9zHv9aC/9gFf9+HJsAAP///wAA
-        ACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAAOACwAAAAAEAAQAAAIdwAdCBxIsCDBAAEMIiwYYMCAhAMb
-        Pow4gACBiQ4aWsQowCIDBg8bfrQoYKCABAkQIHCoEmVJggIWLFBAU4HMlwUFHNjJEydDA0CDQmQ4AIDR
-        oxgpFjh6tEDShgWWAhAgoCnHqEZfVj2Ks0FWmF9h+hRI1aBZgwEBADs=
-</value>
-  </data>
-  <data name="removeButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>391, 127</value>
-  </data>
-  <data name="removeButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
-  </data>
-  <data name="removeButton.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;removeButton.Name" xml:space="preserve">
-    <value>removeButton</value>
-  </data>
-  <data name="&gt;&gt;removeButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;removeButton.Parent" xml:space="preserve">
-    <value>mTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;removeButton.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="registerButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhEAAQAIU6AP//AABdABSjCg+fBgBfAABGAB2xHQBeAA2mE1PFKgBlAABhAABiAABgADi5GwBK
-        ABeqEQBEAA6fBji4GwBHAABFAABcAABJAA6mEhWoEBWjClbLK1TDKk3SOoDvVhCqEzS0GQ+gBwieCxCj
-        B1LCKAGiE0rCKwBkABKtHx+yHgBWAFPFKTq8HR6xHQBjABmqEXjuVyG3HwKbBySyGi21HQydBFLFKSaz
-        GhaoCza2G////wAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAA6ACwAAAAAEAAQ
-        AAAIpAB1CBSogECAAAQUDFw48ACAhwAIMGQYAAAKESYaTFxY0YCABAs2Duz4MeTCggcDqADg0YaFAwcT
-        OoT4MIUAEh1oGgRQAoFPDBBeQMiAwecHBhVlDBggocaAEBKWLh3BoAEAGg4mgPBwQwOHHBMcOGBx4kKE
-        AgUqWIAxQ8CKAxXQUnjAkACAFh8ZiBTo0CPIvTpI/t1rNQaODS4Amy1AoQDdhQEBADs=
-</value>
-  </data>
-  <data name="registerButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>391, 97</value>
-  </data>
-  <data name="registerButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
-  </data>
-  <data name="registerButton.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;registerButton.Name" xml:space="preserve">
-    <value>registerButton</value>
-  </data>
-  <data name="&gt;&gt;registerButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;registerButton.Parent" xml:space="preserve">
-    <value>mTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;registerButton.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="mTableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="mTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 8</value>
-  </data>
-  <data name="mTableLayoutPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="mTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="mTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 154</value>
-  </data>
-  <data name="mTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;mTableLayoutPanel.Name" xml:space="preserve">
-    <value>mTableLayoutPanel</value>
-  </data>
-  <data name="&gt;&gt;mTableLayoutPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mTableLayoutPanel.Parent" xml:space="preserve">
-    <value>mPanel</value>
-  </data>
-  <data name="&gt;&gt;mTableLayoutPanel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="mTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="mTunableList" Row="0" RowSpan="3" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="removeButton" Row="2" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="registerButton" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,AutoSize,0" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
   <data name="mTunableList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>382, 148</value>
+    <value>412, 163</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="mTunableList.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -314,7 +214,7 @@
     <value>RightToLeft</value>
   </data>
   <data name="bottomFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 218</value>
+    <value>0, 268</value>
   </data>
   <data name="bottomFlowLayoutPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -340,6 +240,123 @@
   <data name="&gt;&gt;bottomFlowLayoutPanel.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="removeButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="removeButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 3</value>
+  </data>
+  <data name="removeButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 23</value>
+  </data>
+  <data name="removeButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="removeButton.Text" xml:space="preserve">
+    <value>&amp;Remove WMID</value>
+  </data>
+  <data name="&gt;&gt;removeButton.Name" xml:space="preserve">
+    <value>removeButton</value>
+  </data>
+  <data name="&gt;&gt;removeButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;removeButton.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;removeButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="registerButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="registerButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 23</value>
+  </data>
+  <data name="registerButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="registerButton.Text" xml:space="preserve">
+    <value>&amp;Add WMID</value>
+  </data>
+  <data name="&gt;&gt;registerButton.Name" xml:space="preserve">
+    <value>registerButton</value>
+  </data>
+  <data name="&gt;&gt;registerButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;registerButton.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;registerButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="mTableLayoutPanel.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="flowLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="flowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="flowLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 172</value>
+  </data>
+  <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>412, 29</value>
+  </data>
+  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="flowLayoutPanel1.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
+    <value>mTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="mTableLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="mTableLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="mTableLayoutPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="mTableLayoutPanel.RowCount" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="mTableLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>418, 204</value>
+  </data>
+  <data name="mTableLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;mTableLayoutPanel.Name" xml:space="preserve">
+    <value>mTableLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;mTableLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mTableLayoutPanel.Parent" xml:space="preserve">
+    <value>mPanel</value>
+  </data>
+  <data name="&gt;&gt;mTableLayoutPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="mTableLayoutPanel.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="mTunableList" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="flowLayoutPanel1" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="Percent,100,AutoSize,0" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
   <data name="mPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -353,7 +370,7 @@
     <value>8, 8, 8, 8</value>
   </data>
   <data name="mPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 170</value>
+    <value>434, 220</value>
   </data>
   <data name="mPanel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -513,7 +530,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>434, 261</value>
+    <value>434, 311</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

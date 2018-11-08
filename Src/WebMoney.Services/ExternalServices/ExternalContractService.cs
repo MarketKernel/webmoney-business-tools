@@ -41,12 +41,12 @@ namespace WebMoney.Services.ExternalServices
                 throw new ExternalServiceException(exception.Message, exception);
             }
 
-            return (int)response.ContractId;
+            return response.ContractId;
         }
 
         public IEnumerable<IContractSignature> SelectContractSignatures(int contractId)
         {
-            var request = new AcceptorFilter((uint) contractId)
+            var request = new AcceptorFilter(contractId)
             {
                 Initializer = Session.AuthenticationService.ObtainInitializer()
             };
@@ -65,7 +65,7 @@ namespace WebMoney.Services.ExternalServices
             return response.AcceptorList
                 .Select(acceptor => new ContractSignature(acceptor.WmId)
                 {
-                    ContractId = (int) acceptor.ContractId,
+                    ContractId = acceptor.ContractId,
                     AcceptTime = acceptor.AcceptTime?.ToUniversalTime()
                 });
         }

@@ -7,9 +7,9 @@ namespace WebMoney.Services.Contracts
     public interface ITransferService
     {
         long CreateTransfer(IOriginalTransfer originalTransfer);
-        void Moneyback(long transferPrimaryId, decimal amount);
-        void FinishProtection(long transferPrimaryId, string protectionCode);
-        void RejectProtection(long transferPrimaryId);
+        void Moneyback(long transferId, decimal amount);
+        void FinishProtection(long transferId, string protectionCode);
+        void RejectProtection(long transferId);
         void RedeemPaymer(string purse, string number, string key);
         IEnumerable<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime, bool fresh = false);
         decimal CalculateCommission(decimal amount, string currency);

@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using AutoMapper;
 using WebMoney.Services.BusinessObjects.Annotations;
 using WebMoney.Services.Contracts.BusinessObjects;
+using WebMoney.Services.Utils;
 
 namespace WebMoney.Services.BusinessObjects
 {
@@ -52,9 +53,9 @@ namespace WebMoney.Services.BusinessObjects
         public bool OrderIdVisibility { get; set; }
 
         [TypeConverter(typeof(LocalizedBooleanConverter))]
-        [LocalizedDisplayName("Display transfer ID")]
-        [XmlAttribute("transferIdVisibility")]
-        public bool TransferIdVisibility { get; set; }
+        [LocalizedDisplayName("Display payment ID")]
+        [XmlAttribute("paymentIdVisibility")]
+        public bool PaymentIdVisibility { get; set; }
 
         [TypeConverter(typeof(LocalizedBooleanConverter))]
         [LocalizedDisplayName("Display protection period")]
@@ -102,9 +103,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as TransferSettings;
-
-            if (businessObject != null)
+            if (contractObject is TransferSettings businessObject)
                 return businessObject;
 
             return Mapper.Map<TransferSettings>(contractObject);
@@ -124,7 +123,7 @@ namespace WebMoney.Services.BusinessObjects
                   CommissionVisibility == other.CommissionVisibility &&
                   DescriptionVisibility == other.DescriptionVisibility && TypeVisibility == other.TypeVisibility &&
                   InvoiceIdVisibility == other.InvoiceIdVisibility && OrderIdVisibility == other.OrderIdVisibility &&
-                  TransferIdVisibility == other.TransferIdVisibility &&
+                  PaymentIdVisibility == other.PaymentIdVisibility &&
                   ProtectionPeriodVisibility == other.ProtectionPeriodVisibility &&
                   PartnerIdentifierVisibility == other.PartnerIdentifierVisibility &&
                   BalanceVisibility == other.BalanceVisibility && LockedVisibility == other.LockedVisibility &&
@@ -148,8 +147,7 @@ namespace WebMoney.Services.BusinessObjects
             if (ReferenceEquals(this, obj))
                 return true;
 
-            var transferSettings = obj as TransferSettings;
-            return transferSettings != null && Equals(transferSettings);
+            return obj is TransferSettings transferSettings && Equals(transferSettings);
         }
 
         public override int GetHashCode()
@@ -159,7 +157,10 @@ namespace WebMoney.Services.BusinessObjects
 
         public object Clone()
         {
-            return Mapper.Map<TransferSettings>(this);
+            var o = MemberwiseClone();
+            CloneUtility.CloneProperties(o);
+
+            return o;
         }
     }
 }

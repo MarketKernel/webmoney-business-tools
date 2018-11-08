@@ -8,6 +8,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X21. Setting trust for merchant payments by SMS.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -19,44 +22,88 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => "https://merchant.wmtransfer.com/conf/xml/XMLTrustRequest.asp";
 
+        /// <summary>
+        /// WM purse of payment recipient. Number of the purse through which the merchant will accept buyer payments with the help of the Х2 interface.
+        /// </summary>
         public Purse StorePurse { get; set; }
 
+        /// <summary>
+        /// Daily limit. Maximum amount that the merchant can transfer from the buyer in one calendar day, in the same WM currency as the purse of the merchant lmi_payee_purse.
+        /// If the amount is zero, then there is no limit on payments per day. At least one of the three limits (daily, weekly, monthly) must be given a value.
+        /// It is not possible for there to be no limits at all, or that is to say, for all three limits to equal zero.
+        /// The maximum amount which can be set through this interface is the same as in WebMoney Keeper Standard financial restrictions for Keeper Standard with SMS or ENUM-confirmation of transactions enabled.
+        /// If for some reason a store or service needs a larger amount, then tell the buyer to raise the limit independently in their trust settings, at security.wmtransfer.com.
+        /// </summary>
         public Amount DayLimit { get; set; }
 
+        /// <summary>
+        /// Weekly limit. Analogous to lmi_day_limit (substituting "calendar week").
+        /// </summary>
         public Amount WeekLimit { get; set; }
 
+        /// <summary>
+        /// Monthly limit. Analogous to lmi_day_limit (substituting "calendar month").
+        /// </summary>
         public Amount MonthLimit { get; set; }
 
+        /// <summary>
+        /// Cell phone, with country code and city/area code (numbers only, without plus signs, parentheses and other symbols). Examples: Russia – 79167777777, Ukraine – 380527777777, U.S. – 12127777777).
+        /// </summary>
         public Phone ClientPhone { get; set; }
 
+        /// <summary>
+        /// Buyer's WMID (12 numbers exactly).
+        /// </summary>
         public WmId ClientWmId { get; set; }
 
+        /// <summary>
+        /// Buyer's WM purse (upper-case letter and 12 numbers).
+        /// </summary>
         public Purse ClientPurse { get; set; }
 
+        /// <summary>
+        /// Buyer's e-mail address. The interface will automatically find the WMID from which buyer payment can be made.
+        /// </summary>
         public MailAddress ClientEmail { get; set; }
 
-        public ClientIdType ClientIdType { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public ClientIdType ClientIdType { get; }
 
+        /// <summary>
+        /// Type of data passed in lmi_clientnumber.
+        /// </summary>
         public ConfirmationType ConfirmationType { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private CultureInfo _culture;
 
+        /// <summary>
+        /// Response language. This parameter passes the values ru-RU and en-US for the Russian- and English-language interfaces, respectively. This value defines the language used in the SMS messages (USSD queries) sent to the user and the language of the responses in the userdesc tag.
+        /// </summary>
         public CultureInfo Culture
         {
-            get { return _culture; }
-            set
-            {
-                if (null == value)
-                    throw new ArgumentNullException(nameof(value));
-
-                _culture = value;
-            }
+            get => _culture;
+            set => _culture = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         protected internal ExpressTrustRequest()
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="storePurse">WM purse of payment recipient.</param>
+        /// <param name="dayLimit">Daily limit.</param>
+        /// <param name="weekLimit">Weekly limit.</param>
+        /// <param name="monthLimit">Monthly limit.</param>
+        /// <param name="clientPhone">Cell phone, with country code and city/area code.</param>
+        /// <param name="confirmationType">Type of data passed in lmi_clientnumber.</param>
+        /// <param name="culture">Response language.</param>
         public ExpressTrustRequest(
             Purse storePurse,
             Amount dayLimit,
@@ -79,6 +126,16 @@ namespace WebMoney.XmlInterfaces
             Culture = culture;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="storePurse">WM purse of payment recipient.</param>
+        /// <param name="dayLimit">Daily limit.</param>
+        /// <param name="weekLimit">Weekly limit.</param>
+        /// <param name="monthLimit">Monthly limit.</param>
+        /// <param name="clientWmId">Buyer's WMID (12 numbers exactly).</param>
+        /// <param name="confirmationType">Type of data passed in lmi_clientnumber.</param>
+        /// <param name="culture">Response language.</param>
         public ExpressTrustRequest(
             Purse storePurse,
             Amount dayLimit,
@@ -101,6 +158,16 @@ namespace WebMoney.XmlInterfaces
             Culture = culture;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="storePurse">WM purse of payment recipient.</param>
+        /// <param name="dayLimit">Daily limit.</param>
+        /// <param name="weekLimit">Weekly limit.</param>
+        /// <param name="monthLimit">Monthly limit.</param>
+        /// <param name="clientPurse">Buyer's WM purse (upper-case letter and 12 numbers).</param>
+        /// <param name="confirmationType">Type of data passed in lmi_clientnumber.</param>
+        /// <param name="culture">Response language.</param>
         public ExpressTrustRequest(
             Purse storePurse,
             Amount dayLimit,
@@ -123,6 +190,16 @@ namespace WebMoney.XmlInterfaces
             Culture = culture;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="storePurse">WM purse of payment recipient.</param>
+        /// <param name="dayLimit">Daily limit.</param>
+        /// <param name="weekLimit">Weekly limit.</param>
+        /// <param name="monthLimit">Monthly limit.</param>
+        /// <param name="clientEmail">Buyer's e-mail address.</param>
+        /// <param name="confirmationType">Type of data passed in lmi_clientnumber.</param>
+        /// <param name="culture">Response language.</param>
         public ExpressTrustRequest(
             Purse storePurse,
             Amount dayLimit,

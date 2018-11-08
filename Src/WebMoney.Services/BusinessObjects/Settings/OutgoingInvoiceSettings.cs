@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using AutoMapper;
 using WebMoney.Services.BusinessObjects.Annotations;
 using WebMoney.Services.Contracts.BusinessObjects;
+using WebMoney.Services.Utils;
 
 namespace WebMoney.Services.BusinessObjects
 {
@@ -53,8 +54,8 @@ namespace WebMoney.Services.BusinessObjects
 
         [TypeConverter(typeof(LocalizedBooleanConverter))]
         [LocalizedDisplayName("Display transfer system ID")]
-        [XmlAttribute("transferPrimaryIdVisibility")]
-        public bool TransferPrimaryIdVisibility { get; set; }
+        [XmlAttribute("transferIdVisibility")]
+        public bool TransferIdVisibility { get; set; }
 
         [TypeConverter(typeof(LocalizedBooleanConverter))]
         [LocalizedDisplayName("Display creation time")]
@@ -82,9 +83,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as OutgoingInvoiceSettings;
-
-            if (businessObject != null)
+            if (contractObject is OutgoingInvoiceSettings businessObject)
                 return businessObject;
 
             return Mapper.Map<OutgoingInvoiceSettings>(contractObject);
@@ -106,7 +105,7 @@ namespace WebMoney.Services.BusinessObjects
                   AddressVisibility == other.AddressVisibility &&
                   ProtectionPeriodVisibility == other.ProtectionPeriodVisibility &&
                   ExpirationPeriodVisibility == other.ExpirationPeriodVisibility &&
-                  TransferPrimaryIdVisibility == other.TransferPrimaryIdVisibility &&
+                  TransferIdVisibility == other.TransferIdVisibility &&
                   CreationTimeVisibility == other.CreationTimeVisibility))
                 return false;
 
@@ -127,8 +126,7 @@ namespace WebMoney.Services.BusinessObjects
             if (ReferenceEquals(this, obj))
                 return true;
 
-            var outgoingInvoiceSettings = obj as OutgoingInvoiceSettings;
-            return outgoingInvoiceSettings != null && Equals(outgoingInvoiceSettings);
+            return obj is OutgoingInvoiceSettings outgoingInvoiceSettings && Equals(outgoingInvoiceSettings);
         }
 
         public override int GetHashCode()
@@ -138,7 +136,10 @@ namespace WebMoney.Services.BusinessObjects
 
         public object Clone()
         {
-            return Mapper.Map<OutgoingInvoiceSettings>(this);
+            var o = MemberwiseClone();
+            CloneUtility.CloneProperties(o);
+
+            return o;
         }
     }
 }

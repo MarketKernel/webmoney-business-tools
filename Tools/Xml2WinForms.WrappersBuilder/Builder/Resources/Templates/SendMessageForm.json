@@ -1,0 +1,38 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Send Message",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "WMIDTemplate",
+                "name": "Identifier"
+              },
+              {
+                "type": "TextBox",
+                "desc": "Subject:",
+                "maxLength": 255
+              },
+              {
+                "type": "TextBox",
+                "desc": "Message:",
+                "maxLength": 1024,
+                "multiline": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Message cannot be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Send message"
+    }
+  ]
+}

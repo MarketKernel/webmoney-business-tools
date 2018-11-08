@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.AlienPurseException_Caption_Purse_does_not_match_WMID;
 
         public AlienPurseException()
+            : base(Resources.AlienPurseException_Caption_Purse_does_not_match_WMID)
         {
         }
 

@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.WrongFileFormatException_Caption_Wrong_file_format;
 
         public WrongFileFormatException()
+            : base(Resources.WrongFileFormatException_Caption_Wrong_file_format)
         {
         }
 

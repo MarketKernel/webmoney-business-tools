@@ -5,7 +5,7 @@ namespace WMBusinessTools.Extensions.BusinessObjects
 {
     internal sealed class OriginalTransfer : IOriginalTransfer
     {
-        public int TransferId { get; }
+        public int PaymentId { get; }
         public string SourcePurse { get; }
         public string TargetPurse { get; }
         public decimal Amount { get; }
@@ -15,10 +15,10 @@ namespace WMBusinessTools.Extensions.BusinessObjects
         public long? InvoiceId { get; set; }
         public bool Force { get; set; }
 
-        public OriginalTransfer(int transferId, string sourcePurse, string targetPurse, decimal amount,
+        public OriginalTransfer(int paymentId, string sourcePurse, string targetPurse, decimal amount,
             string description)
         {
-            TransferId = transferId;
+            PaymentId = paymentId;
             SourcePurse = sourcePurse ?? throw new ArgumentNullException(nameof(sourcePurse));
             TargetPurse = targetPurse ?? throw new ArgumentNullException(nameof(targetPurse));
             Amount = amount;

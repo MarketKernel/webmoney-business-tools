@@ -1,0 +1,30 @@
+﻿{
+  "headerClickable": true,
+  "columns": [
+    {
+      "name": "Identifier",
+      "headerText": "WMID",
+      "width": 140
+    },
+    {
+      "name": "RegistrationDate",
+      "headerText": "Registration date",
+      "width": 225
+    }
+  ],
+  "icons": [
+    {
+      "name": "Ant",
+      "iconPath": "../Pictures/Ant.gif"
+    }
+  ],
+  "commandMenu": {
+    "items": [
+      {
+        "text": "Remove",
+        "command": "Remove",
+        "iconPath": "../Pictures/Remove.gif"
+      }
+    ]
+  }
+}

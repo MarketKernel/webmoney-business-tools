@@ -58,7 +58,7 @@ namespace WebMoney.Services
 
             var worksheet = workbook.Worksheet(1);
 
-            List<List<object>> rows = new List<List<object>>();
+            var rows = new List<List<object>>();
 
             foreach (var xlRow in worksheet.Rows())
             {
@@ -118,24 +118,24 @@ namespace WebMoney.Services
                         if (typeof(string) == actualProperty.PropertyType)
                             value = ((IConvertible) value).ToString(CultureInfo.InvariantCulture.NumberFormat);
                     }
-                    else if (value is string && typeof(DateTime) == actualProperty.PropertyType)
+                    else if (value is string s && typeof(DateTime) == actualProperty.PropertyType)
                     {
-                        DateTime dateTime;
-
-                        if (!DateTime.TryParse((string) value, out dateTime))
+                        if (!DateTime.TryParseExact(s, "yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture.DateTimeFormat,
+                            DateTimeStyles.AssumeLocal, out var dateTime))
                             continue;
 
-                        value = dateTime;
+                        value = dateTime.ToUniversalTime();
                     }
-
                     else if (value is string && typeof(decimal) == actualProperty.PropertyType)
                     {
-                        decimal d;
-
-                        if (!decimal.TryParse((string) value, out d))
+                        if (!decimal.TryParse((string) value, out var d))
                             continue;
 
                         value = d;
+                    }
+                    else if (value is DateTime)
+                    {
+                        value = ((DateTime) value).ToUniversalTime();
                     }
 
                     actualProperty.SetValue(item, value, null);
@@ -161,7 +161,7 @@ namespace WebMoney.Services
 
             var transferBundle = new ExportableTransferBundle();
             transferBundle.Transfers.AddRange(
-                transfers.Select(t => new ExportableTransfer(t.TransferId, t.TargetPurse, t.Amount, t.Description)));
+                transfers.Select(t => new ExportableTransfer(t.PaymentId, t.TargetPurse, t.Amount, t.Description)));
 
             var xmlSerializerNamespaces = new XmlSerializerNamespaces();
             xmlSerializerNamespaces.Add("", "http://tempuri.org/ds.xsd");
@@ -242,33 +242,35 @@ namespace WebMoney.Services
 
                         if (type == typeof(string))
                         {
-                            cell.DataType = XLCellValues.Text;
+                            cell.DataType = XLDataType.Text;
                             cell.Value = cellValue;
                         }
                         else if (type == typeof(bool))
                         {
-                            cell.DataType = XLCellValues.Boolean;
+                            cell.DataType = XLDataType.Boolean;
                             cell.Value = (bool) cellValue ? "TRUE" : "FALSE";
                         }
                         else if (type == typeof(int))
                         {
-                            cell.DataType = XLCellValues.Number;
+                            cell.DataType = XLDataType.Number;
                             cell.Value = ((int) cellValue).ToString(CultureInfo.InvariantCulture);
                         }
                         else if (type == typeof(long))
                         {
-                            cell.DataType = XLCellValues.Number;
+                            cell.DataType = XLDataType.Number;
                             cell.Value = ((long) cellValue).ToString(CultureInfo.InvariantCulture);
                         }
                         else if (type == typeof(decimal))
                         {
-                            cell.DataType = XLCellValues.Number;
+                            cell.DataType = XLDataType.Number;
                             cell.Value = ((decimal) cellValue).ToString(CultureInfo.InvariantCulture);
                         }
                         else if (type == typeof(DateTime))
                         {
-                            cell.DataType = XLCellValues.DateTime;
-                            cell.Value = ((DateTime) cellValue).ToString(CultureInfo.InvariantCulture);
+                            cell.DataType = XLDataType.Text;
+                            cell.Value =
+                                ((DateTime) cellValue).ToLocalTime()
+                                .ToString("yyyy-MM-ddTHH:mm:ss", CultureInfo.InvariantCulture.DateTimeFormat);
                         }
                     }
 

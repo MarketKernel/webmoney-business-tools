@@ -6,11 +6,11 @@ namespace Xml2WinForms
     {
         public string Group { get; set; }
         public string ImageKey { get; set; }
-        public object ContentItem { get; }
+        public object Entry { get; }
 
-        public ListItemContent(object contentItem)
+        public ListItemContent(object entry)
         {
-            ContentItem = contentItem ?? throw new ArgumentNullException(nameof(contentItem));
+            Entry = entry ?? throw new ArgumentNullException(nameof(entry));
         }
     }
 }

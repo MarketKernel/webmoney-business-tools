@@ -7,8 +7,8 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         string Number { get; }
         string Name { get; }
         decimal? Amount { get; }
-        long? LastIncomingTransferPrimaryId { get; }
-        long? LastOutgoingTransferPrimaryId { get; }
+        long? LastIncomingTransferId { get; }
+        long? LastOutgoingTransferId { get; }
         bool? InvoiceAllowed { get; }
         bool? TransferAllowed { get; }
         bool? BalanceAllowed { get; }
@@ -23,7 +23,10 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         long? StoreIdentifier { get; }
 
         string MerchantKey { get; }
+        string SecretKeyX20 { get; }
         bool HasMerchantKey { get; }
+        bool HasSecretKeyX20 { get; }
+
         bool IsManuallyAdded { get; }
     }
 }

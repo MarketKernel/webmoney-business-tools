@@ -7,8 +7,50 @@
           {
             "controls": [
               {
+                "type": "CheckBox",
+                "desc": "Set Secret Key",
+                "name": "HasSecretKey",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "SecretKey"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
                 "type": "TextBox",
-                "desc": "Merchant key:",
+                "desc": "Secret Key:",
+                "name": "SecretKey",
+                "useSystemPasswordChar": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Key can not be empty!"
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Set Secret Key X20",
+                "name": "HasSecretKeyX20",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "SecretKeyX20"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Secret Key X20:",
+                "name": "SecretKeyX20",
+                "useSystemPasswordChar": true,
                 "inspectionRules": [
                   {
                     "type": "NotEmpty",

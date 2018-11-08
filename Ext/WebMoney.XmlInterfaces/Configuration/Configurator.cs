@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Security.Cryptography.X509Certificates;
 using WebMoney.Cryptography;
+using WebMoney.XmlInterfaces.BasicObjects;
 
 namespace WebMoney.XmlInterfaces.Configuration
 {
@@ -9,7 +10,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 #else
     [System.Diagnostics.DebuggerNonUserCode]
 #endif
-    public class Configurator : Initializer
+    public sealed class Configurator : Initializer
     {
         private readonly Signer _signer;
 

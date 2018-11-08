@@ -8,6 +8,7 @@ using WebMoney.XmlInterfaces.Responses;
 using System.Globalization;
 using System.Text;
 using WebMoney.XmlInterfaces.Core;
+using WebMoney.XmlInterfaces.BasicObjects;
 
 namespace WebMoney.XmlInterfaces
 {
@@ -76,10 +77,7 @@ namespace WebMoney.XmlInterfaces
             }
             set
             {
-                if (null == value)
-                    throw new ArgumentNullException(nameof(value));
-
-                _initializer = value;
+                _initializer = value ?? throw new ArgumentNullException(nameof(value));
             }
         }
 
@@ -88,6 +86,9 @@ namespace WebMoney.XmlInterfaces
         public override TResponse Submit()
         {
             TResponse xmlResponse;
+
+            if (Logger.IsInfoEnabled)
+                Logger.Info(string.Format(CultureInfo.InvariantCulture, "REQUEST:\r\n\r\n{0}\r\n", Compile()));
 
             try
             {
@@ -98,12 +99,12 @@ namespace WebMoney.XmlInterfaces
                 if (exception is WmException)
                 {
                     Logger.Debug(exception.Message, exception);
-                    Logger.Debug(string.Format(CultureInfo.InvariantCulture, "REQUEST:\r\n\r\n{0}", Compile()));
+                    Logger.Debug(string.Format(CultureInfo.InvariantCulture, "REQUEST:\r\n\r\n{0}\r\n", Compile()));
                 }
                 else
                 {
                     Logger.Error(exception.Message, exception);
-                    Logger.Error(string.Format(CultureInfo.InvariantCulture, "REQUEST:\r\n\r\n{0}", Compile()));
+                    Logger.Error(string.Format(CultureInfo.InvariantCulture, "REQUEST:\r\n\r\n{0}\r\n", Compile()));
                 }
 
                 throw;

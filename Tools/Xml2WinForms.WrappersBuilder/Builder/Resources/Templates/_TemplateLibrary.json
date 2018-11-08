@@ -1,0 +1,378 @@
+{
+  "templates": [
+    // WMID с поиском
+    {
+      "templateName": "WMIDTemplate",
+      "type": "TextBoxWithButton",
+      "desc": "WMID:",
+      "iconPath": "../Pictures/FindWmId.gif",
+      "digitsOnly": true,
+      "maxLength": 12,
+      "inspectionRules": [
+        {
+          "type": "LengthEqual",
+          "number": 12,
+          "message": "Wrong WMID length!"
+        },
+        {
+          "type": "RegExp",
+          "argument": "^[0-9]{12}$",
+          "message": "Wrong WMID!"
+        }
+      ],
+      "behaviorRules": [
+        {
+          "trigger": "ButtonClick",
+          "action": "FindPassport"
+        }
+      ]
+    },
+    // Кошелек с поиском WMID.
+    {
+      "templateName": "PurseTemplate",
+      "desc": "Purse number:",
+      "type": "TextBoxWithButton",
+      "iconPath": "../Pictures/FindWmId.gif",
+      "maxLength": 13,
+      "inspectionRules": [
+        {
+          "type": "RegExp",
+          "argument": "^[A-Z][0-9]{12}$",
+          "message": "Wrong purse number!"
+        }
+      ],
+      "behaviorRules": [
+        {
+          "trigger": "ButtonClick",
+          "action": "FindIdentifier"
+        }
+      ]
+    },
+    // Кошелек пользователя.
+    {
+      "templateName": "AccountListTemplate",
+      "type": "AccountDropDownList",
+      "desc": "From purse:",
+      "items": [
+        {
+          "number": "Z123456789012",
+          "name": "Temp",
+          "amount": "123",
+          "availableAmount": "453",
+          "currency": "WMZ"
+        },
+        {
+          "number": "E123456789012",
+          "name": "Кошелек 2",
+          "amount": "321",
+          "availableAmount": "123",
+          "currency": "WME"
+        }
+      ],
+      "behaviorRules": [
+        {
+          "trigger": "SelectedIndexChanged",
+          "action": "UpdateAvailableAmount",
+          "affectedControls": [
+            "Amount"
+          ]
+        }
+      ]
+    },
+    // Типы кошельков.
+    {
+      "templateName": "PurseTypeTemplate",
+      "type": "AccountDropDownList",
+      "desc": "Purse type:",
+      "items": [
+        {
+          "number": "WMZ",
+          "currency": "WMZ"
+        },
+        {
+          "number": "WMR",
+          "currency": "WMR"
+        }
+      ]
+    },
+    // Сумма, значение больше 0.
+    {
+      "templateName": "AmountTemplate",
+      "type": "AmountNumericUpDown",
+      "name": "Amount",
+      "desc": "Amount",
+      "inspectionRules": [
+        {
+          "type": "ValueMoreThen",
+          "number": 0,
+          "message": "Wrong amount!"
+        }
+      ]
+    },
+    // Включение группы для ввода кода протекции.
+    {
+      "templateName": "ProtectionCheckBox",
+      "type": "CheckBox",
+      "desc": "Use payment protection",
+      "behaviorRules": [
+        {
+          "trigger": "CheckedChanged",
+          "affectedControls": [
+            "PaymentProtectionGroup"
+          ],
+          "action": "Enable"
+        }
+      ]
+    },
+    // Группа ввода кода и периода протекции.
+    {
+      "templateName": "ProtectionGroup",
+      "type": "GroupBox",
+      "name": "PaymentProtectionGroup",
+      "desc": "Payment Protection",
+      "column": {
+        "controls": [
+          {
+            "type": "NumericUpDown",
+            "name": "ProtectionPeriod",
+            "desc": "Maximum protection period (days): ",
+            "minValue": 1,
+            "maxValue": 255
+          },
+          {
+            "type": "TextBox",
+            "name": "ProtectionCode",
+            "desc": "Protection code:",
+            "maxLength": 255,
+            "inspectionRules": [
+              {
+                "type": "NotEmpty",
+                "message": "Protection code cannot be empty!"
+              },
+              {
+                "type": "RegExp",
+                "argument": "^[a-zA-Z0-9]{5,255}$",
+                "message": "Wrong code length!"
+              }
+            ]
+          },
+          {
+            "type": "CheckBox",
+            "desc": "Protection by time",
+            "behaviorRules": [
+              {
+                "trigger": "CheckedChanged",
+                "affectedControls": [
+                  "ProtectionCode"
+                ],
+                "action": "Disable"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    // Номер заказа.
+    {
+      "templateName": "OrderNumberTemplate",
+      "type": "NumericUpDown",
+      "desc": "Order number:",
+      "minValue": 1,
+      "maxValue": 2147483647
+    },
+    // Идентификатор клиента.
+    {
+      "templateName": "ClientIdentifierTemplate",
+      "type": "GroupBox",
+      "desc": "Client info",
+      "column": {
+        "controls": [
+          {
+            "type": "ComboBox",
+            "desc": "Identifier type:",
+            "items": [
+              {
+                "text": "Phone number",
+                "value": "Phone"
+              },
+              {
+                "text": "WMID",
+                "value": "WmId"
+              },
+              {
+                "text": "Email address",
+                "value": "Email"
+              }
+            ],
+            "behaviorRules": [
+              // Show Phone
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "Phone",
+                "affectedControls": [
+                  "Phone"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "True"
+              },
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "Phone",
+                "affectedControls": [
+                  "WMID",
+                  "Email"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "False"
+              },
+              // Show WMID
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "WmId",
+                "affectedControls": [
+                  "WMID"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "True"
+              },
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "WmId",
+                "affectedControls": [
+                  "Phone",
+                  "Email"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "False"
+              },
+              // Show email
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "Email",
+                "affectedControls": [
+                  "Email"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "True"
+              },
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "Email",
+                "affectedControls": [
+                  "WMID",
+                  "Phone"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "False"
+              }
+            ]
+          },
+          {
+            "type": "TextBox",
+            "desc": "Phone number (international format):",
+            "name": "Phone",
+            "digitsOnly": true,
+            "maxLength": 15,
+            "inspectionRules": [
+              {
+                "type": "RegExp",
+                "argument": "^[0-9]{11,15}$",
+                "message": "Wrong number length!"
+              }
+            ]
+          },
+          {
+            "type": "TextBoxWithButton",
+            "desc": "WMID:",
+            "name": "WMID",
+            "visible": false,
+            "iconPath": "../Pictures/FindWmId.gif",
+            "digitsOnly": true,
+            "maxLength": 12,
+            "inspectionRules": [
+              {
+                "type": "LengthEqual",
+                "number": 12,
+                "message": "Wrong WMID length!"
+              },
+              {
+                "type": "RegExp",
+                "argument": "^[0-9]{12}$",
+                "message": "Wrong WMID!"
+              }
+            ],
+            "behaviorRules": [
+              {
+                "trigger": "ButtonClick",
+                "action": "FindPassport"
+              }
+            ]
+          },
+          {
+            "type": "TextBox",
+            "desc": "Email address:",
+            "name": "Email",
+            "visible": false,
+            "inspectionRules": [
+              {
+                "type": "RegExp",
+                "argument": "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$",
+                "message": "Wrong email address!"
+              },
+              {
+                "type": "NotEmpty",
+                "message": "Email address cannot be empty!"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    // Код подтверждения.
+    {
+      "templateName": "ConfirmationCodeTemplate",
+      "type": "TextBox",
+      "desc": "Confirmation code:",
+      "digitsOnly": true,
+      "name": "Code",
+      "maxLength": 25,
+      "inspectionRules": [
+        {
+          "type": "RegExp",
+          "argument": "^[0-9]{1,25}$",
+          "message": "Wrong сonfirmation code length!"
+        }
+      ]
+    },
+    // Номер телефона в международном формате.
+    {
+      "templateName": "PhoneNumberTemplate",
+      "type": "TextBox",
+      "desc": "Phone number (international format):",
+      "digitsOnly": true,
+      "maxLength": 15,
+      "inspectionRules": [
+        {
+          "type": "RegExp",
+          "argument": "^[0-9]{11,15}$",
+          "message": "Wrong number length!"
+        }
+      ]
+    },
+    // Адрес
+    {
+      "templateName": "AddressTemplate",
+      "type": "TextBox",
+      "desc": "Address:",
+      "maxLength": 255,
+      "multiline": true
+    },
+    // Период
+    {
+      "templateName": "PeriodTemplate",
+      "type": "NumericUpDown",
+      "maxValue": 255,
+      "minValue": 1
+    }
+  ]
+}

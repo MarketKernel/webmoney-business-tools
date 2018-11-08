@@ -5,6 +5,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X15. Viewing and changing settings of "by trust" management.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -13,6 +16,9 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class TrustRegister : WmResponse
     {
+        /// <summary>
+        /// Trust list.
+        /// </summary>
         public List<Trust> TrustList { get; protected set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)

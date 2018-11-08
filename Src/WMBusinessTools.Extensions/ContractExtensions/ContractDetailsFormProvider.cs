@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WMBusinessTools.Extensions.BusinessObjects;
 using WMBusinessTools.Extensions.Contracts;

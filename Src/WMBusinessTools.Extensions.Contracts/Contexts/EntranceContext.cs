@@ -1,6 +1,6 @@
 ﻿using System;
 using ExtensibilityAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 
 namespace WMBusinessTools.Extensions.Contracts.Contexts
 {

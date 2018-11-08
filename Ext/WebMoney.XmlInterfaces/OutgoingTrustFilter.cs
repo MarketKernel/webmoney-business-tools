@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X15. Viewing and changing settings of "by trust" management.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -17,12 +20,19 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => "https://w3s.wmtransfer.com/asp/XMLTrustListCert.asp";
 
-        public WmId WmId { get; private set; }
+        /// <summary>
+        /// WM-identifier, for which trust list must be retrieved.
+        /// </summary>
+        public WmId WmId { get; set; }
 
         protected internal OutgoingTrustFilter()
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wmId">WM-identifier, for which trust list must be retrieved.</param>
         public OutgoingTrustFilter(WmId wmId)
         {
             WmId = wmId;

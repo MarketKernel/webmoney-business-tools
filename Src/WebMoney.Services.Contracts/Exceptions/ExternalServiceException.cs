@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.ExternalBusinessException_Caption_Request_rejected_by_WebMoney;
 
         public ExternalServiceException()
+            : base(Resources.ExternalBusinessException_Caption_Request_rejected_by_WebMoney)
         {
         }
 

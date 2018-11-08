@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
 using WMBusinessTools.Extensions.BusinessObjects;
@@ -50,9 +51,16 @@ namespace WMBusinessTools.Extensions
 
             // Устанавливаем кошельки
             var origin = new AccountDropDownListOrigin(context.UnityContainer);
+
+            // Оплата в долг не требует денег на кошельке, осуществляется с кредитного кошелька (WMC).
+            if (currencyService.CheckCapabilities(currency, CurrencyCapabilities.Debit))
+                currency = currencyService.SelectCurrencies(CurrencyCapabilities.Credit).First();
+            else
+                origin.FilterCriteria.HasMoney = true;
+
             origin.FilterCriteria.Currency = currency;
-            origin.FilterCriteria.HasMoney = true;
-            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Actual | CurrencyCapabilities.Transfer;
+
+            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Actual | CurrencyCapabilities.TransferByInvoice;
 
             var itemTemplates = AccountDisplayHelper.BuildAccountDropDownListItemTemplates(origin);
 
@@ -108,10 +116,12 @@ namespace WMBusinessTools.Extensions
                     InvoiceId = invoice.PrimaryId
                 };
 
-                if (null!= valuesWrapper.Control11UsePaymentProtection && valuesWrapper.Control11UsePaymentProtection.Value)
+                if (valuesWrapper.Control11UsePaymentProtection)
                 {
                     originalTransfer.ProtectionPeriod = valuesWrapper.Control12ProtectionPeriod;
-                    originalTransfer.ProtectionCode = valuesWrapper.Control13ProtectionCode;
+
+                    if (valuesWrapper.Control14ProtectionByTime)
+                        originalTransfer.ProtectionCode = valuesWrapper.Control13ProtectionCode;
                 }
 
                 transferService.CreateTransfer(originalTransfer);

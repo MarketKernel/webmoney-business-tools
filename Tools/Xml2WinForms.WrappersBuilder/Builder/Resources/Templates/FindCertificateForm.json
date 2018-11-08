@@ -1,0 +1,48 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Passport request",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "WMID:",
+                "name": "Identifier",
+                "digitsOnly": true,
+                "maxLength": 12,
+                "inspectionRules": [
+                  {
+                    "type": "LengthEqual",
+                    "number": 12,
+                    "message": "Wrong WMID length!"
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Get BL and TL"
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Get BL and TL for attached WMIDs"
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Check complaints and comments"
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Offline search",
+                "name": "OfflineSearch"
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Request"
+    }
+  ]
+}

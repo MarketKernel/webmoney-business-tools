@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.BusinessObjects;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
@@ -114,7 +114,7 @@ namespace WebMoney.Services
                 throw new ExternalServiceException(exception.Message, exception);
             }
 
-            var instruction = new TrustConfirmationInstruction((int)response.Reference,
+            var instruction = new TrustConfirmationInstruction(response.Reference,
                 ConvertFrom.ApiTypeToContractType(response.ConfirmationType), response.Info, response.SmsReference);
 
             return instruction;
@@ -125,7 +125,7 @@ namespace WebMoney.Services
             if (null == trustConfirmation)
                 throw new ArgumentNullException(nameof(trustConfirmation));
 
-            var request = new ExpressTrustConfirmation((uint) trustConfirmation.Reference,
+            var request = new ExpressTrustConfirmation(trustConfirmation.Reference,
                 trustConfirmation.ConfirmationCode)
             {
                 Initializer = Session.AuthenticationService.ObtainInitializer()
@@ -142,7 +142,7 @@ namespace WebMoney.Services
                 throw new ExternalServiceException(exception.Message, exception);
             }
 
-            var expressTrust = new ExpressTrust((int)response.TrustId,
+            var expressTrust = new ExpressTrust(response.TrustId,
                 response.ClientPurse.ToString(), response.ClientWmId, response.Info);
 
             return expressTrust;

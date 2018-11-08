@@ -5,7 +5,7 @@
       "templateName": "WMIDTemplate",
       "type": "TextBoxWithButton",
       "desc": "WMID:",
-      "iconPath": "../Pictures/FindWmId.gif",
+      "iconPath": "../Pictures/FindWmId.png",
       "digitsOnly": true,
       "maxLength": 12,
       "inspectionRules": [
@@ -32,7 +32,7 @@
       "templateName": "PurseTemplate",
       "desc": "Purse number:",
       "type": "TextBoxWithButton",
-      "iconPath": "../Pictures/FindWmId.gif",
+      "iconPath": "../Pictures/FindWmId.png",
       "maxLength": 13,
       "inspectionRules": [
         {
@@ -141,8 +141,33 @@
           },
           {
             "type": "TextBox",
+            "name": "ProtectionCode",
             "desc": "Protection code:",
-            "maxLength": 255
+            "maxLength": 255,
+            "inspectionRules": [
+              {
+                "type": "NotEmpty",
+                "message": "Protection code cannot be empty!"
+              },
+              {
+                "type": "RegExp",
+                "argument": "^[a-zA-Z0-9]{5,255}$",
+                "message": "Wrong code length!"
+              }
+            ]
+          },
+          {
+            "type": "CheckBox",
+            "desc": "Protection by time",
+            "behaviorRules": [
+              {
+                "trigger": "CheckedChanged",
+                "affectedControls": [
+                  "ProtectionCode"
+                ],
+                "action": "Disable"
+              }
+            ]
           }
         ]
       }
@@ -261,7 +286,7 @@
             "desc": "WMID:",
             "name": "WMID",
             "visible": false,
-            "iconPath": "../Pictures/FindWmId.gif",
+            "iconPath": "../Pictures/FindWmId.png",
             "digitsOnly": true,
             "maxLength": 12,
             "inspectionRules": [

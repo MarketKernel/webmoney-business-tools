@@ -11,17 +11,24 @@ namespace WebMoney.XmlInterfaces.Responses
     [Serializable]
     public class IncomingInvoice : Invoice
     {
+        /// <summary>
+        /// WMID of the seller who drew the invoice.
+        /// </summary>
         public WmId TargetWmId { get; protected set; }
-        public uint OperationId { get; protected set; }
+
+        /// <summary>
+        /// Transaction number in the WebMoney system, if the invoice has been already paid.
+        /// </summary>
+        public long TransferId { get; protected set; }
 
         internal override void Fill(WmXmlPackage wmXmlPackage)
         {
             if (null == wmXmlPackage)
                 throw new ArgumentNullException(nameof(wmXmlPackage));
 
-            Id = wmXmlPackage.SelectUInt32("@id");
-            Ts = wmXmlPackage.SelectUInt32("@ts");
-            OrderId = wmXmlPackage.SelectUInt32("orderid");
+            PrimaryId = wmXmlPackage.SelectInt64("@id");
+            SecondaryId = wmXmlPackage.SelectInt64("@ts");
+            OrderId = wmXmlPackage.SelectInt32("orderid");
             TargetWmId = wmXmlPackage.SelectWmId("storewmid");
             TargetPurse = wmXmlPackage.SelectPurse("storepurse");
             Amount = wmXmlPackage.SelectAmount("amount");
@@ -32,7 +39,7 @@ namespace WebMoney.XmlInterfaces.Responses
             InvoiceState = (InvoiceState)wmXmlPackage.SelectInt32("state");
             CreateTime = wmXmlPackage.SelectWmDateTime("datecrt");
             UpdateTime = wmXmlPackage.SelectWmDateTime("dateupd");
-            OperationId = wmXmlPackage.SelectUInt32("wmtranid");
+            TransferId = wmXmlPackage.SelectInt64("wmtranid");
         }
     }
 }

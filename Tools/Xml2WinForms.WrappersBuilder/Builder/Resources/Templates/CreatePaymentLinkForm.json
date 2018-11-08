@@ -1,0 +1,83 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Payment Link",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "AccountListTemplate",
+                "desc": "Store purse:",
+                "behaviorRules": [
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "action": "UpdateCurrency",
+                    "affectedControls": [
+                      "PaymentAmount"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "NumericUpDown",
+                "desc": "Order number:",
+                "name": "OrderId",
+                "minValue": 1,
+                "maxValue": 2147483647
+              },
+              {
+                "prototype": "AmountTemplate",
+                "name": "PaymentAmount"
+              },
+              {
+                "type": "NumericUpDown",
+                "desc": "Validity period (hours): ",
+                "maxValue": 744,
+                "minValue": 0
+              },
+              {
+                "type": "TextBox",
+                "desc": "Description:",
+                "maxLength": 255,
+                "multiline": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Description cannot be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Create"
+    },
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBoxWithButton",
+                "desc": "Payment link:",
+                "name": "PaymentLink",
+                "iconPath": "../Pictures/Copy.gif",
+                "readOnly": true,
+                "behaviorRules": [
+                  {
+                    "trigger": "ButtonClick",
+                    "action": "Copy"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Ok"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+﻿{
+  "text": "Security settings",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "Table",
+                "desc": "Keeper WebPro certificate:",
+                "name": "Certificate",
+                "headerClickable": true,
+                "columns": [
+                  {
+                    "name": "SubjectName",
+                    "headerText": "Name",
+                    "width": 135
+                  },
+                  {
+                    "name": "IssuerName",
+                    "headerText": "Issuer",
+                    "width": 125
+                  },
+                  {
+                    "name": "NotBefore",
+                    "headerText": "Expiration date",
+                    "width": 125
+                  }
+                ],
+                "icons": [
+                  {
+                    "name": "Pfx",
+                    "iconPath": "../Pictures/Pfx.gif"
+                  }
+                ],
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Сertificate is not selected!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Update"
+    }
+  ]
+}

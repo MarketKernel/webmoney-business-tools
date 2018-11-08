@@ -9,6 +9,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X11. Retrieving information from client's passport by WM-identifier.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -17,67 +20,220 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "response")]
     public class Passport : WmResponse
     {
+        /// <summary>
+        /// Passport WM-identifier.
+        /// </summary>
         public WmId WmId { get; protected set; }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
         // attestat
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Passport type.
+        /// </summary>
         public PassportDegree Degree { get; protected set; }
+
+        /// <summary>
+        /// If True, then the owner of the passport has been terminated of the system.
+        /// </summary>
         public bool Revoked { get; protected set; }
+
+        /// <summary>
+        /// Date and time when passport was issued.
+        /// </summary>
         public WmDateTime CreateTime { get; protected set; }
+
+        /// <summary>
+        /// WMID of passport issuer who issued this passport.
+        /// </summary>
         public WmId IssuerId { get; protected set; }
+
+        /// <summary>
+        /// Project name, name (nick) of passport issuer who issued this passport.
+        /// </summary>
         public string IssuerAlias { get; protected set; }
 
+
+        /// <summary>
+        /// Information about all WMIDs attached to this passport.
+        /// </summary>
         public List<WmIdInfo> WmIdInfoList { get; protected set; }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
         // userinfo
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Owner status.
+        /// </summary>
         public PassportStatus Status { get; protected set; }
+
         public PassportAppointment Appointment { get; protected set; }
+
         public string Basis { get; protected set; }
+
+        /// <summary>
+        /// Unique name (nick) for this WMID.
+        /// </summary>
         public string Alias { get; protected set; }
+
+        /// <summary>
+        /// Additional information about WMID.
+        /// </summary>
         public string Information { get; protected set; }
+
+        /// <summary>
+        /// Postal address-city.
+        /// </summary>
         public string City { get; protected set; }
+
         public string Region { get; protected set; }
+
+        /// <summary>
+        /// Postal address-country.
+        /// </summary>
         public string Country { get; protected set; }
+
+        /// <summary>
+        /// Postal address-postal code.
+        /// </summary>
         public string ZipCode { get; protected set; }
+
+        /// <summary>
+        /// Postal address-street,house, apartment.
+        /// </summary>
         public string Address { get; protected set; }
+
+        /// <summary>
+        /// Surname of WMID owner.
+        /// </summary>
         public string Surname { get; protected set; }
+
+        /// <summary>
+        /// Name of WMID owner.
+        /// </summary>
         public string FirstName { get; protected set; }
+
+        /// <summary>
+        /// Second (Patronymic) name of WMID owner.
+        /// </summary>
         public string Patronymic { get; protected set; }
+
+        /// <summary>
+        /// Passport number of WMID owner.
+        /// </summary>
         public string PassportNumber { get; protected set; }
+
+        /// <summary>
+        /// Passport issue date.
+        /// </summary>
         public WmDate? PassportDate { get; protected set; }
+
+        /// <summary>
+        /// Passport issue place (country).
+        /// </summary>
         public string PassportCountry { get; protected set; }
+
         public string PassportCity { get; protected set; }
+
+        /// <summary>
+        /// Passport issue place (by whom).
+        /// </summary>
         public string PassportIssuer { get; protected set; }
+
         public string RegistrationCountry { get; protected set; }
+
         public string RegistrationCity { get; protected set; }
+
         public string RegistrationAddress { get; protected set; }
+
+        /// <summary>
+        /// Place of birth (city, country).
+        /// </summary>
         public string Birthplace { get; protected set; }
+
+        /// <summary>
+        /// Birthday.
+        /// </summary>
         public WmDate? Birthday { get; protected set; }
+
         public string OrganizationName { get; protected set; }
+
         public string OrganizationManager { get; protected set; }
+
         public string OrganizationAccountant { get; protected set; }
+
         public string OrganizationTaxId { get; protected set; }
+
         public string OrganizationId { get; protected set; }
+
         public string OrganizationActivityId { get; protected set; }
+
         public string OrganizationAddress { get; protected set; }
+
         public string OrganizationCountry { get; protected set; }
+
         public string OrganizationCity { get; protected set; }
+
         public string OrganizationZipCode { get; protected set; }
+
         public string OrganizationBankName { get; protected set; }
+
         public string OrganizationBankId { get; protected set; }
+
         public string OrganizationCorrespondentAccount { get; protected set; }
+
         public string OrganizationAccount { get; protected set; }
+
         public string HomePhone { get; protected set; }
+
+        /// <summary>
+        /// Cell phone.
+        /// </summary>
         public string CellPhone { get; protected set; }
+
+        /// <summary>
+        /// Contact information of certified WMID owner. UIN ICQ.
+        /// </summary>
         public string ICQ { get; protected set; }
+
         public string Fax { get; protected set; }
+
+        /// <summary>
+        /// Contact information of certified WMID owner. E-mail address.
+        /// </summary>
         public string EMail { get; protected set; }
+
+        /// <summary>
+        /// Contact information of certified WMID owner. Web-site address.
+        /// </summary>
         public string WebAddress { get; protected set; }
+
+        /// <summary>
+        /// Contact information of certified WMID owner. Contact phone number.
+        /// </summary>
         public string ContactPhone { get; protected set; }
+
+        /// <summary>
+        /// Only for Capitaller passports. Founder's WMID.
+        /// </summary>
         public WmId? CapitallerParent { get; protected set; }
+
+        /// <summary>
+        /// Verification of passport's e-copy by Verification Center admin.
+        /// </summary>
         public bool PassportInspection { get; protected set; }
+
+        /// <summary>
+        /// Verification of e-copy of the INN certificate by Verification Center admin.
+        /// </summary>
         public bool TaxInspection { get; protected set; }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
         // check-lock
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public ConfirmationFlag StatusConfirmation { get; protected set; }
         public ConfirmationFlag AppointmentConfirmation { get; protected set; }
         public ConfirmationFlag BasisConfirmation { get; protected set; }
@@ -136,11 +292,8 @@ namespace WebMoney.XmlInterfaces.Responses
 
             if (0 != errorNumber)
                 throw new WmException(errorNumber, xmlPackage.SelectString("@retdesc"));
-
-            // TODO: Спец. исключение!
-            if (!xmlPackage.Exists("certinfo/attestat"))
-                throw new WmException("WMID не существует!");
         }
+
 
         protected override void Fill(WmXmlPackage wmXmlPackage)
         {
@@ -186,13 +339,7 @@ namespace WebMoney.XmlInterfaces.Responses
 
             // Passport
             PassportNumber = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@pnomer");
-
-            WmDate passportDate;
-
-            if (WmDate.TryParse(wmXmlPackage.SelectString("certinfo/userinfo/value/row/@pdate"),
-                                out passportDate))
-                PassportDate = passportDate;
-
+            PassportDate = wmXmlPackage.SelectWmDateIfExists("certinfo/userinfo/value/row/@pdate");
             PassportCountry = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@pcountry");
             PassportCity = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@pcity");
             PassportIssuer = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@pbywhom");
@@ -203,15 +350,15 @@ namespace WebMoney.XmlInterfaces.Responses
             // Birthplace and birthday
             Birthplace = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@bplace");
 
-            if (!string.IsNullOrEmpty(wmXmlPackage.SelectString("certinfo/userinfo/value/row/@bday")) &&
-                !string.IsNullOrEmpty(wmXmlPackage.SelectString("certinfo/userinfo/value/row/@bmonth")) &&
-                !string.IsNullOrEmpty(wmXmlPackage.SelectString("certinfo/userinfo/value/row/@byear")))
+            int? birthDay = wmXmlPackage.SelectInt32IfExists("certinfo/userinfo/value/row/@bday");
+
+            if (null != birthDay)
             {
-                int birthDay = wmXmlPackage.SelectInt32("certinfo/userinfo/value/row/@bday");
+
                 int birthMonth = wmXmlPackage.SelectInt32("certinfo/userinfo/value/row/@bmonth");
                 int birthYear = wmXmlPackage.SelectInt32("certinfo/userinfo/value/row/@byear");
 
-                Birthday = (WmDate) new DateTime(birthYear, birthMonth, birthDay);
+                Birthday = (WmDate) new DateTime(birthYear, birthMonth, birthDay.Value);
             }
 
             // Organization
@@ -238,18 +385,9 @@ namespace WebMoney.XmlInterfaces.Responses
             EMail = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@email");
             WebAddress = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@web");
             ContactPhone = wmXmlPackage.SelectString("certinfo/userinfo/value/row/@phone");
-
-            WmId capitallerParent;
-
-            if (WmId.TryParse(wmXmlPackage.SelectString("certinfo/userinfo/value/row/@cap_owner"),
-                              out capitallerParent))
-                CapitallerParent = capitallerParent;
-
-            if (wmXmlPackage.Exists("certinfo/userinfo/value/row/@pasdoc"))
-                PassportInspection = wmXmlPackage.SelectBool("certinfo/userinfo/value/row/@pasdoc");
-
-            if (wmXmlPackage.Exists("certinfo/userinfo/value/row/@inndoc"))
-                TaxInspection = wmXmlPackage.SelectBool("certinfo/userinfo/value/row/@inndoc");
+            CapitallerParent = wmXmlPackage.TrySelectWmId("certinfo/userinfo/value/row/@cap_owner");
+            PassportInspection = wmXmlPackage.SelectBoolIfExists("certinfo/userinfo/value/row/@pasdoc") ?? false;
+            TaxInspection = wmXmlPackage.SelectBoolIfExists("certinfo/userinfo/value/row/@inndoc") ?? false;
 
             StatusConfirmation = selectConfirmationFlag(wmXmlPackage,
                                                         "certinfo/userinfo/check-lock/row/@jstatus");

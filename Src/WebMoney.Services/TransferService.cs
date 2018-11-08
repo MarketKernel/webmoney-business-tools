@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.BusinessObjects;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;
@@ -31,7 +31,7 @@ namespace WebMoney.Services
         public void Moneyback(long transferPrimaryId, decimal amount)
         {
             var request =
-                new TransferRejector((uint) transferPrimaryId, (Amount) amount)
+                new TransferRejector(transferPrimaryId, (Amount) amount)
                 {
                     Initializer = Session.AuthenticationService.ObtainInitializer()
                 };
@@ -48,7 +48,7 @@ namespace WebMoney.Services
 
         public void FinishProtection(long transferPrimaryId, string protectionCode)
         {
-            var request = new ProtectionFinisher((uint) transferPrimaryId, (Description) protectionCode)
+            var request = new ProtectionFinisher(transferPrimaryId, (Description) protectionCode)
             {
                 Initializer = Session.AuthenticationService.ObtainInitializer()
             };
@@ -66,7 +66,7 @@ namespace WebMoney.Services
         public void RejectProtection(long transferPrimaryId)
         {
             var request =
-                new ProtectionRejector((uint) transferPrimaryId)
+                new ProtectionRejector(transferPrimaryId)
                 {
                     Initializer = Session.AuthenticationService.ObtainInitializer()
                 };

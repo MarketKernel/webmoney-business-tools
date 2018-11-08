@@ -5,10 +5,12 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
 {
     internal sealed class DbSettingsFormValuesWrapper : StronglyTypedValuesWrapper
     {
-        public const string Control2PathToDatabaseCommandSelectFile = "SelectFile";
-
         public const string Control1ProviderValueSystemDataSqlserverce40 = "System.Data.SqlServerCe.4.0";
         public const string Control1ProviderValueSystemDataSqlclient = "System.Data.SqlClient";
+        public const string Control1ProviderValueMysqlDataMysqlclient = "MySql.Data.MySqlClient";
+        public const string Control1ProviderValueNpgsql = "Npgsql";
+        public const string Control1ProviderValueOracleManageddataaccessClient = "Oracle.ManagedDataAccess.Client";
+        public const string Control2PathToDatabaseCommandSelectFile = "SelectFile";
 
         public string Control1Provider
         {

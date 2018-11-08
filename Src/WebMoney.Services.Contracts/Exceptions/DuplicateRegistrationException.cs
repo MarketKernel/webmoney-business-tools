@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.DuplicateRegistrationException_Caption_WMID_already_registered;
 
         public DuplicateRegistrationException()
+            : base(Resources.DuplicateRegistrationException_Caption_WMID_already_registered)
         {
         }
 

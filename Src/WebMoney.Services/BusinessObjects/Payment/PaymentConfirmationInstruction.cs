@@ -6,14 +6,14 @@ namespace WebMoney.Services.BusinessObjects
 {
     internal sealed class PaymentConfirmationInstruction : IPaymentConfirmationInstruction
     {
-        public long PrimaryInvoiceId { get; }
+        public long InvoiceId { get; }
         public ConfirmationType ConfirmationType { get; }
         public string PublicMessage { get; }
 
-        public PaymentConfirmationInstruction(long primaryInvoiceId, ConfirmationType confirmationType,
+        public PaymentConfirmationInstruction(long invoiceId, ConfirmationType confirmationType,
             string publicMessage)
         {
-            PrimaryInvoiceId = primaryInvoiceId;
+            InvoiceId = invoiceId;
             ConfirmationType = confirmationType;
             PublicMessage = publicMessage ?? throw new ArgumentNullException(nameof(publicMessage));
         }

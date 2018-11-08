@@ -1,7 +1,7 @@
 ﻿using LocalizationAssistant;
 using System;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;
 using WMBusinessTools.Extensions.Contracts;

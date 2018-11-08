@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X8. Retrieving information about purse ownership. Searching for system user by identifier or purse.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -17,18 +20,33 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => "https://w3s.wmtransfer.com/asp/XMLFindWMPurseCertNew.asp";
 
+        /// <summary>
+        /// WM identifier to search.
+        /// </summary>
         public WmId? WmId { get; private set; }
+
+        /// <summary>
+        /// Purse to search.
+        /// </summary>
         public Purse? Purse { get; private set; }
 
         protected internal WmIdFinder()
         {
         }
 
+        /// <summary>
+        /// WM identifier to search.
+        /// </summary>
+        /// <param name="wmId"></param>
         public WmIdFinder(WmId wmId)
         {
             WmId = wmId;
         }
 
+        /// <summary>
+        /// Purse to search.
+        /// </summary>
+        /// <param name="purse"></param>
         public WmIdFinder(Purse purse)
         {
             Purse = purse;

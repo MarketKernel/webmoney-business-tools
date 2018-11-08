@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 
 namespace WMBusinessTools.Extensions.Services

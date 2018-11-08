@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WMBusinessTools.Extensions.Contracts;
 using WMBusinessTools.Extensions.Contracts.Contexts;
 using WMBusinessTools.Extensions.DisplayHelpers;
 using WMBusinessTools.Extensions.StronglyTypedWrappers;
+using WMBusinessTools.Extensions.Templates.Controls;
+using WMBusinessTools.Extensions.Utils;
+using Xml2WinForms.Templates;
 
 namespace WMBusinessTools.Extensions
 {
@@ -25,8 +28,17 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            var submitForm = SubmitFormDisplayHelper.LoadSubmitFormByExtensionId(context.ExtensionManager,
-                ExtensionCatalog.SendMessageToDeveloper);
+            var configurationService = context.UnityContainer.Resolve<IConfigurationService>();
+            var installationReference = configurationService.InstallationReference;
+
+            var template =
+                TemplateLoader.LoadTemplate<SubmitFormTemplate<WMColumnTemplate>>(context.ExtensionManager,
+                    ExtensionCatalog.SendMessageToDeveloper);
+
+            var templateWrapper = new SendMessageToDeveloperFormTemplateWrapper(template);
+            templateWrapper.Control2InstallationReference.DefaultValue = installationReference;
+
+            var submitForm = SubmitFormDisplayHelper.BuildSubmitForm(context.ExtensionManager, template);
 
             submitForm.WorkCallback = (step, list) =>
             {
@@ -35,9 +47,9 @@ namespace WMBusinessTools.Extensions
                 var supportService = context.UnityContainer.Resolve<ISupportService>();
 
                 var sender =
-                    $"{valuesWrapper.Control1YourName} WMID#{context.Session.AuthenticationService.MasterIdentifier}";
+                    $"{valuesWrapper.Control1YourName} #{installationReference} WMID#{context.Session.AuthenticationService.MasterIdentifier}";
 
-                supportService.SendMessage("None", sender, valuesWrapper.Control2Message);
+                supportService.SendMessage("None", sender, valuesWrapper.Control3Message);
 
                 return new Dictionary<string, object>();
             };

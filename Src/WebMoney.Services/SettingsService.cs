@@ -29,13 +29,13 @@ namespace WebMoney.Services
 
         public int AllocateTransferId()
         {
-            if (null == _settings)
-                _settings = Load(_masterIdentifier);
-
             int transferId;
 
             lock (Anchor)
             {
+                if (null == _settings)
+                    _settings = Load(_masterIdentifier);
+
                 _settings.TransferId++;
                 transferId = _settings.TransferId;
             }
@@ -45,13 +45,13 @@ namespace WebMoney.Services
 
         public int AllocateOrderId()
         {
-            if (null == _settings)
-                _settings = Load(_masterIdentifier);
-
             int orderId;
 
             lock (Anchor)
             {
+                if (null == _settings)
+                    _settings = Load(_masterIdentifier);
+
                 _settings.OrderId++;
                 orderId = _settings.OrderId;
             }

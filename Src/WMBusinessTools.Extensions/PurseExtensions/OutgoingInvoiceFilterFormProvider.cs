@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
 using WebMoney.Services.Contracts.BusinessObjects;
@@ -23,6 +23,12 @@ namespace WMBusinessTools.Extensions
         {
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
+
+            var currencyService = context.UnityContainer.Resolve<ICurrencyService>();
+            var currency = currencyService.ObtainCurrencyByAccountNumber(context.Account.Number);
+
+            if (!currencyService.CheckCapabilities(currency, CurrencyCapabilities.Invoice))
+                return false;
 
             return true;
         }

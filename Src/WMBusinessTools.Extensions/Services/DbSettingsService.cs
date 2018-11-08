@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Text;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;
 using WMBusinessTools.Extensions.BusinessObjects;
@@ -101,6 +101,9 @@ namespace WMBusinessTools.Extensions.Services
                     return new ConnectionSettings(valuesWrapper.Control1Provider, connectionBuilder.ToString());
                 }
                 case DbSettingsFormValuesWrapper.Control1ProviderValueSystemDataSqlclient:
+                case DbSettingsFormValuesWrapper.Control1ProviderValueMysqlDataMysqlclient:
+                case DbSettingsFormValuesWrapper.Control1ProviderValueNpgsql:
+                case DbSettingsFormValuesWrapper.Control1ProviderValueOracleManageddataaccessClient:
                     return new ConnectionSettings(valuesWrapper.Control1Provider,
                         valuesWrapper.Control6ConnectionString);
                 default:
@@ -130,6 +133,9 @@ namespace WMBusinessTools.Extensions.Services
                     };
                 }
                 case DbSettingsFormValuesWrapper.Control1ProviderValueSystemDataSqlclient:
+                case DbSettingsFormValuesWrapper.Control1ProviderValueMysqlDataMysqlclient:
+                case DbSettingsFormValuesWrapper.Control1ProviderValueNpgsql:
+                case DbSettingsFormValuesWrapper.Control1ProviderValueOracleManageddataaccessClient:
                     return new DbSettingsFormValuesWrapper
                     {
                         Control1Provider = connectionSettings.ProviderInvariantName,

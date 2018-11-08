@@ -8,7 +8,10 @@ namespace WebMoney.Services.Contracts.BasicTypes
         None = 0,
         Actual = 0x01,
         Invoice = 0x02,
-        Transfer = 0x04,
-        CreatePurse = 0x08
+        TransferByInvoice = 0x04,
+        Transfer = 0x08,
+        Debit = 0x10,
+        Credit = 0x20,
+        CreatePurse = 0x40
     }
 }

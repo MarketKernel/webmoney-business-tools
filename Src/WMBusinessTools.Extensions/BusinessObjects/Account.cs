@@ -11,9 +11,9 @@ namespace WMBusinessTools.Extensions.BusinessObjects
 
         public decimal? Amount { get; set; }
 
-        public long? LastIncomingTransferPrimaryId => throw new NotImplementedException();
+        public long? LastIncomingTransferId => throw new NotImplementedException();
 
-        public long? LastOutgoingTransferPrimaryId => throw new NotImplementedException();
+        public long? LastOutgoingTransferId => throw new NotImplementedException();
 
         public bool? InvoiceAllowed => throw new NotImplementedException();
 
@@ -41,7 +41,11 @@ namespace WMBusinessTools.Extensions.BusinessObjects
 
         public string MerchantKey => throw new NotImplementedException();
 
+        public string SecretKeyX20 => throw new NotImplementedException();
+
         public bool HasMerchantKey => throw new NotImplementedException();
+
+        public bool HasSecretKeyX20 => throw new NotImplementedException();
 
         public bool IsManuallyAdded => throw new NotImplementedException();
 

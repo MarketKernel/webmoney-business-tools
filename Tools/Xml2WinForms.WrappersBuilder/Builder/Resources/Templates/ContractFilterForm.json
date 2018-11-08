@@ -1,0 +1,96 @@
+﻿{
+  "fileFilter": "Excel Workbook|*.xlsx",
+  "filterScreen": {
+    "tunableGrid": {
+      "columnHeaderDefaultCellStyle": {
+        "font": {
+          "isBold": true
+        },
+        "backColor": "225;225;225",
+        "foreColor": "Black",
+        "alignment": "MiddleCenter",
+        "padding": 2,
+        "wrapMode": "False"
+      },
+      "rowsDefaultCellStyle": {
+        "font": {
+          "isBold": false
+        },
+        "selectionBackColor": "204;232;255",
+        "selectionForeColor": "Black",
+        "alignment": "MiddleLeft",
+        "padding": 1,
+        "wrapMode": "False"
+      },
+      "columns": [
+        {
+          "name": "Id",
+          "headerText": "Id",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "Name",
+          "headerText": "Name",
+          "width": 250,
+          "sortable": true
+        },
+        {
+          "name": "Text",
+          "headerText": "Text",
+          "width": 400,
+          "sortable": true
+        },
+        {
+          "name": "CreationTime",
+          "headerText": "Creation time",
+          "width": 125,
+          "sortable": true
+        },
+        {
+          "name": "State",
+          "headerText": "State",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "AcceptedCount",
+          "headerText": "Accepted count",
+          "width": 100,
+          "sortable": true
+        },
+        {
+          "name": "AccessCount",
+          "headerText": "Access count",
+          "width": 100,
+          "sortable": true
+        }
+      ]
+    },
+    "column": {
+      "controls": [
+        {
+          "type": "DateTimePicker",
+          "desc": "From:",
+          "name": "FromTime",
+          "controlWidth": 150
+        },
+        {
+          "type": "DateTimePicker",
+          "name": "ToTime",
+          "desc": "To:",
+          "controlWidth": 150
+        }
+      ]
+    },
+    "filterButtonText": "Show"
+  },
+  "statusLabels": [
+    {
+      "textColor": "31;170;35"
+    },
+    {
+      "textColor": "255;0;0"
+    }
+  ]
+}

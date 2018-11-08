@@ -123,26 +123,13 @@
   <data name="enterButton.Text" xml:space="preserve">
     <value>&amp;Войти</value>
   </data>
+  <data name="removeButton.Text" xml:space="preserve">
+    <value>&amp;Удалить WMID</value>
+  </data>
+  <data name="registerButton.Text" xml:space="preserve">
+    <value>&amp;Добавить WMID</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="removeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhEAAQAIMOAP8zAMopAJMAAP/M//+DIP8pAP86Av9MDP9sFP9zHv9aC/9gFf9+HJsAAP///wAA
-        ACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAAOACwAAAAAEAAQAAAIdwAdCBxIsCDBAAEMIiwYYMCAhAMb
-        Pow4gACBiQ4aWsQowCIDBg8bfrQoYKCABAkQIHCoEmVJggIWLFBAU4HMlwUFHNjJEydDA0CDQmQ4AIDR
-        oxgpFjh6tEDShgWWAhAgoCnHqEZfVj2Ks0FWmF9h+hRI1aBZgwEBADs=
-</value>
-  </data>
-  <data name="registerButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhEAAQAIU6AP//AABdABSjCg+fBgBfAABGAB2xHQBeAA2mE1PFKgBlAABhAABiAABgADi5GwBK
-        ABeqEQBEAA6fBji4GwBHAABFAABcAABJAA6mEhWoEBWjClbLK1TDKk3SOoDvVhCqEzS0GQ+gBwieCxCj
-        B1LCKAGiE0rCKwBkABKtHx+yHgBWAFPFKTq8HR6xHQBjABmqEXjuVyG3HwKbBySyGi21HQydBFLFKSaz
-        GhaoCza2G////wAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAA6ACwAAAAAEAAQ
-        AAAIpAB1CBSogECAAAQUDFw48ACAhwAIMGQYAAAKESYaTFxY0YCABAs2Duz4MeTCggcDqADg0YaFAwcT
-        OoT4MIUAEh1oGgRQAoFPDBBeQMiAwecHBhVlDBggocaAEBKWLh3BoAEAGg4mgPBwQwOHHBMcOGBx4kKE
-        AgUqWIAxQ8CKAxXQUnjAkACAFh8ZiBTo0CPIvTpI/t1rNQaODS4Amy1AoQDdhQEBADs=
-</value>
-  </data>
   <data name="topPictureBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhIAAgAIcAAHJdJnRfKHVhKnhjKnpjLXpkK3pkLHxmLXtpN39pMH1rOYBnL4BpMYRrM4ZuNIFv

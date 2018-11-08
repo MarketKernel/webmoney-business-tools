@@ -80,11 +80,11 @@
     "icons": [
       {
         "name": "Z",
-        "iconPath": "../Pictures/Purses/WMZ.gif"
+        "iconPath": "../Pictures/Purses/WMZ.png"
       },
       {
         "name": "E",
-        "iconPath": "../Pictures/Purses/WME.gif"
+        "iconPath": "../Pictures/Purses/WME.png"
       }
     ],
     "commandMenu": null

@@ -1,0 +1,30 @@
+﻿{
+  "columns": [
+    {
+      "controls": [
+        {
+          "type": "ComboBox",
+          "desc": "GenerationMethod:",
+          "name": "GenerationMethod",
+          "items": [
+            {
+              "text": "yyMMddHHmmssfff",
+              "value": "LiteralTimestamp"
+            },
+            {
+              "text": "Unix Time Stamp",
+              "value": "UnixTimestamp"
+            }
+          ]
+        },
+        {
+          "type": "NumericUpDown",
+          "desc": "Increment:",
+          "name": "Increment",
+          "minValue": 0,
+          "maxValue": 999999999999999
+        }
+      ]
+    }
+  ]
+}

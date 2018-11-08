@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Forms;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WMBusinessTools.Extensions.Contracts;
 using WMBusinessTools.Extensions.Contracts.Contexts;

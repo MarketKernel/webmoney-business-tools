@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Forms;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WMBusinessTools.Extensions.Contracts;
 using WMBusinessTools.Extensions.Contracts.Contexts;
@@ -16,7 +16,7 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            return context.Account.HasMerchantKey;
+            return context.Account.HasMerchantKey || context.Account.HasSecretKeyX20;
         }
 
         public void RunAction(PurseContext context)
@@ -34,7 +34,9 @@ namespace WMBusinessTools.Extensions
                 return;
 
             var purseService = context.UnityContainer.Resolve<IPurseService>();
+
             purseService.ClearMerchantKey(context.Account.Number);
+            purseService.ClearSecretKeyX20(context.Account.Number);
 
             EventBroker.OnPurseChanged(new DataChangedEventArgs {FreshDataRequired = false});
         }

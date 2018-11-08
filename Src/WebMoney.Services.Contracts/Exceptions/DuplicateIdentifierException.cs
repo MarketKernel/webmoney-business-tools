@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.DuplicateIdentifierException_Caption_Same_identifier_already_registered;
 
         public DuplicateIdentifierException()
+            : base(Resources.DuplicateIdentifierException_Caption_Same_identifier_already_registered)
         {
         }
 

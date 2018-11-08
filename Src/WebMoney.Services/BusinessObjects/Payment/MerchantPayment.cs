@@ -8,8 +8,8 @@ namespace WebMoney.Services.BusinessObjects
 {
     internal sealed class MerchantPayment : IMerchantPayment
     {
-        public long SystemTransferId { get; }
-        public long SystemInvoiceId { get; }
+        public long TransferId { get; }
+        public long InvoiceId { get; }
 
         [DisplayFormat(DataFormatString = FormattingService.AmountTemplate)]
         public decimal Amount { get; }
@@ -34,11 +34,11 @@ namespace WebMoney.Services.BusinessObjects
         public decimal? CashierAmount { get; set; }
         public byte? InvoicingMethod { get; set; }
 
-        public MerchantPayment(long systemTransferId, long systemInvoiceId, decimal amount, DateTime creationTime,
+        public MerchantPayment(long transferId, long invoiceId, decimal amount, DateTime creationTime,
             string description, long sourceIdentifier, string sourcePurse)
         {
-            SystemTransferId = systemTransferId;
-            SystemInvoiceId = systemInvoiceId;
+            TransferId = transferId;
+            InvoiceId = invoiceId;
             Amount = amount;
             CreationTime = creationTime;
             Description = description ?? throw new ArgumentNullException(nameof(description));

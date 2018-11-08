@@ -56,7 +56,7 @@ namespace WebMoney.Services.BusinessObjects
 
         public long InvoiceId { get; set; }
         public int OrderId { get; set; }
-        public int TransferId { get; set; }
+        public int PaymentId { get; set; }
         public byte ProtectionPeriod { get; set; }
 
         [Required]

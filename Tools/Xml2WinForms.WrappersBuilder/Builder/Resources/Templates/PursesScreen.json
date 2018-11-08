@@ -1,0 +1,109 @@
+﻿{
+  "tunableList": {
+    "headerClickable": true,
+    "groups": [
+      {
+        "key": "Z",
+        "headerText": "Z-purses"
+      },
+      {
+        "key": "E",
+        "headerText": "E-purses"
+      }
+    ],
+    "columns": [
+      {
+        "name": "Number",
+        "headerText": "Number",
+        "width": 125
+      },
+      {
+        "name": "Name",
+        "headerText": "Name",
+        "width": 250
+      },
+      {
+        "name": "Amount",
+        "headerText": "Amount"
+      },
+      {
+        "name": "LastIncomingTransferPrimaryId",
+        "headerText": "Incoming transfer ID"
+      },
+      {
+        "name": "LastOutgoingTransferPrimaryId",
+        "headerText": "Outgoing transfer ID"
+      },
+      {
+        "name": "HasMerchantKey",
+        "headerText": "Has merchant key",
+        "width": 75
+      },
+      {
+        "name": "InvoiceAllowed",
+        "headerText": "Invoice allowed",
+        "width": 75
+      },
+      {
+        "name": "TransferAllowed",
+        "headerText": "Transfer allowed",
+        "width": 75
+      },
+      {
+        "name": "BalanceAllowed",
+        "headerText": "Balance allowed",
+        "width": 75
+      },
+      {
+        "name": "HistoryAllowed",
+        "headerText": "History allowed",
+        "width": 75
+      },
+      {
+        "name": "DayLimit",
+        "headerText": "Day limit"
+      },
+      {
+        "name": "WeekLimit",
+        "headerText": "Week limit"
+      },
+      {
+        "name": "MonthLimit",
+        "headerText": "Month limit"
+      },
+      {
+        "name": "DayTotalAmount",
+        "headerText": "Day total"
+      },
+      {
+        "name": "WeekTotalAmount",
+        "headerText": "Week total"
+      },
+      {
+        "name": "MonthTotalAmount",
+        "headerText": "Month total"
+      },
+      {
+        "name": "LastTransferTime",
+        "headerText": "Last transfer time"
+      },
+      {
+        "name": "StoreIdentifier",
+        "headerText": "Store WMID",
+        "width": 125
+      }
+    ],
+    "icons": [
+      {
+        "name": "Z",
+        "iconPath": "../Pictures/Purses/WMZ.gif"
+      },
+      {
+        "name": "E",
+        "iconPath": "../Pictures/Purses/WME.gif"
+      }
+    ],
+    "commandMenu": null
+  },
+  "commandButtons": null
+}

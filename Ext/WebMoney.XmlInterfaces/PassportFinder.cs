@@ -7,6 +7,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X11. Retrieving information from client's passport by WM-identifier.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -18,6 +21,9 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => "https://passport.webmoney.ru/asp/XMLGetWMPassport.asp";
 
+        /// <summary>
+        /// Passport's WM-identifier.
+        /// </summary>
         public WmId WmId { get; set; }
 
         protected internal override X509Certificate Certificate => null;
@@ -26,6 +32,10 @@ namespace WebMoney.XmlInterfaces
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wmId">Passport's WM-identifier.</param>
         public PassportFinder(WmId wmId)
         {
             WmId = wmId;

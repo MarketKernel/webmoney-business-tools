@@ -87,7 +87,7 @@ namespace WebMoney.Services.BusinessObjects
         public string OrganizationZipCode { get; set; }
         public string OrganizationBankName { get; set; }
         public string OrganizationBankId { get; set; }
-        public string OrganizationCorrespondentAccount { get; set; }
+        public string OrganizationCorrAccount { get; set; }
         public string OrganizationAccount { get; set; }
         public string HomePhone { get; set; }
         public string CellPhone { get; set; }
@@ -207,7 +207,7 @@ namespace WebMoney.Services.BusinessObjects
         public CertificateRecordAspects OrganizationBankIdAspects { get; set; }
 
         [Required]
-        public CertificateRecordAspects OrganizationCorrespondentAccountAspects { get; set; }
+        public CertificateRecordAspects OrganizationCorrAccountAspects { get; set; }
 
         [Required]
         public CertificateRecordAspects OrganizationAccountAspects { get; set; }

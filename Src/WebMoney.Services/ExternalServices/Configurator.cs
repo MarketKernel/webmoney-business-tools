@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.ExternalServices.Contracts;
 
 namespace WebMoney.Services.ExternalServices

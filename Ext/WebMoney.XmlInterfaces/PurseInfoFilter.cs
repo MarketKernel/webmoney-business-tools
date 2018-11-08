@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X9. Retrieving information about purse balance.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -17,12 +20,19 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => "https://w3s.wmtransfer.com/asp/XMLPursesCert.asp";
 
+        /// <summary>
+        /// WM-identifier.
+        /// </summary>
         public WmId WmId { get; set; }
 
         protected internal PurseInfoFilter()
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wmId">WM-identifier.</param>
         public PurseInfoFilter(WmId wmId)
         {
             WmId = wmId;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BusinessObjects;
 using WMBusinessTools.Extensions.Contracts;
@@ -45,11 +45,11 @@ namespace WMBusinessTools.Extensions
 
             ErrorFormDisplayHelper.ApplyErrorAction(context.ExtensionManager, _screen);
 
-            EventBroker.PurseChanged += EventBrokerOnPurseChanged;
+            EventBroker.PurseChanged += OnPurseChanged;
 
             _screen.Disposed += (sender, args) =>
             {
-                EventBroker.PurseChanged -= EventBrokerOnPurseChanged;
+                EventBroker.PurseChanged -= OnPurseChanged;
             };
 
             _screen.ApplyTemplate(template);
@@ -135,7 +135,7 @@ namespace WMBusinessTools.Extensions
             return _screen;
         }
 
-        private void EventBrokerOnPurseChanged(object sender, DataChangedEventArgs eventArgs)
+        private void OnPurseChanged(object sender, DataChangedEventArgs eventArgs)
         {
             if (eventArgs.FreshDataRequired)
                 _screen.RefreshContent();
@@ -158,7 +158,7 @@ namespace WMBusinessTools.Extensions
                     new ListItemContent(account)
                     {
                         ImageKey = currency,
-                        Group = currency,
+                        Group = AccountDisplayHelper.BuildGroupKey(currencyService, currency)
                     };
 
                 listViewItems.Add(listItemContent);

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using LocalizationAssistant;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 using WebMoney.Services.Contracts.BasicTypes;
 using WebMoney.Services.Contracts.BusinessObjects;
@@ -19,7 +19,7 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
     internal static class AccountDisplayHelper
     {
         private const string IconFolder = "../Pictures/Purses";
-        private const string IconFileExtension = ".gif";
+        private const string IconFileExtension = ".png";
 
         public static ListScreenTemplate LoadListScreenTemplate(AccountListScreenOrigin origin)
         {
@@ -37,10 +37,19 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
             foreach (var currency in currencyService.SelectCurrencies(CurrencyCapabilities.None))
             {
                 // Group
-                string groupHeaderText = string.Format(CultureInfo.InvariantCulture, "{0}{1}", currency,
-                    Translator.Instance.Translate(ExtensionCatalog.PursesScreen, "-purses"));
+                string groupKey = BuildGroupKey(currencyService, currency);
+                string groupHeaderText;
 
-                var groupTemplate = new ListGroupTemplate(currency, groupHeaderText, true);
+                if (currencyService.CheckCapabilities(currency, CurrencyCapabilities.Debit) ||
+                    currencyService.CheckCapabilities(currency, CurrencyCapabilities.Credit))
+                    groupHeaderText = Translator.Instance.Translate(ExtensionCatalog.PursesScreen, "Credit transfers");
+                else
+                {
+                    groupHeaderText = string.Format(CultureInfo.InvariantCulture, "{0}{1}", currency,
+                        Translator.Instance.Translate(ExtensionCatalog.PursesScreen, "-purses"));
+                }
+
+                var groupTemplate = new ListGroupTemplate(groupKey, groupHeaderText, true);
 
                 // Icon
                 var currencyWithPrefix = currencyService.AddPrefix(currency);
@@ -71,6 +80,25 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
             }
 
             return template;
+        }
+
+        public static string BuildGroupKey(ICurrencyService currencyService, string currency)
+        {
+            if (null == currencyService)
+                throw new ArgumentNullException(nameof(currencyService));
+
+            if (null == currency)
+                throw new ArgumentNullException(nameof(currency));
+
+            string groupKey;
+
+            if (currencyService.CheckCapabilities(currency, CurrencyCapabilities.Debit) ||
+                currencyService.CheckCapabilities(currency, CurrencyCapabilities.Credit))
+                groupKey = "DC";
+            else
+                groupKey = currency;
+
+            return groupKey;
         }
 
         public static List<AccountDropDownListItemTemplate> BuildAccountDropDownListItemTemplates(
@@ -135,7 +163,9 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
                     if (null != origin.FilterCriteria.Currency && !currency.Equals(origin.FilterCriteria.Currency))
                         continue;
 
-                    if (origin.FilterCriteria.HasMoney && null != account.Amount && 0 == account.Amount.Value)
+                    if (origin.FilterCriteria.HasMoney
+                        && null != account.Amount
+                        && 0 == account.Amount.Value)
                         continue;
 
                     if (!currencyService.CheckCapabilities(currency, origin.FilterCriteria.CurrencyCapabilities))

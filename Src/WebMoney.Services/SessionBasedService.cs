@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Unity;
+using Unity.Attributes;
 using WebMoney.Services.Contracts.BusinessObjects;
 
 namespace WebMoney.Services

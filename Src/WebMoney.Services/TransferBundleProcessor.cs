@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using log4net;
-using Microsoft.Practices.Unity;
+using Unity;
 using WebMoney.Services.Contracts;
 
 namespace WebMoney.Services
@@ -54,7 +54,7 @@ namespace WebMoney.Services
                             continue;
                         }
 
-                        transferBundleService.ProcessPreparedTransfer();
+                        transferBundleService.ProcessPreparedTransfer(preparedTransfer.Id);
                     }
                     catch (Exception exception)
                     {

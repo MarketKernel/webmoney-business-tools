@@ -270,6 +270,15 @@ namespace WebMoney.Services
             }
         }
 
+        public IProxySettings GeProxySettings()
+        {
+            lock (Anchor)
+            {
+                var proxySettings = _authenticationSettings.ProxySettings;
+                return (IProxySettings)((ProxySettings)proxySettings)?.Clone();
+            }
+        }
+
         public void SetProxySettings(IProxySettings contractObject)
         {
             lock (Anchor)
