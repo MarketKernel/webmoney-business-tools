@@ -150,7 +150,7 @@ namespace WMBusinessTools.Extensions
                     new ListItemContent(trust)
                     {
                         ImageKey = currency,
-                        Group = currency
+                        Group = AccountDisplayHelper.BuildGroupKey(currencyService, currency)
                     };
 
                 listViewItems.Add(listItemContent);

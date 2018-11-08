@@ -98,30 +98,30 @@ namespace Xml2WinForms
                         if (!rule.ActivationСondition.Equals((string)selectedItem.Value, StringComparison.Ordinal))
                             return;
 
-                        Control parent = null;
-
                         var visibility = bool.Parse(rule.ActionParameter);
+
+                        var parents = new List<Control>();
 
                         foreach (var affectedControl in rule.AffectedControls)
                         {
-                            IControlHolder namedControlHolder;
-
-                            if (!namedControlHolders.TryGetValue(affectedControl, out namedControlHolder))
+                            if (!namedControlHolders.TryGetValue(affectedControl, out var namedControlHolder))
                                 continue;
 
-                            if (null == parent)
+                            var parent = namedControlHolder.Control.Parent;
+
+                            if (!parents.Contains(parent))
                             {
-                                parent = namedControlHolder.Control.Parent;
+                                parents.Add(parent);
                                 parent.SuspendLayout();
                             }
 
-                            namedControlHolder.Control.Visible = visibility;
-
                             if (null != namedControlHolder.Label)
                                 namedControlHolder.Label.Visible = visibility;
+
+                            namedControlHolder.Control.Visible = visibility;
                         }
 
-                        if (null != parent)
+                        foreach (var parent in parents)
                         {
                             parent.ResumeLayout();
 

@@ -1,0 +1,89 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Find Merchant Transfer",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "AccountListTemplate",
+                "desc": "Store purse:"
+              },
+              {
+                "type": "NumericUpDown",
+                "desc": "Number:",
+                "name": "Number",
+                "minValue": 1,
+                "maxValue": 2147483647
+              },
+              {
+                "type": "ComboBox",
+                "desc": "Number type:",
+                "name": "NumberType",
+                "items": [
+                  {
+                    "text": "Auto",
+                    "value": "Auto"
+                  },
+                  {
+                    "text": "Order id",
+                    "value": "OrderId"
+                  },
+                  {
+                    "text": "Invoice system id",
+                    "value": "InvoicePrimaryId"
+                  },
+                  {
+                    "text": "Transfer system id",
+                    "value": "TransferPrimaryId"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Find"
+    },
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "Table",
+                "desc": "Payment:",
+                "name": "Payment",
+                "controlWidth": 450,
+                "headerClickable": true,
+                "columns": [
+                  {
+                    "name": "Name",
+                    "headerText": "Name"
+                  },
+                  {
+                    "name": "Value",
+                    "headerText": "Value",
+                    "width": 300
+                  }
+                ],
+                "commandMenu": {
+                  "items": [
+                    {
+                      "text": "&Copy value",
+                      "command": "Copy",
+                      "iconPath": "../Pictures/Copy.gif"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Ok"
+    }
+  ]
+}

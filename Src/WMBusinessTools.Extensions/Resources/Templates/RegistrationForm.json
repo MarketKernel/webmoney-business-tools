@@ -84,7 +84,7 @@
                 "type": "TextBoxWithButton",
                 "desc": "Path to keys' backup file (*.kwm):",
                 "name": "BackupFile",
-                "iconPath": "../Pictures/OpenFile.gif",
+                "iconPath": "../Pictures/OpenFile.png",
                 "readonly": true,
                 "inspectionRules": [
                   {
@@ -141,7 +141,7 @@
                 "icons": [
                   {
                     "name": "Pfx",
-                    "iconPath": "../Pictures/Pfx.gif"
+                    "iconPath": "../Pictures/Pfx.png"
                   }
                 ],
                 "inspectionRules": [
@@ -220,7 +220,7 @@
                 "desc": "Connection string:",
                 "name": "ConnectionString",
                 "readonly": true,
-                "iconPath": "../Pictures/RecordEdit.gif",
+                "iconPath": "../Pictures/RecordEdit.png",
                 "inspectionRules": [
                   {
                     "type": "NotEmpty",

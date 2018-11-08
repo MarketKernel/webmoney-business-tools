@@ -15,7 +15,7 @@ namespace WebMoney.XmlInterfaces.Core
         private readonly XmlNamespaceManager _namespaceManager;
         private readonly XmlNode _xmlNode;
 
-        public string OuterXml => _xmlNode.OwnerDocument.OuterXml;
+        public string OuterXml => _xmlNode?.OwnerDocument?.OuterXml;
 
         public string NodeOuterXml => _xmlNode.OuterXml;
 
@@ -35,12 +35,9 @@ namespace WebMoney.XmlInterfaces.Core
 
             XmlElement documentElement = xmlDocument.DocumentElement;
 
-            if (null == documentElement)
-                throw new InvalidOperationException("Root element is missing.");
+            _xmlNode = documentElement ?? throw new InvalidOperationException("Root element is missing.");
 
-            _xmlNode = documentElement;
-
-            XmlNameTable nameTable = xmlDocument.NameTable;
+            var nameTable = xmlDocument.NameTable;
 
             if (null == nameTable)
                 throw new InvalidOperationException("null == nameTable");
@@ -50,10 +47,7 @@ namespace WebMoney.XmlInterfaces.Core
 
         public XmlPackage(XmlNode xmlNode, XmlNamespaceManager namespaceManager = null)
         {
-            if (null == xmlNode)
-                throw new ArgumentNullException(nameof(xmlNode));
-
-            _xmlNode = xmlNode;
+            _xmlNode = xmlNode ?? throw new ArgumentNullException(nameof(xmlNode));
 
             if (null != namespaceManager)
                 _namespaceManager = namespaceManager;
@@ -108,19 +102,40 @@ namespace WebMoney.XmlInterfaces.Core
 
         // READING
 
+        public bool Exists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            return null != _xmlNode.SelectSingleNode(xPath, _namespaceManager);
+        }
+
         public XmlPackage Select(string xPath)
         {
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            XmlNode xmlNode = _xmlNode.SelectSingleNode(xPath, _namespaceManager);
+            var xmlPackage = SelectIfExists(xPath);
 
-            if (null == xmlNode)
+            if (null == xmlPackage)
                 throw new MissingParameterException(
                     string.Format(
                         CultureInfo.InvariantCulture,
                         "The element '{0}' does not exists.",
                         xPath));
+
+            return xmlPackage;
+        }
+
+        public XmlPackage SelectIfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            var xmlNode = _xmlNode.SelectSingleNode(xPath, _namespaceManager);
+
+            if (null == xmlNode)
+                return null;
 
             return new XmlPackage(xmlNode, _namespaceManager);
         }
@@ -132,7 +147,7 @@ namespace WebMoney.XmlInterfaces.Core
 
             var xmlPackageList = new List<XmlPackage>();
 
-            XmlNodeList xmlNodeList = _xmlNode.SelectNodes(xPath, _namespaceManager);
+            var xmlNodeList = _xmlNode.SelectNodes(xPath, _namespaceManager);
 
             if (xmlNodeList != null)
                 foreach (XmlElement xmlElement in xmlNodeList)
@@ -143,20 +158,12 @@ namespace WebMoney.XmlInterfaces.Core
             return xmlPackageList;
         }
 
-        public bool Exists(string xPath)
-        {
-            if (string.IsNullOrEmpty(xPath))
-                throw new ArgumentNullException(nameof(xPath));
-
-            return null != _xmlNode.SelectSingleNode(xPath, _namespaceManager);
-        }
-
         public string SelectString(string xPath)
         {
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            XmlNode xmlNode = _xmlNode.SelectSingleNode(xPath, _namespaceManager);
+            var xmlNode = _xmlNode.SelectSingleNode(xPath, _namespaceManager);
 
             if (null == xmlNode)
                 throw new MissingParameterException(
@@ -168,6 +175,15 @@ namespace WebMoney.XmlInterfaces.Core
             return xmlNode.InnerText;
         }
 
+        public string SelectStringIfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            var xmlNode = _xmlNode.SelectSingleNode(xPath, _namespaceManager);
+            return xmlNode?.InnerText;
+        }
+
         public string SelectNotEmptyString(string xPath)
         {
             if (string.IsNullOrEmpty(xPath))
@@ -176,40 +192,69 @@ namespace WebMoney.XmlInterfaces.Core
             string text = SelectString(xPath);
 
             if (string.IsNullOrEmpty(text))
-                throw new IncorrectFormatException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "The element '{0}' is empty. Expected a non-empty string.",
-                        xPath));
+                throw new IncorrectFormatException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' is empty. Expected a non-empty string.", xPath));
 
             return text;
         }
 
-        public bool SelectBool(string xPath, bool digit = true)
+        public string TrySelectNotEmptyString(string xPath)
         {
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            if (digit)
-            {
-                byte @byte = SelectUInt8(xPath);
+            string text = SelectStringIfExists(xPath);
 
-                if (@byte > 1)
-                    throw new IncorrectFormatException(string.Format(CultureInfo.InvariantCulture,
-                                                                     "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'Bool' expression.",
-                                                                     @byte, xPath));
+            if (string.IsNullOrEmpty(text))
+                return null;
+
+            return text;
+        }
+
+        public bool SelectBool(string xPath, bool isDigit = true)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            var value = SelectBoolIfExists(xPath, isDigit);
+
+            if (!value.HasValue)
+                throw new MissingParameterException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' does not exists or has a null value.", xPath));
+
+            return value.Value;
+        }
+
+        public bool? SelectBoolIfExists(string xPath, bool isDigit = true)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            if (isDigit)
+            {
+                byte? @byte = SelectUInt8IfExists(xPath);
+
+                if (!@byte.HasValue)
+                    return null;
+
+                if (@byte.Value > 1)
+                    throw new OutOfRangeException(string.Format(CultureInfo.InvariantCulture,
+                        "The value '{0}' of the element '{1}' is out of range: an integer from 0 to 1 is expected.",
+                        @byte, xPath));
 
                 return @byte == 1;
             }
 
-            string text = SelectNotEmptyString(xPath);
-            bool @bool;
+            string text = TrySelectNotEmptyString(xPath);
 
-            if (!bool.TryParse(text.ToUpper(CultureInfo.InvariantCulture), out @bool))
+            if (null == text)
+                return null;
+
+            if (!bool.TryParse(text.ToUpper(CultureInfo.InvariantCulture), out var @bool))
                 throw new IncorrectFormatException(
                     string.Format(CultureInfo.InvariantCulture,
-                                  "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'Bool' expression.",
-                                  text, xPath));
+                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'Bool' expression.",
+                        text, xPath));
 
             return @bool;
         }
@@ -219,18 +264,21 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            sbyte @sbyte;
+            var value = SelectInt8IfExists(xPath);
 
-            if (!sbyte.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @sbyte))
-                throw new IncorrectFormatException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'Int8' expression.",
-                        text,
-                        xPath));
+            if (!value.HasValue)
+                throw new MissingParameterException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' does not exists or has a null value.", xPath));
 
-            return @sbyte;
+            return value.Value;
+        }
+
+        public sbyte? SelectInt8IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            return (sbyte?)SelectIntegerIfExists(xPath, sbyte.MinValue, sbyte.MaxValue);
         }
 
         public byte SelectUInt8(string xPath)
@@ -238,18 +286,21 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            byte @byte;
+            var value = SelectUInt8IfExists(xPath);
 
-            if (!byte.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @byte))
-                throw new IncorrectFormatException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'UInt8' expression.",
-                        text,
-                        xPath));
+            if (!value.HasValue)
+                throw new MissingParameterException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' does not exists or has a null value.", xPath));
 
-            return @byte;
+            return value.Value;
+        }
+
+        public byte? SelectUInt8IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            return (byte?)SelectUnsignedIntegerIfExists(xPath, byte.MaxValue);
         }
 
         public short SelectInt16(string xPath)
@@ -257,18 +308,21 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            short @short;
+            var value = SelectInt16IfExists(xPath);
 
-            if (!short.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @short))
-                throw new IncorrectFormatException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'Int16' expression.",
-                        text,
-                        xPath));
+            if (!value.HasValue)
+                throw new MissingParameterException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' does not exists or has a null value.", xPath));
 
-            return @short;
+            return value.Value;
+        }
+
+        public short? SelectInt16IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            return (short?)SelectIntegerIfExists(xPath, short.MinValue, short.MaxValue);
         }
 
         public ushort SelectUInt16(string xPath)
@@ -276,18 +330,21 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            ushort @ushort;
+            var value = SelectUInt16IfExists(xPath);
 
-            if (!ushort.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @ushort))
-                throw new IncorrectFormatException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'UInt16' expression.",
-                        text,
-                        xPath));
+            if (!value.HasValue)
+                throw new MissingParameterException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' does not exists or has a null value.", xPath));
 
-            return @ushort;
+            return value.Value;
+        }
+
+        public ushort? SelectUInt16IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            return (ushort?)SelectUnsignedIntegerIfExists(xPath, ushort.MaxValue);
         }
 
         public int SelectInt32(string xPath)
@@ -295,18 +352,21 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            int @int;
+            var value = SelectInt32IfExists(xPath);
 
-            if (!int.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @int))
-                throw new IncorrectFormatException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'Int32' expression.",
-                        text,
-                        xPath));
+            if (!value.HasValue)
+                throw new MissingParameterException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' does not exists or has a null value.", xPath));
 
-            return @int;
+            return value.Value;
+        }
+
+        public int? SelectInt32IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            return (int?) SelectIntegerIfExists(xPath, int.MinValue, int.MaxValue);
         }
 
         public uint SelectUInt32(string xPath)
@@ -314,18 +374,21 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            uint @uint;
+            var value = SelectUInt32IfExists(xPath);
 
-            if (!uint.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @uint))
-                throw new IncorrectFormatException(
-                    string.Format(
-                        CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'UInt32' expression.",
-                        text,
-                        xPath));
+            if (!value.HasValue)
+                throw new MissingParameterException(string.Format(CultureInfo.InvariantCulture,
+                    "The element '{0}' does not exists or has a null value.", xPath));
 
-            return @uint;
+            return value.Value;
+        }
+
+        public uint? SelectUInt32IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            return (uint?) SelectUnsignedIntegerIfExists(xPath, uint.MaxValue);
         }
 
         public long SelectInt64(string xPath)
@@ -333,14 +396,33 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            long @long;
+            var value = SelectInt64IfExists(xPath);
 
-            if (!long.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @long))
+            if (!value.HasValue)
+                throw new MissingParameterException(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        "The element '{0}' does not exists or has a null value.",
+                        xPath));
+
+            return value.Value;
+        }
+
+        public long? SelectInt64IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            var text = TrySelectNotEmptyString(xPath);
+
+            if (null == text)
+                return null;
+
+            if (!long.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out var @long))
                 throw new IncorrectFormatException(
                     string.Format(
                         CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'Int64' expression.",
+                        "The value '{0}' of the element '{1}' is not in a correct format: a long integer is expected.",
                         text,
                         xPath));
 
@@ -352,23 +434,71 @@ namespace WebMoney.XmlInterfaces.Core
             if (string.IsNullOrEmpty(xPath))
                 throw new ArgumentNullException(nameof(xPath));
 
-            string text = SelectNotEmptyString(xPath);
-            ulong @ulong;
+            var value = SelectUInt64IfExists(xPath);
 
-            if (!ulong.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out @ulong))
+            if (!value.HasValue)
+                throw new MissingParameterException(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        "The element '{0}' does not exists or has a null value.",
+                        xPath));
+
+            return value.Value;
+        }
+
+        public ulong? SelectUInt64IfExists(string xPath)
+        {
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            var text = TrySelectNotEmptyString(xPath);
+
+            if (null == text)
+                return null;
+
+            if (!ulong.TryParse(text, NumberStyles.Integer, CultureInfo.InvariantCulture.NumberFormat, out var @ulong))
                 throw new IncorrectFormatException(
                     string.Format(
                         CultureInfo.InvariantCulture,
-                        "The value '{0}' of the element '{1}' is not in a correct format. Expected a 'UInt64' expression.",
+                        "The value '{0}' of the element '{1}' is not in a correct format: a positive long integer is expected.",
                         text,
                         xPath));
 
             return @ulong;
         }
-        
+
         public object SelectEnum(Type type, string xPath)
         {
-            string text = SelectNotEmptyString(xPath);
+            if (null == type)
+                throw new ArgumentNullException(nameof(type));
+
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            var value = SelectEnumIfExists(type, xPath);
+
+            if (null == value)
+                throw new MissingParameterException(
+                    string.Format(
+                        CultureInfo.InvariantCulture,
+                        "The element '{0}' does not exists or has a null value.",
+                        xPath));
+
+            return value;
+        }
+
+        public object SelectEnumIfExists(Type type, string xPath)
+        {
+            if (null == type)
+                throw new ArgumentNullException(nameof(type));
+
+            if (string.IsNullOrEmpty(xPath))
+                throw new ArgumentNullException(nameof(xPath));
+
+            string text = TrySelectNotEmptyString(xPath);
+
+            if (null == text)
+                return null;
 
             try
             {
@@ -377,9 +507,8 @@ namespace WebMoney.XmlInterfaces.Core
             catch (ArgumentException)
             {
                 throw new IncorrectFormatException(string.Format(CultureInfo.InvariantCulture,
-                                                                 "The value '{0}' of the element '{1}' is not in a correct format. Expected a '" +
-                                                                 type.Name + "' expression.",
-                                                                 text, xPath));
+                    "The value '{0}' of the element '{1}' is not in a correct format. Expected a '{2}' expression.",
+                    text, xPath, type.Name));
             }
         }
 
@@ -404,10 +533,7 @@ namespace WebMoney.XmlInterfaces.Core
             if (null == xPath)
                 throw new ArgumentNullException(nameof(xPath));
 
-            if (null == value)
-                throw new ArgumentNullException(nameof(value));
-
-            Select(xPath)._xmlNode.InnerText = value;
+            Select(xPath)._xmlNode.InnerText = value ?? throw new ArgumentNullException(nameof(value));
         }
 
         public void SetInnerText(string xPath, bool value, bool digit = true)
@@ -490,7 +616,37 @@ namespace WebMoney.XmlInterfaces.Core
             if (null == xmlWriter)
                 throw new ArgumentNullException(nameof(xmlWriter));
 
-            _xmlNode.OwnerDocument.WriteContentTo(xmlWriter);
+            _xmlNode?.OwnerDocument?.WriteContentTo(xmlWriter);
+        }
+
+        private long? SelectIntegerIfExists(string xPath, long minValue, long maxValue)
+        {
+            var @long = SelectInt64IfExists(xPath);
+
+            if (!@long.HasValue)
+                return null;
+
+            if (@long.Value < minValue || @long.Value > maxValue)
+                throw new OutOfRangeException(string.Format(CultureInfo.InvariantCulture,
+                    "The value '{0}' of the element '{1}' is out of range: an integer from {2} to {3} is expected.",
+                    @long, xPath, minValue, maxValue));
+
+            return @long;
+        }
+
+        private ulong? SelectUnsignedIntegerIfExists(string xPath, ulong maxValue)
+        {
+            var @ulong = SelectUInt64IfExists(xPath);
+
+            if (!@ulong.HasValue)
+                return null;
+
+            if (@ulong.Value > maxValue)
+                throw new OutOfRangeException(string.Format(CultureInfo.InvariantCulture,
+                    "The value '{0}' of the element '{1}' is out of range: an integer from 0 to {2} is expected.",
+                    @ulong, xPath, maxValue));
+
+            return @ulong;
         }
     }
 }

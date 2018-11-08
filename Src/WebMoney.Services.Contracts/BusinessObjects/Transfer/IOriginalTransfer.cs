@@ -2,7 +2,7 @@
 {
     public interface IOriginalTransfer
     {
-        int TransferId { get; }
+        int PaymentId { get; }
         string SourcePurse { get; }
         string TargetPurse { get; }
         decimal Amount { get; }

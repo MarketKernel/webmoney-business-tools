@@ -19,7 +19,7 @@ namespace WebMoney.Services.ExternalServices
             if (null == originalTransfer)
                 throw new ArgumentNullException(nameof(originalTransfer));
 
-            var request = new OriginalTransfer((uint)originalTransfer.TransferId,
+            var request = new OriginalTransfer(originalTransfer.PaymentId,
                 Purse.Parse(originalTransfer.SourcePurse), Purse.Parse(originalTransfer.TargetPurse),
                 (Amount)originalTransfer.Amount)
             {
@@ -44,7 +44,7 @@ namespace WebMoney.Services.ExternalServices
                 throw new ExternalServiceException(exception.Message, exception);
             }
 
-            return response.Transfer.Id;
+            return response.Transfer.PrimaryId;
         }
 
         public IEnumerable<ITransfer> SelectTransfers(string purse, DateTime fromTime, DateTime toTime)
@@ -70,15 +70,15 @@ namespace WebMoney.Services.ExternalServices
 
             return response.TransferList.Select(t =>
             {
-                var transfer = new BusinessObjects.Transfer(Session.CurrentIdentifier, t.Id, t.Ts,
+                var transfer = new BusinessObjects.Transfer(Session.CurrentIdentifier, t.PrimaryId, t.SecondaryId,
                     t.SourcePurse.ToString(), t.TargetPurse.ToString(), t.Amount,
                     t.Commission, ConvertFrom.ApiTypeToContractType(t.TransferType), t.Description, t.Partner,
                     t.Rest,
                     t.CreateTime.ToUniversalTime(), t.UpdateTime.ToUniversalTime())
                 {
                     InvoiceId = t.InvoiceId,
-                    OrderId = (int) t.OrderId,
-                    TransferId = (int) t.TransferId,
+                    OrderId = t.OrderId,
+                    PaymentId = t.PaymentId,
                     ProtectionPeriod = t.Period,
                     Locked = t.IsLocked,
                     Description = !string.IsNullOrEmpty(t.Description) ? t.Description : "[empty]"

@@ -1,0 +1,43 @@
+{
+  "tunableList": {
+    "headerClickable": true,
+    "columns": [
+      {
+        "name": "Type",
+        "headerText": "Event type",
+        "width": 125
+      },
+      {
+        "name": "Ñorrespondent",
+        "headerText": "Ñorrespondent",
+        "width": 125
+      },
+      {
+        "name": "Description",
+        "headerText": "Description",
+        "width": 350
+      },
+      {
+        "name": "Amount",
+        "headerText": "Amount"
+      },
+      {
+        "name": "Date",
+        "headerText": "Date",
+        "width": 150
+      }
+    ],
+    "icons": [
+      {
+        "name": "Z",
+        "iconPath": "../Pictures/Purses/WMZ.png"
+      },
+      {
+        "name": "E",
+        "iconPath": "../Pictures/Purses/WME.png"
+      }
+    ],
+    "commandMenu": null
+  },
+  "commandButtons": null
+}

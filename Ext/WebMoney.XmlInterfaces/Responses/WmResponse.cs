@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
 using log4net;
 using WebMoney.XmlInterfaces.Core;
@@ -7,8 +8,6 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
-    using System.Globalization;
-
     public abstract class WmResponse : XmlResponse
     {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(WmResponse));

@@ -1,0 +1,10 @@
+{
+  "license": {
+    "licenseName": "MIT",
+    "licenseUrl": "https://opensource.org/licenses/MIT"
+  },
+  "logo": {
+    "imagePath": "../Pictures/Logo120x120.png",
+    "url": "http://www.webmoney-business-tools.com/"
+  }
+}

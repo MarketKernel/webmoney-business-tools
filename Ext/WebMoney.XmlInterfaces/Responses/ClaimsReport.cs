@@ -7,7 +7,6 @@ namespace WebMoney.XmlInterfaces.Responses
     public class ClaimsReport : WmResponse
     {
         public int PositiveCount { get; protected set; }
-
         public int NegativeCount { get; protected set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)

@@ -46,19 +46,19 @@
     "icons": [
       {
         "name": "Verified",
-        "iconPath": "../Pictures/Verified.gif"
+        "iconPath": "../Pictures/Verified.png"
       },
       {
         "name": "Unverified",
-        "iconPath": "../Pictures/Unverified.gif"
+        "iconPath": "../Pictures/Unverified.png"
       },
       {
         "name": "VerifiedProtected",
-        "iconPath": "../Pictures/VerifiedProtected.gif"
+        "iconPath": "../Pictures/VerifiedProtected.png"
       },
       {
         "name": "UnverifiedProtected",
-        "iconPath": "../Pictures/UnverifiedProtected.gif"
+        "iconPath": "../Pictures/UnverifiedProtected.png"
       }
     ],
     "commandMenu": {
@@ -66,7 +66,7 @@
         {
           "text": "&Copy value",
           "command": "Copy",
-          "iconPath": "../Pictures/Copy.gif"
+          "iconPath": "../Pictures/Copy.png"
         }
       ]
     }
@@ -110,98 +110,106 @@
         {
           "text": "&Copy value",
           "command": "Copy",
-          "iconPath": "../Pictures/Copy.gif"
+          "iconPath": "../Pictures/Copy.png"
         }
       ]
     },
     "icons": [
       {
         "name": "Alias",
-        "iconPath": "../Pictures/Certificates/Alias.gif"
+        "iconPath": "../Pictures/Certificates/Alias.png"
       },
       {
         "name": "Formal",
-        "iconPath": "../Pictures/Certificates/Formal.gif"
+        "iconPath": "../Pictures/Certificates/Formal.png"
       },
       {
         "name": "Initial",
-        "iconPath": "../Pictures/Certificates/Initial.gif"
+        "iconPath": "../Pictures/Certificates/Initial.png"
       },
       {
         "name": "Personal",
-        "iconPath": "../Pictures/Certificates/Personal.gif"
+        "iconPath": "../Pictures/Certificates/Personal.png"
       },
       {
         "name": "Merchant",
-        "iconPath": "../Pictures/Certificates/Merchant.gif"
+        "iconPath": "../Pictures/Certificates/Merchant.png"
       },
       {
         "name": "Capitaller",
-        "iconPath": "../Pictures/Certificates/Capitaller.gif"
+        "iconPath": "../Pictures/Certificates/Capitaller.png"
+      },
+      {
+        "name": "CapitallerEntity",
+        "iconPath": "../Pictures/Certificates/CapitallerEntity.png"
       },
       {
         "name": "Developer",
-        "iconPath": "../Pictures/Certificates/Developer.gif"
+        "iconPath": "../Pictures/Certificates/Developer.png"
       },
       {
         "name": "Registrar",
-        "iconPath": "../Pictures/Certificates/Registrar.gif"
+        "iconPath": "../Pictures/Certificates/Registrar.png"
       },
       {
         "name": "Guarantor",
-        "iconPath": "../Pictures/Certificates/Guarantor.gif"
+        "iconPath": "../Pictures/Certificates/Guarantor.png"
       },
       {
         "name": "Service",
-        "iconPath": "../Pictures/Certificates/Service.gif"
+        "iconPath": "../Pictures/Certificates/Service.png"
       },
       {
         "name": "Operator",
-        "iconPath": "../Pictures/Certificates/Operator.gif"
+        "iconPath": "../Pictures/Certificates/Operator.png"
       },
       {
         "name": "AliasRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Alias.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Alias.png"
       },
       {
         "name": "FormalRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Formal.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Formal.png"
       },
       {
         "name": "InitialRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Initial.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Initial.png"
       },
       {
         "name": "PersonalRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Personal.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Personal.png"
       },
       {
         "name": "MerchantRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Merchant.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Merchant.png"
       },
       {
         "name": "CapitallerRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Capitaller.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Capitaller.png"
+      },
+      {
+        "name": "CapitallerEntityRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/CapitallerEntity.png"
       },
       {
         "name": "DeveloperRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Developer.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Developer.png"
       },
       {
         "name": "RegistrarRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Registrar.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Registrar.png"
       },
       {
         "name": "GuarantorRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Guarantor.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Guarantor.png"
       },
       {
         "name": "ServiceRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Service.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Service.png"
       },
       {
         "name": "OperatorRevoked",
-        "iconPath": "../Pictures/Certificates/Inactive/Operator.gif"
+        "iconPath": "../Pictures/Certificates/Inactive/Operator.png"
       }
     ]
   }

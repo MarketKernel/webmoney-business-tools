@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 using AutoMapper;
 using WebMoney.Services.BusinessObjects.Annotations;
 using WebMoney.Services.Contracts.BusinessObjects;
+using WebMoney.Services.Utils;
 
 namespace WebMoney.Services.BusinessObjects
 {
@@ -47,9 +48,9 @@ namespace WebMoney.Services.BusinessObjects
         public bool SecondaryIdVisibility { get; set; }
 
         [TypeConverter(typeof(LocalizedBooleanConverter))]
-        [LocalizedDisplayName("Display transfer ID")]
-        [XmlAttribute("transferIdVisibility")]
-        public bool TransferIdVisibility { get; set; }
+        [LocalizedDisplayName("Display payment ID")]
+        [XmlAttribute("paymentIdVisibility")]
+        public bool PaymentIdVisibility { get; set; }
 
         [TypeConverter(typeof(LocalizedBooleanConverter))]
         [LocalizedDisplayName("Display source purse")]
@@ -102,9 +103,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as PreparedTransferSettings;
-
-            if (businessObject != null)
+            if (contractObject is PreparedTransferSettings businessObject)
                 return businessObject;
 
             return Mapper.Map<PreparedTransferSettings>(contractObject);
@@ -122,7 +121,7 @@ namespace WebMoney.Services.BusinessObjects
                   CompletedColor.Equals(other.CompletedColor) &&
                   PrimaryIdVisibility == other.PrimaryIdVisibility &&
                   SecondaryIdVisibility == other.SecondaryIdVisibility &&
-                  TransferIdVisibility == other.TransferIdVisibility &&
+                  PaymentIdVisibility == other.PaymentIdVisibility &&
                   SourcePurseVisibility == other.SourcePurseVisibility &&
                   TargetPurseVisibility == other.TargetPurseVisibility &&
                   DescriptionVisibility == other.DescriptionVisibility &&
@@ -144,7 +143,7 @@ namespace WebMoney.Services.BusinessObjects
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj is PreparedTransferSettings && Equals((PreparedTransferSettings)obj);
+            return obj is PreparedTransferSettings settings && Equals(settings);
         }
 
         public override int GetHashCode()
@@ -154,7 +153,10 @@ namespace WebMoney.Services.BusinessObjects
 
         public object Clone()
         {
-            return Mapper.Map<PreparedTransferSettings>(this);
+            var o = MemberwiseClone();
+            CloneUtility.CloneProperties(o);
+
+            return o;
         }
     }
 }

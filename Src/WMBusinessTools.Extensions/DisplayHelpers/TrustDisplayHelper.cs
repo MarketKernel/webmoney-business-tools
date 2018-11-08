@@ -32,7 +32,8 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
 
             // Устанавливаем кошельки
             var origin = new AccountDropDownListOrigin(context.UnityContainer);
-            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Invoice;
+
+            origin.FilterCriteria.CurrencyCapabilities = CurrencyCapabilities.Actual;
 
             if (null != trust)
             {

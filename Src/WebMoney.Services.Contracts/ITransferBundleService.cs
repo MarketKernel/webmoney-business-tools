@@ -14,6 +14,6 @@ namespace WebMoney.Services.Contracts
         void ProcessBundleAsync(int bundleId);
         void AbortProcessingAsync(int bundleId);
         IPreparedTransfer TryObtainTransferForProcessing();
-        void ProcessPreparedTransfer();
+        void ProcessPreparedTransfer(int preparedTransferId);
     }
 }

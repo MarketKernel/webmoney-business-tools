@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.KeyNotFoundException_Caption_Keys_file_not_found;
 
         public KeyNotFoundException()
+            : base(Resources.KeyNotFoundException_Caption_Keys_file_not_found)
         {
         }
 

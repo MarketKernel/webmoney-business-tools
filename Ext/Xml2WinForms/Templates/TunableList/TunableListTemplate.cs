@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
@@ -26,6 +25,10 @@ namespace Xml2WinForms.Templates
         [XmlArray(ElementName = "icons")]
         [XmlArrayItem("icon")]
         public List<ListIconTemplate> Icons { get; }
+
+        [JsonProperty("checkBoxes")]
+        [XmlAttribute("checkBoxes")]
+        public bool CheckBoxes { get; }
 
         [JsonProperty("commandMenu")]
         [XmlElement("commandMenu")]

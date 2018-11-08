@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
+using log4net;
 
 namespace WebMoney.XmlInterfaces.BasicObjects
 {
@@ -13,8 +14,9 @@ namespace WebMoney.XmlInterfaces.BasicObjects
     [Serializable]
     public struct Amount : IXmlSerializable
     {
-        private const string Separator = ".";
-        private const string Separator2 = ",";
+        private static readonly ILog Logger = LogManager.GetLogger(typeof(Amount));
+
+        private const string DecimalSeparator = ".";
         private const string Format = "0.##";
 
         private decimal _value;
@@ -67,10 +69,7 @@ namespace WebMoney.XmlInterfaces.BasicObjects
             if (null == format)
                 throw new ArgumentNullException(nameof(format));
 
-            var numberFormat = (NumberFormatInfo)CultureInfo.InvariantCulture.NumberFormat.Clone();
-            numberFormat.NumberDecimalSeparator = Separator;
-
-            return _value.ToString(format, numberFormat);
+            return _value.ToString(format, CultureInfo.InvariantCulture.NumberFormat);
         }
 
         public string ToBankString()
@@ -84,6 +83,20 @@ namespace WebMoney.XmlInterfaces.BasicObjects
         {
             if (string.IsNullOrEmpty(value))
                 throw new ArgumentNullException(nameof(value));
+
+            var firstIndex = value.IndexOf(DecimalSeparator, StringComparison.Ordinal);
+            var lastIndex =  value.LastIndexOf(DecimalSeparator, StringComparison.Ordinal);
+
+            // Иногда сервер WM отдает сумму в некорректном формате (как 123.12.44). Возможно пофиксили.
+            if (firstIndex != lastIndex)
+            {
+                Logger.Warn(value);
+
+                string left = value.Substring(0, firstIndex + 1);
+                string right = value.Substring(firstIndex + 1, value.Length - (firstIndex + 1));
+
+                value = left + right.Replace(DecimalSeparator, string.Empty);
+            }
 
             Amount amount;
 
@@ -105,28 +118,13 @@ namespace WebMoney.XmlInterfaces.BasicObjects
 
             return amount;
         }
-        
+
         public static bool TryParse(string value, out Amount amount)
         {
             if (string.IsNullOrEmpty(value))
             {
                 amount = default(Amount);
                 return false;
-            }
-
-            value = value.Replace(Separator2, Separator);
-
-            int sepInd = value.IndexOf(Separator, StringComparison.Ordinal);
-
-            // TODO: [L] Заменить ручной парсинг на стандартный (с указанием формата разделителей).
-            if (sepInd >= 0)
-            {
-                string temp = value.Substring(0, sepInd + 1);
-
-                if (value.Length > sepInd)
-                    temp += value.Substring(sepInd + 1, value.Length - sepInd - 1).Replace(Separator, string.Empty);
-
-                value = temp;
             }
 
             decimal @decimal;

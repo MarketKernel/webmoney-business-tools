@@ -1,0 +1,17 @@
+﻿{
+  "&Ok": "&ОК",
+  "Address:": "Адрес",
+  "Authentication Required": "Требуется аутентификация",
+  "Credentials": "Данные для доступа",
+  "Don't use proxy server": "Не использовать proxy-сервер",
+  "Mode:": "Режим:",
+  "Password can not be empty!": "Пароль не может быть пустым!",
+  "Password:": "Пароль:",
+  "Port:": "Порт:",
+  "Proxy Settings": "Настройки proxy-сервера",
+  "Specify Host!": "Укажите адрес!",
+  "Use custom proxy server": "Использовать свой proxy-сервер",
+  "Use proxy from MarketKernel.COM": "Использовать proxy-сервер MarketKernel.COM",
+  "Username can not be empty!": "Имя пользователя не может быть пустым!",
+  "Username:": "Имя пользователя:"
+}

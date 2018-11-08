@@ -1,0 +1,31 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Add Purse",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "PurseTemplate"
+              },
+              {
+                "type": "TextBox",
+                "desc": "Alias:",
+                "maxLength": 255,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Alias cannot be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Add purse"
+    }
+  ]
+}

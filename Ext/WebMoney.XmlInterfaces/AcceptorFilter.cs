@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X17. Operations with arbitration contracts. Information about contract acceptances.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -13,11 +16,25 @@ namespace WebMoney.XmlInterfaces
     [Serializable]
     public class AcceptorFilter : WmRequest<AcceptorRegister>
     {
+        private int _contractId;
         protected override string ClassicUrl => "https://arbitrage.webmoney.ru/xml/X17_GetContractInfo.aspx";
 
         protected override string LightUrl => null;
 
-        public uint ContractId { get; set; }
+        /// <summary>
+        /// Contract number.
+        /// </summary>
+        public int ContractId
+        {
+            get => _contractId;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(value));
+
+                _contractId = value;
+            }
+        }
 
         public Description Mode => (Description) "acceptdate";
 
@@ -25,8 +42,15 @@ namespace WebMoney.XmlInterfaces
         {
         }
 
-        public AcceptorFilter(uint contractId)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="contractId">Contract number.</param>
+        public AcceptorFilter(int contractId)
         {
+            if (contractId < 0)
+                throw new ArgumentOutOfRangeException(nameof(contractId));
+
             ContractId = contractId;
         }
 

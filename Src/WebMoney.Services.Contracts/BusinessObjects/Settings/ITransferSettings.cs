@@ -13,7 +13,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         bool TypeVisibility { get; set; }
         bool InvoiceIdVisibility { get; set; }
         bool OrderIdVisibility { get; set; }
-        bool TransferIdVisibility { get; set; }
+        bool PaymentIdVisibility { get; set; }
         bool ProtectionPeriodVisibility { get; set; }
         bool PartnerIdentifierVisibility { get; set; }
         bool BalanceVisibility { get; set; }

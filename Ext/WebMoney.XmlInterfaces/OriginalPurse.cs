@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X16. Creating a purse.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -19,11 +22,18 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => "https://w3s.wmtransfer.com/asp/XMLCreatePurseCert.asp";
 
+        /// <summary>
+        /// WM-identifier, which the created purse will belong to. Actually this WM-identifier must be the same as the identifier passed in the wmid tag of the identifier signing the request, as a purse can be created only for the identifier signing the request; it is impossible to work with the interface by trust.
+        /// </summary>
         public WmId WmId { get; set; }
 
+
+        /// <summary>
+        /// Text name of the purse, which will be displayed in the Webmoney Keeper WinPro or Light interface.
+        /// </summary>
         public Description Description
         {
-            get { return _description; }
+            get => _description;
             set
             {
                 if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));
@@ -31,12 +41,21 @@ namespace WebMoney.XmlInterfaces
             }
         }
 
+        /// <summary>
+        /// Type of the created purse as one Latin character in upper case B ,C ,D ,E ,G ,R ,U ,Y ,Z.
+        /// </summary>
         public WmCurrency PurseType { get; set; }
 
         protected internal OriginalPurse()
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wmId">WM-identifier, which the created purse will belong to. Actually this WM-identifier must be the same as the identifier passed in the wmid tag of the identifier signing the request, as a purse can be created only for the identifier signing the request; it is impossible to work with the interface by trust.</param>
+        /// <param name="purseType">Type of the created purse as one Latin character in upper case B ,C ,D ,E ,G ,R ,U ,Y ,Z.</param>
+        /// <param name="description">Text name of the purse, which will be displayed in the Webmoney Keeper WinPro or Light interface.</param>
         public OriginalPurse(WmId wmId, WmCurrency purseType, Description description)
         {
             if (string.IsNullOrEmpty(description))

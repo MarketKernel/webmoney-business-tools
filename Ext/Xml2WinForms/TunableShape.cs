@@ -30,6 +30,10 @@ namespace Xml2WinForms
         /// </summary>
         private readonly Dictionary<string, IControlHolder> _namedControlHolders;
 
+        private Dictionary<string, object> _valuesCopy;
+
+        private bool _isLoaded;
+
         [Category("Action"), Description("Service command.")]
         public event EventHandler<CommandEventArgs> ServiceCommand;
 
@@ -39,16 +43,29 @@ namespace Xml2WinForms
 
             _controlHolders = new List<IControlHolder>();
             _namedControlHolders = new Dictionary<string, IControlHolder>();
+            _valuesCopy = new Dictionary<string, object>();
         }
 
         protected override void OnLoad(EventArgs e)
         {
+            base.OnLoad(e);
+
             foreach (var controlHolder in _controlHolders)
             {
                 controlHolder.InitControl();
             }
 
-            base.OnLoad(e);
+            ApplyValues();
+
+            _isLoaded = true;
+        }
+
+        protected override void OnParentChanged(EventArgs e)
+        {
+            base.OnParentChanged(e);
+
+            if (null == FindForm())
+                _isLoaded = false;
         }
 
         public void ApplyTemplate<TColumnTemplate>(TunableShapeTemplate<TColumnTemplate> template)
@@ -59,7 +76,7 @@ namespace Xml2WinForms
             if (null == template)
                 return;
 
-            ((ISupportInitialize)mErrorProvider).BeginInit();
+            ((ISupportInitialize) mErrorProvider).BeginInit();
             bodyFlowLayoutPanel.SuspendLayout();
 
             foreach (var columnTemplate in template.Columns)
@@ -85,7 +102,7 @@ namespace Xml2WinForms
                 ApplyControlHolders(controlHolders);
             }
 
-            ((ISupportInitialize)mErrorProvider).EndInit();
+            ((ISupportInitialize) mErrorProvider).EndInit();
             bodyFlowLayoutPanel.ResumeLayout();
         }
 
@@ -107,21 +124,17 @@ namespace Xml2WinForms
 
             BuildSingleColumn(controlHolders);
 
-            ((ISupportInitialize)mErrorProvider).BeginInit();
+            ((ISupportInitialize) mErrorProvider).BeginInit();
             ApplyControlHolders(controlHolders);
-            ((ISupportInitialize)mErrorProvider).EndInit();
+            ((ISupportInitialize) mErrorProvider).EndInit();
         }
 
         public void ApplyValues(Dictionary<string, object> values)
         {
-            if (null == values)
-                throw new ArgumentNullException(nameof(values));
+            _valuesCopy = values ?? throw new ArgumentNullException(nameof(values));
 
-            foreach (var keyValuePair in values)
-            {
-                var namedControlHolder = _namedControlHolders[keyValuePair.Key];
-                namedControlHolder.ApplyValue(keyValuePair.Value);
-            }
+            if (_isLoaded)
+                ApplyValues();
         }
 
         public bool Inspect()
@@ -186,15 +199,16 @@ namespace Xml2WinForms
             {
                 control.Dispose();
             }
+
             bodyFlowLayoutPanel.Controls.Clear();
             bodyFlowLayoutPanel.ResumeLayout(); // ResumeLayout
 
             _controlHolders.Clear();
             _namedControlHolders.Clear();
 
-            ((ISupportInitialize)mErrorProvider).BeginInit();
+            ((ISupportInitialize) mErrorProvider).BeginInit();
             mErrorProvider.Clear();
-            ((ISupportInitialize)mErrorProvider).EndInit();
+            ((ISupportInitialize) mErrorProvider).EndInit();
         }
 
         /// <summary>
@@ -308,6 +322,15 @@ namespace Xml2WinForms
             }
 
             return height;
+        }
+
+        private void ApplyValues()
+        {
+            foreach (var keyValuePair in _valuesCopy)
+            {
+                var namedControlHolder = _namedControlHolders[keyValuePair.Key];
+                namedControlHolder.ApplyValue(keyValuePair.Value);
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using log4net;
 using LocalizationAssistant;
@@ -53,6 +54,9 @@ namespace WMBusinessTools.Extensions.Forms
 
             EventBroker.DatabaseChanged += EventBrokerOnDatabaseChanged;
             EventBroker.LanguageChanged += EventBrokerOnLanguageChanged;
+
+            var version = Assembly.GetEntryAssembly().GetName().Version;
+            Text = string.Format(CultureInfo.InvariantCulture, Text, $"{version.Major}.{version.Minor}");
         }
 
         private void UpdateComboBox(long? identifierToSelect = null)
@@ -113,6 +117,12 @@ namespace WMBusinessTools.Extensions.Forms
         {
             IdentifierDisplayHelper.ShowFindCertificateForm(this, _sessionContext,
                 _formattingService.FormatIdentifier(_sessionContext.Session.CurrentIdentifier));
+        }
+
+        private void copyButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(_formattingService.FormatIdentifier(_sessionContext.Session.CurrentIdentifier),
+                TextDataFormat.UnicodeText);
         }
 
         private void addIdentifierButton_Click(object sender, EventArgs e)
@@ -272,7 +282,6 @@ namespace WMBusinessTools.Extensions.Forms
 
                 var form = (SettingsForm) formProvider.GetForm(_sessionContext);
 
-
                 form.Closed += (o, eventArgs) =>
                 {
                     if (DialogResult.OK == form.DialogResult)
@@ -351,6 +360,7 @@ namespace WMBusinessTools.Extensions.Forms
 
                 mTabControl.Controls.Add(tabPage);
             }
+
             mTabControl.ResumeLayout(); // ResumeLayout
         }
 

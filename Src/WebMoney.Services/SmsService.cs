@@ -8,7 +8,7 @@ namespace WebMoney.Services
 {
     public sealed class SmsService : SessionBasedService, ISmsService
     {
-        public void SendSms(string payFromPurse, string phoneNumber, string message, bool transliterate)
+        public int SendSms(string payFromPurse, string phoneNumber, string message, bool transliterate)
         {
             if (null == phoneNumber)
                 throw new ArgumentNullException(nameof(phoneNumber));
@@ -25,17 +25,15 @@ namespace WebMoney.Services
                                                    (WmId) Session.AuthenticationService.MasterIdentifier +
                                                    (payFromPurse ?? string.Empty) + dateTimeValue);
 
-            int smsId;
-
             var soapClient = new SmsSenderSvcSoapClient();
             int result = soapClient.SendSingleSMS(phoneNumber, message, transliterate, masterIdentifierValue,
-                payFromPurse ?? string.Empty, dateTimeValue, null == payFromPurse, sign, out smsId);
+                payFromPurse ?? string.Empty, dateTimeValue, null == payFromPurse, sign, out var smsId);
 
             // TODO [L] Exception SmsService
             switch (result)
             {
                 case 0:
-                    return;
+                    return smsId;
                 case 1:
                     throw new ExternalServiceException("Внутренняя ошибка сервиса sms.webmoney.ru");
                 case 2:

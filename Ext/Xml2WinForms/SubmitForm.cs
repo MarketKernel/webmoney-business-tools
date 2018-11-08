@@ -301,13 +301,13 @@ namespace Xml2WinForms
             var step = _steps[_currentShapeIndex];
             var shape = step.Shape;
 
-            if (null != values && values.Count > 0)
-                shape.ApplyValues(values);
-
             mFlowLayoutPanel.SuspendLayout(); // SuspendLayout
             mFlowLayoutPanel.Controls.Clear();
             mFlowLayoutPanel.Controls.Add(shape);
             mFlowLayoutPanel.ResumeLayout(); // ResumeLayout
+
+            if (null != values && values.Count > 0)
+                shape.ApplyValues(values);
 
             if (!AutoSize)
             {

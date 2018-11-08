@@ -58,17 +58,13 @@ namespace WMBusinessTools.Extensions
 
                 if ("Copy".Equals(args.Command))
                 {
-                    var certificateRecord = args.Argument as CertificateRecord;
-
-                    if (null != certificateRecord)
+                    if (args.Argument is CertificateRecord certificateRecord)
                     {
                         Clipboard.SetText(certificateRecord.Value, TextDataFormat.UnicodeText);
                         return;
                     }
 
-                    var attachedIdentifierRecord = args.Argument as AttachedIdentifierRecord;
-
-                    if (null != attachedIdentifierRecord)
+                    if (args.Argument is AttachedIdentifierRecord attachedIdentifierRecord)
                     {
                         var identifierValue = context.UnityContainer.Resolve<IFormattingService>()
                             .FormatIdentifier(attachedIdentifierRecord.Identifier);

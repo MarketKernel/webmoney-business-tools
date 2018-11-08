@@ -126,6 +126,9 @@
   <data name="Capitaller" xml:space="preserve">
     <value>capitaller</value>
   </data>
+  <data name="CapitallerEntity" xml:space="preserve">
+    <value>Capitaller (юр. лицо)</value>
+  </data>
   <data name="Developer" xml:space="preserve">
     <value>разработчика</value>
   </data>
@@ -1255,7 +1258,7 @@
     <value>внутренняя ошибка при создании транзакции</value>
   </data>
   <data name="X2_P000017" xml:space="preserve">
-    <value>недостаточно денег в кошельке для выполнения операции</value>
+    <value>недостаточно средств в кошельке для выполнения операции (исчерпан лимит, если происходит перевод с кошелька через механизм доверия)</value>
   </data>
   <data name="X2_P000018" xml:space="preserve">
     <value>указанная транзакция (wmtransid) не найдена, возникает, например, когда указанная к возврату и завершению операция с протекцией уже завершена или возвращена</value>

@@ -5,6 +5,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X9. Retrieving information about purse balance.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -13,6 +16,9 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class PurseInfoRegister : WmResponse
     {
+        /// <summary>
+        /// The list of purses, retrieved by the request.
+        /// </summary>
         public List<PurseInfo> PurseInfoList { get; protected set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)

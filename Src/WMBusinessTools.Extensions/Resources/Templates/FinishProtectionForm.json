@@ -29,7 +29,7 @@
                     },
                     {
                       "type": "AmountNumericUpDown",
-                      "desc": "Amount",
+                      "desc": "Amount:",
                       "name": "Amount",
                       "currencyName": "WMZ",
                       "readOnly": true

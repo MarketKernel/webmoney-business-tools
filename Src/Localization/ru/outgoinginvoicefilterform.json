@@ -7,6 +7,7 @@
   "Amount": "Сумма",
   "Client WMID": "WMID корреспондента",
   "Create &invoice": "&Выписать счет",
+  "Creation time": "Создано",
   "Description": "Назначение",
   "Expiration period": "Срок действия",
   "Find partner &certificate": "&Найти аттестат корреспондента",
@@ -21,7 +22,6 @@
   "State": "Состояние",
   "Target purse": "Куда",
   "To:": "До:",
-  "Transfer primary ID": "Первичный ID перевода",
-  "Update time": "Обновлено",
-  "Сreation time": "Создано"
+  "Transfer ID": "ID перевода",
+  "Update time": "Обновлено"
 }

@@ -62,6 +62,7 @@
         public const string VerifyClient = nameof(VerifyClient);
 
         // TopScreen
+        public const string EventsScreen = nameof(EventsScreen);
         public const string PursesScreen = nameof(PursesScreen);
         public const string IncomingInvoiceFilterScreen = nameof(IncomingInvoiceFilterScreen);
         public const string TrustsScreen = nameof(TrustsScreen);
@@ -118,6 +119,7 @@
         // SettingsExtension
         public const string RequestNumberSettings = nameof(RequestNumberSettings);
         public const string DbSettings = nameof(DbSettings);
+        public const string ProxySettings = nameof(ProxySettings);
         public const string KeySettings = nameof(KeySettings);
         public const string PasswordSettings = nameof(PasswordSettings);
         public const string GeneralSettings = nameof(GeneralSettings);

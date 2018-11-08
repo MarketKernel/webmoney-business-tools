@@ -18,7 +18,7 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
 
         public long Control2Increment
         {
-            get => (long)(decimal?) GetValue(1);
+            get => (long)(decimal) GetValue(1);
             set => SetValue("Increment", (decimal)value);
         }
 

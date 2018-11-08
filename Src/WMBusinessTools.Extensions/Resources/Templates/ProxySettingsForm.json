@@ -1,0 +1,137 @@
+﻿{
+  "text": "Proxy Settings",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "ComboBox",
+                "desc": "Mode:",
+                "name": "Mode",
+                "items": [
+                  {
+                    "text": "Don't use proxy server",
+                    "value": "None"
+                  },
+                  {
+                    "text": "Use proxy from MarketKernel.COM",
+                    "value": "Shared"
+                  },
+                  {
+                    "text": "Use custom proxy server",
+                    "value": "Custom"
+                  }
+                ],
+                "behaviorRules": [
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "None",
+                    "affectedControls": [
+                      "Address",
+                      "Port",
+                      "AuthenticationRequired",
+                      "Credentials"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Shared",
+                    "affectedControls": [
+                      "Address",
+                      "Port",
+                      "AuthenticationRequired",
+                      "Credentials"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Custom",
+                    "affectedControls": [
+                      "Address",
+                      "Port",
+                      "AuthenticationRequired",
+                      "Credentials"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Address:",
+                "name": "Address",
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Specify Host!"
+                  }
+                ]
+              },
+              {
+                "type": "NumericUpDown",
+                "desc": "Port:",
+                "name": "Port",
+                "minValue": 1,
+                "maxValue":  65535 
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Authentication Required",
+                "name": "AuthenticationRequired",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "Credentials"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
+                "type": "GroupBox",
+                "name": "Credentials",
+                "desc": "Credentials",
+                "column": {
+                  "controls": [
+                    {
+                      "type": "TextBox",
+                      "desc": "Username:",
+                      "name": "Username",
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Username can not be empty!"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Password:",
+                      "name": "Password",
+                      "useSystemPasswordChar": true,
+                      "inspectionRules": [
+                        {
+                          "type": "NotEmpty",
+                          "message": "Password can not be empty!"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Ok"
+    }
+  ]
+}

@@ -112,17 +112,7 @@ namespace WMBusinessTools.Extensions.Forms
             if (null == certificate)
                 throw new ArgumentNullException(nameof(certificate));
 
-            string imageKey;
-
-            switch (certificate.Degree)
-            {
-                case CertificateDegree.CapitallerLegalEntity:
-                    imageKey = CertificateDegree.Capitaller.ToString();
-                    break;
-                default:
-                    imageKey = certificate.Degree.ToString();
-                    break;
-            }
+            var imageKey = certificate.Degree.ToString();
 
             if (certificate.Revoked)
                 imageKey = $"{imageKey}Revoked";
@@ -408,7 +398,7 @@ namespace WMBusinessTools.Extensions.Forms
                 // Корреспондентский счет
                 certificateListItems.Add(ToListItemContent(
                     Translator.Instance.Translate(ExtensionCatalog.Certificate, "Correspondent account"),
-                    certificate.OrganizationCorrespondentAccount, certificate.OrganizationCorrespondentAccountAspects,
+                    certificate.OrganizationCorrAccount, certificate.OrganizationCorrAccountAspects,
                     OrganizationGroupName));
                 // Расчетный счет
                 certificateListItems.Add(ToListItemContent(

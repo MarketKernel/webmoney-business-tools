@@ -22,27 +22,15 @@ namespace WebMoney.XmlInterfaces.Configuration
             [XmlElement("storeLocation")]
             public StoreLocation StoreLocation
             {
-                get
-                {
-                    return _storeLocation;
-                }
-                set
-                {
-                    _storeLocation = value;
-                }
+                get => _storeLocation;
+                set => _storeLocation = value;
             }
 
             [XmlElement("storeName")]
             public StoreName StoreName
             {
-                get
-                {
-                    return _storeName;
-                }
-                set
-                {
-                    _storeName = value;
-                }
+                get => _storeName;
+                set => _storeName = value;
             }
 
             [XmlElement("thumbprint")]
@@ -55,10 +43,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 
                     return _thumbprint;
                 }
-                set
-                {
-                    _thumbprint = value;
-                }
+                set => _thumbprint = value;
             }
         }
 
@@ -68,14 +53,8 @@ namespace WebMoney.XmlInterfaces.Configuration
         [XmlElement("containerInfo")]
         public LightContainerSettings LightContainer
         {
-            get
-            {
-                return _lightContainer;
-            }
-            set
-            {
-                _lightContainer = value;
-            }
+            get => _lightContainer;
+            set => _lightContainer = value;
         }
 
         [XmlElement("rawData")]
@@ -88,10 +67,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 
                 return _rawData;
             }
-            set
-            {
-                _rawData = value;
-            }
+            set => _rawData = value;
         }
     }
 }

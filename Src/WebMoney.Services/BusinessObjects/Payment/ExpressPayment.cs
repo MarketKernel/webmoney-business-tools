@@ -6,8 +6,8 @@ namespace WebMoney.Services.BusinessObjects
 {
     internal sealed class ExpressPayment : IExpressPayment
     {
-        public int TransferPrimaryId { get; }
-        public int InvoicePrimaryId { get; }
+        public long TransferId { get; }
+        public long InvoiceId { get; }
 
         [DisplayFormat(DataFormatString = FormattingService.AmountTemplate)]
         public decimal Amount { get; }
@@ -16,11 +16,11 @@ namespace WebMoney.Services.BusinessObjects
         public string SourcePurse { get; }
         public long SourceIdentifier { get; }
 
-        public ExpressPayment(int transferPrimaryId, int invoicePrimaryId, decimal amount,
+        public ExpressPayment(long transferId, long invoiceId, decimal amount,
             DateTime transferCreateTime, string sourcePurse, long sourceIdentifier)
         {
-            TransferPrimaryId = transferPrimaryId;
-            InvoicePrimaryId = invoicePrimaryId;
+            TransferId = transferId;
+            InvoiceId = invoiceId;
             Amount = amount;
             TransferCreateTime = transferCreateTime;
             SourcePurse = sourcePurse ?? throw new ArgumentNullException(nameof(sourcePurse));

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
@@ -40,8 +41,13 @@ namespace LocalizationAssistant
                         serializer
                             .Deserialize<SortedDictionary<string, string>>(jsonTextReader);
                 }
-                catch (JsonException)
+                catch (JsonException exception)
                 {
+                    Debug.Write(exception);
+
+                    if (Debugger.IsAttached)
+                        Debugger.Break();
+
                     dictionary = new SortedDictionary<string, string>();
                 }
             }

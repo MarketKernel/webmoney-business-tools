@@ -13,13 +13,12 @@ namespace WMBusinessTools.Extensions
 {
     public sealed class SetMerchantKeyFormProvider : IPurseFormProvider
     {
+        private const string KeyMask = "{22DB6C13-9E8B-41C8-8D7E-C96CAEEF295D}";
+
         public bool CheckCompatibility(PurseContext context)
         {
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
-
-            if (context.Account.HasMerchantKey)
-                return false;
 
             var currencyService = context.UnityContainer.Resolve<ICurrencyService>();
             var currency = currencyService.ObtainCurrencyByAccountNumber(context.Account.Number);
@@ -35,14 +34,44 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            var form = SubmitFormDisplayHelper.LoadSubmitFormByExtensionId(context.ExtensionManager, ExtensionCatalog.SetMerchantKey);
+            var incomeValuesWrapper = new SetMerchantKeyFormValuesWrapper();
+
+            if (context.Account.HasMerchantKey)
+            {
+                incomeValuesWrapper.Control1HasSecretKey = true;
+                incomeValuesWrapper.Control2SecretKey = KeyMask;
+            }
+
+            if (context.Account.HasSecretKeyX20)
+            {
+                incomeValuesWrapper.Control3HasSecretKeyX20 = true;
+                incomeValuesWrapper.Control4SecretKeyX20 = KeyMask;
+            }
+
+            var form = SubmitFormDisplayHelper.LoadSubmitFormByExtensionId(context.ExtensionManager,
+                ExtensionCatalog.SetMerchantKey, incomeValuesWrapper.CollectIncomeValues());
 
             form.WorkCallback = (step, list) =>
             {
                 var valuesWrapper = new SetMerchantKeyFormValuesWrapper(list);
 
                 var purseService = context.UnityContainer.Resolve<IPurseService>();
-                purseService.SetMerchantKey(context.Account.Number, valuesWrapper.Control1MerchantKey);
+
+                if (valuesWrapper.Control1HasSecretKey)
+                {
+                    if (!KeyMask.Equals(valuesWrapper.Control2SecretKey, StringComparison.Ordinal))
+                        purseService.SetMerchantKey(context.Account.Number, valuesWrapper.Control2SecretKey);
+                }
+                else
+                    purseService.ClearMerchantKey(context.Account.Number);
+
+                if (valuesWrapper.Control3HasSecretKeyX20)
+                {
+                    if (!KeyMask.Equals(valuesWrapper.Control4SecretKeyX20, StringComparison.Ordinal))
+                        purseService.SetSecretKeyX20(context.Account.Number, valuesWrapper.Control4SecretKeyX20);
+                }
+                else
+                    purseService.ClearSecretKeyX20(context.Account.Number);
 
                 return new Dictionary<string, object>();
             };

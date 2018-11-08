@@ -15,7 +15,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
 
         bool PrimaryIdVisibility { get; set; }
         bool SecondaryIdVisibility { get; set; }
-        bool TransferIdVisibility { get; set; }
+        bool PaymentIdVisibility { get; set; }
         bool SourcePurseVisibility { get; set; }
         bool TargetPurseVisibility { get; set; }
         bool DescriptionVisibility { get; set; }

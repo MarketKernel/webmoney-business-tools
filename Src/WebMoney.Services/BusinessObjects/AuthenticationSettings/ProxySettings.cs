@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using AutoMapper;
 using WebMoney.Services.Contracts.BusinessObjects;
+using WebMoney.Services.Utils;
 
 namespace WebMoney.Services.BusinessObjects
 {
@@ -43,9 +44,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as ProxySettings;
-
-            if (businessObject != null)
+            if (contractObject is ProxySettings businessObject)
                 return businessObject;
 
             return Mapper.Map<ProxySettings>(contractObject);
@@ -70,8 +69,7 @@ namespace WebMoney.Services.BusinessObjects
             if (ReferenceEquals(this, obj))
                 return true;
 
-            var proxySettings = obj as ProxySettings;
-            return proxySettings != null && Equals(proxySettings);
+            return obj is ProxySettings proxySettings && Equals(proxySettings);
         }
 
         public override int GetHashCode()
@@ -81,12 +79,10 @@ namespace WebMoney.Services.BusinessObjects
 
         public object Clone()
         {
-            var clone = (ProxySettings)MemberwiseClone();
+            var o = MemberwiseClone();
+            CloneUtility.CloneProperties(o);
 
-            if (null != Host)
-                clone.Host = string.Copy(Host);
-
-            return clone;
+            return o;
         }
     }
 }

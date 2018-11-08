@@ -1,6 +1,9 @@
 ﻿{
-  "&Finish": "&Сохранить",
-  "Key can not be empty!": "Ключ не может быть пустым!",
-  "Merchant key:": "Merchant Secret Key:",
-  "Set Merchant Key": "Установить ключ Merchant Secret Key"
+  "&Finish": "&Завершить",
+  "Key can not be empty!": "Укажите значение ключа!",
+  "Secret Key X20:": "Secret Key X20",
+  "Secret Key:": "Secret Key",
+  "Set Merchant Key": "Установить ключи Merchant",
+  "Set Secret Key": "Установить Secret Key",
+  "Set Secret Key X20": "Установить Secret Key X20"
 }

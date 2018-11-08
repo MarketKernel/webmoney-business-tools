@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 using AutoMapper;
 using WebMoney.Services.BusinessObjects.Annotations;
 using WebMoney.Services.Contracts.BusinessObjects;
+using WebMoney.Services.Utils;
 
 namespace WebMoney.Services.BusinessObjects
 {
@@ -25,9 +26,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as RequestSettings;
-
-            if (businessObject != null)
+            if (contractObject is RequestSettings businessObject)
                 return businessObject;
 
             return Mapper.Map<RequestSettings>(contractObject);
@@ -54,8 +53,7 @@ namespace WebMoney.Services.BusinessObjects
             if (ReferenceEquals(this, obj))
                 return true;
 
-            var requestSettings = obj as RequestSettings;
-            return requestSettings != null && Equals(requestSettings);
+            return obj is RequestSettings requestSettings && Equals(requestSettings);
         }
 
         public override int GetHashCode()
@@ -65,7 +63,10 @@ namespace WebMoney.Services.BusinessObjects
 
         public object Clone()
         {
-            return Mapper.Map<RequestSettings>(this);
+            var o = MemberwiseClone();
+            CloneUtility.CloneProperties(o);
+
+            return o;
         }
     }
 }

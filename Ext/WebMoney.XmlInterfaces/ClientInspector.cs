@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X19. Verifying personal information for the owner of a WM identifier.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -13,36 +16,92 @@ namespace WebMoney.XmlInterfaces
     [Serializable]
     public class ClientInspector : WmRequest<ClientEvidence>
     {
-        private bool _output = true;
         private string _cryptoCurrencyAddress;
+
         
         protected override string ClassicUrl => "https://apipassport.webmoney.ru/XMLCheckUser.aspx";
 
         protected override string LightUrl => "https://apipassportcrt.webmoney.ru/XMLCheckUserCert.aspx";
 
+        /// <summary>
+        /// Type of operation.
+        /// </summary>
         public ExchangeType OperationType { get; set; }
 
-        public bool Output
-        {
-            get => _output;
-            set => _output = value;
-        }
+        /// <summary>
+        /// Direction of the operation.
+        /// </summary>
+        public bool Output { get; set; } = true;
 
+        /// <summary>
+        /// The type of WM purse from or to which the transfer is taking place.
+        /// </summary>
         public WmCurrency Currency { get; set; }
+
+        /// <summary>
+        /// Transfer amount.
+        /// </summary>
         public Amount Amount { get; set; }
 
+        /// <summary>
+        /// User's WMID.
+        /// </summary>
         public WmId Wmid { get; set; }
+
+        /// <summary>
+        /// Passport number.
+        /// </summary>
         public Description PassportNumber { get; set; }
+
+        /// <summary>
+        /// User's last name.
+        /// </summary>
         public Description SecondName { get; set; }
+
+        /// <summary>
+        /// User's first name.
+        /// </summary>
         public Description FirstName { get; set; }
+
+        /// <summary>
+        /// Bank name.
+        /// </summary>
         public Description BankName { get; set; }
+
+
+        /// <summary>
+        /// Bank account number.
+        /// </summary>
         public BankAccount BankAccount { get; set; }
+
+        /// <summary>
+        /// Bank card number.
+        /// </summary>
         public BankCard CardNumber { get; set; }
+
+        /// <summary>
+        /// Payment system name.
+        /// </summary>
         public PaymentSystem PaymentSystem { get; set; }
-        public Description PaymentId { get; set; }
+
+        /// <summary>
+        /// User ID for the payment system.
+        /// </summary>
+        public Description PaymentSystemId { get; set; }
+
+        /// <summary>
+        /// Phone number.
+        /// </summary>
         public string Phone { get; set; }
+
+        /// <summary>
+        /// Crypto name.
+        /// </summary>
         public CryptoCurrencyType CryptoCurrencyType { get; set; }
 
+        /// <summary>
+        /// Address to get cryptocurrencies.
+        /// </summary>
         public string CryptoCurrencyAddress
         {
             get => _cryptoCurrencyAddress;
@@ -53,7 +112,15 @@ namespace WebMoney.XmlInterfaces
         {
         }
 
-        // Cash
+        /// <summary>
+        /// Cash
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="passportNumber">Passport number.</param>
+        /// <param name="secondName">User's last name.</param>
+        /// <param name="firstName">User's first name.</param>
         public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, Description passportNumber, Description secondName, Description firstName)
         {
             OperationType = ExchangeType.Cash;
@@ -65,7 +132,14 @@ namespace WebMoney.XmlInterfaces
             SecondName = secondName;
         }
 
-        // OfflineSystem
+        /// <summary>
+        /// OfflineSystem
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="secondName">User's last name.</param>
+        /// <param name="firstName">User's first name.</param>
         public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, Description secondName, Description firstName)
         {
             OperationType = ExchangeType.OfflineSystem;
@@ -76,7 +150,16 @@ namespace WebMoney.XmlInterfaces
             FirstName = firstName;
         }
 
-        // BankAccount
+        /// <summary>
+        /// BankAccount
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="secondName">User's last name.</param>
+        /// <param name="firstName">User's first name.</param>
+        /// <param name="bankName">Bank name.</param>
+        /// <param name="bankAccount">Bank account number.</param>
         public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, Description secondName, Description firstName, Description bankName, BankAccount bankAccount)
         {
             OperationType = ExchangeType.BankAccount;
@@ -89,7 +172,16 @@ namespace WebMoney.XmlInterfaces
             BankAccount = bankAccount;
         }
 
-        // BankCard
+        /// <summary>
+        /// BankCard
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="secondName">User's last name.</param>
+        /// <param name="firstName">User's first name.</param>
+        /// <param name="bankName">Bank name.</param>
+        /// <param name="cardNumber">Bank card number.</param>
         public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, Description secondName, Description firstName, Description bankName, BankCard cardNumber)
         {
             OperationType = ExchangeType.BankCard;
@@ -102,18 +194,31 @@ namespace WebMoney.XmlInterfaces
             CardNumber = cardNumber;
         }
 
-        // InternetSystem
-        public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, PaymentSystem paymentSystem, Description paymentId)
+        /// <summary>
+        /// InternetSystem
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="paymentSystem">Payment system name.</param>
+        /// <param name="paymentSystemId">User ID for the payment system.</param>
+        public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, PaymentSystem paymentSystem, Description paymentSystemId)
         {
             OperationType = ExchangeType.InternetSystem;
             Currency = currency;
             Amount = amount;
             Wmid = wmid;
             PaymentSystem = paymentSystem;
-            PaymentId = paymentId;
+            PaymentSystemId = paymentSystemId;
         }
 
-        // SMS
+        /// <summary>
+        /// SMS
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="phone">Phone number.</param>
         public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, string phone)
         {
             OperationType = ExchangeType.Sms;
@@ -123,17 +228,31 @@ namespace WebMoney.XmlInterfaces
             Phone = phone;
         }
 
-        // Moble
+        /// <summary>
+        /// Moble
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="phone">Phone number.</param>
+        /// <param name="mobile">Is Mobile phone recharge or SMS-payment.</param>
         public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, string phone, bool mobile)
         {
-            OperationType = ExchangeType.Mobile;
+            OperationType = mobile ? ExchangeType.Mobile : ExchangeType.Sms;
             Currency = currency;
             Amount = amount;
             Wmid = wmid;
             Phone = phone;
         }
 
-        // Crypto
+        /// <summary>
+        /// Crypto
+        /// </summary>
+        /// <param name="currency">The type of WM purse from or to which the transfer is taking place.</param>
+        /// <param name="amount">Transfer amount.</param>
+        /// <param name="wmid">User's WMID.</param>
+        /// <param name="cryptoCurrencyType"></param>
+        /// <param name="address">Address to get cryptocurrencies.</param>
         public ClientInspector(WmCurrency currency, Amount amount, WmId wmid, CryptoCurrencyType cryptoCurrencyType, string address)
         {
             OperationType = ExchangeType.CryptoCurrency;
@@ -236,7 +355,7 @@ namespace WebMoney.XmlInterfaces
                     }
 
                     xmlRequestBuilder.WriteElement("emoney_name", paymentSystem);
-                    xmlRequestBuilder.WriteElement("emoney_id", PaymentId);
+                    xmlRequestBuilder.WriteElement("emoney_id", PaymentSystemId);
                 }
                     break;
                 case ExchangeType.Sms:

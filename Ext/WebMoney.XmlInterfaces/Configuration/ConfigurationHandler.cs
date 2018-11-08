@@ -12,9 +12,6 @@ namespace WebMoney.XmlInterfaces.Configuration
     {
         public object Create(object parent, object input, XmlNode section)
         {
-            if (null == section)
-                return null;
-
             var serializer = new XmlSerializer(typeof(AuthorizationSettings));
 
             XmlReader reader = null;

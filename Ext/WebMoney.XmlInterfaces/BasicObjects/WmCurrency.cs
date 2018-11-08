@@ -15,17 +15,13 @@ namespace WebMoney.XmlInterfaces.BasicObjects
         D, // Мне должны
         C, // Я должен
         X, // Bitcoin
-
-        // Только в Mini
+        H, // Bitcoin Cash (BCH)
+        L, // Litecoin
         K, // Казахский тенге
         V, // Вьетнамский донг
-
-        // (нельзя создать)
-        H, // Bitcoin Cash (BCH)
-
+        
         // Отключено.
         Y = 100, // Узбекский сум
-        L = 101, // Турецкая лира
 
         // Не используется!
         A = 200,

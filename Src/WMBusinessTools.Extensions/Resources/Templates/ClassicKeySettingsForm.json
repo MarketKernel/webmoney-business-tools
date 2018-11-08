@@ -9,7 +9,7 @@
               {
                 "type": "TextBoxWithButton",
                 "desc": "Path to keys' backup file (*.kwm):",
-                "iconPath": "../Pictures/OpenFile.gif",
+                "iconPath": "../Pictures/OpenFile.png",
                 "readonly": true,
                 "inspectionRules": [
                   {

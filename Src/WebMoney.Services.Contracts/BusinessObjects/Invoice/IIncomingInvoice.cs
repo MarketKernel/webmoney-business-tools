@@ -9,6 +9,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         long SecondaryId { get; }
         int OrderId { get; }
         long TargetIdentifier { get; }
+        string SourcePurse { get; }
         string TargetPurse { get; }
         decimal Amount { get; }
         string Description { get; }
@@ -16,7 +17,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         byte? ProtectionPeriod { get; }
         byte ExpirationPeriod { get; }
         InvoiceState State { get; }
-        long? TransferPrimaryId { get; }
+        long? TransferId { get; }
         DateTime CreationTime { get; }
         DateTime UpdateTime { get; }
     }

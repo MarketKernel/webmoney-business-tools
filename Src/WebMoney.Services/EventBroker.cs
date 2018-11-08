@@ -43,9 +43,7 @@ namespace WebMoney.Services
 
             lock (Anchor)
             {
-                List<WeakReference> references;
-
-                if (!_register.TryGetValue(notification.NotificationType, out references))
+                if (!_register.TryGetValue(notification.NotificationType, out var references))
                     return;
 
                 var deadReferences = new List<WeakReference>();

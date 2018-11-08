@@ -36,12 +36,14 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.registerButton = new System.Windows.Forms.Button();
             this.mTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.mPanel = new System.Windows.Forms.Panel();
             this.topTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.topPictureBox = new System.Windows.Forms.PictureBox();
             this.captionLabel = new System.Windows.Forms.Label();
             this.bottomFlowLayoutPanel.SuspendLayout();
             this.mTableLayoutPanel.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.mPanel.SuspendLayout();
             this.topTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.topPictureBox)).BeginInit();
@@ -54,7 +56,6 @@
             this.mTunableList.HideSelection = false;
             this.mTunableList.MultiSelect = false;
             this.mTunableList.Name = "mTunableList";
-            this.mTableLayoutPanel.SetRowSpan(this.mTunableList, 3);
             this.mTunableList.UseCompatibleStateImageBehavior = false;
             this.mTunableList.View = System.Windows.Forms.View.Details;
             this.mTunableList.SelectedIndexChanged += new System.EventHandler(this.mTunableList_SelectedIndexChanged);
@@ -99,9 +100,15 @@
             // 
             resources.ApplyResources(this.mTableLayoutPanel, "mTableLayoutPanel");
             this.mTableLayoutPanel.Controls.Add(this.mTunableList, 0, 0);
-            this.mTableLayoutPanel.Controls.Add(this.removeButton, 1, 2);
-            this.mTableLayoutPanel.Controls.Add(this.registerButton, 1, 1);
+            this.mTableLayoutPanel.Controls.Add(this.flowLayoutPanel1, 0, 1);
             this.mTableLayoutPanel.Name = "mTableLayoutPanel";
+            // 
+            // flowLayoutPanel1
+            // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Controls.Add(this.registerButton);
+            this.flowLayoutPanel1.Controls.Add(this.removeButton);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // mPanel
             // 
@@ -144,6 +151,8 @@
             this.Load += new System.EventHandler(this.EnterForm_Load);
             this.bottomFlowLayoutPanel.ResumeLayout(false);
             this.mTableLayoutPanel.ResumeLayout(false);
+            this.mTableLayoutPanel.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.mPanel.ResumeLayout(false);
             this.topTableLayoutPanel.ResumeLayout(false);
             this.topTableLayoutPanel.PerformLayout();
@@ -166,5 +175,6 @@
         private System.Windows.Forms.TableLayoutPanel topTableLayoutPanel;
         private System.Windows.Forms.Label captionLabel;
         private System.Windows.Forms.PictureBox topPictureBox;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

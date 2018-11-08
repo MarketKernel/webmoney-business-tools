@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X6. Sending message to random WM-identifier via internal mail.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -19,31 +22,52 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => "https://w3s.wmtransfer.com/asp/XMLSendMsgCert.asp";
 
+        /// <summary>
+        /// WM identifier of message recepient.
+        /// </summary>
         public WmId WmId { get; set; }
+
+        /// <summary>
+        /// Message subject.
+        /// </summary>
         public Description Subject { get; set; }
 
+        /// <summary>
+        /// Message text.
+        /// </summary>
         public Message Content
         {
-            get { return _content; }
+            get => _content;
             set
             {
                 if (string.IsNullOrEmpty(value))
                     throw new ArgumentNullException(nameof(value));
+
                 _content = value;
             }
         }
+
+        /// <summary>
+        /// If True - then messages are sent without considering recipient's permission for this action. If False - then messages are sent only if the recipient permission (otherwise error code 35 is returned).
+        /// Users can forbid to send them messages in two cases. The first case is when the recipient forbade to send him messages for this specific correspondent. The second case is when the reciient forbade to send him messages for unauthorized correspondents, and the sender is unauthorized.
+        /// </summary>
+        public bool Force { get; set; }
 
         protected internal OriginalMessage()
         {
         }
 
-        public OriginalMessage(WmId wmId, Description subject, Message content)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wmId">WM identifier of message recepient.</param>
+        /// <param name="content">Message text.</param>
+        public OriginalMessage(WmId wmId, Message content)
         {
             if (string.IsNullOrEmpty(content))
                 throw new ArgumentNullException(nameof(content));
 
             WmId = wmId;
-            Subject = subject;
             Content = content;
         }
 
@@ -62,6 +86,7 @@ namespace WebMoney.XmlInterfaces
             xmlRequestBuilder.WriteElement("receiverwmid", WmId.ToString());
             xmlRequestBuilder.WriteElement("msgsubj", Subject);
             xmlRequestBuilder.WriteElement("msgtext", Content);
+            xmlRequestBuilder.WriteElement("onlyauth", Force ? 0 : 1);
 
             xmlRequestBuilder.WriteEndElement(); // </message>
         }

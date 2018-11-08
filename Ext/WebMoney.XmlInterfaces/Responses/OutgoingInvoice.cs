@@ -11,8 +11,19 @@ namespace WebMoney.XmlInterfaces.Responses
     [Serializable]
     public class OutgoingInvoice : Invoice
     {
+        /// <summary>
+        /// Customer's WMID.
+        /// </summary>
         public WmId SourceWmId { get; protected set; }
-        public uint OperationId { get; protected set; }
+
+        /// <summary>
+        /// Transaction number in the WebMoney system(if the invoice has been paid).
+        /// </summary>
+        public long TransferId { get; protected set; }
+
+        /// <summary>
+        /// Payer's purse (if the invoice has been paid).
+        /// </summary>
         public Purse? SourcePurse { get; protected set; }
 
         internal override void Fill(WmXmlPackage wmXmlPackage)
@@ -20,9 +31,9 @@ namespace WebMoney.XmlInterfaces.Responses
             if (null == wmXmlPackage)
                 throw new ArgumentNullException(nameof(wmXmlPackage));
 
-            Id = wmXmlPackage.SelectUInt32("@id");
-            Ts = wmXmlPackage.SelectUInt32("@ts");
-            OrderId = wmXmlPackage.SelectUInt32("orderid");
+            PrimaryId = wmXmlPackage.SelectInt64("@id");
+            SecondaryId = wmXmlPackage.SelectInt64("@ts");
+            OrderId = wmXmlPackage.SelectInt32("orderid");
             SourceWmId = wmXmlPackage.SelectWmId("customerwmid");
             TargetPurse = wmXmlPackage.SelectPurse("storepurse");
             Amount = wmXmlPackage.SelectAmount("amount");
@@ -33,11 +44,8 @@ namespace WebMoney.XmlInterfaces.Responses
             InvoiceState = (InvoiceState)wmXmlPackage.SelectInt32("state");
             CreateTime = wmXmlPackage.SelectWmDateTime("datecrt");
             UpdateTime = wmXmlPackage.SelectWmDateTime("dateupd");
-            OperationId = wmXmlPackage.SelectUInt32("wmtranid");
-
-            if (wmXmlPackage.Exists("customerpurse") &&
-                !string.IsNullOrEmpty(wmXmlPackage.SelectString("customerpurse")))
-                SourcePurse = wmXmlPackage.SelectPurse("customerpurse");
+            TransferId = wmXmlPackage.SelectInt64("wmtranid");
+            SourcePurse = wmXmlPackage.SelectPurseIfExists("customerpurse");
         }
     }
 }

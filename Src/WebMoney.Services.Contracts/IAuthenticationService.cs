@@ -36,12 +36,12 @@ namespace WebMoney.Services.Contracts
 
         // Connection
         IConnectionSettings GetConnectionSettings();
-
         void SetConnectionSettings(IConnectionSettings connectionSettings);
 
         // Proxy
         WebProxy GetProxy();
 
+        IProxySettings GeProxySettings();
         void SetProxySettings(IProxySettings proxySettings);
     }
 }

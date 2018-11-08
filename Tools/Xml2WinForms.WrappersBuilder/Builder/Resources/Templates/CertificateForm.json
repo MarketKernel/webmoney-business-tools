@@ -1,0 +1,208 @@
+﻿{
+  "certificateRecordList": {
+    "headerClickable": true,
+    "groups": [
+      {
+        "key": "GeneralInformation",
+        "headerText": "General information"
+      },
+      {
+        "key": "Certificate",
+        "headerText": "Certificate"
+      },
+      {
+        "key": "PersonalData",
+        "headerText": "Personal data"
+      },
+      {
+        "key": "ActualLocation",
+        "headerText": "Location"
+      },
+      {
+        "key": "PassportData",
+        "headerText": "Passport data"
+      },
+      {
+        "key": "ContactData",
+        "headerText": "Contact data"
+      },
+      {
+        "key": "Organization",
+        "headerText": "Organization"
+      }
+    ],
+    "columns": [
+      {
+        "name": "Name",
+        "headerText": "Name",
+        "width": 125
+      },
+      {
+        "name": "Value",
+        "headerText": "Value",
+        "width": 300
+      }
+    ],
+    "icons": [
+      {
+        "name": "Verified",
+        "iconPath": "../Pictures/Verified.gif"
+      },
+      {
+        "name": "Unverified",
+        "iconPath": "../Pictures/Unverified.gif"
+      },
+      {
+        "name": "VerifiedProtected",
+        "iconPath": "../Pictures/VerifiedProtected.gif"
+      },
+      {
+        "name": "UnverifiedProtected",
+        "iconPath": "../Pictures/UnverifiedProtected.gif"
+      }
+    ],
+    "commandMenu": {
+      "items": [
+        {
+          "text": "&Copy value",
+          "command": "Copy",
+          "iconPath": "../Pictures/Copy.gif"
+        }
+      ]
+    }
+  },
+  "attachedIdentifierList": {
+    "headerClickable": true,
+    "columns": [
+      {
+        "name": "Identifier",
+        "headerText": "Identifier",
+        "width": 105
+      },
+      {
+        "name": "BL",
+        "headerText": "BL",
+        "width": 50
+      },
+      {
+        "name": "TL",
+        "headerText": "TL",
+        "width": 50
+      },
+      {
+        "name": "IdentifierAlias",
+        "headerText": "Alias",
+        "width": 150
+      },
+      {
+        "name": "Info",
+        "headerText": "Info",
+        "width": 200
+      },
+      {
+        "name": "RegistrationDate",
+        "headerText": "Date of registration",
+        "width": 125
+      }
+    ],
+    "commandMenu": {
+      "items": [
+        {
+          "text": "&Copy value",
+          "command": "Copy",
+          "iconPath": "../Pictures/Copy.gif"
+        }
+      ]
+    },
+    "icons": [
+      {
+        "name": "Alias",
+        "iconPath": "../Pictures/Certificates/Alias.gif"
+      },
+      {
+        "name": "Formal",
+        "iconPath": "../Pictures/Certificates/Formal.gif"
+      },
+      {
+        "name": "Initial",
+        "iconPath": "../Pictures/Certificates/Initial.gif"
+      },
+      {
+        "name": "Personal",
+        "iconPath": "../Pictures/Certificates/Personal.gif"
+      },
+      {
+        "name": "Merchant",
+        "iconPath": "../Pictures/Certificates/Merchant.gif"
+      },
+      {
+        "name": "Capitaller",
+        "iconPath": "../Pictures/Certificates/Capitaller.gif"
+      },
+      {
+        "name": "Developer",
+        "iconPath": "../Pictures/Certificates/Developer.gif"
+      },
+      {
+        "name": "Registrar",
+        "iconPath": "../Pictures/Certificates/Registrar.gif"
+      },
+      {
+        "name": "Guarantor",
+        "iconPath": "../Pictures/Certificates/Guarantor.gif"
+      },
+      {
+        "name": "Service",
+        "iconPath": "../Pictures/Certificates/Service.gif"
+      },
+      {
+        "name": "Operator",
+        "iconPath": "../Pictures/Certificates/Operator.gif"
+      },
+      {
+        "name": "AliasRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Alias.gif"
+      },
+      {
+        "name": "FormalRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Formal.gif"
+      },
+      {
+        "name": "InitialRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Initial.gif"
+      },
+      {
+        "name": "PersonalRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Personal.gif"
+      },
+      {
+        "name": "MerchantRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Merchant.gif"
+      },
+      {
+        "name": "CapitallerRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Capitaller.gif"
+      },
+      {
+        "name": "DeveloperRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Developer.gif"
+      },
+      {
+        "name": "RegistrarRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Registrar.gif"
+      },
+      {
+        "name": "GuarantorRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Guarantor.gif"
+      },
+      {
+        "name": "ServiceRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Service.gif"
+      },
+      {
+        "name": "OperatorRevoked",
+        "iconPath": "../Pictures/Certificates/Inactive/Operator.gif"
+      }
+    ]
+  }
+}

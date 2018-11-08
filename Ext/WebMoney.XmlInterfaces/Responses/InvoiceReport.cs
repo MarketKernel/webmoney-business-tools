@@ -5,6 +5,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X23. Rejection of received invoices or cancellation of issued invoices.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -13,9 +16,18 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class InvoiceReport : WmResponse
     {
-        public uint Id { get; protected set; }
-        public ulong Ts { get; protected set; }
+        public long PrimaryId { get; protected set; }
+
+        public long SecondaryId { get; protected set; }
+
+        /// <summary>
+        /// Invoice state.
+        /// </summary>
         public InvoiceState State { get; protected set; }
+
+        /// <summary>
+        /// Date and time of invoice status change.
+        /// </summary>
         public WmDateTime UpdateTime { get; protected set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)
@@ -23,8 +35,8 @@ namespace WebMoney.XmlInterfaces.Responses
             if (null == wmXmlPackage)
                 throw new ArgumentNullException(nameof(wmXmlPackage));
 
-            Id = wmXmlPackage.SelectUInt32("ininvoice/@id");
-            Ts = wmXmlPackage.SelectUInt32("ininvoice/@ts");
+            PrimaryId = wmXmlPackage.SelectInt64("ininvoice/@id");
+            SecondaryId = wmXmlPackage.SelectInt64("ininvoice/@ts");
             State = (InvoiceState)wmXmlPackage.SelectUInt32("ininvoice/state");
             UpdateTime = wmXmlPackage.SelectWmDateTime("ininvoice/dateupd");
         }

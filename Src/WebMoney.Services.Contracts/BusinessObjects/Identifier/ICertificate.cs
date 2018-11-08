@@ -60,7 +60,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         string OrganizationZipCode { get; }
         string OrganizationBankName { get; }
         string OrganizationBankId { get; }
-        string OrganizationCorrespondentAccount { get; }
+        string OrganizationCorrAccount { get; }
         string OrganizationAccount { get; }
         string HomePhone { get; }
         string CellPhone { get; }
@@ -110,7 +110,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         CertificateRecordAspects OrganizationZipCodeAspects { get; }
         CertificateRecordAspects OrganizationBankNameAspects { get; }
         CertificateRecordAspects OrganizationBankIdAspects { get; }
-        CertificateRecordAspects OrganizationCorrespondentAccountAspects { get; }
+        CertificateRecordAspects OrganizationCorrAccountAspects { get; }
         CertificateRecordAspects OrganizationAccountAspects { get; }
         CertificateRecordAspects HomePhoneAspects { get; }
         CertificateRecordAspects CellPhoneAspects { get; }

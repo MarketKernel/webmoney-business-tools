@@ -24,6 +24,12 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
+            var currencyService = context.UnityContainer.Resolve<ICurrencyService>();
+            var currency = currencyService.ObtainCurrencyByAccountNumber(context.Account.Number);
+
+            if (!currencyService.CheckCapabilities(currency, CurrencyCapabilities.Invoice))
+                return false;
+
             return true;
         }
 

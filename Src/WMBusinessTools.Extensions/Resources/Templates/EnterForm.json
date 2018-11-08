@@ -15,7 +15,7 @@
   "icons": [
     {
       "name": "Ant",
-      "iconPath": "../Pictures/Ant.gif"
+      "iconPath": "../Pictures/Ant.png"
     }
   ],
   "commandMenu": {
@@ -23,7 +23,7 @@
       {
         "text": "Remove",
         "command": "Remove",
-        "iconPath": "../Pictures/Remove.gif"
+        "iconPath": "../Pictures/Remove.png"
       }
     ]
   }

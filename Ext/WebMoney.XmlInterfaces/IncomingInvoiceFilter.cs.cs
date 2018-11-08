@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X10. Retrieving list of invoices for payment.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -13,19 +16,52 @@ namespace WebMoney.XmlInterfaces
     [Serializable]
     public class IncomingInvoiceFilter : WmRequest<IncomingInvoiceRegister>
     {
+        private long _invoiceId;
+
         protected override string ClassicUrl => "https://w3s.webmoney.ru/asp/XMLInInvoices.asp";
 
         protected override string LightUrl => "https://w3s.wmtransfer.com/asp/XMLInInvoicesCert.asp";
 
+        /// <summary>
+        /// WM-identifier, for which for which invoice(s) for payment was(were) drawn.
+        /// </summary>
         public WmId WmId { get; set; }
-        public uint InvoiceId { get; set; }
+
+        /// <summary>
+        /// Invoice number (in WebMoney system).
+        /// </summary>
+        public long InvoiceId
+        {
+            get => _invoiceId;
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException(nameof(value));
+
+                _invoiceId = value;
+            }
+        }
+
+        /// <summary>
+        /// Min time and date of invoice creation.
+        /// </summary>
         public WmDateTime StartTime { get; set; }
+
+        /// <summary>
+        /// Max time and date of invoice creation.
+        /// </summary>
         public WmDateTime FinishTime { get; set; }
 
         protected internal IncomingInvoiceFilter()
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="wmId">WM-identifier, for which for which invoice(s) for payment was(were) drawn.</param>
+        /// <param name="startTime">Min time and date of invoice creation.</param>
+        /// <param name="finishTime">Max time and date of invoice creation.</param>
         public IncomingInvoiceFilter(WmId wmId, WmDateTime startTime, WmDateTime finishTime)
         {
             WmId = wmId;

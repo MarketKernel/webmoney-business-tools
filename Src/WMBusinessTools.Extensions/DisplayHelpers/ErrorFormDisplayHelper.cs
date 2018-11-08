@@ -101,11 +101,10 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
             string caption;
             string message;
             string details;
+
             ErrorContext.ErrorLevel errorLevel;
 
-            var businessException = exception as BusinessException;
-
-            if (null != businessException)
+            if (exception is BusinessException businessException)
             {
                 caption = businessException.Caption;
                 message = businessException.Message;
@@ -114,9 +113,7 @@ namespace WMBusinessTools.Extensions.DisplayHelpers
             }
             else
             {
-                var invalidOperationException = exception as InvalidOperationException;
-
-                caption = null != invalidOperationException
+                caption = exception is InvalidOperationException
                     ? Resources.ErrorFormDisplayHelper_GetErrorAction_Operation_failed
                     : Resources.ErrorFormDisplayHelper_GetErrorAction_Unexpected_error;
 

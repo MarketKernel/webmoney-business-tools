@@ -2,6 +2,7 @@
 using System.Xml.Serialization;
 using AutoMapper;
 using WebMoney.Services.Contracts.BusinessObjects;
+using WebMoney.Services.Utils;
 
 namespace WebMoney.Services.BusinessObjects
 {
@@ -40,9 +41,7 @@ namespace WebMoney.Services.BusinessObjects
             if (null == contractObject)
                 return null;
 
-            var businessObject = contractObject as ProxyCredential;
-
-            if (businessObject != null)
+            if (contractObject is ProxyCredential businessObject)
                 return businessObject;
 
             return Mapper.Map<ProxyCredential>(contractObject);
@@ -60,7 +59,7 @@ namespace WebMoney.Services.BusinessObjects
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj is ProxyCredential && Equals((ProxyCredential)obj);
+            return obj is ProxyCredential credential && Equals(credential);
         }
 
         public override int GetHashCode()
@@ -70,15 +69,10 @@ namespace WebMoney.Services.BusinessObjects
 
         public object Clone()
         {
-            var clone = (ProxyCredential)MemberwiseClone();
+            var o = MemberwiseClone();
+            CloneUtility.CloneProperties(o);
 
-            if (null != Username)
-                clone.Username = string.Copy(Username);
-
-            if (null != Password)
-                clone.Password = string.Copy(Password);
-
-            return clone;
+            return o;
         }
     }
 }

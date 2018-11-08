@@ -21,6 +21,8 @@ namespace WebMoney.XmlInterfaces.Utilities
                     return Resources.Merchant;
                 case PassportDegree.Capitaller: // Аттестат Capitaller
                     return Resources.Capitaller;
+                case PassportDegree.CapitallerEntity: // Аттестат Capitaller (юр. лицо)
+                    return Resources.CapitallerEntity;
                 case PassportDegree.Developer: // Аттестат разработчика
                     return Resources.Developer;
                 case PassportDegree.Registrar: // Аттестат регистратора

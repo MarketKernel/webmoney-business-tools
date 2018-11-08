@@ -81,9 +81,7 @@ namespace LocalizationAssistant
 
             lock (Anchor)
             {
-                ValueDictionaryHolder valueDictionaryHolder;
-
-                if (!_categoryDictionary.TryGetValue(category, out valueDictionaryHolder))
+                if (!_categoryDictionary.TryGetValue(category, out var valueDictionaryHolder))
                 {
                     valueDictionaryHolder = new ValueDictionaryHolder();
                     _categoryDictionary.Add(category, valueDictionaryHolder);
@@ -112,7 +110,7 @@ namespace LocalizationAssistant
             var languageDirectory = Path.Combine(storageDirectory, _twoLetterIsoLanguageName);
 
             if (!Directory.Exists(languageDirectory))
-                Directory.CreateDirectory(languageDirectory);
+                return;
 
             lock (Anchor)
             {

@@ -1,0 +1,32 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Add WMID",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "WMIDTemplate"
+              },
+              {
+                "type": "TextBox",
+                "desc": "Alias:",
+                "maxLength": 50,
+                "important": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Alias cannot be empty!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Add WMID"
+    }
+  ]
+}

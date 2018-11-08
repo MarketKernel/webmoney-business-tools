@@ -8,6 +8,7 @@ using WebMoney.XmlInterfaces.Responses;
 using System.Globalization;
 using System.Text;
 using WebMoney.XmlInterfaces.Core;
+using WebMoney.XmlInterfaces.BasicObjects;
 
 namespace WebMoney.XmlInterfaces
 {
@@ -76,10 +77,7 @@ namespace WebMoney.XmlInterfaces
             }
             set
             {
-                if (null == value)
-                    throw new ArgumentNullException(nameof(value));
-
-                _initializer = value;
+                _initializer = value ?? throw new ArgumentNullException(nameof(value));
             }
         }
 

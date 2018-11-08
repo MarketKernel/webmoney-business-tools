@@ -29,7 +29,7 @@
                     },
                     {
                       "type": "TextBox",
-                      "desc": "Amount",
+                      "desc": "Amount:",
                       "name": "Amount",
                       "readOnly": true
                     },

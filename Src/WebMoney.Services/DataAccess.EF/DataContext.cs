@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.Validation;
+using System.Text;
 using WebMoney.Services.BusinessObjects;
 using WebMoney.Services.Contracts.BusinessObjects;
 
@@ -12,6 +12,8 @@ namespace WebMoney.Services.DataAccess.EF
 {
     internal sealed class DataContext : DbContext
     {
+        internal static IConnectionSettings ConnectionSettings { get; set; }
+
         public DbSet<IdentifierSummary> IdentifierSummaries { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Trust> Trusts { get; set; }
@@ -29,13 +31,27 @@ namespace WebMoney.Services.DataAccess.EF
         // Системные
         public DbSet<Record> Records { get; set; }
 
+        static DataContext()
+        {
+            ConnectionSettings = new ConnectionSettings("Data Source=DESKTOP-53N4OHF\\SQLEXPRESS;Initial Catalog=wmbt6;Integrated Security=True", DataConfiguration.SqlServerProviderInvariantName);
+            //ConnectionSettings = new ConnectionSettings("Data Source=D:\\_TEMP\\017674283968-v2.sdf; Persist Security Info=False;", DataConfiguration.SqlServerCompactProviderInvariantName);
+        }
+
+        public DataContext()
+            : base(BuildConnection(), true)
+        {
+        }
+
         public DataContext(IConnectionSettings connectionSettings)
             : base(BuildConnection(connectionSettings), true)
         {
         }
 
-        private static DbConnection BuildConnection(IConnectionSettings connectionSettings)
+        private static DbConnection BuildConnection(IConnectionSettings connectionSettings = null)
         {
+            if (null == connectionSettings)
+                connectionSettings = ConnectionSettings;
+
             switch (connectionSettings.ProviderInvariantName)
             {
                 case DataConfiguration.SqlServerCompactProviderInvariantName:
@@ -63,7 +79,7 @@ namespace WebMoney.Services.DataAccess.EF
             }
             catch (DbEntityValidationException exception)
             {
-                var message = new List<string>();
+                var message = new StringBuilder();
 
                 foreach (DbEntityValidationResult validationResult in exception.EntityValidationErrors)
                 {
@@ -71,7 +87,7 @@ namespace WebMoney.Services.DataAccess.EF
 
                     foreach (DbValidationError error in validationResult.ValidationErrors)
                     {
-                        message.Add(entityName + "." + error.PropertyName + ": " + error.ErrorMessage);
+                        message.AppendLine(entityName + "." + error.PropertyName + ": " + error.ErrorMessage);
                     }
                 }
 

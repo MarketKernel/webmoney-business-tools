@@ -12,31 +12,43 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\WMBusinessTools\bin\Debug\WebMoney.Services\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\WMBusinessTools\bin\Release\WebMoney.Services\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Properties\key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <OutputPath>bin\Production\</OutputPath>
+    <DefineConstants>TRACE;PRODUCTION</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
@@ -102,6 +114,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Solution\AssemblyInfoForSolution.cs">
+      <Link>Properties\AssemblyInfoForSolution.cs</Link>
+    </Compile>
     <Compile Include="BusinessObjects\Account\PurseSummary.cs" />
     <Compile Include="BusinessObjects\Annotations\LocalizedCategoryAttribute.cs" />
     <Compile Include="BusinessObjects\Annotations\LocalizedDescriptionAttribute.cs" />
@@ -148,6 +163,23 @@
     <Compile Include="ExternalServices\ExternalTrustService.cs" />
     <Compile Include="CurrencyService.cs" />
     <Compile Include="FormattingService.cs" />
+    <Compile Include="Migrations\SqlCE\201810241712109_V1.cs" />
+    <Compile Include="Migrations\SqlCE\201810241712109_V1.Designer.cs">
+      <DependentUpon>201810241712109_V1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SqlCE\201810271506537_V2.cs" />
+    <Compile Include="Migrations\SqlCE\201810271506537_V2.Designer.cs">
+      <DependentUpon>201810271506537_V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\201810241717274_V1.cs" />
+    <Compile Include="Migrations\SqlServer\201810241717274_V1.Designer.cs">
+      <DependentUpon>201810241717274_V1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\SqlServer\201810280016003_V2.cs" />
+    <Compile Include="Migrations\SqlServer\201810280016003_V2.Designer.cs">
+      <DependentUpon>201810280016003_V2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Notifications\PreparedTransferNotification.cs" />
     <Compile Include="Notifications\TransferBundleNotification.cs" />
     <Compile Include="BusinessObjects\TransferBundle\ExportableTransfer.cs" />
@@ -176,7 +208,7 @@
     <Compile Include="BusinessObjects\Trust\Trust.cs" />
     <Compile Include="BusinessObjects\Trust\TrustConfirmationInstruction.cs" />
     <Compile Include="BusinessObjects\Trust\TrustConfirmationReport.cs" />
-    <Compile Include="BusinessObjects\VerificationReport.cs" />
+    <Compile Include="BusinessObjects\Verification\VerificationReport.cs" />
     <Compile Include="ContractService.cs" />
     <Compile Include="BusinessObjects\Annotations\LocalizedBooleanConverter.cs" />
     <Compile Include="DataAccess.EF\DataContext.cs" />
@@ -200,6 +232,7 @@
     <Compile Include="ConfigurationService.cs" />
     <Compile Include="Utils\ApplicationUtility.cs" />
     <Compile Include="Utils\AuthenticationServiceExtensions.cs" />
+    <Compile Include="Utils\CloneUtility.cs" />
     <Compile Include="Utils\ConvertFrom.cs" />
     <Compile Include="Utils\AuthenticationSettings\Encryptor.cs" />
     <Compile Include="Utils\AuthenticationSettings\AuthenticationSettingsExtensions.cs" />
@@ -234,7 +267,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\key.snk" />
     <None Include="TrustedCertificates\180507-Microsoft-IT-SSL-SHA2.cer">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -258,6 +290,18 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\SqlCE\201810241712109_V1.resx">
+      <DependentUpon>201810241712109_V1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\SqlCE\201810271506537_V2.resx">
+      <DependentUpon>201810271506537_V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\SqlServer\201810241717274_V1.resx">
+      <DependentUpon>201810241717274_V1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\SqlServer\201810280016003_V2.resx">
+      <DependentUpon>201810280016003_V2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -282,10 +326,27 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>call "$(SolutionDir)Solution\PostBuild.cmd"
+
+if $(ConfigurationName) == Production (
+   sn.exe -Rc "$(TargetPath)" "%25VSKey%25"
+   sn.exe -Rc "$(TargetDir)ru\$(TargetName).resources.dll" "%25VSKey%25"
+   signtool.exe sign /sha1 "%25CertThumbprint%25"  /t "%25TimeStampingServer%25" "$(TargetPath)"
+   signtool.exe sign /sha1 "%25CertThumbprint%25" /as /fd sha256 /tr "%25TimeStampingServer%25" /td sha256 "$(TargetPath)"
+)
+
+if not exist "$(TargetDir)x86" (
+   md "$(TargetDir)x86"
+   xcopy /s /y "$(SolutionDir)..\Ext\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+)
+
+if not exist "$(TargetDir)amd64" (
+   md "$(TargetDir)amd64"
+   xcopy /s /y "$(SolutionDir)..\Ext\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"
+)</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

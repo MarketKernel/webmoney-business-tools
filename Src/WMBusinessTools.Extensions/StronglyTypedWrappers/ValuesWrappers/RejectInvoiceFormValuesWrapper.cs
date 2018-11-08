@@ -19,9 +19,9 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
             set => SetValue("TargetPurse", value);
         }
 
-        public decimal? Control3Amount
+        public decimal Control3Amount
         {
-            get => (decimal?) GetValue(2);
+            get => (decimal) GetValue(2);
             set => SetValue("Amount", value);
         }
 
@@ -43,15 +43,15 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
             set => SetValue("Address", value);
         }
 
-        public decimal? Control7PaymentPeriod
+        public decimal Control7PaymentPeriod
         {
-            get => (decimal?) GetValue(6);
+            get => (decimal) GetValue(6);
             set => SetValue("PaymentPeriod", value);
         }
 
-        public decimal? Control8ProtectionPeriod
+        public decimal Control8ProtectionPeriod
         {
-            get => (decimal?) GetValue(7);
+            get => (decimal) GetValue(7);
             set => SetValue("ProtectionPeriod", value);
         }
 

@@ -54,7 +54,7 @@ namespace WebMoney.Services
                             continue;
                         }
 
-                        transferBundleService.ProcessPreparedTransfer();
+                        transferBundleService.ProcessPreparedTransfer(preparedTransfer.Id);
                     }
                     catch (Exception exception)
                     {

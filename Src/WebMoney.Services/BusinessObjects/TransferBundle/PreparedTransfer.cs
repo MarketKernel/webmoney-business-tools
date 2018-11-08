@@ -24,7 +24,7 @@ namespace WebMoney.Services.BusinessObjects
         public long? SecondaryId { get; set; }
 
         [Required]
-        public int TransferId { get; set; }
+        public int PaymentId { get; set; }
 
         [Required]
         public string SourcePurse { get; set; }
@@ -61,9 +61,9 @@ namespace WebMoney.Services.BusinessObjects
         {
         }
 
-        public PreparedTransfer(int transferId, string sourcePurse, string targetPurse, decimal amount, string description)
+        public PreparedTransfer(int paymentId, string sourcePurse, string targetPurse, decimal amount, string description)
         {
-            TransferId = transferId;
+            PaymentId = paymentId;
             SourcePurse = sourcePurse ?? throw new ArgumentNullException(nameof(sourcePurse));
             TargetPurse = targetPurse ?? throw new ArgumentNullException(nameof(targetPurse));
             Amount = amount;

@@ -95,17 +95,17 @@
             // 
             // mTabControl
             // 
-            resources.ApplyResources(this.mTabControl, "mTabControl");
             this.mTabControl.Controls.Add(this.generalInfoTabPage);
             this.mTabControl.Controls.Add(this.certificateDataTabPage);
             this.mTabControl.Controls.Add(this.wmIdsTabPage);
+            resources.ApplyResources(this.mTabControl, "mTabControl");
             this.mTabControl.Name = "mTabControl";
             this.mTabControl.SelectedIndex = 0;
             // 
             // generalInfoTabPage
             // 
-            resources.ApplyResources(this.generalInfoTabPage, "generalInfoTabPage");
             this.generalInfoTabPage.Controls.Add(this.generalInfoTableLayoutPanel);
+            resources.ApplyResources(this.generalInfoTabPage, "generalInfoTabPage");
             this.generalInfoTabPage.Name = "generalInfoTabPage";
             this.generalInfoTabPage.UseVisualStyleBackColor = true;
             // 
@@ -186,8 +186,8 @@
             // 
             // aboutTextBox
             // 
-            resources.ApplyResources(this.aboutTextBox, "aboutTextBox");
             this.aboutTextBox.BackColor = System.Drawing.SystemColors.Window;
+            resources.ApplyResources(this.aboutTextBox, "aboutTextBox");
             this.aboutTextBox.Name = "aboutTextBox";
             this.aboutTextBox.ReadOnly = true;
             // 
@@ -228,8 +228,8 @@
             // 
             // certificateDataTabPage
             // 
-            resources.ApplyResources(this.certificateDataTabPage, "certificateDataTabPage");
             this.certificateDataTabPage.Controls.Add(this.certificateTunableList);
+            resources.ApplyResources(this.certificateDataTabPage, "certificateDataTabPage");
             this.certificateDataTabPage.Name = "certificateDataTabPage";
             this.certificateDataTabPage.UseVisualStyleBackColor = true;
             // 
@@ -245,8 +245,8 @@
             // 
             // wmIdsTabPage
             // 
-            resources.ApplyResources(this.wmIdsTabPage, "wmIdsTabPage");
             this.wmIdsTabPage.Controls.Add(this.attachedIdentifierTunableList);
+            resources.ApplyResources(this.wmIdsTabPage, "wmIdsTabPage");
             this.wmIdsTabPage.Name = "wmIdsTabPage";
             this.wmIdsTabPage.UseVisualStyleBackColor = true;
             // 
@@ -262,25 +262,25 @@
             // 
             // bottomFlowLayoutPanel
             // 
-            resources.ApplyResources(this.bottomFlowLayoutPanel, "bottomFlowLayoutPanel");
             this.bottomFlowLayoutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.mTableLayoutPanel.SetColumnSpan(this.bottomFlowLayoutPanel, 3);
             this.bottomFlowLayoutPanel.Controls.Add(this.cancelButton);
             this.bottomFlowLayoutPanel.Controls.Add(this.okButton);
+            resources.ApplyResources(this.bottomFlowLayoutPanel, "bottomFlowLayoutPanel");
             this.bottomFlowLayoutPanel.Name = "bottomFlowLayoutPanel";
             // 
             // cancelButton
             // 
-            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.cancelButton, "cancelButton");
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // okButton
             // 
-            resources.ApplyResources(this.okButton, "okButton");
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            resources.ApplyResources(this.okButton, "okButton");
             this.okButton.Name = "okButton";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -301,24 +301,26 @@
             this.certificateImageList.Images.SetKeyName(3, "Personal");
             this.certificateImageList.Images.SetKeyName(4, "Merchant");
             this.certificateImageList.Images.SetKeyName(5, "Capitaller");
-            this.certificateImageList.Images.SetKeyName(6, "Cashier");
-            this.certificateImageList.Images.SetKeyName(7, "Developer");
-            this.certificateImageList.Images.SetKeyName(8, "Registrar");
-            this.certificateImageList.Images.SetKeyName(9, "Guarantor");
-            this.certificateImageList.Images.SetKeyName(10, "Service");
-            this.certificateImageList.Images.SetKeyName(11, "Operator");
-            this.certificateImageList.Images.SetKeyName(12, "AliasRevoked");
-            this.certificateImageList.Images.SetKeyName(13, "FormalRevoked");
-            this.certificateImageList.Images.SetKeyName(14, "InitialRevoked");
-            this.certificateImageList.Images.SetKeyName(15, "PersonalRevoked");
-            this.certificateImageList.Images.SetKeyName(16, "MerchantRevoked");
-            this.certificateImageList.Images.SetKeyName(17, "CapitallerRevoked");
-            this.certificateImageList.Images.SetKeyName(18, "CashierRevoked");
-            this.certificateImageList.Images.SetKeyName(19, "DeveloperRevoked");
-            this.certificateImageList.Images.SetKeyName(20, "RegistrarRevoked");
-            this.certificateImageList.Images.SetKeyName(21, "GuarantorRevoked");
-            this.certificateImageList.Images.SetKeyName(22, "ServiceRevoked");
-            this.certificateImageList.Images.SetKeyName(23, "OperatorRevoked");
+            this.certificateImageList.Images.SetKeyName(6, "CapitallerEntity");
+            this.certificateImageList.Images.SetKeyName(7, "Cashier");
+            this.certificateImageList.Images.SetKeyName(8, "Developer");
+            this.certificateImageList.Images.SetKeyName(9, "Registrar");
+            this.certificateImageList.Images.SetKeyName(10, "Guarantor");
+            this.certificateImageList.Images.SetKeyName(11, "Service");
+            this.certificateImageList.Images.SetKeyName(12, "Operator");
+            this.certificateImageList.Images.SetKeyName(13, "AliasRevoked");
+            this.certificateImageList.Images.SetKeyName(14, "FormalRevoked");
+            this.certificateImageList.Images.SetKeyName(15, "InitialRevoked");
+            this.certificateImageList.Images.SetKeyName(16, "PersonalRevoked");
+            this.certificateImageList.Images.SetKeyName(17, "MerchantRevoked");
+            this.certificateImageList.Images.SetKeyName(18, "CapitallerRevoked");
+            this.certificateImageList.Images.SetKeyName(19, "CapitallerEntityRevoked");
+            this.certificateImageList.Images.SetKeyName(20, "CashierRevoked");
+            this.certificateImageList.Images.SetKeyName(21, "DeveloperRevoked");
+            this.certificateImageList.Images.SetKeyName(22, "RegistrarRevoked");
+            this.certificateImageList.Images.SetKeyName(23, "GuarantorRevoked");
+            this.certificateImageList.Images.SetKeyName(24, "ServiceRevoked");
+            this.certificateImageList.Images.SetKeyName(25, "OperatorRevoked");
             // 
             // CertificateForm
             // 

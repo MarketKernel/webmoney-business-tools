@@ -79,11 +79,6 @@ namespace WebMoney.Services.BusinessObjects
                                      throw new ArgumentNullException(nameof(authenticationService));
         }
 
-        public ExtendedInitializer(ulong identifier, string secretKey)
-            : base((WmId) identifier, secretKey)
-        {
-        }
-
         public override string Sign(string value)
         {
             if (null == value)

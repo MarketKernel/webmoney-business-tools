@@ -1,10 +1,10 @@
 ﻿{
   "&Return": "&Вернуть",
-  "Amount": "Сумма",
-  "Amount to return:": "Сумма к возврату",
-  "Description:": "Назначение",
-  "From purse:": "С кошелька",
-  "Moneyback": "Возврат средств",
+  "Amount:": "Сумма:",
+  "Amount to return:": "Сумма к возврату:",
+  "Description:": "Назначение:",
+  "From purse:": "С кошелька:",
+  "Moneyback": "Возврат средств:",
   "Return Payment": "Вернуть платеж",
   "To purse:": "На кошелек:"
 }

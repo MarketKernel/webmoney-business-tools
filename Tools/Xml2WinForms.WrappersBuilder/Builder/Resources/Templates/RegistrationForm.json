@@ -1,0 +1,244 @@
+﻿{
+  "text": "Registration",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "ComboBox",
+                "desc": "Authentication type:",
+                "items": [
+                  {
+                    "text": "Keeper WinPro (Classic)",
+                    "value": "Classic",
+                    "selected": true
+                  },
+                  {
+                    "text": "Keeper WebPro (Light)",
+                    "value": "Light"
+                  }
+                ],
+                "behaviorRules": [
+                  // Classic
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Classic",
+                    "affectedControls": [
+                      "Identifier",
+                      "BackupFile",
+                      "BackupFilePassword"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Classic",
+                    "affectedControls": [
+                      "Certificate"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  // Light
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Light",
+                    "affectedControls": [
+                      "Identifier",
+                      "BackupFile",
+                      "BackupFilePassword"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "False"
+                  },
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "activationСondition": "Light",
+                    "affectedControls": [
+                      "Certificate"
+                    ],
+                    "action": "SetVisibility",
+                    "actionParameter": "True"
+                  }
+                ]
+              },
+              // Classic
+              {
+                "type": "TextBox",
+                "desc": "WMID:",
+                "name": "Identifier",
+                "digitsOnly": true,
+                "maxLength": 12,
+                "inspectionRules": [
+                  {
+                    "type": "LengthEqual",
+                    "number": 12,
+                    "message": "Wrong WMID length!"
+                  }
+                ]
+              },
+              {
+                "type": "TextBoxWithButton",
+                "desc": "Path to keys' backup file (*.kwm):",
+                "name": "BackupFile",
+                "iconPath": "../Pictures/OpenFile.gif",
+                "readonly": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Specify path to the keys' backup file!"
+                  }
+                ],
+                "behaviorRules": [
+                  {
+                    "trigger": "ButtonClick",
+                    "action": "SelectFile",
+                    "actionParameter": "WM keys' file|*.kwm",
+                    "additionalParameters": [
+                      "CheckFileExists"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Password to backup file:",
+                "name": "BackupFilePassword",
+                "useSystemPasswordChar": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Password can not be empty!"
+                  }
+                ]
+              },
+              // Light
+              {
+                "type": "Table",
+                "desc": "Keeper WebPro certificate:",
+                "name": "Certificate",
+                "headerClickable": true,
+                "columns": [
+                  {
+                    "name": "SubjectName",
+                    "headerText": "Name",
+                    "width": 135
+                  },
+                  {
+                    "name": "IssuerName",
+                    "headerText": "Issuer",
+                    "width": 125
+                  },
+                  {
+                    "name": "NotBefore",
+                    "headerText": "Expiration date",
+                    "width": 125
+                  }
+                ],
+                "icons": [
+                  {
+                    "name": "Pfx",
+                    "iconPath": "../Pictures/Pfx.gif"
+                  }
+                ],
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Сertificate is not selected!"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Next"
+    },
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "CheckBox",
+                "desc": "Login without password",
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "Password",
+                      "PasswordConfirmation"
+                    ],
+                    "action": "Disable"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Password to program:",
+                "name": "Password",
+                "useSystemPasswordChar": true,
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Password can not be empty!"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Repeat password:",
+                "name": "PasswordConfirmation",
+                "useSystemPasswordChar": true,
+                "inspectionRules": [
+                  {
+                    "type": "EqualsToControl",
+                    "argument": "Password",
+                    "message": "Password and password confirmation do not match."
+                  }
+                ]
+              },
+              {
+                "type": "CheckBox",
+                "desc": "Change connection string",
+                "linuxCompatible": false,
+                "behaviorRules": [
+                  {
+                    "trigger": "CheckedChanged",
+                    "affectedControls": [
+                      "ConnectionString"
+                    ],
+                    "action": "Enable"
+                  }
+                ]
+              },
+              {
+                "type": "TextBoxWithButton",
+                "desc": "Connection string:",
+                "name": "ConnectionString",
+                "readonly": true,
+                "iconPath": "../Pictures/RecordEdit.gif",
+                "inspectionRules": [
+                  {
+                    "type": "NotEmpty",
+                    "message": "Specify path to the keys' backup file!"
+                  }
+                ],
+                "behaviorRules": [
+                  {
+                    "trigger": "ButtonClick",
+                    "action": "BuildConnectionString"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Finish"
+    }
+  ]
+}

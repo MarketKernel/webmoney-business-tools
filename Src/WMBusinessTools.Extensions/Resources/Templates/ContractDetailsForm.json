@@ -44,7 +44,7 @@
                 "icons": [
                   {
                     "name": "Ant",
-                    "iconPath": "../Pictures/Ant.gif"
+                    "iconPath": "../Pictures/Ant.png"
                   }
                 ],
                 "commandMenu":
@@ -53,7 +53,7 @@
                     {
                       "text": "&Copy value",
                       "command": "Copy",
-                      "iconPath": "../Pictures/Copy.gif"
+                      "iconPath": "../Pictures/Copy.png"
                     }
                   ]
                 }

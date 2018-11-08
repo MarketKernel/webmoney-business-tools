@@ -10,20 +10,9 @@ using log4net.Config;
 
 [assembly: XmlConfigurator(Watch = true, ConfigFile = "Log4Net.config")]
 
-[assembly: InternalsVisibleTo("Xml2WinForms.Utility, PublicKey=0024000004800000940000000602000000240000525341310004000001000100f5b1dfa496f2b6f98741d92cf19d468e3f4b948b8b0e571468b18a73ef6371d0fa53622a1188c03cc6b6715ca3c6b8f3ba0ff5816da2a4c9520831d4000920d8265a573e8c0aee453547e149c060419e88c2ef4829e84973e58a0601989b07e0fab346784ebb4df9620c2665d233c30b07240a2af8611c90289bebdf80e780cc")]
+[assembly: InternalsVisibleTo("Xml2WinForms.WrappersBuilder, PublicKey=00240000048000009400000006020000002400005253413100040000010001003d2a8cfbb1562e120500872972a8044ca1e811ae6c6a6f9ad486f95a7ff102c1a268b709b4530632a43f33ed4c06ab592c74bb8ac19444e027a547f6684b8ff9e57b5d24e5e48d6b0877c8b7810ae70ede4c1fb80fc38ada768d2c4d389f00afcf2b7a34eec08ae1d276cbf0ed41f41b78f792cc47738716810d24d3c8f4a89e")]
 
 [assembly: AssemblyTitle("WMBusinessTools.Extensions")]
-[assembly: AssemblyDescription("See: www.webmoney-business-tools.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
-[assembly: AssemblyConfiguration("Release")]
-#endif
-[assembly: AssemblyCompany("MarketKernel Team")]
-[assembly: AssemblyProduct("WebMoney Business Tools")]
-[assembly: AssemblyCopyright("© MarketKernel Team <global@marketkernel.com> 2009-2017")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
@@ -43,5 +32,5 @@ using log4net.Config;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]

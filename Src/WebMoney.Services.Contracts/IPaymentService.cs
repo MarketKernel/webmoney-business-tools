@@ -8,6 +8,6 @@ namespace WebMoney.Services.Contracts
         IPaymentConfirmationInstruction RequestPayment(IOriginalExpressPayment originalExpressPayment);
         IExpressPayment ConfirmPayment(IPaymentConfirmation confirmation);
         string CreatePaymentLink(IPaymentLinkRequest paymentLinkRequest);
-        IMerchantPayment FindPayment(string purse, long transferPrimaryId, PaymentNumberKind numberKind);
+        IMerchantPayment FindPayment(string purse, long number, PaymentNumberKind numberKind);
     }
 }

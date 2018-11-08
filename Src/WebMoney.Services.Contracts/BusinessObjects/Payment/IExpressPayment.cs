@@ -4,8 +4,8 @@ namespace WebMoney.Services.Contracts.BusinessObjects
 {
     public interface IExpressPayment
     {
-        int TransferPrimaryId { get; }
-        int InvoicePrimaryId { get; }
+        long TransferId { get; }
+        long InvoiceId { get; }
         decimal Amount { get; }
         DateTime TransferCreateTime { get; }
         string SourcePurse { get; }

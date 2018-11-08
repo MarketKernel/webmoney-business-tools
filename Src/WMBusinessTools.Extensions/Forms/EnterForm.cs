@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Security;
@@ -11,6 +12,7 @@ using WebMoney.Services.Contracts.BusinessObjects;
 using WebMoney.Services.Contracts.Exceptions;
 using WMBusinessTools.Extensions.Contracts;
 using WMBusinessTools.Extensions.Contracts.Contexts;
+using WMBusinessTools.Extensions.Utils;
 using Xml2WinForms;
 using Xml2WinForms.Templates;
 
@@ -31,6 +33,9 @@ namespace WMBusinessTools.Extensions.Forms
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _entranceService = _context.UnityContainer.Resolve<IEntranceService>();
             _formattingService = _context.UnityContainer.Resolve<IFormattingService>();
+
+            if (ApplicationUtility.IsRunningOnMono)
+                Font = new Font("Arial", 8);
 
             InitializeComponent();
 

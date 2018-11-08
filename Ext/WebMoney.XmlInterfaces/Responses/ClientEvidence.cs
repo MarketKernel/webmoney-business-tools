@@ -7,6 +7,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X19. Verifying personal information for the owner of a WM identifier.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -15,8 +18,19 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class ClientEvidence : WmResponse
     {
+        /// <summary>
+        /// Unique answer ID generated each time the interface is used.
+        /// </summary>
         public Description Id { get; protected set; }
+
+        /// <summary>
+        /// User's first name.
+        /// </summary>
         public Description FirstName { get; protected set; }
+
+        /// <summary>
+        /// User's patronymic.
+        /// </summary>
         public Description Patronymic { get; protected set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)

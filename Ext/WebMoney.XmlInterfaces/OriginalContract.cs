@@ -7,6 +7,9 @@ using WebMoney.XmlInterfaces.Responses;
 
 namespace WebMoney.XmlInterfaces
 {
+    /// <summary>
+    /// Interface X17. Operations with arbitration contracts.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -21,6 +24,9 @@ namespace WebMoney.XmlInterfaces
 
         protected override string LightUrl => throw new NotSupportedException();
 
+        /// <summary>
+        /// Contract name. Short (not more than 255 characters) contract name.
+        /// </summary>
         public Description Name
         {
             get => _name;
@@ -33,8 +39,14 @@ namespace WebMoney.XmlInterfaces
             }
         }
 
+        /// <summary>
+        /// Contract type: ctype=1 - contract type with open access, ctype=2 - contract with restricted access.
+        /// </summary>
         public ContractType Type => null != AcceptorList && 0 != AcceptorList.Count ? ContractType.Private : ContractType.Public;
 
+        /// <summary>
+        /// Document text itself.
+        /// </summary>
         public string Text
         {
             get => _text;
@@ -47,12 +59,20 @@ namespace WebMoney.XmlInterfaces
             }
         }
 
+        /// <summary>
+        /// List of users WMIDs authorized to accept the given contract.
+        /// </summary>
         public List<WmId> AcceptorList { get; set; }
 
         protected internal OriginalContract()
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="text"></param>
         public OriginalContract(Description name, string text)
         {
             if (string.IsNullOrEmpty(name))

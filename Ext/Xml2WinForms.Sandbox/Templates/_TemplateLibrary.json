@@ -1,0 +1,388 @@
+{
+  "templates": [
+    // WMID с поиском
+    {
+      "templateName": "WMIDTemplate",
+      "type": "TextBoxWithButton",
+      "desc": "WMID:",
+      "iconPath": "Resources/find.png",
+      "digitsOnly": true,
+      "maxLength": 12,
+      "inspectionRules": [
+        {
+          "type": "LengthEqual",
+          "etalon": 12,
+          "message": "Wrong WMID length!"
+        },
+        {
+          "type": "RegExp",
+          "regExp": "^[0-9]{12}$",
+          "message": "Wrong WMID!"
+        }
+      ],
+      "behaviorRules": [
+        {
+          "trigger": "ButtonClick",
+          "action": "FindPassport"
+        }
+      ]
+    },
+    // Кошелек с поиском WMID.
+    {
+      "templateName": "PurseTemplate",
+      "desc": "Purse number:",
+      "type": "TextBoxWithButton",
+      "iconPath": "Resources/find.png",
+      "maxLength": 13,
+      "inspectionRules": [
+        {
+          "type": "RegExp",
+          "regExp": "^[Z|R|E|U|B|X|H|K|G|V|C|D|Y][0-9]{12}$",
+          "message": "Wrong purse number!"
+        }
+      ],
+      "behaviorRules": [
+        {
+          "trigger": "ButtonClick",
+          "action": "FindPassport"
+        }
+      ]
+    },
+    // Кошелек пользователя с .
+    {
+      "templateName": "AccountListTemplate",
+      "type": "AccountDropDownList",
+      "desc": "From purse:",
+      "items": [
+        {
+          "number": "Z123456789012",
+          "name": "Temp",
+          "amount": "123",
+          "availableAmount": "453",
+          "currency": "WMZ"
+        },
+        {
+          "number": "E123456789012",
+          "name": "Кошелек 2",
+          "amount": "321",
+          "availableAmount": "123",
+          "currency": "WME"
+        },
+        {
+          "number": "X123456789012",
+          "name": "Purse X",
+          "amount": "456",
+          "availableAmount": "123",
+          "currency": "WMX"
+        }
+      ],
+      "behaviorRules": [
+        {
+          "trigger": "SelectedIndexChanged",
+          "action": "UpdateAvailableAmount",
+          "affectedControls": [
+            "Amount"
+          ]
+        }
+      ]
+    },
+    // Типы кошельков.
+    {
+      "templateName": "PurseTypeTemplate",
+      "type": "AccountDropDownList",
+      "desc": "Purse type:",
+      "items": [
+        {
+          "number": "WMZ",
+          "currency": "WMZ"
+        },
+        {
+          "number": "WMR",
+          "currency": "WMR"
+        },
+        {
+          "number": "WME",
+          "currency": "WME"
+        },
+        {
+          "number": "WMU",
+          "currency": "WMU"
+        },
+        {
+          "number": "WMB",
+          "currency": "WMB"
+        },
+        {
+          "number": "WMX",
+          "currency": "WMX"
+        },
+        {
+          "number": "WMG",
+          "currency": "WMG"
+        },
+        {
+          "number": "WMK",
+          "currency": "WMK"
+        },
+        {
+          "number": "WMV",
+          "currency": "WMV"
+        }
+      ]
+    },
+    // Сумма, значение больше 0.
+    {
+      "templateName": "AmountTemplate",
+      "type": "AmountNumericUpDown",
+      "name": "Amount",
+      "desc": "Amount",
+      "inspectionRules": [
+        {
+          "type": "ValueMoreThen",
+          "etalon": 0,
+          "message": "Wrong amount!"
+        }
+      ]
+    },
+    // Включение группы для ввода кода протекции.
+    {
+      "templateName": "ProtectionCheckBox",
+      "type": "CheckBox",
+      "desc": "Use payment protection",
+      "behaviorRules": [
+        {
+          "trigger": "CheckedChanged",
+          "affectedControls": [
+            "PaymentProtectionGroup"
+          ],
+          "action": "Enable"
+        }
+      ]
+    },
+    // Группа ввода кода и периода протекции.
+    {
+      "templateName": "ProtectionGroup",
+      "type": "GroupBox",
+      "name": "PaymentProtectionGroup",
+      "desc": "Payment Protection",
+      "column": {
+        "controls": [
+          {
+            "type": "NumericUpDown",
+            "name": "ProtectionPeriod",
+            "desc": "Maximum protection period (days): ",
+            "minValue": 1,
+            "maxValue": 255
+          },
+          {
+            "type": "TextBox",
+            "desc": "Protection code:",
+            "maxLength": 255
+          }
+        ]
+      }
+    },
+    // Номер заказа.
+    {
+      "templateName": "OrderNumberTemplate",
+      "type": "NumericUpDown",
+      "desc": "Order number:",
+      "minValue": 1,
+      "maxValue": 2147483647
+    },
+    // Идентификатор клиента.
+    {
+      "templateName": "ClientIdentifierTemplate",
+      "type": "GroupBox",
+      "desc": "Client info",
+      "column": {
+        "controls": [
+          {
+            "type": "ComboBox",
+            "desc": "Identifier type:",
+            "items": [
+              {
+                "text": "Phone number",
+                "value": "0"
+              },
+              {
+                "text": "WMID",
+                "value": "1"
+              },
+              {
+                "text": "Email address",
+                "value": "2"
+              }
+            ],
+            "behaviorRules": [
+              // Show Phone
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "0",
+                "affectedControls": [
+                  "Phone"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "True"
+              },
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "0",
+                "affectedControls": [
+                  "WMID",
+                  "Email"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "False"
+              },
+              // Show WMID
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "1",
+                "affectedControls": [
+                  "WMID"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "True"
+              },
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "1",
+                "affectedControls": [
+                  "Phone",
+                  "Email"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "False"
+              },
+              // Show email
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "2",
+                "affectedControls": [
+                  "Email"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "True"
+              },
+              {
+                "trigger": "SelectedIndexChanged",
+                "activationСondition": "2",
+                "affectedControls": [
+                  "WMID",
+                  "Email"
+                ],
+                "action": "SetVisibility",
+                "actionParameter": "False"
+              }
+            ]
+          },
+          {
+            "type": "TextBox",
+            "desc": "Phone number (international format):",
+            "name": "Phone",
+            "digitsOnly": true,
+            "maxLength": 15,
+            "inspectionRules": [
+              {
+                "type": "RegExp",
+                "regExp": "^[0-9]{11,15}$",
+                "message": "Wrong number length!"
+              }
+            ]
+          },
+          {
+            "type": "TextBoxWithButton",
+            "desc": "WMID:",
+            "name": "WMID",
+            "visible": false,
+            "iconPath": "Resources/find.gif",
+            "digitsOnly": true,
+            "maxLength": 12,
+            "inspectionRules": [
+              {
+                "type": "LengthEqual",
+                "etalon": 12,
+                "message": "Wrong WMID length!"
+              },
+              {
+                "type": "RegExp",
+                "regExp": "^[0-9]{12}$",
+                "message": "Wrong WMID!"
+              }
+            ],
+            "behaviorRules": [
+              {
+                "trigger": "ButtonClick",
+                "action": "FindPassport"
+              }
+            ]
+          },
+          {
+            "type": "TextBox",
+            "desc": "Email address:",
+            "name": "Email",
+            "visible": false,
+            "inspectionRules": [
+              {
+                "type": "RegExp",
+                "regExp": "/w+([-+.']/w+)*@/w+([-.]/w+)*/./w+([-.]/w+)*",
+                "message": "Wrong email address!"
+              },
+              {
+                "type": "NotEmpty",
+                "message": "Email address cannot be empty!"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    // Код подтверждения.
+    {
+      "templateName": "ConfirmationCodeTemplate",
+      "type": "TextBox",
+      "desc": "Confirmation code:",
+      "digitsOnly": true,
+      "name": "Code",
+      "maxLength": 25,
+      "inspectionRules": [
+        {
+          "type": "RegExp",
+          "regExp": "^[0-9]{5,25}$",
+          "message": "Wrong сonfirmation code length!"
+        }
+      ]
+    },
+    // Номер телефона в международном формате.
+    {
+      "templateName": "PhoneNumberTemplate",
+      "type": "TextBox",
+      "desc": "Phone number (international format):",
+      "digitsOnly": true,
+      "maxLength": 15,
+      "inspectionRules": [
+        {
+          "type": "RegExp",
+          "regExp": "^[0-9]{11,15}$",
+          "message": "Wrong number length!"
+        }
+      ]
+    },
+    // Адрес
+    {
+      "templateName": "AddressTemplate",
+      "type": "TextBox",
+      "desc": "Address:",
+      "maxLength": 255,
+      "multiline": true
+    },
+    // Период
+    {
+      "templateName": "PeriodTemplate",
+      "type": "NumericUpDown",
+      "maxValue": 255,
+      "minValue": 1
+    }
+  ]
+}

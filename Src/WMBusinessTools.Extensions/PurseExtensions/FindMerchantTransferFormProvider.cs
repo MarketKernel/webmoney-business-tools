@@ -75,7 +75,7 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            return GetForm(context, context.Account.Number, context.Transfer.PrimaryId,
+            return GetForm(context, context.Transfer.TargetPurse, context.Transfer.PrimaryId,
                 PaymentNumberKind.TransferPrimaryId);
         }
 
@@ -84,7 +84,7 @@ namespace WMBusinessTools.Extensions
             if (null == context)
                 throw new ArgumentNullException(nameof(context));
 
-            return GetForm(context, context.Account.Number, context.Invoice.PrimaryId,
+            return GetForm(context, context.Invoice.TargetPurse, context.Invoice.PrimaryId,
                 PaymentNumberKind.InvoicePrimaryId);
         }
 
@@ -140,10 +140,10 @@ namespace WMBusinessTools.Extensions
                         var records = new List<ResultRecord>();
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "System transfer ID"),
-                            merchantPayment.SystemTransferId.ToString()));
+                            merchantPayment.TransferId.ToString()));
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "System invoice ID"),
-                            merchantPayment.SystemInvoiceId.ToString()));
+                            merchantPayment.InvoiceId.ToString()));
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "Amount"),
                             formattingService.FormatAmount(merchantPayment.Amount)));
@@ -167,7 +167,7 @@ namespace WMBusinessTools.Extensions
                             merchantPayment.IsEnum.ToString()));
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "IP Address"),
-                            merchantPayment.IPAddress?.ToString() ?? string.Empty));
+                            merchantPayment.IPAddress?.ToString()));
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "Telepat phone"),
                             merchantPayment.TelepatPhone ?? string.Empty));
@@ -198,7 +198,8 @@ namespace WMBusinessTools.Extensions
                         records.Add(new ResultRecord(
                             Translator.Instance.Translate(ExtensionCatalog.FindMerchantTransfer, "Cashier amount"),
                             cashierAmountValue));
-                        // records.Add(new ResultRecord("sdp_type", merchantPayment.)); TODO: добавить SDP
+                        // TODO [M] добавить SDP
+                        // records.Add(new ResultRecord("sdp_type", merchantPayment.));
 
                         var valuesWrapperStep2 = new FindMerchantTransferFormValuesWrapper.Step2();
                         valuesWrapperStep2.Control1Payment = records.Select(r => new ListItemContent(r)).ToList();

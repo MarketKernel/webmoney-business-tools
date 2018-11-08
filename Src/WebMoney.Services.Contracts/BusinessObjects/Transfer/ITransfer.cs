@@ -17,7 +17,7 @@ namespace WebMoney.Services.Contracts.BusinessObjects
         TransferType Type { get; }
         long InvoiceId { get; }
         int OrderId { get; }
-        int TransferId { get; }
+        int PaymentId { get; }
         byte ProtectionPeriod { get; }
         long PartnerIdentifier { get; }
         decimal Balance { get; }

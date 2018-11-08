@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Xml.Serialization;
+using WebMoney.XmlInterfaces.BasicObjects;
 
 namespace WebMoney.XmlInterfaces.Configuration
 {
@@ -19,14 +20,8 @@ namespace WebMoney.XmlInterfaces.Configuration
         [XmlElement("authorizationMode")]
         public AuthorizationMode AuthorizationMode
         {
-            get
-            {
-                return _authorizationMode;
-            }
-            set
-            {
-                _authorizationMode = value;
-            }
+            get => _authorizationMode;
+            set => _authorizationMode = value;
         }
 
         [XmlElement("merchant")]
@@ -39,10 +34,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 
                 return _merchant;
             }
-            set
-            {
-                _merchant = value;
-            }
+            set => _merchant = value;
         }
 
         [XmlElement("keeperClassic")]
@@ -55,10 +47,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 
                 return _keeperClassic;
             }
-            set
-            {
-                _keeperClassic = value;
-            }
+            set => _keeperClassic = value;
         }
 
         [XmlElement("keeperLight")]
@@ -71,10 +60,7 @@ namespace WebMoney.XmlInterfaces.Configuration
 
                 return _keeperLight;
             }
-            set
-            {
-                _keeperLight = value;
-            }
+            set => _keeperLight = value;
         }
     }
 }

@@ -84,8 +84,8 @@
           "sortable": true
         },
         {
-          "name": "TransferPrimaryId",
-          "headerText": "Transfer primary ID",
+          "name": "TransferId",
+          "headerText": "Transfer ID",
           "width": 100,
           "sortable": true
         },
@@ -135,13 +135,13 @@
   },
   "statusLabels": [
     {
+      "textColor": "255;0;0"
+    },
+    {
       "textColor": "0;0;255"
     },
     {
-      "textColor": "0;255;0"
-    },
-    {
-      "textColor": "255;0;0"
+      "textColor": "31;170;35"
     }
   ]
 }

@@ -33,21 +33,21 @@ namespace WebMoney.Services
                         phone = $"+{phone}";
 
                     request = new ExpressPaymentRequest(Purse.Parse(originalExpressPayment.TargetPurse),
-                        (uint) originalExpressPayment.OrderId, (Amount) originalExpressPayment.Amount,
+                        originalExpressPayment.OrderId, (Amount) originalExpressPayment.Amount,
                         (Description) originalExpressPayment.Description,
                         Phone.Parse(phone),
                         ConvertFrom.ContractTypeToApiType(originalExpressPayment.ConfirmationType));
                     break;
                 case ExtendedIdentifierType.WmId:
                     request = new ExpressPaymentRequest(Purse.Parse(originalExpressPayment.TargetPurse),
-                        (uint) originalExpressPayment.OrderId, (Amount) originalExpressPayment.Amount,
+                        originalExpressPayment.OrderId, (Amount) originalExpressPayment.Amount,
                         (Description) originalExpressPayment.Description,
                         WmId.Parse(originalExpressPayment.ExtendedIdentifier.Value),
                         ConvertFrom.ContractTypeToApiType(originalExpressPayment.ConfirmationType));
                     break;
                 case ExtendedIdentifierType.Email:
                     request = new ExpressPaymentRequest(Purse.Parse(originalExpressPayment.TargetPurse),
-                        (uint) originalExpressPayment.OrderId, (Amount) originalExpressPayment.Amount,
+                        originalExpressPayment.OrderId, (Amount) originalExpressPayment.Amount,
                         (Description) originalExpressPayment.Description,
                         new MailAddress(originalExpressPayment.ExtendedIdentifier.Value),
                         ConvertFrom.ContractTypeToApiType(originalExpressPayment.ConfirmationType));
@@ -56,7 +56,7 @@ namespace WebMoney.Services
                     throw new ArgumentOutOfRangeException();
             }
 
-            request.Initializer = CreateInitializer(originalExpressPayment.TargetPurse);
+            request.Initializer = CreateInitializer(originalExpressPayment.TargetPurse, true);
 
             ExpressPaymentResponse response;
 
@@ -79,9 +79,9 @@ namespace WebMoney.Services
                 throw new ArgumentNullException(nameof(confirmation));
 
             var request = new ExpressPaymentConfirmation(Purse.Parse(confirmation.TargetPurse),
-                confirmation.ConfirmationCode, (uint) confirmation.InvoiceId, null)
+                confirmation.ConfirmationCode, (uint) confirmation.InvoiceId)
             {
-                Initializer = CreateInitializer(confirmation.TargetPurse)
+                Initializer = CreateInitializer(confirmation.TargetPurse, true)
         };
 
             ExpressPaymentReport response;
@@ -95,7 +95,7 @@ namespace WebMoney.Services
                 throw new ExternalServiceException(exception.Message, exception);
             }
 
-            var expressPayment = new ExpressPayment((int) response.TransferId, (int) response.InvoiceId,
+            var expressPayment = new ExpressPayment(response.TransferId, response.InvoiceId,
                 response.Amount, response.Date.ToUniversalTime(), response.ClientPurse.ToString(), response.ClientWmId);
 
             return expressPayment;
@@ -106,9 +106,9 @@ namespace WebMoney.Services
             if (null == paymentLinkRequest)
                 throw new ArgumentNullException(nameof(paymentLinkRequest));
 
-            var request = new OriginalMerchantPayment((uint) paymentLinkRequest.OrderId,
+            var request = new OriginalMerchantPayment(paymentLinkRequest.OrderId,
                 Purse.Parse(paymentLinkRequest.StorePurse), (Amount) paymentLinkRequest.Amount,
-                (Description) paymentLinkRequest.Description, (uint) paymentLinkRequest.Lifetime)
+                (Description) paymentLinkRequest.Description, (ushort) paymentLinkRequest.Lifetime)
             {
                 Initializer = CreateInitializer(paymentLinkRequest.StorePurse)
             };
@@ -127,13 +127,13 @@ namespace WebMoney.Services
             return response.Token;
         }
 
-        public IMerchantPayment FindPayment(string purse, long transferPrimaryId,
+        public IMerchantPayment FindPayment(string purse, long number,
             Contracts.BasicTypes.PaymentNumberKind numberKind)
         {
             if (null == purse)
                 throw new ArgumentNullException(nameof(purse));
 
-            var request = new MerchantOperationObtainer(Purse.Parse(purse), (uint) transferPrimaryId,
+            var request = new MerchantOperationObtainer(Purse.Parse(purse), number,
                 ConvertFrom.ContractTypeToApiType(numberKind))
             {
                 Initializer = CreateInitializer(purse)
@@ -150,7 +150,7 @@ namespace WebMoney.Services
                 throw new ExternalServiceException(exception.Message, exception);
             }
 
-            var merchantPayment = new MerchantPayment(response.OperationId, response.InvoiceId,
+            var merchantPayment = new MerchantPayment(response.TransferId, response.InvoiceId,
                 response.Amount, response.CreateTime.ToUniversalTime(), response.Description, response.SourceWmId,
                 response.SourcePurse.ToString())
             {
@@ -179,27 +179,35 @@ namespace WebMoney.Services
             return merchantPayment;
         }
 
-        private Initializer CreateInitializer(string storePurse)
+        private Initializer CreateInitializer(string storePurse, bool isPayment = false)
         {
-            string merchantKey = null;
+            long currentIdentifier = Session.CurrentIdentifier;
+
+            string secretKey = null;
 
             if (Session.AuthenticationService.HasConnectionSettings)
             {
                 using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
                 {
-                    merchantKey = (from a in context.Accounts
-                        where a.Number == storePurse
-                        select a.MerchantKey).FirstOrDefault();
+                    var keys = (from a in context.Accounts
+                        where a.Identifier == currentIdentifier
+                              && a.Number == storePurse
+                        select new {a.MerchantKey, a.SecretKeyX20}).First();
+
+                    secretKey = keys.MerchantKey;
+
+                    if (isPayment && null != keys.SecretKeyX20)
+                        secretKey = keys.SecretKeyX20;
                 }
             }
 
-            if (null == merchantKey && AuthenticationMethod.KeeperClassic !=
+            if (null == secretKey && AuthenticationMethod.KeeperClassic !=
                 Session.AuthenticationService.AuthenticationMethod)
                 throw new InvalidOperationException(
-                    "null == merchantKey && AuthenticationMethod.KeeperClassic != Session.AuthenticationService.AuthenticationMethod");
+                    "null == secretKey && AuthenticationMethod.KeeperClassic != Session.AuthenticationService.AuthenticationMethod");
 
-            var initializer = null != merchantKey
-                ? new Initializer((WmId) Session.CurrentIdentifier, merchantKey)
+            var initializer = null != secretKey
+                ? new Initializer((WmId) Session.CurrentIdentifier, secretKey)
                 : Session.AuthenticationService.ObtainInitializer();
 
             return initializer;

@@ -45,7 +45,7 @@ namespace WebMoney.Services
             }
 
             var preparedTransfers = transferList.Select(
-                    t => new PreparedTransfer(t.TransferId, t.SourcePurse, t.TargetPurse, t.Amount, t.Description))
+                    t => new PreparedTransfer(t.PaymentId, t.SourcePurse, t.TargetPurse, t.Amount, t.Description))
                 .ToList();
 
             var totalAmount = preparedTransfers.Sum(t => t.Amount);
@@ -332,42 +332,43 @@ namespace WebMoney.Services
             return preparedTransfer;
         }
 
-        public void ProcessPreparedTransfer()
+        public void ProcessPreparedTransfer(int preparedTransferId)
         {
             PreparedTransfer preparedTransfer;
 
             using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
             {
                 preparedTransfer =
-                    context.PreparedTransfers.FirstOrDefault(pt => pt.State == PreparedTransferState.Processed);
+                    context.PreparedTransfers.First(pt => pt.Id == preparedTransferId);
             }
 
-            if (null == preparedTransfer)
+            if (preparedTransfer.State != PreparedTransferState.Processed)
                 return;
 
             var transferBundleId = preparedTransfer.TransferBundleId;
 
             var transferService = Container.Resolve<IExternalTransferService>();
 
-            PreparedTransferState treparedTransferState;
+            PreparedTransferState preparedTransferState;
             string errrorMessage = null;
 
             try
             {
-                transferService.CreateTransfer(new OriginalTransfer(preparedTransfer.TransferId,
+                transferService.CreateTransfer(new OriginalTransfer(preparedTransfer.PaymentId,
                     preparedTransfer.SourcePurse, preparedTransfer.TargetPurse, preparedTransfer.Amount,
                     preparedTransfer.Description));
-                treparedTransferState = PreparedTransferState.Completed;
+
+
+                preparedTransferState = PreparedTransferState.Completed;
             }
             catch (Exception exception)
             {
                 Logger.Error(exception.Message, exception);
                 errrorMessage = exception.Message;
-                treparedTransferState = PreparedTransferState.Failed;
+                preparedTransferState = PreparedTransferState.Failed;
             }
 
             TransferBundle transferBundle;
-            var preparedTransferId = preparedTransfer.Id;
 
             using (var context = new DataContext(Session.AuthenticationService.GetConnectionSettings()))
             {
@@ -380,7 +381,8 @@ namespace WebMoney.Services
                     preparedTransfer = context.PreparedTransfers.Include("TransferBundle")
                         .First(pt => pt.Id == preparedTransferId);
 
-                    preparedTransfer.State = treparedTransferState;
+                    // TODO [M] Получить данные платежа.
+                    preparedTransfer.State = preparedTransferState;
                     preparedTransfer.ErrorMessage = errrorMessage;
 
                     transferBundle = preparedTransfer.TransferBundle;
@@ -388,7 +390,7 @@ namespace WebMoney.Services
                     transferBundle.ProcessedCount--;
                     transferBundle.ProcessedTotalAmount -= preparedTransfer.Amount;
 
-                    switch (treparedTransferState)
+                    switch (preparedTransferState)
                     {
                         case PreparedTransferState.Failed:
                             transferBundle.FailedCount++;
@@ -399,7 +401,7 @@ namespace WebMoney.Services
                             transferBundle.CompletedTotalAmount += preparedTransfer.Amount;
                             break;
                         default:
-                            throw new InvalidOperationException("treparedTransferState == " + treparedTransferState);
+                            throw new InvalidOperationException("treparedTransferState == " + preparedTransferState);
                     }
 
                     context.SaveChanges();

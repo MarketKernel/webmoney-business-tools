@@ -27,7 +27,8 @@ namespace WMBusinessTools.Extensions
             var currencyService = context.UnityContainer.Resolve<ICurrencyService>();
             var currency = currencyService.ObtainCurrencyByAccountNumber(context.Account.Number);
 
-            if (!currencyService.CheckCapabilities(currency, CurrencyCapabilities.Invoice))
+            if (!currencyService.CheckCapabilities(currency,
+                CurrencyCapabilities.Actual | CurrencyCapabilities.Invoice))
                 return false;
 
             return true;

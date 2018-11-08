@@ -9,9 +9,10 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
 
         public int Control1TransferId
         {
-            get => (int)(decimal)GetValue(0);
-            set => SetValue("TransferId", (decimal)value);
+            get => (int) (decimal) GetValue(0);
+            set => SetValue("TransferId", (decimal) value);
         }
+
         public string Control2ToPurse => (string) GetValue(1);
         public string Control3FromPurse => (string) GetValue(2);
 
@@ -26,11 +27,17 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
 
         public byte Control7ProtectionPeriod
         {
-            get => (byte)(decimal) GetValue(6);
+            get => (byte) (decimal) GetValue(6);
             set => SetValue("ProtectionPeriod", (decimal) value);
         }
 
-        public string Control8ProtectionCode => (string) GetValue(7);
+        public string Control8ProtectionCode
+        {
+            get => (string) GetValue(7);
+            set => SetValue("ProtectionCode", value);
+        }
+
+        public bool Control9ProtectionByTime => (bool) GetValue(8);
 
         public CreateTransferFormValuesWrapper()
         {
@@ -40,7 +47,6 @@ namespace WMBusinessTools.Extensions.StronglyTypedWrappers
         {
             if (null == values)
                 throw new ArgumentNullException(nameof(values));
-
             ApplyOutcomeValues(values);
         }
     }

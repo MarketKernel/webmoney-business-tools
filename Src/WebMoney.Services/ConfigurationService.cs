@@ -20,6 +20,13 @@ namespace WebMoney.Services
         private const string TrustedCertificatesFolder = "TrustedCertificates";
 
         private static readonly ILog Logger = LogManager.GetLogger(typeof(ConfigurationService));
+        private static string _installationReference;
+
+        public string InstallationReference
+        {
+            get => _installationReference;
+            set => _installationReference = value;
+        }
 
         public void RegisterServices(IUnityContainer unityContainer)
         {
@@ -30,6 +37,7 @@ namespace WebMoney.Services
             Configure();
 
             // Регистрация сервисов
+            unityContainer.RegisterType<IConfigurationService, ConfigurationService>();
             unityContainer.RegisterType<IContractService, ContractService>();
             unityContainer.RegisterType<ICurrencyService, CurrencyService>();
             unityContainer.RegisterType<IEntranceService, EntranceService>();

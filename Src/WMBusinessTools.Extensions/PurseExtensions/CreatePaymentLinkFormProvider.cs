@@ -25,7 +25,8 @@ namespace WMBusinessTools.Extensions
             var currencyService = context.UnityContainer.Resolve<ICurrencyService>();
             var currency = currencyService.ObtainCurrencyByAccountNumber(context.Account.Number);
 
-            if (!currencyService.CheckCapabilities(currency, CurrencyCapabilities.Transfer))
+            if (!currencyService.CheckCapabilities(currency,
+                CurrencyCapabilities.Actual | CurrencyCapabilities.Transfer))
                 return false;
 
             if (AuthenticationMethod.KeeperClassic != context.Session.AuthenticationService.AuthenticationMethod &&

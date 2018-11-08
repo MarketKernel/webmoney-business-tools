@@ -7,6 +7,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X4. Receiving the history of issued invoices. Verifying whether invoices were paid.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -15,6 +18,9 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class OutgoingInvoiceRegister : WmResponse
     {
+        /// <summary>
+        /// List of issued invoices received in response.
+        /// </summary>
         public List<OutgoingInvoice> OutgoingInvoiceList { get; protected set; }
 
         protected override void Inspect(XmlPackage xmlPackage)

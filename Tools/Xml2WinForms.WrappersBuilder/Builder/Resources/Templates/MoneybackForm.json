@@ -1,0 +1,58 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Moneyback",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "GroupBox",
+                "name": "ReturnPaymentGroup",
+                "desc": "Return Payment",
+                "column": {
+                  "controls": [
+                    {
+                      "prototype": "PurseTemplate",
+                      "desc": "From purse:",
+                      "name": "SourcePurse",
+                      "readOnly": true,
+                      "inspectionRules": [
+                      ]
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "To purse:",
+                      "name": "TargetPurse",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Amount",
+                      "name": "Amount",
+                      "readOnly": true
+                    },
+                    {
+                      "type": "TextBox",
+                      "desc": "Description:",
+                      "name": "Description",
+                      "readOnly": true,
+                      "multiline": true
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Amount to return:",
+                      "name": "ReturnAmount"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Return"
+    }
+  ]
+}

@@ -64,7 +64,7 @@
                 "type": "TextBoxWithButton",
                 "desc": "Payment link:",
                 "name": "PaymentLink",
-                "iconPath": "../Pictures/Copy.gif",
+                "iconPath": "../Pictures/Copy.png",
                 "readOnly": true,
                 "behaviorRules": [
                   {

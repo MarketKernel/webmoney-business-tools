@@ -7,6 +7,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X16. Creating a purse.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -15,9 +18,24 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class RecentPurse : WmResponse
     {
-        public uint Id { get; protected set; }
+        /// <summary>
+        /// Unique purse number in the WebMoney system.
+        /// </summary>
+        public int Id { get; protected set; }
+
+        /// <summary>
+        /// Purse number.
+        /// </summary>
         public Purse Purse { get; protected set; }
+
+        /// <summary>
+        /// Amount on the purse.
+        /// </summary>
         public Amount Amount { get; protected set; }
+
+        /// <summary>
+        /// Purse name.
+        /// </summary>
         public Description Description { get; protected set; }
 
         protected override void Inspect(XmlPackage xmlPackage)
@@ -36,7 +54,7 @@ namespace WebMoney.XmlInterfaces.Responses
             if (null == wmXmlPackage)
                 throw new ArgumentNullException(nameof(wmXmlPackage));
 
-            Id = wmXmlPackage.SelectUInt32("purse/@id");
+            Id = wmXmlPackage.SelectInt32("purse/@id");
             Purse = wmXmlPackage.SelectPurse("purse/pursename");
             Amount = wmXmlPackage.SelectAmount("purse/amount");
             Description = (Description) wmXmlPackage.SelectNotEmptyString("purse/desc");

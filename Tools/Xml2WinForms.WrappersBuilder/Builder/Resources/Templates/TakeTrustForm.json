@@ -1,0 +1,126 @@
+﻿{
+  "templateLibrary": "_TemplateLibrary.json",
+  "text": "Trust By SMS",
+  "steps": [
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "prototype": "AccountListTemplate",
+                "desc": "Store purse:",
+                "behaviorRules": [
+                  {
+                    "trigger": "SelectedIndexChanged",
+                    "action": "UpdateCurrency",
+                    "affectedControls": [
+                      "DailyAmountLimit",
+                      "DayAmountLimit",
+                      "WeeklyAmountLimit",
+                      "MonthlyAmountLimit"
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "GroupBox",
+                "desc": "Limits",
+                "column": {
+                  "controls": [
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Daily limit",
+                      "name": "DailyAmountLimit"
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Weekly limit",
+                      "name": "WeeklyAmountLimit"
+                    },
+                    {
+                      "type": "AmountNumericUpDown",
+                      "desc": "Monthly limit",
+                      "name": "MonthlyAmountLimit"
+                    }
+                  ]
+                }
+              },
+              {
+                "prototype": "ClientIdentifierTemplate",
+                "desc": "Client info"
+              },
+              {
+                "type": "ComboBox",
+                "desc": "Confirmation type:",
+                "items": [
+                  {
+                    "text": "SMS",
+                    "value": "Sms"
+                  },
+                  {
+                    "text": "USSD",
+                    "value": "Ussd"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Create"
+    },
+    {
+      "tunableShape": {
+        "columns": [
+          {
+            "controls": [
+              {
+                "type": "TextBox",
+                "desc": "Request number:",
+                "name": "RequestNumber",
+                "readOnly": true
+              },
+              {
+                "type": "TextBox",
+                "desc": "Message:",
+                "name": "Message",
+                "readOnly": true,
+                "multiline": true
+              },
+              {
+                "type": "TextBoxWithButton",
+                "desc": "SMS reference:",
+                "name": "SmsReference",
+                "iconPath": "../Pictures/Link.gif",
+                "readOnly": true,
+                "behaviorRules": [
+                  {
+                    "trigger": "ButtonClick",
+                    "action": "GoTo"
+                  }
+                ]
+              },
+              {
+                "type": "TextBox",
+                "desc": "Confirmation code:",
+                "digitsOnly": true,
+                "name": "Code",
+                "maxLength": 8,
+                "inspectionRules": [
+                  {
+                    "type": "RegExp",
+                    "argument": "^[0-9]{1,8}$",
+                    "message": "Wrong сonfirmation code length!"
+                  }
+                ]
+
+              }
+            ]
+          }
+        ]
+      },
+      "actionText": "&Finish"
+    }
+  ]
+}

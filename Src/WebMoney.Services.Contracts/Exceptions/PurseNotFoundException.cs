@@ -12,6 +12,7 @@ namespace WebMoney.Services.Contracts.Exceptions
         public override string Caption => Resources.PurseNotFoundException_Caption_Purse_not_found;
 
         public PurseNotFoundException()
+            : base(Resources.PurseNotFoundException_Caption_Purse_not_found)
         {
         }
 

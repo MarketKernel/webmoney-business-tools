@@ -6,6 +6,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X17. Operations with arbitration contracts. Information about contract acceptances.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -14,6 +17,9 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "contract.response")]
     public class AcceptorRegister : WmResponse
     {
+        /// <summary>
+        /// Information about acceptors.
+        /// </summary>
         public List<Acceptor> AcceptorList { get; protected set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)

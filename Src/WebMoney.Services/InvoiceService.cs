@@ -19,7 +19,7 @@ namespace WebMoney.Services
             if (null == outgoingInvoice)
                 throw new ArgumentNullException(nameof(outgoingInvoice));
 
-            var request = new OriginalInvoice((uint) outgoingInvoice.OrderId, (WmId) outgoingInvoice.ClientIdentifier,
+            var request = new OriginalInvoice(outgoingInvoice.OrderId, (WmId) outgoingInvoice.ClientIdentifier,
                 Purse.Parse(outgoingInvoice.StorePurse), (Amount) outgoingInvoice.Amount)
             {
                 Initializer = Session.AuthenticationService.ObtainInitializer()
@@ -49,7 +49,7 @@ namespace WebMoney.Services
         public void RejectInvoice(long id)
         {
             var request =
-                new InvoiceRefusal((WmId) Session.CurrentIdentifier, (uint) id)
+                new InvoiceRefusal((WmId) Session.CurrentIdentifier, id)
                 {
                     Initializer = Session.AuthenticationService.ObtainInitializer()
                 };
@@ -84,19 +84,18 @@ namespace WebMoney.Services
 
             var incomingInvoices = response.IncomingInvoiceList.Select(ii =>
                 {
-                    var incomingInvoice = new BusinessObjects.IncomingInvoice(ii.Id, ii.Ts, (int) ii.OperationId,
+                    var incomingInvoice = new BusinessObjects.IncomingInvoice(ii.PrimaryId, ii.SecondaryId, ii.OrderId,
                         ii.TargetWmId,
                         ii.TargetPurse.ToString(),
                         ii.Amount, ii.Description, ii.Expiration, ConvertFrom.ApiTypeToContractType(ii.InvoiceState),
                         ii.CreateTime,
-                        ii.UpdateTime) {Address = ii.Address};
-
+                         ii.UpdateTime) {Address = ii.Address};
 
                     if (ii.Period > 0)
                         incomingInvoice.ProtectionPeriod = ii.Period;
 
-                    if (ii.OperationId > 0)
-                        incomingInvoice.TransferPrimaryId = ii.OperationId;
+                    if (ii.TransferId > 0)
+                        incomingInvoice.TransferId = ii.TransferId;
 
                     return incomingInvoice;
                 })
@@ -128,7 +127,7 @@ namespace WebMoney.Services
 
             var outgoingInvoices = response.OutgoingInvoiceList.Select(oi =>
                 {
-                    var outgoingInvoice = new BusinessObjects.OutgoingInvoice(oi.Id, oi.Ts, (int) oi.OperationId,
+                    var outgoingInvoice = new BusinessObjects.OutgoingInvoice(oi.PrimaryId, oi.SecondaryId, oi.OrderId,
                         oi.SourceWmId,
                         oi.TargetPurse.ToString(), oi.Amount, oi.Description, oi.Expiration,
                         ConvertFrom.ApiTypeToContractType(oi.InvoiceState), oi.CreateTime, oi.UpdateTime)
@@ -139,8 +138,8 @@ namespace WebMoney.Services
                     if (oi.Period > 0)
                         outgoingInvoice.ProtectionPeriod = oi.Period;
 
-                    if (oi.OperationId > 0)
-                        outgoingInvoice.TransferPrimaryId = oi.OperationId;
+                    if (oi.TransferId > 0)
+                        outgoingInvoice.TransferId = oi.TransferId;
 
                     return outgoingInvoice;
                 })

@@ -7,17 +7,7 @@ using System.Runtime.InteropServices;
 //[assembly: AllowPartiallyTrustedCallers]
 
 [assembly: AssemblyTitle("WebMoney.Cryptography")]
-[assembly: AssemblyDescription("See: www.wmsigner.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
-[assembly: AssemblyConfiguration("Release")]
-#endif
-[assembly: AssemblyCompany("WMTransfer Ltd.")]
 [assembly: AssemblyProduct("WebMoney API for .Net Framework")]
-[assembly: AssemblyCopyright("© Dmitry Kukushkin <support@wmsigner.com> 2007-2016")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

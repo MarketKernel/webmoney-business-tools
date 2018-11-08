@@ -4,6 +4,9 @@ using WebMoney.XmlInterfaces.Utilities;
 
 namespace WebMoney.XmlInterfaces.Responses
 {
+    /// <summary>
+    /// Interface X17. Operations with arbitration contracts.
+    /// </summary>
 #if DEBUG
 #else
     [System.Diagnostics.DebuggerNonUserCode]
@@ -12,14 +15,17 @@ namespace WebMoney.XmlInterfaces.Responses
     [XmlRoot(ElementName = "w3s.response")]
     public class RecentContract : WmResponse
     {
-        public uint ContractId { get; protected set; }
+        /// <summary>
+        /// Number of the created contract.
+        /// </summary>
+        public int ContractId { get; protected set; }
 
         protected override void Fill(WmXmlPackage wmXmlPackage)
         {
             if (null == wmXmlPackage)
                 throw new ArgumentNullException(nameof(wmXmlPackage));
 
-            ContractId = wmXmlPackage.SelectUInt32("contractid");
+            ContractId = wmXmlPackage.SelectInt32("contractid");
         }
     }
 }
