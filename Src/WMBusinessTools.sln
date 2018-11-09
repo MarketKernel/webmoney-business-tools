@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportAssistant", "Support
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMoney.Services.Tests", "WebMoney.Services.Tests\WebMoney.Services.Tests.csproj", "{81DFD7CC-C9D8-4757-A748-E077471713B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WMBusinessTools.Agent", "WMBusinessTools.Agent\WMBusinessTools.Agent.csproj", "{6D07B42C-C165-405B-8EA4-7779E4722B00}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,18 +183,6 @@ Global
 		{81DFD7CC-C9D8-4757-A748-E077471713B3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81DFD7CC-C9D8-4757-A748-E077471713B3}.Release|x86.ActiveCfg = Release|Any CPU
 		{81DFD7CC-C9D8-4757-A748-E077471713B3}.Release|x86.Build.0 = Release|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Debug|x86.Build.0 = Debug|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Production|Any CPU.ActiveCfg = Production|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Production|Any CPU.Build.0 = Production|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Production|x86.ActiveCfg = Release|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Production|x86.Build.0 = Release|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Release|x86.ActiveCfg = Release|Any CPU
-		{6D07B42C-C165-405B-8EA4-7779E4722B00}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,7 +195,7 @@ Global
 		{97458CD7-F0C1-465B-939D-83D175333729} = {072D68F7-4F31-41F4-8486-12359118995A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		EnterpriseLibraryConfigurationToolBinariesPath = kages\Unity.2.1.505.2\lib\NET35
 		SolutionGuid = {91CFF131-D3C9-428D-A5E5-EECF64044998}
+		EnterpriseLibraryConfigurationToolBinariesPath = kages\Unity.2.1.505.2\lib\NET35
 	EndGlobalSection
 EndGlobal

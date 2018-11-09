@@ -40,18 +40,22 @@ namespace WMBusinessTools
 #endif
             Application.ApplicationExit += ApplicationOnApplicationExit;
 
-
             // Первичная инициализация
             if (string.IsNullOrEmpty(Settings.Default.InstallationReference))
             {
                 bool omitPrecompilation;
 
-                var omitPrecompilationValue = ConfigurationManager.AppSettings["OmitPrecompilation"];
-
-                if (null != omitPrecompilationValue)
-                    bool.TryParse(omitPrecompilationValue, out omitPrecompilation);
+                if (ApplicationUtility.IsRunningOnMono)
+                    omitPrecompilation = true;
                 else
-                    omitPrecompilation = false;
+                {
+                    var omitPrecompilationValue = ConfigurationManager.AppSettings["OmitPrecompilation"];
+
+                    if (null != omitPrecompilationValue)
+                        bool.TryParse(omitPrecompilationValue, out omitPrecompilation);
+                    else
+                        omitPrecompilation = false;
+                }
 
                 var initializationForm = new InitializationForm(omitPrecompilation);
 
@@ -61,20 +65,23 @@ namespace WMBusinessTools
 
             SplashScreenForm splashScreen = null;
 
-            var autoResetEvent = new AutoResetEvent(false);
-
-            var thread = new Thread(() =>
+            if (!ApplicationUtility.IsRunningOnMono)
             {
-                splashScreen = new SplashScreenForm();
-                autoResetEvent.Set();
-                Application.Run(splashScreen);
-            })
-            {
-                IsBackground = true
-            };
+                var autoResetEvent = new AutoResetEvent(false);
 
-            thread.Start();
-            autoResetEvent.WaitOne();
+                var thread = new Thread(() =>
+                {
+                    splashScreen = new SplashScreenForm();
+                    autoResetEvent.Set();
+                    Application.Run(splashScreen);
+                })
+                {
+                    IsBackground = true
+                };
+
+                thread.Start();
+                autoResetEvent.WaitOne();
+            }
 
             try
             {
@@ -83,7 +90,7 @@ namespace WMBusinessTools
             catch (Exception exception)
             {
                 // Закрываем SplashScreen
-                splashScreen.SafeClose();
+                splashScreen?.SafeClose();
 
                 Logger.Fatal(exception.Message, exception);
 
@@ -96,7 +103,19 @@ namespace WMBusinessTools
             _extensionManager.ApplyCustomAssemblyResolving();
 
             // WebMoney.Services configuration
-            var configurationService = _extensionManager.CreateExtension<IConfigurationService>();
+            IConfigurationService configurationService;
+
+            try
+            {
+                configurationService = _extensionManager.CreateExtension<IConfigurationService>();
+            }
+            catch (Exception)
+            {
+                // Закрываем SplashScreen
+                splashScreen?.SafeClose();
+
+                throw;
+            }
 
             configurationService.InstallationReference = Settings.Default.InstallationReference;
 
@@ -107,7 +126,7 @@ namespace WMBusinessTools
             var enterContext = new EntranceContext(_extensionManager, unityContainer);
 
             // Закрываем SplashScreen
-            splashScreen.SafeClose();
+            splashScreen?.SafeClose();
 
             var sessionContextProvider = _extensionManager.GetSessionContextProvider();
 

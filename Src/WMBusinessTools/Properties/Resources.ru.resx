@@ -124,7 +124,7 @@
     <value>&amp;Далее &gt;</value>
   </data>
   <data name="SuccessUrlTemplate" xml:space="preserve">
-    <value>https://www.marketkernel.com/registration/{0}</value>
+    <value>http://www.marketkernel.com/registration/{0}</value>
   </data>
   <data name="PrecompilationException_PrecompilationException_Precompilation_error_" xml:space="preserve">
     <value>Прекомпиляция завершилась ошибкой!</value>
@@ -136,6 +136,9 @@
     <value>Возникла ошибка при попытке загрузить менеджер плагинов. Детальную информацию вы можете найти лог-файле программы.</value>
   </data>
   <data name="Program_Main_Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="InitializationForm_mBackgroundWorker_RunWorkerCompleted_Error" xml:space="preserve">
     <value>Ошибка</value>
   </data>
 </root>

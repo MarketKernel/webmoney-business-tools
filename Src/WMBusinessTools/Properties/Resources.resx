@@ -124,7 +124,7 @@
     <value>SET NETFX=%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319
 IF NOT EXIST %NETFX% SET NETFX=%SystemRoot%\Microsoft.NET\Framework\v4.0.30319
 SET NGEN=%NETFX%\ngen.exe
-"%NGEN%" install {0}</value>
+"%NGEN%" install "{0}"</value>
   </data>
   <data name="Program_Main_An_error_occurred_while_attempting_to_create_the_new_session_" xml:space="preserve">
     <value>An error occurred while attempting to create the new session!</value>
@@ -146,6 +146,9 @@ SET NGEN=%NETFX%\ngen.exe
     <value>&amp;Finish</value>
   </data>
   <data name="SuccessUrlTemplate" xml:space="preserve">
-    <value>https://www.marketkernel.com/registration/{0}</value>
+    <value>http://www.marketkernel.com/registration/{0}</value>
+  </data>
+  <data name="InitializationForm_mBackgroundWorker_RunWorkerCompleted_Error" xml:space="preserve">
+    <value>Error</value>
   </data>
 </root>

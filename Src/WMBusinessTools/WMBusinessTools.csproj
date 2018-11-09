@@ -117,6 +117,7 @@
     <Compile Include="SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ApplicationUtility.cs" />
     <Compile Include="Utils\InitializationUtility.cs" />
     <Compile Include="Utils\LocalizationUtility.cs" />
     <EmbeddedResource Include="InitializationForm.resx">
@@ -199,15 +200,6 @@ if $(ConfigurationName) == Production (
 )
 
 if not exist "$(TargetDir)Localization" md "$(TargetDir)Localization"
-xcopy "$(SolutionDir)\Localization" "$(TargetDir)Localization" /s /y
-
-if not exist "$(TargetDir)SupportAssistant" md "$(TargetDir)SupportAssistant"
-xcopy "$(SolutionDir)\SupportAssistant\bin\$(ConfigurationName)" "$(TargetDir)SupportAssistant" /s /y
-
-if not exist "$(TargetDir)WebMoney.Services" md "$(TargetDir)WebMoney.Services"
-xcopy "$(SolutionDir)\WebMoney.Services\bin\$(ConfigurationName)" "$(TargetDir)WebMoney.Services" /s /y
-
-if not exist "$(TargetDir)BasicExtensions" md "$(TargetDir)BasicExtensions"
-xcopy "$(SolutionDir)\WMBusinessTools.Extensions\bin\$(ConfigurationName)" "$(TargetDir)BasicExtensions" /s /y</PostBuildEvent>
+xcopy "$(SolutionDir)Localization" "$(TargetDir)Localization" /s /y</PostBuildEvent>
   </PropertyGroup>
 </Project>
