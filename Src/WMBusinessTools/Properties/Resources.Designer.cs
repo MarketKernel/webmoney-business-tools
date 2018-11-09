@@ -61,6 +61,15 @@ namespace WMBusinessTools.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        internal static string InitializationForm_mBackgroundWorker_RunWorkerCompleted_Error {
+            get {
+                return ResourceManager.GetString("InitializationForm_mBackgroundWorker_RunWorkerCompleted_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Finish.
         /// </summary>
         internal static string InitializationForm_precompileRadioButton_CheckedChanged__Finish {
@@ -91,7 +100,7 @@ namespace WMBusinessTools.Properties {
         ///   Looks up a localized string similar to SET NETFX=%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319
         ///IF NOT EXIST %NETFX% SET NETFX=%SystemRoot%\Microsoft.NET\Framework\v4.0.30319
         ///SET NGEN=%NETFX%\ngen.exe
-        ///&quot;%NGEN%&quot; install {0}.
+        ///&quot;%NGEN%&quot; install &quot;{0}&quot;.
         /// </summary>
         internal static string PrecompileBatchScriptTemplate {
             get {

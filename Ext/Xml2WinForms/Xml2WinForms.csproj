@@ -320,6 +320,7 @@
 
 if $(ConfigurationName) == Production (
    sn.exe -Rc "$(TargetPath)" "%25VSKey%25"
+   sn.exe -Rc "$(TargetDir)ru\$(TargetName).resources.dll" "%25VSKey%25"
    signtool.exe sign /sha1 "%25CertThumbprint%25"  /t "%25TimeStampingServer%25" "$(TargetPath)"
    signtool.exe sign /sha1 "%25CertThumbprint%25" /as /fd sha256 /tr "%25TimeStampingServer%25" /td sha256 "$(TargetPath)"
 )</PostBuildEvent>

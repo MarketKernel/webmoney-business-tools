@@ -30,10 +30,11 @@ namespace PartialTrustInstaller.Utils
 
             using (var streamWriter = new StreamWriter(shortcutPath, false))
             {
-                applicationPath = applicationPath.Replace("\\", "/");
+                var uri = new Uri(applicationPath);
+                var absoluteUri = uri.AbsoluteUri;
 
                 streamWriter.WriteLine("[InternetShortcut]");
-                streamWriter.WriteLine(string.Format(CultureInfo.InvariantCulture, "URL=file:///{0}", applicationPath));
+                streamWriter.WriteLine(string.Format(CultureInfo.InvariantCulture, "URL={0}", absoluteUri));
                 streamWriter.WriteLine("IconIndex=0");
                 streamWriter.WriteLine(string.Format(CultureInfo.InvariantCulture, "IconFile={0}", applicationPath));
 

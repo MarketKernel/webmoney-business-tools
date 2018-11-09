@@ -1,0 +1,9 @@
+1. Папки с ресурсами/нейтивными библиотеками просто перетащить.
+2. Добавить сборки:
+   1. WMBusinessTools.exe.
+   2. WebMoney.Services.dll
+   3. WebMoney.Extensions.dll
+   4. SupportAssistant.dll.
+   5. Вручную .config-файлы перетащить.
+3. App.ico и баннер лучше не трогать, иначе придется заново их указывать во всех местах.
+4. SetupAssistant аналогично [3].

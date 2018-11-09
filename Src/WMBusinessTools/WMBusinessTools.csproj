@@ -125,6 +125,7 @@
     <Compile Include="SplashScreenForm.Designer.cs">
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ApplicationUtility.cs" />
     <Compile Include="Utils\InitializationUtility.cs" />
     <Compile Include="Utils\LocalizationUtility.cs" />
     <EmbeddedResource Include="InitializationForm.resx">

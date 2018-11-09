@@ -5,6 +5,19 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("SetupAssistant")]
+[assembly: AssemblyDescription("See: www.webmoney-business-tools.com")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#elif PRODUCTION
+[assembly: AssemblyConfiguration("Production")]
+#else
+[assembly: AssemblyConfiguration("Release")]
+#endif
+[assembly: AssemblyCompany("MarketKernel Team")]
+[assembly: AssemblyProduct("WebMoney Business Tools")]
+[assembly: AssemblyCopyright("© MarketKernel Team <global@marketkernel.com> 2009-2018")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
@@ -13,6 +26,8 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("5aba0a39-2cf2-4a14-a67f-dad2a38d7d30")]
+
+[assembly: AssemblyKeyFile(@"..\..\..\Solution\Keys\DevelopmentKey.snk")]
 
 // Version information for an assembly consists of the following four values:
 //

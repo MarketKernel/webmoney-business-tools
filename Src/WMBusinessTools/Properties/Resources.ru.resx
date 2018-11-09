@@ -138,4 +138,7 @@
   <data name="Program_Main_Error" xml:space="preserve">
     <value>Ошибка</value>
   </data>
+  <data name="InitializationForm_mBackgroundWorker_RunWorkerCompleted_Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
 </root>

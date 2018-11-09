@@ -50,9 +50,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Solution\AssemblyInfoForSolution.cs">
-      <Link>Properties\AssemblyInfoForSolution.cs</Link>
-    </Compile>
     <Compile Include="InstallerUtility.cs">
       <SubType>Component</SubType>
     </Compile>

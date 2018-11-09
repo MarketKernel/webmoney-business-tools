@@ -1,4 +1,6 @@
-SET CONFIGURATION=Production
+IF NOT DEFINED CONFIGURATION (
+SET CONFIGURATION=Release
+)
 
 nuget restore ".\..\WMBusinessTools.sln"
 

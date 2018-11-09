@@ -102,7 +102,7 @@ namespace WMBusinessTools
 
         private void mBackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            var tempBatchFilePath = Path.Combine(Path.GetTempPath(), Path.ChangeExtension(Path.GetTempFileName(), "cmd"));
+            var tempBatchFilePath = Path.Combine(Path.GetTempPath(), Path.ChangeExtension(Path.GetRandomFileName(), "cmd"));
 
             string dllPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "WebMoney.Services.dll");
 
@@ -141,7 +141,7 @@ namespace WMBusinessTools
             }
             
             if (0 != exitCode)
-                throw new PrecompilationException(process.ExitCode);
+                throw new PrecompilationException(exitCode);
         }
 
         private void mBackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -156,7 +156,14 @@ namespace WMBusinessTools
                 precompileTimer.Enabled = false;
                 precompileProgressBar.Value = 0;
 
-                MessageBox.Show(this, exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string message;
+
+                if (exception is PrecompilationException precompilationException)
+                    message = $"{exception.Message} Exit code {precompilationException.ErrorNumber}.";
+                else
+                    message=  exception.Message;
+
+                MessageBox.Show(this, message, Resources.InitializationForm_mBackgroundWorker_RunWorkerCompleted_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 backButton_Click(this, null);
                 return;
@@ -202,6 +209,7 @@ namespace WMBusinessTools
                         backButton.Visible = false;
                         nextButton.Enabled = false;
                         nextButton.Text = Resources.InitializationForm_precompileRadioButton_CheckedChanged__Finish;
+						nextButton.Image = null;
 
                         precompileTimer.Enabled = true;
                         mBackgroundWorker.RunWorkerAsync();
