@@ -29,7 +29,7 @@ namespace PartialTrustInstaller.Utils
             if (File.Exists(shortcutPath))
                 File.Delete(shortcutPath);
 
-            using (var streamWriter = new StreamWriter(shortcutPath, false, Encoding.ASCII))
+            using (var streamWriter = new StreamWriter(shortcutPath, false, Encoding.Default))
             {
                 streamWriter.WriteLine("[InternetShortcut]");
                 streamWriter.WriteLine(string.Format(CultureInfo.InvariantCulture, "URL=file:///{0}", applicationPath));
