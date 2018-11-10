@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Text;
 
 namespace PartialTrustInstaller.Utils
 {
@@ -28,13 +29,10 @@ namespace PartialTrustInstaller.Utils
             if (File.Exists(shortcutPath))
                 File.Delete(shortcutPath);
 
-            using (var streamWriter = new StreamWriter(shortcutPath, false))
+            using (var streamWriter = new StreamWriter(shortcutPath, false, Encoding.ASCII))
             {
-                var uri = new Uri(applicationPath);
-                var absoluteUri = uri.AbsoluteUri;
-
                 streamWriter.WriteLine("[InternetShortcut]");
-                streamWriter.WriteLine(string.Format(CultureInfo.InvariantCulture, "URL={0}", absoluteUri));
+                streamWriter.WriteLine(string.Format(CultureInfo.InvariantCulture, "URL=file:///{0}", applicationPath));
                 streamWriter.WriteLine("IconIndex=0");
                 streamWriter.WriteLine(string.Format(CultureInfo.InvariantCulture, "IconFile={0}", applicationPath));
 
