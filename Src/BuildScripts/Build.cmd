@@ -4,7 +4,11 @@ SET CONFIGURATION=Release
 
 nuget restore ".\..\WMBusinessTools.sln"
 
-SET PATH=%PATH%;"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin"
+SET MSBUILD_DIR="C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin"
+
+IF NOT EXIST %MSBUILD_DIR% SET MSBUILD_DIR="C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin"
+
+SET PATH=%PATH%;%MSBUILD_DIR%
 MSBuild.exe ".\..\WMBusinessTools.sln" /p:Configuration=%CONFIGURATION%
 
 XCOPY "..\..\Ext\NativeBinaries" "..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\" /S /Y
