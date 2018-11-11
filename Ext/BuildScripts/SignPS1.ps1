@@ -1,20 +1,11 @@
-$env:Path += ";C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools;C:\Program Files (x86)\Windows Kits\10\bin\10.0.17134.0\x64\"
-$AppPath = ".\..\..\Tools\ManifestSigner\ManifestSigner.exe"
-$CertThumbprint = "fcb671b0b83566d01aee0e142e9ba5a999208ee4"
-$TimeStampingServer = "http://timestamp.comodoca.com/rfc3161"
-$VSKey = "VS_KEY_B16C51373071738B"
-
-Start-Process "sn.exe" -ArgumentList "-Rc `"$AppPath`" `"$VSKey`"" -Wait -NoNewWindow
-
-Start-Process "signtool.exe" -ArgumentList "sign /sha1 `"$CertThumbprint`" /t `"$TimeStampingServer`" `"$AppPath`"" -Wait -NoNewWindow
-Start-Sleep -m 500
-Start-Process "signtool.exe" -ArgumentList "sign /sha1 `"$CertThumbprint`" /as /fd sha256 /tr `"$TimeStampingServer`" /td sha256 `"$AppPath`"" -Wait -NoNewWindow
-Start-Sleep -m 500
+Set-AuthenticodeSignature Sign-Setup-SHA1.ps1 @(Get-ChildItem cert:\CurrentUser\My -codesign)[0]
+Set-AuthenticodeSignature Sign-Setup-SHA256.ps1 @(Get-ChildItem cert:\CurrentUser\My -codesign)[0]
+Set-AuthenticodeSignature SignManifestSigner.ps1 @(Get-ChildItem cert:\CurrentUser\My -codesign)[0]
 # SIG # Begin signature block
 # MIIN/QYJKoZIhvcNAQcCoIIN7jCCDeoCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQU+Xe4UJZCZiVDqfORBA7PuITx
-# /C2gggs0MIIFTDCCBDSgAwIBAgIQK91Ppx49jqSsOyLu+VfgjDANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUv7l3KsewO2Ue+EVY6X/jioiP
+# 0nKgggs0MIIFTDCCBDSgAwIBAgIQK91Ppx49jqSsOyLu+VfgjDANBgkqhkiG9w0B
 # AQsFADB9MQswCQYDVQQGEwJHQjEbMBkGA1UECBMSR3JlYXRlciBNYW5jaGVzdGVy
 # MRAwDgYDVQQHEwdTYWxmb3JkMRowGAYDVQQKExFDT01PRE8gQ0EgTGltaXRlZDEj
 # MCEGA1UEAxMaQ09NT0RPIFJTQSBDb2RlIFNpZ25pbmcgQ0EwHhcNMTgwNzEzMDAw
@@ -79,11 +70,11 @@ Start-Sleep -m 500
 # ZWQxIzAhBgNVBAMTGkNPTU9ETyBSU0EgQ29kZSBTaWduaW5nIENBAhAr3U+nHj2O
 # pKw7Iu75V+CMMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3AgEMMQowCKACgAChAoAA
 # MBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisGAQQBgjcCAQsxDjAMBgor
-# BgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSQsNLBJFp4HHVAopWYV0vYMmzZbjAN
-# BgkqhkiG9w0BAQEFAASCAQCh9ncvk86KDr5anb8miQL0STEWKQeICgBMlw39JqJT
-# w0l4F9f1ZmetR67bTFvLPUi7iA2w4N60r6qwxuWlXo25MEueE2w9VtvcdqdcaPkv
-# 9M5N+NkYPi9wvn5Xq66kiZJTeIAl54jSulqbZ+cM1mV9jbtHFdijHaOvATdL9NnO
-# fJs5St+3/5gCn7L8DFrfwjKhcbHFEgEvTR4oqP5pPEDwpp7aDwMs/+lGgK2OlMUd
-# ib/qHwfDcqehUuayhlvgVuvYa5nh3sWPDOBhANLR8kAGsmi393NTaZg/Fer9BSXZ
-# z5XDKK62szZm0F54+3235yBWKVaTkW57r26WSyVwHaDy
+# BgEEAYI3AgEVMCMGCSqGSIb3DQEJBDEWBBSGhFo3bGyo4iQ6OGIrYoCXtH0auDAN
+# BgkqhkiG9w0BAQEFAASCAQCnQd59E12XDxpMT8JUAtLv4L21AuKQaZ0KsAcYP7Jl
+# fAS+SK5QGlhT8kH5WfI93UYBdaZ7LbNo0zow1bytUXOJumkT/OY0T3m/Mt6nTE39
+# 1wkTaiaItdxoKb9cOn0NSy3MQpYktVKjsA67CTDmiPhsYR7dRUyEgLo62KnxQuFl
+# aZ9Vt4xmiK9WVyj5Dk9iTxOexQy/75cBxOb0HVdEPizfC3nCINGeDJl/eP91qT4m
+# S20ivWMrD7YCZqvC6BEwLllpQEGO7Epw79rvf14BPFlsUJMDhA17/ucb+HygP4nw
+# HPQMS4u1clNQbvbL4Yx6C3TC3d/qglOpWtsNRYYQpqgj
 # SIG # End signature block
