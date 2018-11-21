@@ -2,7 +2,7 @@ IF NOT DEFINED CONFIGURATION (
 SET CONFIGURATION=Release
 )
 
-nuget restore ".\..\WMBusinessTools.sln"
+nuget restore ".\..\WMBusinessTools[.Net4.0].sln"
 
 SET MSBUILD_DIR="C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin"
 
@@ -10,7 +10,7 @@ IF NOT EXIST %MSBUILD_DIR% SET MSBUILD_DIR="C:\Program Files (x86)\Microsoft Vis
 
 SET PATH=%PATH%;%MSBUILD_DIR%
 
-MSBuild.exe ".\..\WMBusinessTools.sln" /p:Configuration=%CONFIGURATION%
+MSBuild.exe ".\..\WMBusinessTools[.Net4.0].sln" /p:Configuration=%CONFIGURATION%
 
 XCOPY "..\..\Ext\NativeBinaries" "..\WMBusinessTools\bin\%CONFIGURATION%\WebMoney.Services\" /S /Y
 XCOPY "..\Localization" "..\WMBusinessTools\bin\%CONFIGURATION%\Localization\" /S /Y
@@ -85,5 +85,3 @@ del .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\*.config
 REM WMBusinessTools
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\*.pdb
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\*.xml
-
-pause

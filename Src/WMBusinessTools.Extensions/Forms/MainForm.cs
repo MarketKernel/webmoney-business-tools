@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
@@ -35,6 +36,7 @@ namespace WMBusinessTools.Extensions.Forms
             _identifierService = _sessionContext.UnityContainer.Resolve<IIdentifierService>();
             _formattingService = _sessionContext.UnityContainer.Resolve<IFormattingService>();
 
+            BuildTitle();
             UpdateComboBox();
             BuildMainMenu();
             BuildScreens();
@@ -54,8 +56,13 @@ namespace WMBusinessTools.Extensions.Forms
 
             EventBroker.DatabaseChanged += EventBrokerOnDatabaseChanged;
             EventBroker.LanguageChanged += EventBrokerOnLanguageChanged;
+        }
 
-            var version = Assembly.GetEntryAssembly().GetName().Version;
+        private void BuildTitle()
+        {
+            var fileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+            var version = Version.Parse(fileVersionInfo.FileVersion);
+
             Text = string.Format(CultureInfo.InvariantCulture, Text, $"{version.Major}.{version.Minor}");
         }
 
@@ -321,6 +328,7 @@ namespace WMBusinessTools.Extensions.Forms
                 return;
 
             LocalizationUtility.TranslateForm(this);
+            BuildTitle();
             BuildMainMenu();
             BuildScreens();
         }
