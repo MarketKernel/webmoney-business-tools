@@ -33,7 +33,14 @@ namespace Xml2WinForms
             }
         }
 
-        private static string AssemblyVersion => Assembly.GetEntryAssembly().GetName().Version.ToString();
+        private static string AssemblyVersion
+        {
+            get
+            {
+                var fileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+                return fileVersionInfo.FileVersion;
+            }
+        }
 
         private static string AssemblyDescription
         {

@@ -77,5 +77,3 @@ del .\..\WMBusinessTools\bin\%CONFIGURATION%\BasicExtensions\*.config
 REM WMBusinessTools
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\*.pdb
 del .\..\WMBusinessTools\bin\%CONFIGURATION%\*.xml
-
-pause

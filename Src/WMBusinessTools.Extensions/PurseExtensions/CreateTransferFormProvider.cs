@@ -91,7 +91,7 @@ namespace WMBusinessTools.Extensions
                 {
                     originalTransfer.ProtectionPeriod = valuesWrapper.Control7ProtectionPeriod;
 
-                    if (valuesWrapper.Control9ProtectionByTime)
+                    if (!valuesWrapper.Control9ProtectionByTime)
                         originalTransfer.ProtectionCode = valuesWrapper.Control8ProtectionCode;
                 }
 

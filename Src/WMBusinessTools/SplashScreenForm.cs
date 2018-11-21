@@ -12,7 +12,8 @@ namespace WMBusinessTools
         {
             InitializeComponent();
 
-            var version = Assembly.GetEntryAssembly().GetName().Version;
+            var fileVersionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+            var version = Version.Parse(fileVersionInfo.FileVersion);
 
             wmbt2Label.Text = string.Format(CultureInfo.InvariantCulture, wmbt2Label.Text,
                 $"{version.Major}.{version.Minor}");

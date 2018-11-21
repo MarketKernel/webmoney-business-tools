@@ -3,62 +3,62 @@
     {
       "id": "Enter",
       "name": "Enter",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.SessionContextProvider",
       "configurationString": "Resources/Templates/EnterForm.json"
     },
     {
       "id": "Registration",
       "name": "Registration",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.RegistrationFormProvider",
       "configurationString": "Resources/Templates/RegistrationForm.json"
     },
     {
       "id": "Main",
       "name": "WebMoney Business Tools {0}",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.MainFormProvider"
     },
     {
       "id": "AddIdentifier",
       "name": "&Add identifier",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.AddIdentifierFormProvider",
       "configurationString": "Resources/Templates/AddIdentifierForm.json"
     },
     {
       "id": "Content",
       "name": "&Content",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.ContentActionProvider",
       "configurationString": "http://webmoney-business-tools.com/"
     },
     {
       "id": "SendMessageToDeveloper",
       "name": "&Send message to developer",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.SendMessageToDeveloperFormProvider",
       "configurationString": "Resources/Templates/SendMessageToDeveloperForm.json"
     },
     {
       "id": "About",
       "name": "&About",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.AboutFormProvider",
       "configurationString": "Resources/Templates/AboutForm.json"
     },
     {
       "id": "Error",
       "name": "Error",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.ErrorFormProvider"
     },
     // TopExtension
     {
       "id": "FindCertificate",
       "name": "Find &certificate",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.FindCertificateFormProvider",
       "configurationString": "Resources/Templates/FindCertificateForm.json",
       "iconPath": "Resources/Pictures/FindCertificate.png",
@@ -97,14 +97,14 @@
     {
       "id": "Certificate",
       "name": "&Certificate",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CertificateFormProvider",
       "configurationString": "Resources/Templates/CertificateForm.json"
     },
     {
       "id": "FindIdentifier",
       "name": "Find &identifier",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.FindIdentifierFormProvider",
       "configurationString": "Resources/Templates/FindIdentifierForm.json",
       "iconPath": "Resources/Pictures/Find.png",
@@ -119,7 +119,7 @@
     {
       "id": "SendMessage",
       "name": "Send &message",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.SendMessageFormProvider",
       "configurationString": "Resources/Templates/SendMessageForm.json",
       "iconPath": "Resources/Pictures/SendMessage.png",
@@ -156,7 +156,7 @@
     {
       "id": "SendSms",
       "name": "Send &SMS",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.SendSmsFormProvider",
       "configurationString": "Resources/Templates/SendSmsForm.json",
       "iconPath": "Resources/Pictures/SendSms.png",
@@ -175,7 +175,7 @@
     {
       "id": "IncomingInvoiceFilter",
       "name": "Show i&ncoming invoices",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.IncomingInvoiceFilterFormProvider",
       "configurationString": "Resources/Templates/IncomingInvoiceFilterForm.json",
       "iconPath": "Resources/Pictures/IncomingInvoiceFilter.png",
@@ -190,7 +190,7 @@
     {
       "id": "TransferBundleFilter",
       "name": "Mass &payments",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.TransferBundleFilterFormProvider",
       "configurationString": "Resources/Templates/TransferBundleFilterForm.json",
       "tags": [
@@ -204,7 +204,7 @@
     {
       "id": "CreateContract",
       "name": "Create cont&ract",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CreateContractFormProvider",
       "configurationString": "Resources/Templates/CreateContractForm.json",
       "iconPath": "Resources/Pictures/CreateContract.png",
@@ -223,7 +223,7 @@
     {
       "id": "ContractFilter",
       "name": "S&how contracts",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.ContractFilterFormProvider",
       "configurationString": "Resources/Templates/ContractFilterForm.json",
       "iconPath": "Resources/Pictures/Contracts.png",
@@ -238,7 +238,7 @@
     {
       "id": "VerifyClient",
       "name": "&Verify client",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.VerifyClientFormProvider",
       "configurationString": "Resources/Templates/VerifyClientForm.json",
       "tags": [
@@ -253,7 +253,7 @@
     {
       "id": "EventsScreen",
       "name": "Events",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.EventsScreenProvider",
       "configurationString": "Resources/Templates/EventsScreen.json",
       "tags": [
@@ -266,7 +266,7 @@
     {
       "id": "PursesScreen",
       "name": "Purses",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.PursesScreenProvider",
       "configurationString": "Resources/Templates/PursesScreen.json",
       "tags": [
@@ -279,7 +279,7 @@
     {
       "id": "IncomingInvoiceFilterScreen",
       "name": "Incoming Invoices",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.IncomingInvoiceFilterScreenProvider",
       "configurationString": "Resources/Templates/IncomingInvoiceFilterScreen.json",
       "tags": [
@@ -292,7 +292,7 @@
     {
       "id": "TrustsScreen",
       "name": "I Trust",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.TrustsScreenProvider",
       "configurationString": "Resources/Templates/TrustsScreen.json",
       "tags": [
@@ -306,7 +306,7 @@
     {
       "id": "CreatePurse",
       "name": "&Create new purse",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CreatePurseFormProvider",
       "configurationString": "Resources/Templates/CreatePurseForm.json",
       "tags": [
@@ -319,7 +319,7 @@
     {
       "id": "AddPurse",
       "name": "&Add existent purse",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.AddPurseFormProvider",
       "configurationString": "Resources/Templates/AddPurseForm.json",
       "tags": [
@@ -332,7 +332,7 @@
     {
       "id": "TakeTrust",
       "name": "&Take trust through SMS/USSD",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.TakeTrustFormProvider",
       "configurationString": "Resources/Templates/TakeTrustForm.json",
       "tags": [
@@ -352,7 +352,7 @@
     {
       "id": "CreateTransfer",
       "name": "&Create transfer",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CreateTransferFormProvider",
       "configurationString": "Resources/Templates/CreateTransferForm.json",
       "iconPath": "Resources/Pictures/CreateTransfer.png",
@@ -371,7 +371,7 @@
     {
       "id": "TransferRegister",
       "name": "Create &batch",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.TransferRegisterFormProvider",
       "configurationString": "Resources/Templates/TransferRegisterForm.json",
       "tags": [
@@ -390,7 +390,7 @@
     {
       "id": "TransferFilter",
       "name": "&Show transfers",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.TransferFilterFormProvider",
       "configurationString": "Resources/Templates/TransferFilterForm.json",
       "iconPath": "Resources/Pictures/TransferFilter.png",
@@ -405,7 +405,7 @@
     {
       "id": "TakePayment",
       "name": "&Take payment through SMS/USSD",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.TakePaymentFormProvider",
       "configurationString": "Resources/Templates/TakePaymentForm.json",
       "tags": [
@@ -423,7 +423,7 @@
     {
       "id": "CreatePaymentLink",
       "name": "Create payment &link for Merchant Service",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CreatePaymentLinkFormProvider",
       "configurationString": "Resources/Templates/CreatePaymentLinkForm.json",
       "tags": [
@@ -441,7 +441,7 @@
     {
       "id": "FindMerchantTransfer",
       "name": "Payment details in &Merchant Service",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.FindMerchantTransferFormProvider",
       "configurationString": "Resources/Templates/FindMerchantTransferForm.json",
       "iconPath": "Resources/Pictures/Find.png",
@@ -466,7 +466,7 @@
     {
       "id": "CreateOutgoingInvoice",
       "name": "Create &invoice",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CreateOutgoingInvoiceFormProvider",
       "configurationString": "Resources/Templates/CreateOutgoingInvoiceForm.json",
       "iconPath": "Resources/Pictures/CreateOutgoingInvoice.png",
@@ -489,7 +489,7 @@
     {
       "id": "OutgoingInvoiceFilter",
       "name": "S&how outgoing invoices",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.OutgoingInvoiceFilterFormProvider",
       "configurationString": "Resources/Templates/OutgoingInvoiceFilterForm.json",
       "iconPath": "Resources/Pictures/OutgoingInvoiceFilter.png",
@@ -504,7 +504,7 @@
     {
       "id": "RedeemPaymer",
       "name": "&Redeem Paymer",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.RedeemPaymerFormProvider",
       "configurationString": "Resources/Templates/RedeemPaymerForm.json",
       "iconPath": "Resources/Pictures/RedeemPaymer.png",
@@ -523,7 +523,7 @@
     {
       "id": "SetMerchantKey",
       "name": "Set or change Secret &Key or Secret Key X20",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.SetMerchantKeyFormProvider",
       "configurationString": "Resources/Templates/SetMerchantKeyForm.json",
       "iconPath": "Resources/Pictures/SetMerchantKey.png",
@@ -538,7 +538,7 @@
     {
       "id": "ClearMerchantKey",
       "name": "Cl&ear Secret Key and Secret Key X20",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.ClearMerchantKeyActionProvider",
       "iconPath": "Resources/Pictures/ClearMerchantKey.png",
       "tags": [
@@ -552,7 +552,7 @@
     {
       "id": "RemovePurse",
       "name": "Remo&ve purse",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.RemovePurseActionProvider",
       "iconPath": "Resources/Pictures/Remove.png",
       "tags": [
@@ -566,7 +566,7 @@
     {
       "id": "CopyPurseNumber",
       "name": "Cop&y number",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CopyPurseNumberActionProvider",
       "iconPath": "Resources/Pictures/Copy.png",
       "tags": [
@@ -586,7 +586,7 @@
     {
       "id": "Details",
       "name": "&Details",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.DetailsFormProvider",
       "configurationString": "Resources/Templates/DetailsForm.json",
       "iconPath": "Resources/Pictures/Details.png",
@@ -616,7 +616,7 @@
     {
       "id": "Moneyback",
       "name": "Money&back",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.MoneybackFormProvider",
       "configurationString": "Resources/Templates/MoneybackForm.json",
       "tags": [
@@ -630,14 +630,14 @@
     {
       "id": "RejectProtection",
       "name": "&Reject protection",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.MoneybackFormProvider",
       "configurationString": "Resources/Templates/RejectProtectionForm.json"
     },
     {
       "id": "FinishProtection",
       "name": "Finish &protection",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.FinishProtectionFormProvider",
       "configurationString": "Resources/Templates/FinishProtectionForm.json",
       "iconPath": "Resources/Pictures/FinishProtection.png",
@@ -652,7 +652,7 @@
     {
       "id": "PayInvoice",
       "name": "&Pay invoice",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.PayInvoiceFormProvider",
       "configurationString": "Resources/Templates/PayInvoiceForm.json",
       "iconPath": "Resources/Pictures/PayInvoice.png",
@@ -667,7 +667,7 @@
     {
       "id": "RejectInvoice",
       "name": "&Reject invoice",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.RejectInvoiceFormProvider",
       "configurationString": "Resources/Templates/RejectInvoiceForm.json",
       "iconPath": "Resources/Pictures/RejectInvoice.png",
@@ -688,7 +688,7 @@
     {
       "id": "CreateTrust",
       "name": "&Create trust",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.CreateTrustFormProvider",
       "configurationString": "Resources/Templates/CreateTrustForm.json",
       "tags": [
@@ -702,7 +702,7 @@
     {
       "id": "UpdateTrust",
       "name": "&Change trust",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.UpdateTrustFormProvider",
       "configurationString": "Resources/Templates/CreateTrustForm.json",
       "tags": [
@@ -716,7 +716,7 @@
     {
       "id": "ContractDetails",
       "name": "&Details",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.ContractDetailsFormProvider",
       "configurationString": "Resources/Templates/ContractDetailsForm.json",
       "iconPath": "Resources/Pictures/Details.png",
@@ -730,7 +730,7 @@
     {
       "id": "RefreshContract",
       "name": "&Refresh",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.RefreshContractActionProvider",
       "iconPath": "Resources/Pictures/Refresh.png",
       "tags": [
@@ -744,7 +744,7 @@
     {
       "id": "PreparedTransferFilter",
       "name": "&Show transfers",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.PreparedTransferFilterFormProvider",
       "configurationString": "Resources/Templates/PreparedTransferFilterForm.json",
       "tags": [
@@ -758,7 +758,7 @@
     {
       "id": "StartTransferBundle",
       "name": "Sta&rt processing",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.StartTransferBundleActionProvider",
       "iconPath": "Resources/Pictures/Start.png",
       "tags": [
@@ -772,7 +772,7 @@
     {
       "id": "StopTransferBundle",
       "name": "Sto&p processing",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.StopTransferBundleActionProvider",
       "iconPath": "Resources/Pictures/Stop.png",
       "tags": [
@@ -787,7 +787,7 @@
     {
       "id": "RequestNumberSettings",
       "name": "&Request number settings",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.RequestNumberSettingsFormProvider",
       "configurationString": "Resources/Templates/RequestNumberSettingsForm.json",
       "tags": [
@@ -801,7 +801,7 @@
     {
       "id": "DbSettings",
       "name": "&Database settings",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.DbSettingsFormProvider",
       "configurationString": "Resources/Templates/DbSettingsForm.json",
       "iconPath": "Resources/Pictures/DbSettings.png",
@@ -816,7 +816,7 @@
     {
       "id": "ProxySettings",
       "name": "Prox&y settings",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.ProxySettingsFormProvider",
       "configurationString": "Resources/Templates/ProxySettingsForm.json",
       "tags": [
@@ -830,7 +830,7 @@
     {
       "id": "KeySettings",
       "name": "&Key settings",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.KeySettingsFormProvider",
       "configurationString": "Resources/Templates/{0}",
       "iconPath": "Resources/Pictures/KeySettings.png",
@@ -845,7 +845,7 @@
     {
       "id": "PasswordSettings",
       "name": "&Password settings",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.PasswordSettingsFormProvider",
       "configurationString": "Resources/Templates/PasswordSettingsForm.json",
       "iconPath": "Resources/Pictures/PasswordSettings.png",
@@ -860,7 +860,7 @@
     {
       "id": "GeneralSettings",
       "name": "&Settings",
-      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
+      "assemblyFullName": "WMBusinessTools.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=236f20e4200c621f",
       "type": "WMBusinessTools.Extensions.GeneralSettingsFormProvider",
       "iconPath": "Resources/Pictures/Settings.png",
       "tags": [
