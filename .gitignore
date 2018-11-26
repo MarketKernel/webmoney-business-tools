@@ -106,3 +106,4 @@ UpgradeLog*.htm
 [Tt]humbs.db
 *.DS_Store
 .vs
+/Src/WMBusinessTools.Setup.WiX/Output

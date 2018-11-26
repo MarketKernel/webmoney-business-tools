@@ -1,4 +1,4 @@
 <Manifest>
-  <Package OSMajorVersion="5" Version="3.0.1.0" ReleaseDate="11/21/2018" Digest="453F8E9311B0AEE4649554790D5CC68289467EE8C787E044E8E49DD541481510">http://www.webmoney-business-tools.com/dist/v3-0-1-0/WMBusinessTools-v3.0.1.0.zip</Package>
-  <Package OSMajorVersion="6" Version="3.1.1.0" ReleaseDate="11/21/2018" Digest="CACADA00FE252C58A71705C53EA62F13898F5906280FF77D776F32341592C191">http://www.webmoney-business-tools.com/dist/v3-1-1-0/WMBusinessTools-v3.1.1.0.zip</Package>
+  <Package OSMajorVersion="5" Version="3.0.1.0" ReleaseDate="11/21/2018" Digest="B07F3FF1735A5F8FB9CCD29AC1F55039CF2CD21258F9598203A6DC2A32A8AFEF">http://www.webmoney-business-tools.com/dist/v3-0-1-0/WMBusinessTools-v3.0.1.0.zip</Package>
+  <Package OSMajorVersion="6" Version="3.1.1.0" ReleaseDate="11/21/2018" Digest="77DF67134EB29099BE409C3EB453D3B41879F37A9A00A3EE9FFC52ADCFA27060">http://www.webmoney-business-tools.com/dist/v3-1-1-0/WMBusinessTools-v3.1.1.0.zip</Package>
 </Manifest>

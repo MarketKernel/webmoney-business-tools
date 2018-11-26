@@ -1,0 +1,1108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include variables.wxi?>
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="ManufacturerFolder" Name="$(var.Manufacturer)">
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)">
+            <Directory Id="Directory_amd64" Name="amd64">
+              <Directory Id="Directory_Microsoft.VC90.CRT" Name="Microsoft.VC90.CRT">
+                <Component Id="Component_Microsoft.VC90.CRT.manifest" Guid="9e207419-b3e6-4eca-8657-a375ad94e663" Win64="$(var.Win64)">
+                  <File Id="File_Microsoft.VC90.CRT.manifest" Name="Microsoft.VC90.CRT.manifest" Source="$(var.ProductionDir)amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_msvcr90.dll" Guid="e76f9d4f-23dd-427b-a0df-bdddd6a20a80" Win64="$(var.Win64)">
+                  <File Id="File_msvcr90.dll" Name="msvcr90.dll" Source="$(var.ProductionDir)amd64\Microsoft.VC90.CRT\msvcr90.dll" KeyPath="yes" />
+                </Component>
+              </Directory>
+              <Component Id="Component_sqlceca40.dll" Guid="e27643a6-0557-4760-ad28-5258955d667b" Win64="$(var.Win64)">
+                <File Id="File_sqlceca40.dll" Name="sqlceca40.dll" Source="$(var.ProductionDir)amd64\sqlceca40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlcecompact40.dll" Guid="448b43e1-f09c-42b4-aae3-110902542f68" Win64="$(var.Win64)">
+                <File Id="File_sqlcecompact40.dll" Name="sqlcecompact40.dll" Source="$(var.ProductionDir)amd64\sqlcecompact40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlceer40EN.dll" Guid="9476c320-e3f6-478f-b394-1bbf62766a2b" Win64="$(var.Win64)">
+                <File Id="File_sqlceer40EN.dll" Name="sqlceer40EN.dll" Source="$(var.ProductionDir)amd64\sqlceer40EN.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlceme40.dll" Guid="9205af94-b478-4ff8-9a9b-bc406162c14d" Win64="$(var.Win64)">
+                <File Id="File_sqlceme40.dll" Name="sqlceme40.dll" Source="$(var.ProductionDir)amd64\sqlceme40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlceqp40.dll" Guid="0c4d164e-80da-4bf2-a7c0-ef98a2d39aca" Win64="$(var.Win64)">
+                <File Id="File_sqlceqp40.dll" Name="sqlceqp40.dll" Source="$(var.ProductionDir)amd64\sqlceqp40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlcese40.dll" Guid="91e5c813-f0cd-42a1-8600-55ef06248a8e" Win64="$(var.Win64)">
+                <File Id="File_sqlcese40.dll" Name="sqlcese40.dll" Source="$(var.ProductionDir)amd64\sqlcese40.dll" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Directory Id="Directory_BasicExtensions" Name="BasicExtensions">
+              <Directory Id="Directory_Resources" Name="Resources">
+                <Directory Id="Directory_Pictures" Name="Pictures">
+                  <Directory Id="Directory_Certificates" Name="Certificates">
+                    <Directory Id="Directory__32x32" Name="32x32">
+                      <Directory Id="Directory_Inactive" Name="Inactive">
+                        <Component Id="Component_Alias.png_2" Guid="68cb6a95-4c7f-4479-84a1-69c514ea6816" Win64="$(var.Win64)">
+                          <File Id="File_Alias.png_2" Name="Alias.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Alias.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Capitaller.png_2" Guid="5a530856-3355-4474-80bc-2652f2e50f3c" Win64="$(var.Win64)">
+                          <File Id="File_Capitaller.png_2" Name="Capitaller.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Capitaller.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_CapitallerEntity.png_2" Guid="59d8da9a-392b-4054-9f3f-9697b42ca637" Win64="$(var.Win64)">
+                          <File Id="File_CapitallerEntity.png_2" Name="CapitallerEntity.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\CapitallerEntity.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Cashier.png_2" Guid="8ebedfcf-ec62-433c-83ea-eae3def854c8" Win64="$(var.Win64)">
+                          <File Id="File_Cashier.png_2" Name="Cashier.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Cashier.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Developer.png_2" Guid="dd571ab4-cd7e-461e-bd5e-fb4decd53552" Win64="$(var.Win64)">
+                          <File Id="File_Developer.png_2" Name="Developer.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Developer.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Formal.png_2" Guid="7907a4ee-a355-467f-8618-86410b73a711" Win64="$(var.Win64)">
+                          <File Id="File_Formal.png_2" Name="Formal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Formal.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Guarantor.png_2" Guid="3a80d181-8daa-4d1e-af9b-135347afe47f" Win64="$(var.Win64)">
+                          <File Id="File_Guarantor.png_2" Name="Guarantor.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Guarantor.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Initial.png_2" Guid="5b2ce268-92f1-4095-96fd-71c147324dcf" Win64="$(var.Win64)">
+                          <File Id="File_Initial.png_2" Name="Initial.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Initial.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Merchant.png_2" Guid="ab82e881-a8d2-466d-8465-c1596ff1ee12" Win64="$(var.Win64)">
+                          <File Id="File_Merchant.png_2" Name="Merchant.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Merchant.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Operator.png_2" Guid="1ebf7903-8e36-494b-bbb2-64a16772eb2c" Win64="$(var.Win64)">
+                          <File Id="File_Operator.png_2" Name="Operator.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Operator.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Personal.png_2" Guid="60b7ed3b-8777-4f8e-bd74-59158effa46d" Win64="$(var.Win64)">
+                          <File Id="File_Personal.png_2" Name="Personal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Personal.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Registrar.png_2" Guid="8eb608c3-2094-49e6-891a-0ae669a74ef7" Win64="$(var.Win64)">
+                          <File Id="File_Registrar.png_2" Name="Registrar.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Registrar.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_Service.png_2" Guid="9e8dd616-5d33-4bc6-88e1-04b8e5819486" Win64="$(var.Win64)">
+                          <File Id="File_Service.png_2" Name="Service.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Inactive\Service.png" KeyPath="yes" />
+                        </Component>
+                      </Directory>
+                      <Component Id="Component_Alias.png_1" Guid="d8698764-8be3-4dd3-aaf8-ccd87c50412f" Win64="$(var.Win64)">
+                        <File Id="File_Alias.png_1" Name="Alias.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Alias.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Capitaller.png_1" Guid="28965e4e-5ddd-4cbf-ad1d-ba07b274fdad" Win64="$(var.Win64)">
+                        <File Id="File_Capitaller.png_1" Name="Capitaller.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Capitaller.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_CapitallerEntity.png_1" Guid="0296b6ca-9ad6-47b9-9a04-e32d7f82276e" Win64="$(var.Win64)">
+                        <File Id="File_CapitallerEntity.png_1" Name="CapitallerEntity.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\CapitallerEntity.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Cashier.png_1" Guid="1806c9b7-d80e-4f39-8303-26ec0ffd8be8" Win64="$(var.Win64)">
+                        <File Id="File_Cashier.png_1" Name="Cashier.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Cashier.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Developer.png_1" Guid="6aad4523-4fc3-48dd-9224-2ad05fb56dfe" Win64="$(var.Win64)">
+                        <File Id="File_Developer.png_1" Name="Developer.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Developer.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Formal.png_1" Guid="9ef8df45-e448-4dbb-9824-88c2886e6f55" Win64="$(var.Win64)">
+                        <File Id="File_Formal.png_1" Name="Formal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Formal.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Guarantor.png_1" Guid="31c3e4f8-4975-49a8-bf06-87e6b4ce267d" Win64="$(var.Win64)">
+                        <File Id="File_Guarantor.png_1" Name="Guarantor.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Guarantor.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Initial.png_1" Guid="b5c34089-d101-4c44-80f6-95ff1c4f238e" Win64="$(var.Win64)">
+                        <File Id="File_Initial.png_1" Name="Initial.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Initial.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Merchant.png_1" Guid="68ba5d78-776d-420c-8b6c-86ae559f2f95" Win64="$(var.Win64)">
+                        <File Id="File_Merchant.png_1" Name="Merchant.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Merchant.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Operator.png_1" Guid="3179bf67-e12a-41fb-ab3e-11f7130aee44" Win64="$(var.Win64)">
+                        <File Id="File_Operator.png_1" Name="Operator.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Operator.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Personal.png_1" Guid="794e897b-09ad-47cc-91a0-389187bdc579" Win64="$(var.Win64)">
+                        <File Id="File_Personal.png_1" Name="Personal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Personal.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Registrar.png_1" Guid="a29416f7-977b-4fc8-a615-5e78ea53d60d" Win64="$(var.Win64)">
+                        <File Id="File_Registrar.png_1" Name="Registrar.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Registrar.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Service.png_1" Guid="b3838ffe-ea95-4358-8f85-a5271667c06d" Win64="$(var.Win64)">
+                        <File Id="File_Service.png_1" Name="Service.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\32x32\Service.png" KeyPath="yes" />
+                      </Component>
+                    </Directory>
+                    <Directory Id="Directory_Inactive_1" Name="Inactive">
+                      <Component Id="Component_Alias.png_3" Guid="aa15daf7-7149-41e0-a085-c04a926be6c8" Win64="$(var.Win64)">
+                        <File Id="File_Alias.png_3" Name="Alias.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Alias.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Capitaller.png_3" Guid="a8eb1004-57b2-41e9-a854-bfa295ee3532" Win64="$(var.Win64)">
+                        <File Id="File_Capitaller.png_3" Name="Capitaller.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Capitaller.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_CapitallerEntity.png_3" Guid="dbc7765b-db36-4a47-9140-42877929c282" Win64="$(var.Win64)">
+                        <File Id="File_CapitallerEntity.png_3" Name="CapitallerEntity.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\CapitallerEntity.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Cashier.png_3" Guid="b70f2516-93e2-4d10-8976-2e8b48f5a314" Win64="$(var.Win64)">
+                        <File Id="File_Cashier.png_3" Name="Cashier.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Cashier.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Developer.png_3" Guid="3fe2afe5-5991-4606-a748-749952cb81d8" Win64="$(var.Win64)">
+                        <File Id="File_Developer.png_3" Name="Developer.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Developer.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Formal.png_3" Guid="aa205ad5-df77-44f2-bc45-56e6e632962c" Win64="$(var.Win64)">
+                        <File Id="File_Formal.png_3" Name="Formal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Formal.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Guarantor.png_3" Guid="2fcd35e2-c820-4321-aaeb-17c8749caf4d" Win64="$(var.Win64)">
+                        <File Id="File_Guarantor.png_3" Name="Guarantor.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Guarantor.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Initial.png_3" Guid="7bf03e35-c9a9-4036-945a-acd286190b33" Win64="$(var.Win64)">
+                        <File Id="File_Initial.png_3" Name="Initial.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Initial.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Merchant.png_3" Guid="d96419dd-8f68-4d58-a844-72052b64200a" Win64="$(var.Win64)">
+                        <File Id="File_Merchant.png_3" Name="Merchant.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Merchant.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Operator.png_3" Guid="414d3042-0fa5-4638-ac15-65d923a67547" Win64="$(var.Win64)">
+                        <File Id="File_Operator.png_3" Name="Operator.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Operator.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Personal.png_3" Guid="807ddb09-822f-4525-a72c-b76281d5218f" Win64="$(var.Win64)">
+                        <File Id="File_Personal.png_3" Name="Personal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Personal.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Registrar.png_3" Guid="295e0a1f-5c1c-425f-bcec-927ed77e1e67" Win64="$(var.Win64)">
+                        <File Id="File_Registrar.png_3" Name="Registrar.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Registrar.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Service.png_3" Guid="0176ba42-e474-44ad-aef9-f628845ee5be" Win64="$(var.Win64)">
+                        <File Id="File_Service.png_3" Name="Service.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Inactive\Service.png" KeyPath="yes" />
+                      </Component>
+                    </Directory>
+                    <Component Id="Component_Alias.png" Guid="fdb87105-e336-495a-9f8e-feb37c646d0c" Win64="$(var.Win64)">
+                      <File Id="File_Alias.png" Name="Alias.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Alias.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Capitaller.png" Guid="0aeb4151-15e5-47a9-999f-0d698bc6d51f" Win64="$(var.Win64)">
+                      <File Id="File_Capitaller.png" Name="Capitaller.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Capitaller.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_CapitallerEntity.png" Guid="5804e34d-f009-48b2-aeb8-c6fbc59dda26" Win64="$(var.Win64)">
+                      <File Id="File_CapitallerEntity.png" Name="CapitallerEntity.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\CapitallerEntity.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Cashier.png" Guid="686639c7-30c7-4fd6-bbcb-893469ec0e31" Win64="$(var.Win64)">
+                      <File Id="File_Cashier.png" Name="Cashier.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Cashier.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Developer.png" Guid="a40c9cd0-3ab2-4979-93b9-9d3883f4672e" Win64="$(var.Win64)">
+                      <File Id="File_Developer.png" Name="Developer.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Developer.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Formal.png" Guid="cb1a723c-f0f7-4829-bea4-fc33883f2405" Win64="$(var.Win64)">
+                      <File Id="File_Formal.png" Name="Formal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Formal.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Guarantor.png" Guid="b2ede2a0-103e-4721-8bfe-f824b32fd036" Win64="$(var.Win64)">
+                      <File Id="File_Guarantor.png" Name="Guarantor.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Guarantor.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Initial.png" Guid="fbdd90c6-7f5a-476c-b3d2-6d4abeea23a6" Win64="$(var.Win64)">
+                      <File Id="File_Initial.png" Name="Initial.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Initial.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Merchant.png" Guid="a0afc451-25bf-422f-a85f-b3f452821f17" Win64="$(var.Win64)">
+                      <File Id="File_Merchant.png" Name="Merchant.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Merchant.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Operator.png" Guid="e1adfc5d-c830-4a6a-9331-0b7143e37ff5" Win64="$(var.Win64)">
+                      <File Id="File_Operator.png" Name="Operator.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Operator.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Personal.png" Guid="ca974c60-df7d-4c17-909d-f25424a2dbef" Win64="$(var.Win64)">
+                      <File Id="File_Personal.png" Name="Personal.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Personal.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Registrar.png" Guid="839246c4-622d-4882-acc1-e22090237c48" Win64="$(var.Win64)">
+                      <File Id="File_Registrar.png" Name="Registrar.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Registrar.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Service.png" Guid="8cd5f4fc-6767-48d8-90fb-2db1463f8446" Win64="$(var.Win64)">
+                      <File Id="File_Service.png" Name="Service.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Certificates\Service.png" KeyPath="yes" />
+                    </Component>
+                  </Directory>
+                  <Directory Id="Directory_Events" Name="Events">
+                    <Directory Id="Directory_Invoices" Name="Invoices">
+                      <Component Id="Component_Incoming.png" Guid="1ace6f5b-a95e-4ddc-a8ad-efcb3449781d" Win64="$(var.Win64)">
+                        <File Id="File_Incoming.png" Name="Incoming.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Events\Invoices\Incoming.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Outgoing.png" Guid="ee73e8e9-f7fd-4f8f-84ea-aebddc1e0bcb" Win64="$(var.Win64)">
+                        <File Id="File_Outgoing.png" Name="Outgoing.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Events\Invoices\Outgoing.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Payed.png" Guid="78709991-dfa2-4a74-804f-edfb038ec8ff" Win64="$(var.Win64)">
+                        <File Id="File_Payed.png" Name="Payed.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Events\Invoices\Payed.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_Rejected.png" Guid="98f867db-e662-434d-86ff-c295987612f6" Win64="$(var.Win64)">
+                        <File Id="File_Rejected.png" Name="Rejected.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Events\Invoices\Rejected.png" KeyPath="yes" />
+                      </Component>
+                    </Directory>
+                  </Directory>
+                  <Directory Id="Directory_Logos" Name="Logos">
+                    <Component Id="Component_DotNet.png" Guid="3984ba10-c030-4110-b41f-0fa12f7ffa3f" Win64="$(var.Win64)">
+                      <File Id="File_DotNet.png" Name="DotNet.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logos\DotNet.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_Mono.png" Guid="147b5b95-5073-41c0-8a2b-f12fa1a9035c" Win64="$(var.Win64)">
+                      <File Id="File_Mono.png" Name="Mono.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logos\Mono.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_MsSqlServer.png" Guid="69d11f48-92ce-49fb-9333-b9c16f2cce1c" Win64="$(var.Win64)">
+                      <File Id="File_MsSqlServer.png" Name="MsSqlServer.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logos\MsSqlServer.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_MySql.png" Guid="777fd269-cc84-4a0c-9b20-05bfa611ee6d" Win64="$(var.Win64)">
+                      <File Id="File_MySql.png" Name="MySql.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logos\MySql.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_OracleDatabase.png" Guid="c2ec83af-1751-4097-85ad-27dbc4ded1b5" Win64="$(var.Win64)">
+                      <File Id="File_OracleDatabase.png" Name="OracleDatabase.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logos\OracleDatabase.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_PostgreSql.png" Guid="b48f7361-9124-4b20-a9b5-dcd0316fa596" Win64="$(var.Win64)">
+                      <File Id="File_PostgreSql.png" Name="PostgreSql.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logos\PostgreSql.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WebMoney.png" Guid="3b37afdb-3141-4596-8303-346d6567d3f2" Win64="$(var.Win64)">
+                      <File Id="File_WebMoney.png" Name="WebMoney.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logos\WebMoney.png" KeyPath="yes" />
+                    </Component>
+                  </Directory>
+                  <Directory Id="Directory_Purses" Name="Purses">
+                    <Directory Id="Directory__32x32_1" Name="32x32">
+                      <Directory Id="Directory_Inactive_2" Name="Inactive">
+                        <Component Id="Component_WMB.png_2" Guid="f94c96fd-5dcc-4bc2-b77f-65159c5b58de" Win64="$(var.Win64)">
+                          <File Id="File_WMB.png_2" Name="WMB.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMB.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WMC.png_2" Guid="cfdd35d8-76e6-43fa-b377-e0d5564db5a5" Win64="$(var.Win64)">
+                          <File Id="File_WMC.png_2" Name="WMC.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMC.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WMD.png_2" Guid="8c353df6-4835-43d9-b9a2-59f43ead64c2" Win64="$(var.Win64)">
+                          <File Id="File_WMD.png_2" Name="WMD.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMD.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WME.png_2" Guid="623bd0a4-7eb5-4972-a6de-4744119880a7" Win64="$(var.Win64)">
+                          <File Id="File_WME.png_2" Name="WME.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WME.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WMG.png_2" Guid="0400c2e2-bbfd-4390-97d6-8cc7bde42f32" Win64="$(var.Win64)">
+                          <File Id="File_WMG.png_2" Name="WMG.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMG.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WML.png_2" Guid="9656055b-9c78-424b-94c8-eb67499df1d3" Win64="$(var.Win64)">
+                          <File Id="File_WML.png_2" Name="WML.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WML.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WMR.png_2" Guid="728c7089-f98f-4c47-a242-f37e2f3a0e5d" Win64="$(var.Win64)">
+                          <File Id="File_WMR.png_2" Name="WMR.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMR.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WMU.png_2" Guid="eafd2301-5e94-42ea-9489-a09fec73161d" Win64="$(var.Win64)">
+                          <File Id="File_WMU.png_2" Name="WMU.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMU.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WMY.png_2" Guid="bda269bc-fc69-46e2-a8bb-6aaa0e775ee2" Win64="$(var.Win64)">
+                          <File Id="File_WMY.png_2" Name="WMY.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMY.png" KeyPath="yes" />
+                        </Component>
+                        <Component Id="Component_WMZ.png_2" Guid="a6764216-14c4-4dda-9afb-3797da3a2915" Win64="$(var.Win64)">
+                          <File Id="File_WMZ.png_2" Name="WMZ.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\Inactive\WMZ.png" KeyPath="yes" />
+                        </Component>
+                      </Directory>
+                      <Component Id="Component_WMB.png_1" Guid="579745a3-9a5a-4e14-b0ae-32436c4ba84f" Win64="$(var.Win64)">
+                        <File Id="File_WMB.png_1" Name="WMB.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMB.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMC.png_1" Guid="eb0b581d-89ca-4c5a-bbdb-8488f2f8cbde" Win64="$(var.Win64)">
+                        <File Id="File_WMC.png_1" Name="WMC.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMC.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMD.png_1" Guid="de2cad32-cef7-4648-a09e-72a58d11a3f1" Win64="$(var.Win64)">
+                        <File Id="File_WMD.png_1" Name="WMD.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMD.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WME.png_1" Guid="0329d4a4-6f35-4166-9a6b-7a75d7e83421" Win64="$(var.Win64)">
+                        <File Id="File_WME.png_1" Name="WME.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WME.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMG.png_1" Guid="428dfb74-5762-45dd-a48a-4b449098bd70" Win64="$(var.Win64)">
+                        <File Id="File_WMG.png_1" Name="WMG.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMG.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMH.png_1" Guid="70d7b9be-144c-4e41-bffe-74740bbc9abb" Win64="$(var.Win64)">
+                        <File Id="File_WMH.png_1" Name="WMH.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMH.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMK.png_1" Guid="0ecfd9de-1def-4746-80fc-445c2bfefa9d" Win64="$(var.Win64)">
+                        <File Id="File_WMK.png_1" Name="WMK.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMK.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WML.png_1" Guid="ab1873d9-f5ff-4265-9fa7-0b1a170654d2" Win64="$(var.Win64)">
+                        <File Id="File_WML.png_1" Name="WML.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WML.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMR.png_1" Guid="fe540d01-1d13-4317-9c7a-21175ae0afd9" Win64="$(var.Win64)">
+                        <File Id="File_WMR.png_1" Name="WMR.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMR.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMU.png_1" Guid="3b416112-4a2e-49c4-bb65-63006c02270e" Win64="$(var.Win64)">
+                        <File Id="File_WMU.png_1" Name="WMU.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMU.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMV.png_1" Guid="1fb22c43-e211-433c-9040-01c2f8152333" Win64="$(var.Win64)">
+                        <File Id="File_WMV.png_1" Name="WMV.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMV.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMX.png_1" Guid="e717acc9-0a5a-4678-b513-999d072bced1" Win64="$(var.Win64)">
+                        <File Id="File_WMX.png_1" Name="WMX.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMX.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMY.png_1" Guid="7cf04fc8-8f14-4e7d-b3b2-1fc5ff457f1a" Win64="$(var.Win64)">
+                        <File Id="File_WMY.png_1" Name="WMY.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMY.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMZ.png_1" Guid="f330d614-8107-483b-b272-e7e1c7572599" Win64="$(var.Win64)">
+                        <File Id="File_WMZ.png_1" Name="WMZ.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\32x32\WMZ.png" KeyPath="yes" />
+                      </Component>
+                    </Directory>
+                    <Directory Id="Directory_Inactive_3" Name="Inactive">
+                      <Component Id="Component_WMB.png_3" Guid="a2cefca1-bc4d-4ec8-b05a-29e6602ad026" Win64="$(var.Win64)">
+                        <File Id="File_WMB.png_3" Name="WMB.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMB.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMC.png_3" Guid="f6f5b4f0-acc1-4a3a-9559-20cb56179580" Win64="$(var.Win64)">
+                        <File Id="File_WMC.png_3" Name="WMC.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMC.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMD.png_3" Guid="641540b1-9e5a-485f-bbc5-3ce026e495ba" Win64="$(var.Win64)">
+                        <File Id="File_WMD.png_3" Name="WMD.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMD.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WME.png_3" Guid="d4d3c87a-8658-4913-8cd4-a27487382d06" Win64="$(var.Win64)">
+                        <File Id="File_WME.png_3" Name="WME.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WME.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMG.png_3" Guid="82d1003a-68da-46ab-98b3-3d01b07ccedc" Win64="$(var.Win64)">
+                        <File Id="File_WMG.png_3" Name="WMG.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMG.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WML.png_3" Guid="f667c092-bf72-47bf-8bac-d1e7c159fb43" Win64="$(var.Win64)">
+                        <File Id="File_WML.png_3" Name="WML.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WML.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMR.png_3" Guid="8a676b2e-b939-451d-8258-5a023fbd4119" Win64="$(var.Win64)">
+                        <File Id="File_WMR.png_3" Name="WMR.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMR.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMU.png_3" Guid="20258abf-51a5-473c-81b3-d0e94d41230a" Win64="$(var.Win64)">
+                        <File Id="File_WMU.png_3" Name="WMU.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMU.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMY.png_3" Guid="b6587026-a9c9-4689-8ef6-4cc243d23c66" Win64="$(var.Win64)">
+                        <File Id="File_WMY.png_3" Name="WMY.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMY.png" KeyPath="yes" />
+                      </Component>
+                      <Component Id="Component_WMZ.png_3" Guid="4c8822b4-0035-4b58-9401-9a273aa83a5a" Win64="$(var.Win64)">
+                        <File Id="File_WMZ.png_3" Name="WMZ.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\Inactive\WMZ.png" KeyPath="yes" />
+                      </Component>
+                    </Directory>
+                    <Component Id="Component_WMB.png" Guid="36b2c3c4-797d-4ebc-a620-4f79e26022d0" Win64="$(var.Win64)">
+                      <File Id="File_WMB.png" Name="WMB.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMB.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMC.png" Guid="ce980150-0355-4e6b-8ab7-a58d5221edf6" Win64="$(var.Win64)">
+                      <File Id="File_WMC.png" Name="WMC.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMC.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMD.png" Guid="d817358f-83c3-4ee0-ba5c-0e1a091c894e" Win64="$(var.Win64)">
+                      <File Id="File_WMD.png" Name="WMD.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMD.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WME.png" Guid="c519ee60-2890-4e93-9c62-c2bdc4cd913a" Win64="$(var.Win64)">
+                      <File Id="File_WME.png" Name="WME.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WME.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMG.png" Guid="920f612e-1b26-4cdc-80fa-acd166cd96b0" Win64="$(var.Win64)">
+                      <File Id="File_WMG.png" Name="WMG.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMG.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMH.png" Guid="f416cf0b-0fb5-4392-8676-b3abb8599edc" Win64="$(var.Win64)">
+                      <File Id="File_WMH.png" Name="WMH.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMH.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMK.png" Guid="b5509b93-4cc6-499f-ac6e-708e3c09dd3f" Win64="$(var.Win64)">
+                      <File Id="File_WMK.png" Name="WMK.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMK.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WML.png" Guid="9d6e2610-2a5b-445e-b46b-ed76b594bf47" Win64="$(var.Win64)">
+                      <File Id="File_WML.png" Name="WML.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WML.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMR.png" Guid="583b621b-5526-4a76-8703-d0429b7f3660" Win64="$(var.Win64)">
+                      <File Id="File_WMR.png" Name="WMR.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMR.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMU.png" Guid="59051d12-2e40-44be-b0de-5b07bdb11ac4" Win64="$(var.Win64)">
+                      <File Id="File_WMU.png" Name="WMU.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMU.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMV.png" Guid="22515455-58aa-4fae-9e39-ae952be276e7" Win64="$(var.Win64)">
+                      <File Id="File_WMV.png" Name="WMV.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMV.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMX.png" Guid="7de879bd-ec93-4d7b-b672-e5b2fcdebe59" Win64="$(var.Win64)">
+                      <File Id="File_WMX.png" Name="WMX.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMX.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMY.png" Guid="6100df35-3e2e-499b-8448-100a4298b894" Win64="$(var.Win64)">
+                      <File Id="File_WMY.png" Name="WMY.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMY.png" KeyPath="yes" />
+                    </Component>
+                    <Component Id="Component_WMZ.png" Guid="f33b9758-8cd2-466b-8334-591bc519badb" Win64="$(var.Win64)">
+                      <File Id="File_WMZ.png" Name="WMZ.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Purses\WMZ.png" KeyPath="yes" />
+                    </Component>
+                  </Directory>
+                  <Component Id="Component_Ant.png" Guid="b521a1d6-6ce4-469d-a1e2-c09fc63daefd" Win64="$(var.Win64)">
+                    <File Id="File_Ant.png" Name="Ant.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Ant.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_ClearMerchantKey.png" Guid="72038e8d-3351-456d-9364-63d510af3749" Win64="$(var.Win64)">
+                    <File Id="File_ClearMerchantKey.png" Name="ClearMerchantKey.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\ClearMerchantKey.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Contracts.png" Guid="a61c3a0c-3041-4775-acab-bda361eac5b1" Win64="$(var.Win64)">
+                    <File Id="File_Contracts.png" Name="Contracts.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Contracts.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Copy.png" Guid="1fab481f-41df-4de8-b967-19977a94bf70" Win64="$(var.Win64)">
+                    <File Id="File_Copy.png" Name="Copy.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Copy.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreateContract.png" Guid="d34c2d6e-ed89-46f3-9979-14ad69837722" Win64="$(var.Win64)">
+                    <File Id="File_CreateContract.png" Name="CreateContract.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\CreateContract.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreateOutgoingInvoice.png" Guid="20ab43ff-1d7e-4efa-b898-9f94937ba5e2" Win64="$(var.Win64)">
+                    <File Id="File_CreateOutgoingInvoice.png" Name="CreateOutgoingInvoice.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\CreateOutgoingInvoice.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreateTransfer.png" Guid="5424a5a6-0bd0-4716-93bd-afb9ba56b026" Win64="$(var.Win64)">
+                    <File Id="File_CreateTransfer.png" Name="CreateTransfer.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\CreateTransfer.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_DbSettings.png" Guid="3fd4ebdc-149d-4de1-8e23-60d4a65c31b5" Win64="$(var.Win64)">
+                    <File Id="File_DbSettings.png" Name="DbSettings.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\DbSettings.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Details.png" Guid="04d14ade-c00f-4655-aa6c-ec1401178344" Win64="$(var.Win64)">
+                    <File Id="File_Details.png" Name="Details.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Details.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Find.png" Guid="ea1c9282-b82d-4407-9f87-47b3e3508629" Win64="$(var.Win64)">
+                    <File Id="File_Find.png" Name="Find.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Find.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_FindCertificate.png" Guid="a8e01d3b-b9f4-4cfe-87b4-768dfd3598ce" Win64="$(var.Win64)">
+                    <File Id="File_FindCertificate.png" Name="FindCertificate.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\FindCertificate.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_FindWmId.png" Guid="35287352-c50f-44dd-8e44-f9a437baabca" Win64="$(var.Win64)">
+                    <File Id="File_FindWmId.png" Name="FindWmId.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\FindWmId.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_FinishProtection.png" Guid="34d46d60-f3c8-4d23-a486-629dcd00693b" Win64="$(var.Win64)">
+                    <File Id="File_FinishProtection.png" Name="FinishProtection.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\FinishProtection.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_IncomingInvoiceFilter.png" Guid="c160b70b-e4fe-47ac-895c-b8b28bd99fc7" Win64="$(var.Win64)">
+                    <File Id="File_IncomingInvoiceFilter.png" Name="IncomingInvoiceFilter.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\IncomingInvoiceFilter.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_KeySettings.png" Guid="c18068fb-04b2-45b0-beba-e5c1138c68cf" Win64="$(var.Win64)">
+                    <File Id="File_KeySettings.png" Name="KeySettings.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\KeySettings.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Link.png" Guid="c99a427b-db9d-45e5-b668-08bf272aff13" Win64="$(var.Win64)">
+                    <File Id="File_Link.png" Name="Link.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Link.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Logo120x120.png" Guid="7ab64ea8-eb78-49e8-85fe-fb2deae812e9" Win64="$(var.Win64)">
+                    <File Id="File_Logo120x120.png" Name="Logo120x120.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Logo120x120.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_OpenFile.png" Guid="efe690e7-00fc-4b30-9865-33264783699a" Win64="$(var.Win64)">
+                    <File Id="File_OpenFile.png" Name="OpenFile.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\OpenFile.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_OutgoingInvoiceFilter.png" Guid="074a2fe1-3b4c-46b9-8ecc-8bbb6c311c53" Win64="$(var.Win64)">
+                    <File Id="File_OutgoingInvoiceFilter.png" Name="OutgoingInvoiceFilter.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\OutgoingInvoiceFilter.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_PasswordSettings.png" Guid="ac2cc658-69aa-423c-9b6d-ee4e57693e64" Win64="$(var.Win64)">
+                    <File Id="File_PasswordSettings.png" Name="PasswordSettings.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\PasswordSettings.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_PayInvoice.png" Guid="0588d08e-a170-4e76-89e6-af93b27ac9f2" Win64="$(var.Win64)">
+                    <File Id="File_PayInvoice.png" Name="PayInvoice.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\PayInvoice.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Pfx.png" Guid="e51b6926-bd61-4729-b2ef-cbfc39508afa" Win64="$(var.Win64)">
+                    <File Id="File_Pfx.png" Name="Pfx.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Pfx.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RecordEdit.png" Guid="d56fa4cc-f1dd-4be3-8eab-3cb33087b5a5" Win64="$(var.Win64)">
+                    <File Id="File_RecordEdit.png" Name="RecordEdit.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\RecordEdit.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RedeemPaymer.png" Guid="cfdc8067-3e73-4d5a-a8d1-9dbc8ee7af29" Win64="$(var.Win64)">
+                    <File Id="File_RedeemPaymer.png" Name="RedeemPaymer.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\RedeemPaymer.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Refresh.png" Guid="8345d160-1c37-43f9-81f6-f77e931389ab" Win64="$(var.Win64)">
+                    <File Id="File_Refresh.png" Name="Refresh.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Refresh.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RejectInvoice.png" Guid="c9a1c6d0-33ab-4c85-8154-e4d21aed7958" Win64="$(var.Win64)">
+                    <File Id="File_RejectInvoice.png" Name="RejectInvoice.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\RejectInvoice.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Remove.png" Guid="7b6b134d-fa83-413c-92e2-1ca9e756bbfa" Win64="$(var.Win64)">
+                    <File Id="File_Remove.png" Name="Remove.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Remove.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RunAsAdministrator.png" Guid="28c5ebd2-35eb-416f-b3de-b31900ffe538" Win64="$(var.Win64)">
+                    <File Id="File_RunAsAdministrator.png" Name="RunAsAdministrator.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\RunAsAdministrator.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_SendMessage.png" Guid="16b90ca5-4a29-4e28-a32d-53a734908790" Win64="$(var.Win64)">
+                    <File Id="File_SendMessage.png" Name="SendMessage.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\SendMessage.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_SendSms.png" Guid="2e1c0c7a-4848-4eaa-887c-74d6cf485482" Win64="$(var.Win64)">
+                    <File Id="File_SendSms.png" Name="SendSms.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\SendSms.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_SetMerchantKey.png" Guid="2b745f3c-6363-4979-9975-e0e4503f73df" Win64="$(var.Win64)">
+                    <File Id="File_SetMerchantKey.png" Name="SetMerchantKey.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\SetMerchantKey.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Settings.png" Guid="6d344e9f-52ba-49fe-b22e-100bab9b81af" Win64="$(var.Win64)">
+                    <File Id="File_Settings.png" Name="Settings.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Settings.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Start.png" Guid="7c331e7f-da27-46d9-b8fb-4406db2e02f8" Win64="$(var.Win64)">
+                    <File Id="File_Start.png" Name="Start.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Start.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Stop.png" Guid="4cbaa396-510c-4ccc-bc4f-5b800576a3c7" Win64="$(var.Win64)">
+                    <File Id="File_Stop.png" Name="Stop.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Stop.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_TransferFilter.png" Guid="d3f68b4c-835e-4908-8823-ac3d3ecc1b1f" Win64="$(var.Win64)">
+                    <File Id="File_TransferFilter.png" Name="TransferFilter.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\TransferFilter.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Unverified.png" Guid="be1e4555-1d9a-41db-9a4e-7e0395003ff2" Win64="$(var.Win64)">
+                    <File Id="File_Unverified.png" Name="Unverified.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Unverified.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_UnverifiedProtected.png" Guid="c1095286-0389-40c3-98a0-dcee334c3e19" Win64="$(var.Win64)">
+                    <File Id="File_UnverifiedProtected.png" Name="UnverifiedProtected.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\UnverifiedProtected.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_Verified.png" Guid="4422eff9-64ec-411f-a4be-ead35379cba0" Win64="$(var.Win64)">
+                    <File Id="File_Verified.png" Name="Verified.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\Verified.png" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_VerifiedProtected.png" Guid="97737f91-f728-440c-a442-822aaeb0d129" Win64="$(var.Win64)">
+                    <File Id="File_VerifiedProtected.png" Name="VerifiedProtected.png" Source="$(var.ProductionDir)BasicExtensions\Resources\Pictures\VerifiedProtected.png" KeyPath="yes" />
+                  </Component>
+                </Directory>
+                <Directory Id="Directory_Templates" Name="Templates">
+                  <Component Id="Component_AboutForm.json" Guid="185964a0-2ac5-424f-8cac-248a0ed5fd68" Win64="$(var.Win64)">
+                    <File Id="File_AboutForm.json" Name="AboutForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\AboutForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_AddIdentifierForm.json" Guid="8340c482-7561-487e-9c3b-b7d5ecb91294" Win64="$(var.Win64)">
+                    <File Id="File_AddIdentifierForm.json" Name="AddIdentifierForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\AddIdentifierForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_AddPurseForm.json" Guid="068b365b-2bdb-4209-abb8-12bd025d5833" Win64="$(var.Win64)">
+                    <File Id="File_AddPurseForm.json" Name="AddPurseForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\AddPurseForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CertificateForm.json" Guid="2b3a03ab-77fb-4d35-b57b-75f33b0eb878" Win64="$(var.Win64)">
+                    <File Id="File_CertificateForm.json" Name="CertificateForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\CertificateForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_ClassicKeySettingsForm.json" Guid="6e72e5f5-c937-414a-bdb4-31f95160068c" Win64="$(var.Win64)">
+                    <File Id="File_ClassicKeySettingsForm.json" Name="ClassicKeySettingsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\ClassicKeySettingsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_ContractDetailsForm.json" Guid="dae47528-61ce-44ad-bc12-ef3bad717ced" Win64="$(var.Win64)">
+                    <File Id="File_ContractDetailsForm.json" Name="ContractDetailsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\ContractDetailsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_ContractFilterForm.json" Guid="69b461a1-e9d5-44fb-ac11-bfabc2313e57" Win64="$(var.Win64)">
+                    <File Id="File_ContractFilterForm.json" Name="ContractFilterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\ContractFilterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreateContractForm.json" Guid="025b9350-e2c4-4983-ba74-b25dce6fff65" Win64="$(var.Win64)">
+                    <File Id="File_CreateContractForm.json" Name="CreateContractForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\CreateContractForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreateOutgoingInvoiceForm.json" Guid="e5cf3094-ccde-41f2-95c6-213ed30e0906" Win64="$(var.Win64)">
+                    <File Id="File_CreateOutgoingInvoiceForm.json" Name="CreateOutgoingInvoiceForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\CreateOutgoingInvoiceForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreatePaymentLinkForm.json" Guid="0dcdc294-57dd-4f8f-bf6e-2ca476810f07" Win64="$(var.Win64)">
+                    <File Id="File_CreatePaymentLinkForm.json" Name="CreatePaymentLinkForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\CreatePaymentLinkForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreatePurseForm.json" Guid="2aaff066-6bc8-4137-a2fd-6630602e86d2" Win64="$(var.Win64)">
+                    <File Id="File_CreatePurseForm.json" Name="CreatePurseForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\CreatePurseForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreateTransferForm.json" Guid="9658038c-7410-4299-9b70-578a8403b5d5" Win64="$(var.Win64)">
+                    <File Id="File_CreateTransferForm.json" Name="CreateTransferForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\CreateTransferForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_CreateTrustForm.json" Guid="dfb8c5a2-e173-4a13-8aea-1c1ebd9244e7" Win64="$(var.Win64)">
+                    <File Id="File_CreateTrustForm.json" Name="CreateTrustForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\CreateTrustForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_DbSettingsForm.json" Guid="ba2ef228-b19c-43a4-9582-07cd47041cf3" Win64="$(var.Win64)">
+                    <File Id="File_DbSettingsForm.json" Name="DbSettingsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\DbSettingsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_DetailsForm.json" Guid="98ac146e-103f-46f3-bed6-9618372397a4" Win64="$(var.Win64)">
+                    <File Id="File_DetailsForm.json" Name="DetailsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\DetailsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_EnterForm.json" Guid="6554b093-e85e-49cd-90a2-7cc9c8f36434" Win64="$(var.Win64)">
+                    <File Id="File_EnterForm.json" Name="EnterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\EnterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_FindCertificateForm.json" Guid="0b8d4ba7-4ef5-4e40-bb89-ecd31bf23315" Win64="$(var.Win64)">
+                    <File Id="File_FindCertificateForm.json" Name="FindCertificateForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\FindCertificateForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_FindIdentifierForm.json" Guid="db0440c7-c776-42ad-af03-f263e52d3400" Win64="$(var.Win64)">
+                    <File Id="File_FindIdentifierForm.json" Name="FindIdentifierForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\FindIdentifierForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_FindMerchantTransferForm.json" Guid="1b0ef55f-c947-4965-a575-a7f35ae4b5b7" Win64="$(var.Win64)">
+                    <File Id="File_FindMerchantTransferForm.json" Name="FindMerchantTransferForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\FindMerchantTransferForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_FinishProtectionForm.json" Guid="e9db174c-47a7-4487-9888-0f6846b94709" Win64="$(var.Win64)">
+                    <File Id="File_FinishProtectionForm.json" Name="FinishProtectionForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\FinishProtectionForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_IncomingInvoiceFilterForm.json" Guid="e1a4923c-e447-4af9-91ec-5e829171724a" Win64="$(var.Win64)">
+                    <File Id="File_IncomingInvoiceFilterForm.json" Name="IncomingInvoiceFilterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\IncomingInvoiceFilterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_IncomingInvoiceFilterScreen.json" Guid="d2fa0fef-e76f-465b-8a81-a698374d9565" Win64="$(var.Win64)">
+                    <File Id="File_IncomingInvoiceFilterScreen.json" Name="IncomingInvoiceFilterScreen.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\IncomingInvoiceFilterScreen.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_LightKeySettingsForm.json" Guid="fd66a832-dc08-46a8-8f24-b3f1381bb2cc" Win64="$(var.Win64)">
+                    <File Id="File_LightKeySettingsForm.json" Name="LightKeySettingsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\LightKeySettingsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_MoneybackForm.json" Guid="1cd72d7a-a880-4b48-9235-1e6e2b64fd6e" Win64="$(var.Win64)">
+                    <File Id="File_MoneybackForm.json" Name="MoneybackForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\MoneybackForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_OutgoingInvoiceFilterForm.json" Guid="9d81d386-b724-4f79-ac6f-9ed760eb60d1" Win64="$(var.Win64)">
+                    <File Id="File_OutgoingInvoiceFilterForm.json" Name="OutgoingInvoiceFilterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\OutgoingInvoiceFilterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_PasswordSettingsForm.json" Guid="0e3090fe-80a2-419d-850c-e6cf6b194959" Win64="$(var.Win64)">
+                    <File Id="File_PasswordSettingsForm.json" Name="PasswordSettingsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\PasswordSettingsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_PayInvoiceForm.json" Guid="2ca6d620-b68e-42f5-84d4-2cbc87b48df3" Win64="$(var.Win64)">
+                    <File Id="File_PayInvoiceForm.json" Name="PayInvoiceForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\PayInvoiceForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_PreparedTransferFilterForm.json" Guid="70600902-48e1-4040-9cb8-f93b74b8e8e8" Win64="$(var.Win64)">
+                    <File Id="File_PreparedTransferFilterForm.json" Name="PreparedTransferFilterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\PreparedTransferFilterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_ProxySettingsForm.json" Guid="70165028-59a6-45cc-9c8e-241b513092aa" Win64="$(var.Win64)">
+                    <File Id="File_ProxySettingsForm.json" Name="ProxySettingsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\ProxySettingsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_PursesScreen.json" Guid="1de396c6-20b9-4bfc-92bf-cb844d94eadb" Win64="$(var.Win64)">
+                    <File Id="File_PursesScreen.json" Name="PursesScreen.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\PursesScreen.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RedeemPaymerForm.json" Guid="67fff74c-958e-4a1d-b62d-cc35b361a358" Win64="$(var.Win64)">
+                    <File Id="File_RedeemPaymerForm.json" Name="RedeemPaymerForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\RedeemPaymerForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RegistrationForm.json" Guid="cf1cebda-5894-41fe-be6f-007069559f2f" Win64="$(var.Win64)">
+                    <File Id="File_RegistrationForm.json" Name="RegistrationForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\RegistrationForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RejectInvoiceForm.json" Guid="3e2d74b3-6ace-466f-a8b7-4bffd8f2a77f" Win64="$(var.Win64)">
+                    <File Id="File_RejectInvoiceForm.json" Name="RejectInvoiceForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\RejectInvoiceForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RejectProtectionForm.json" Guid="7deb1130-6842-4a64-9506-aed65b66b03f" Win64="$(var.Win64)">
+                    <File Id="File_RejectProtectionForm.json" Name="RejectProtectionForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\RejectProtectionForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_RequestNumberSettingsForm.json" Guid="cd2673ef-76b2-43ef-8564-d42fed0d56f1" Win64="$(var.Win64)">
+                    <File Id="File_RequestNumberSettingsForm.json" Name="RequestNumberSettingsForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\RequestNumberSettingsForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_SendMessageForm.json" Guid="5d90d618-8b4b-4aa9-9e6e-b51aa5a9ad2a" Win64="$(var.Win64)">
+                    <File Id="File_SendMessageForm.json" Name="SendMessageForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\SendMessageForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_SendMessageToDeveloperForm.json" Guid="f04a16e6-117a-46aa-8d1b-eddaa1f5460c" Win64="$(var.Win64)">
+                    <File Id="File_SendMessageToDeveloperForm.json" Name="SendMessageToDeveloperForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\SendMessageToDeveloperForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_SendSMSForm.json" Guid="f8ce6a83-ae7a-459b-8c46-d27731580060" Win64="$(var.Win64)">
+                    <File Id="File_SendSMSForm.json" Name="SendSMSForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\SendSMSForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_SetMerchantKeyForm.json" Guid="9da687af-a41a-40c3-9109-b7235c782d20" Win64="$(var.Win64)">
+                    <File Id="File_SetMerchantKeyForm.json" Name="SetMerchantKeyForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\SetMerchantKeyForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_TakePaymentForm.json" Guid="65583389-33ba-465c-9d40-41f6f01fb8e7" Win64="$(var.Win64)">
+                    <File Id="File_TakePaymentForm.json" Name="TakePaymentForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\TakePaymentForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_TakeTrustForm.json" Guid="b66bcc7f-64ff-41f8-b718-be71f22b88c4" Win64="$(var.Win64)">
+                    <File Id="File_TakeTrustForm.json" Name="TakeTrustForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\TakeTrustForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_TransferBundleFilterForm.json" Guid="6e9f0ca3-2f76-4350-a86e-6a8315980a6a" Win64="$(var.Win64)">
+                    <File Id="File_TransferBundleFilterForm.json" Name="TransferBundleFilterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\TransferBundleFilterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_TransferFilterForm.json" Guid="18d00c8a-3f1e-4500-96f2-0d0f2477fdcb" Win64="$(var.Win64)">
+                    <File Id="File_TransferFilterForm.json" Name="TransferFilterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\TransferFilterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_TransferRegisterForm.json" Guid="4b323b3f-3aba-45ee-b28f-87504c7ab0a6" Win64="$(var.Win64)">
+                    <File Id="File_TransferRegisterForm.json" Name="TransferRegisterForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\TransferRegisterForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_TrustsScreen.json" Guid="e77328ca-1d8b-498c-a70c-b1b59158e1d2" Win64="$(var.Win64)">
+                    <File Id="File_TrustsScreen.json" Name="TrustsScreen.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\TrustsScreen.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component_VerifyClientForm.json" Guid="539bf048-873e-410c-ba34-3638dc207fa8" Win64="$(var.Win64)">
+                    <File Id="File_VerifyClientForm.json" Name="VerifyClientForm.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\VerifyClientForm.json" KeyPath="yes" />
+                  </Component>
+                  <Component Id="Component__TemplateLibrary.json" Guid="a8f1a5fd-e615-49d4-8b8e-e811809b6d2b" Win64="$(var.Win64)">
+                    <File Id="File__TemplateLibrary.json" Name="_TemplateLibrary.json" Source="$(var.ProductionDir)BasicExtensions\Resources\Templates\_TemplateLibrary.json" KeyPath="yes" />
+                  </Component>
+                </Directory>
+              </Directory>
+              <Component Id="Component_Extensions.json" Guid="8fc705f1-7f7d-4860-a6a8-77b8a0086349" Win64="$(var.Win64)">
+                <File Id="File_Extensions.json" Name="Extensions.json" Source="$(var.ProductionDir)BasicExtensions\Extensions.json" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Directory Id="Directory_Localization" Name="Localization">
+              <Directory Id="Directory_ru" Name="ru">
+                <Component Id="Component_aboutform.json_1" Guid="27070062-2c35-4751-8436-d09eea4d78c8" Win64="$(var.Win64)">
+                  <File Id="File_aboutform.json_1" Name="aboutform.json" Source="$(var.ProductionDir)Localization\ru\aboutform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_addidentifierform.json_1" Guid="f5d718bb-fc4b-4b47-9f63-28a430c3e663" Win64="$(var.Win64)">
+                  <File Id="File_addidentifierform.json_1" Name="addidentifierform.json" Source="$(var.ProductionDir)Localization\ru\addidentifierform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_addpurseform.json_1" Guid="151d6f8f-5ae1-439d-b74d-509dcdc5f086" Win64="$(var.Win64)">
+                  <File Id="File_addpurseform.json_1" Name="addpurseform.json" Source="$(var.ProductionDir)Localization\ru\addpurseform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_certificate.json" Guid="2a5f8321-8e5a-400e-aef3-4264c04a9c77" Win64="$(var.Win64)">
+                  <File Id="File_certificate.json" Name="certificate.json" Source="$(var.ProductionDir)Localization\ru\certificate.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_certificateform.json_1" Guid="d6e03b5e-6dc1-4f95-9898-ae7a30d62d77" Win64="$(var.Win64)">
+                  <File Id="File_certificateform.json_1" Name="certificateform.json" Source="$(var.ProductionDir)Localization\ru\certificateform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_classickeysettingsform.json_1" Guid="8f001d40-8494-4cb0-9684-cbaea3798828" Win64="$(var.Win64)">
+                  <File Id="File_classickeysettingsform.json_1" Name="classickeysettingsform.json" Source="$(var.ProductionDir)Localization\ru\classickeysettingsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_clearmerchantkey.json" Guid="3346aa6f-4300-4775-89dd-b7ed6911b926" Win64="$(var.Win64)">
+                  <File Id="File_clearmerchantkey.json" Name="clearmerchantkey.json" Source="$(var.ProductionDir)Localization\ru\clearmerchantkey.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_contractdetailsform.json_1" Guid="55f019f2-4a8e-426e-a1e1-496e51b437ad" Win64="$(var.Win64)">
+                  <File Id="File_contractdetailsform.json_1" Name="contractdetailsform.json" Source="$(var.ProductionDir)Localization\ru\contractdetailsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_contractfilterform.json_1" Guid="7cd7f23a-1139-4e43-a0b9-37f0024adc2a" Win64="$(var.Win64)">
+                  <File Id="File_contractfilterform.json_1" Name="contractfilterform.json" Source="$(var.ProductionDir)Localization\ru\contractfilterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_createcontractform.json_1" Guid="1bf41332-74df-455e-998e-dff385181f32" Win64="$(var.Win64)">
+                  <File Id="File_createcontractform.json_1" Name="createcontractform.json" Source="$(var.ProductionDir)Localization\ru\createcontractform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_createoutgoinginvoiceform.json_1" Guid="9de107c8-4bbe-4ef8-b566-be7dc40bffcf" Win64="$(var.Win64)">
+                  <File Id="File_createoutgoinginvoiceform.json_1" Name="createoutgoinginvoiceform.json" Source="$(var.ProductionDir)Localization\ru\createoutgoinginvoiceform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_createpaymentlinkform.json_1" Guid="ad12a9c5-6306-4dac-a6cb-10fb184d3ebf" Win64="$(var.Win64)">
+                  <File Id="File_createpaymentlinkform.json_1" Name="createpaymentlinkform.json" Source="$(var.ProductionDir)Localization\ru\createpaymentlinkform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_createpurseform.json_1" Guid="2f094cec-630a-4a13-8254-d73386331553" Win64="$(var.Win64)">
+                  <File Id="File_createpurseform.json_1" Name="createpurseform.json" Source="$(var.ProductionDir)Localization\ru\createpurseform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_createtransferform.json_1" Guid="1de8ac4c-6f5b-4bed-9337-292a6335b8af" Win64="$(var.Win64)">
+                  <File Id="File_createtransferform.json_1" Name="createtransferform.json" Source="$(var.ProductionDir)Localization\ru\createtransferform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_createtrustform.json_1" Guid="cc944819-7dc9-4736-9aae-635a74d73f81" Win64="$(var.Win64)">
+                  <File Id="File_createtrustform.json_1" Name="createtrustform.json" Source="$(var.ProductionDir)Localization\ru\createtrustform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_dbsettingsform.json_1" Guid="6d97b025-ffa0-45f2-aab2-ff3bbe1f103a" Win64="$(var.Win64)">
+                  <File Id="File_dbsettingsform.json_1" Name="dbsettingsform.json" Source="$(var.ProductionDir)Localization\ru\dbsettingsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_details.json" Guid="7d424b02-3ebe-4338-838c-bf168712d425" Win64="$(var.Win64)">
+                  <File Id="File_details.json" Name="details.json" Source="$(var.ProductionDir)Localization\ru\details.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_detailsform.json_1" Guid="17e2efa4-70cc-4963-8fe1-4ae03f144554" Win64="$(var.Win64)">
+                  <File Id="File_detailsform.json_1" Name="detailsform.json" Source="$(var.ProductionDir)Localization\ru\detailsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_enter.json" Guid="67ff742f-e0c8-4e9a-89ae-2f16f4a90627" Win64="$(var.Win64)">
+                  <File Id="File_enter.json" Name="enter.json" Source="$(var.ProductionDir)Localization\ru\enter.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_enterform.json_1" Guid="651e0632-1396-4097-86ec-aa1e37522c7f" Win64="$(var.Win64)">
+                  <File Id="File_enterform.json_1" Name="enterform.json" Source="$(var.ProductionDir)Localization\ru\enterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_errorform.json" Guid="38ee2378-81a4-44e4-9d6a-2807ac516fe7" Win64="$(var.Win64)">
+                  <File Id="File_errorform.json" Name="errorform.json" Source="$(var.ProductionDir)Localization\ru\errorform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_extensibility.json" Guid="0e366d4d-79cc-44a0-8b6a-641a7899117f" Win64="$(var.Win64)">
+                  <File Id="File_extensibility.json" Name="extensibility.json" Source="$(var.ProductionDir)Localization\ru\extensibility.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_findcertificateform.json_1" Guid="a688f76d-c4bc-462c-a61b-46bdf864efe1" Win64="$(var.Win64)">
+                  <File Id="File_findcertificateform.json_1" Name="findcertificateform.json" Source="$(var.ProductionDir)Localization\ru\findcertificateform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_findidentifierform.json_1" Guid="4561c566-4162-4479-81e5-54ea0a18c491" Win64="$(var.Win64)">
+                  <File Id="File_findidentifierform.json_1" Name="findidentifierform.json" Source="$(var.ProductionDir)Localization\ru\findidentifierform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_findmerchanttransfer.json" Guid="92f05f4f-80b3-42dc-83ce-c8e971252ff7" Win64="$(var.Win64)">
+                  <File Id="File_findmerchanttransfer.json" Name="findmerchanttransfer.json" Source="$(var.ProductionDir)Localization\ru\findmerchanttransfer.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_findmerchanttransferform.json_1" Guid="740ffb41-2915-4104-aadf-3bbb79753cc2" Win64="$(var.Win64)">
+                  <File Id="File_findmerchanttransferform.json_1" Name="findmerchanttransferform.json" Source="$(var.ProductionDir)Localization\ru\findmerchanttransferform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_finishprotectionform.json_1" Guid="15354c37-5083-49aa-876e-cb3ba65f9104" Win64="$(var.Win64)">
+                  <File Id="File_finishprotectionform.json_1" Name="finishprotectionform.json" Source="$(var.ProductionDir)Localization\ru\finishprotectionform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_generalsettings.json" Guid="b55100f3-550f-4cae-81fd-d7bc448ebc0f" Win64="$(var.Win64)">
+                  <File Id="File_generalsettings.json" Name="generalsettings.json" Source="$(var.ProductionDir)Localization\ru\generalsettings.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_incominginvoicefilter.json" Guid="3318d93a-7cbf-40f7-82c5-69899e265493" Win64="$(var.Win64)">
+                  <File Id="File_incominginvoicefilter.json" Name="incominginvoicefilter.json" Source="$(var.ProductionDir)Localization\ru\incominginvoicefilter.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_incominginvoicefilterform.json_1" Guid="29fe4f55-0edf-4943-903a-374b7dc0fe74" Win64="$(var.Win64)">
+                  <File Id="File_incominginvoicefilterform.json_1" Name="incominginvoicefilterform.json" Source="$(var.ProductionDir)Localization\ru\incominginvoicefilterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_incominginvoicefilterscreen.json_1" Guid="396d55dc-8287-4c89-8f13-5ff77b91dceb" Win64="$(var.Win64)">
+                  <File Id="File_incominginvoicefilterscreen.json_1" Name="incominginvoicefilterscreen.json" Source="$(var.ProductionDir)Localization\ru\incominginvoicefilterscreen.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_lightkeysettingsform.json_1" Guid="db672e64-9e24-4277-83ea-2752f1e20f24" Win64="$(var.Win64)">
+                  <File Id="File_lightkeysettingsform.json_1" Name="lightkeysettingsform.json" Source="$(var.ProductionDir)Localization\ru\lightkeysettingsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_main.json" Guid="729b1dbe-ad93-4b92-b37a-826f317be344" Win64="$(var.Win64)">
+                  <File Id="File_main.json" Name="main.json" Source="$(var.ProductionDir)Localization\ru\main.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_menu.json" Guid="f43f2ccb-7e40-411b-9046-78578dd8ed3b" Win64="$(var.Win64)">
+                  <File Id="File_menu.json" Name="menu.json" Source="$(var.ProductionDir)Localization\ru\menu.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_moneybackform.json_1" Guid="f54367cb-0572-4975-aebe-c1dc291c3aac" Win64="$(var.Win64)">
+                  <File Id="File_moneybackform.json_1" Name="moneybackform.json" Source="$(var.ProductionDir)Localization\ru\moneybackform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_outgoinginvoicefilter.json" Guid="16b72e18-8b68-4d6c-b75e-0df67a8c34b2" Win64="$(var.Win64)">
+                  <File Id="File_outgoinginvoicefilter.json" Name="outgoinginvoicefilter.json" Source="$(var.ProductionDir)Localization\ru\outgoinginvoicefilter.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_outgoinginvoicefilterform.json_1" Guid="4b0dc49e-d47b-4147-933a-8997b4fa55dc" Win64="$(var.Win64)">
+                  <File Id="File_outgoinginvoicefilterform.json_1" Name="outgoinginvoicefilterform.json" Source="$(var.ProductionDir)Localization\ru\outgoinginvoicefilterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_passwordsettingsform.json_1" Guid="9652bdbe-2575-42f3-8e4a-33793bc2e255" Win64="$(var.Win64)">
+                  <File Id="File_passwordsettingsform.json_1" Name="passwordsettingsform.json" Source="$(var.ProductionDir)Localization\ru\passwordsettingsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_payinvoiceform.json_1" Guid="592ea9b8-cf19-4733-9e48-9e0dbdd9c43b" Win64="$(var.Win64)">
+                  <File Id="File_payinvoiceform.json_1" Name="payinvoiceform.json" Source="$(var.ProductionDir)Localization\ru\payinvoiceform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_preparedtransferfilterform.json_1" Guid="c39d5d85-9b8e-4ba3-9f36-82311606af05" Win64="$(var.Win64)">
+                  <File Id="File_preparedtransferfilterform.json_1" Name="preparedtransferfilterform.json" Source="$(var.ProductionDir)Localization\ru\preparedtransferfilterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_proxysettingsform.json_1" Guid="2ed7cd1f-0e52-408c-b2c6-619a83ad59b8" Win64="$(var.Win64)">
+                  <File Id="File_proxysettingsform.json_1" Name="proxysettingsform.json" Source="$(var.ProductionDir)Localization\ru\proxysettingsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_pursesscreen.json_1" Guid="953a66ed-ef11-4756-975a-140d038a43ae" Win64="$(var.Win64)">
+                  <File Id="File_pursesscreen.json_1" Name="pursesscreen.json" Source="$(var.ProductionDir)Localization\ru\pursesscreen.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_redeempaymerform.json_1" Guid="80507912-f2cb-4a11-893d-4b78546945b6" Win64="$(var.Win64)">
+                  <File Id="File_redeempaymerform.json_1" Name="redeempaymerform.json" Source="$(var.ProductionDir)Localization\ru\redeempaymerform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_registration.json" Guid="4a838b6d-5d24-44ba-b1ec-16bafc6597ab" Win64="$(var.Win64)">
+                  <File Id="File_registration.json" Name="registration.json" Source="$(var.ProductionDir)Localization\ru\registration.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_registrationform.json_1" Guid="8592b0e5-1318-40d9-bd7d-d1ea5c353d06" Win64="$(var.Win64)">
+                  <File Id="File_registrationform.json_1" Name="registrationform.json" Source="$(var.ProductionDir)Localization\ru\registrationform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_rejectinvoiceform.json_1" Guid="4aae5d2e-c9ee-4bde-892f-c8630118eb89" Win64="$(var.Win64)">
+                  <File Id="File_rejectinvoiceform.json_1" Name="rejectinvoiceform.json" Source="$(var.ProductionDir)Localization\ru\rejectinvoiceform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_rejectprotectionform.json_1" Guid="789e2a8f-e6e9-431e-b240-c90874ddd538" Win64="$(var.Win64)">
+                  <File Id="File_rejectprotectionform.json_1" Name="rejectprotectionform.json" Source="$(var.ProductionDir)Localization\ru\rejectprotectionform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_removepurse.json" Guid="09cb4775-21bf-466b-a5c2-e9ed4d9e6071" Win64="$(var.Win64)">
+                  <File Id="File_removepurse.json" Name="removepurse.json" Source="$(var.ProductionDir)Localization\ru\removepurse.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_requestnumbersettingsform.json_1" Guid="ebb7c7aa-561e-4432-8181-9e410e121214" Win64="$(var.Win64)">
+                  <File Id="File_requestnumbersettingsform.json_1" Name="requestnumbersettingsform.json" Source="$(var.ProductionDir)Localization\ru\requestnumbersettingsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_screens.json" Guid="9d55257e-0593-4af4-ba06-8e2130b578e2" Win64="$(var.Win64)">
+                  <File Id="File_screens.json" Name="screens.json" Source="$(var.ProductionDir)Localization\ru\screens.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_sendmessageform.json_1" Guid="4bf00406-60c9-4cbb-80ef-51a10f6b0e2c" Win64="$(var.Win64)">
+                  <File Id="File_sendmessageform.json_1" Name="sendmessageform.json" Source="$(var.ProductionDir)Localization\ru\sendmessageform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_sendmessagetodeveloperform.json_1" Guid="95294d9b-1971-4602-8a10-0c38e2f27316" Win64="$(var.Win64)">
+                  <File Id="File_sendmessagetodeveloperform.json_1" Name="sendmessagetodeveloperform.json" Source="$(var.ProductionDir)Localization\ru\sendmessagetodeveloperform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_sendsmsform.json_1" Guid="d69d9458-3619-4d86-860b-10c5a496e8ba" Win64="$(var.Win64)">
+                  <File Id="File_sendsmsform.json_1" Name="sendsmsform.json" Source="$(var.ProductionDir)Localization\ru\sendsmsform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_setmerchantkeyform.json_1" Guid="96c82267-dad4-4fd2-b5a0-12dd3a5faa8b" Win64="$(var.Win64)">
+                  <File Id="File_setmerchantkeyform.json_1" Name="setmerchantkeyform.json" Source="$(var.ProductionDir)Localization\ru\setmerchantkeyform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_settings.json" Guid="6cc77942-a0f4-411b-8f33-2beae87d020b" Win64="$(var.Win64)">
+                  <File Id="File_settings.json" Name="settings.json" Source="$(var.ProductionDir)Localization\ru\settings.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_takepaymentform.json_1" Guid="2b2c425e-7738-4d3c-9339-d436ffc5cc21" Win64="$(var.Win64)">
+                  <File Id="File_takepaymentform.json_1" Name="takepaymentform.json" Source="$(var.ProductionDir)Localization\ru\takepaymentform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_taketrustform.json_1" Guid="d1ae5ac1-0afe-4000-8a3e-bd05cdb9b8ce" Win64="$(var.Win64)">
+                  <File Id="File_taketrustform.json_1" Name="taketrustform.json" Source="$(var.ProductionDir)Localization\ru\taketrustform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_transferbundlefilterform.json_1" Guid="6898654d-0a9b-48f5-869e-cf0bb59e219e" Win64="$(var.Win64)">
+                  <File Id="File_transferbundlefilterform.json_1" Name="transferbundlefilterform.json" Source="$(var.ProductionDir)Localization\ru\transferbundlefilterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_transferfilter.json" Guid="f14e11a7-4b8e-4e36-b17f-c9dfb77dcf17" Win64="$(var.Win64)">
+                  <File Id="File_transferfilter.json" Name="transferfilter.json" Source="$(var.ProductionDir)Localization\ru\transferfilter.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_transferfilterform.json_1" Guid="fe039438-fd24-42d8-82bb-d9e7d5bea180" Win64="$(var.Win64)">
+                  <File Id="File_transferfilterform.json_1" Name="transferfilterform.json" Source="$(var.ProductionDir)Localization\ru\transferfilterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_transferregister.json" Guid="6588cee7-a5bf-4b6f-aa89-b23a6c3c6981" Win64="$(var.Win64)">
+                  <File Id="File_transferregister.json" Name="transferregister.json" Source="$(var.ProductionDir)Localization\ru\transferregister.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_transferregisterform.json_1" Guid="ac7107f9-0733-4e68-8da1-d3f808938db4" Win64="$(var.Win64)">
+                  <File Id="File_transferregisterform.json_1" Name="transferregisterform.json" Source="$(var.ProductionDir)Localization\ru\transferregisterform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_trustsscreen.json_1" Guid="2c73884a-4246-4d41-ad17-bace51b61eb7" Win64="$(var.Win64)">
+                  <File Id="File_trustsscreen.json_1" Name="trustsscreen.json" Source="$(var.ProductionDir)Localization\ru\trustsscreen.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_updatetrust.json" Guid="5c163eff-2420-4c2f-95a3-62237fc1fcc6" Win64="$(var.Win64)">
+                  <File Id="File_updatetrust.json" Name="updatetrust.json" Source="$(var.ProductionDir)Localization\ru\updatetrust.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_verifyclientform.json_1" Guid="6028da4e-b856-4c39-b832-ce33851b7069" Win64="$(var.Win64)">
+                  <File Id="File_verifyclientform.json_1" Name="verifyclientform.json" Source="$(var.ProductionDir)Localization\ru\verifyclientform.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_wmbt_extensions.json" Guid="d2cdd71f-bd8a-421f-a62f-973edb89a9d0" Win64="$(var.Win64)">
+                  <File Id="File_wmbt_extensions.json" Name="wmbt-extensions.json" Source="$(var.ProductionDir)Localization\ru\wmbt-extensions.json" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_xml2winforms.json" Guid="eb1a22ae-2a55-44be-9824-27849959e697" Win64="$(var.Win64)">
+                  <File Id="File_xml2winforms.json" Name="xml2winforms.json" Source="$(var.ProductionDir)Localization\ru\xml2winforms.json" KeyPath="yes" />
+                </Component>
+              </Directory>
+            </Directory>
+            <Directory Id="Directory_ru_1" Name="ru">
+              <Component Id="Component_WebMoney.Services.Contracts.resources.dll" Guid="526d226d-bc4b-44cc-bd76-e7f1dffef6aa" Win64="$(var.Win64)">
+                <File Id="File_WebMoney.Services.Contracts.resources.dll" Name="WebMoney.Services.Contracts.resources.dll" Source="$(var.ProductionDir)ru\WebMoney.Services.Contracts.resources.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_WebMoney.Services.resources.dll" Guid="5e075049-3b75-46b6-a93e-17d3e9010498" Win64="$(var.Win64)">
+                <File Id="File_WebMoney.Services.resources.dll" Name="WebMoney.Services.resources.dll" Source="$(var.ProductionDir)ru\WebMoney.Services.resources.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_WebMoney.XmlInterfaces.resources.dll" Guid="2bfb8d4e-72c2-4ef7-9097-78a76fea5a36" Win64="$(var.Win64)">
+                <File Id="File_WebMoney.XmlInterfaces.resources.dll" Name="WebMoney.XmlInterfaces.resources.dll" Source="$(var.ProductionDir)ru\WebMoney.XmlInterfaces.resources.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_WMBusinessTools.Extensions.Contracts.resources.dll" Guid="f92d59b7-d2a6-4f59-b6bb-860488121a17" Win64="$(var.Win64)">
+                <File Id="File_WMBusinessTools.Extensions.Contracts.resources.dll" Name="WMBusinessTools.Extensions.Contracts.resources.dll" Source="$(var.ProductionDir)ru\WMBusinessTools.Extensions.Contracts.resources.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_WMBusinessTools.Extensions.resources.dll" Guid="30f1beae-601e-4d07-a308-f990200c0a32" Win64="$(var.Win64)">
+                <File Id="File_WMBusinessTools.Extensions.resources.dll" Name="WMBusinessTools.Extensions.resources.dll" Source="$(var.ProductionDir)ru\WMBusinessTools.Extensions.resources.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_WMBusinessTools.resources.dll" Guid="24ea4214-a4e7-474a-931e-f9cbd3f1d83e" Win64="$(var.Win64)">
+                <File Id="File_WMBusinessTools.resources.dll" Name="WMBusinessTools.resources.dll" Source="$(var.ProductionDir)ru\WMBusinessTools.resources.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_Xml2WinForms.resources.dll" Guid="44673503-b9b1-4619-bf70-03ace5be4459" Win64="$(var.Win64)">
+                <File Id="File_Xml2WinForms.resources.dll" Name="Xml2WinForms.resources.dll" Source="$(var.ProductionDir)ru\Xml2WinForms.resources.dll" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Directory Id="Directory_SupportAssistant" Name="SupportAssistant">
+              <Component Id="Component_Extensions.json_1" Guid="e1cf27c4-e6ad-489b-a8dc-4633cb55b6bb" Win64="$(var.Win64)">
+                <File Id="File_Extensions.json_1" Name="Extensions.json" Source="$(var.ProductionDir)SupportAssistant\Extensions.json" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Directory Id="Directory_TrustedCertificates" Name="TrustedCertificates">
+              <Component Id="Component__180507_Microsoft_IT_SSL_SHA2.cer" Guid="1bc57c79-008b-4e3d-8869-cf903a112895" Win64="$(var.Win64)">
+                <File Id="File__180507_Microsoft_IT_SSL_SHA2.cer" Name="180507-Microsoft-IT-SSL-SHA2.cer" Source="$(var.ProductionDir)TrustedCertificates\180507-Microsoft-IT-SSL-SHA2.cer" KeyPath="yes" />
+              </Component>
+              <Component Id="Component__180714_webmoney.ru.cer" Guid="505154b1-96e4-4ded-8d5f-ef6d31871d58" Win64="$(var.Win64)">
+                <File Id="File__180714_webmoney.ru.cer" Name="180714-webmoney.ru.cer" Source="$(var.ProductionDir)TrustedCertificates\180714-webmoney.ru.cer" KeyPath="yes" />
+              </Component>
+              <Component Id="Component__200530_AddTrust_External_CA_Root.cer" Guid="d8ca4763-62d5-4ea7-b653-268bddaaa38c" Win64="$(var.Win64)">
+                <File Id="File__200530_AddTrust_External_CA_Root.cer" Name="200530-AddTrust-External-CA-Root.cer" Source="$(var.ProductionDir)TrustedCertificates\200530-AddTrust-External-CA-Root.cer" KeyPath="yes" />
+              </Component>
+              <Component Id="Component__211122_w3s.webmoney.ru.cer" Guid="23f83c25-78ed-4ffd-9ec1-3b135fc76e2f" Win64="$(var.Win64)">
+                <File Id="File__211122_w3s.webmoney.ru.cer" Name="211122-w3s.webmoney.ru.cer" Source="$(var.ProductionDir)TrustedCertificates\211122-w3s.webmoney.ru.cer" KeyPath="yes" />
+              </Component>
+              <Component Id="Component__211122_w3s.wmtransfer.com.cer" Guid="f5c1ec28-3dae-4d6a-9180-b259e9cd2f8a" Win64="$(var.Win64)">
+                <File Id="File__211122_w3s.wmtransfer.com.cer" Name="211122-w3s.wmtransfer.com.cer" Source="$(var.ProductionDir)TrustedCertificates\211122-w3s.wmtransfer.com.cer" KeyPath="yes" />
+              </Component>
+              <Component Id="Component__350310_WebMoneyCA.cer" Guid="f397f702-8e75-4133-9357-2ddee776abb4" Win64="$(var.Win64)">
+                <File Id="File__350310_WebMoneyCA.cer" Name="350310-WebMoneyCA.cer" Source="$(var.ProductionDir)TrustedCertificates\350310-WebMoneyCA.cer" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Directory Id="Directory_WebMoney.Services" Name="WebMoney.Services">
+              <Component Id="Component_Extensions.json_2" Guid="b54abfbb-4889-470b-bdef-c16a0a8640f4" Win64="$(var.Win64)">
+                <File Id="File_Extensions.json_2" Name="Extensions.json" Source="$(var.ProductionDir)WebMoney.Services\Extensions.json" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Directory Id="Directory_x86" Name="x86">
+              <Directory Id="Directory_Microsoft.VC90.CRT_1" Name="Microsoft.VC90.CRT">
+                <Component Id="Component_Microsoft.VC90.CRT.manifest_1" Guid="24b2b247-8d66-43f2-b911-bf5f28e7164a" Win64="$(var.Win64)">
+                  <File Id="File_Microsoft.VC90.CRT.manifest_1" Name="Microsoft.VC90.CRT.manifest" Source="$(var.ProductionDir)x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" KeyPath="yes" />
+                </Component>
+                <Component Id="Component_msvcr90.dll_1" Guid="2bc484a3-f24e-431b-9cdf-d52288cd6751" Win64="$(var.Win64)">
+                  <File Id="File_msvcr90.dll_1" Name="msvcr90.dll" Source="$(var.ProductionDir)x86\Microsoft.VC90.CRT\msvcr90.dll" KeyPath="yes" />
+                </Component>
+              </Directory>
+              <Component Id="Component_sqlceca40.dll_1" Guid="449078c9-2a72-4284-80f7-0eee53168645" Win64="$(var.Win64)">
+                <File Id="File_sqlceca40.dll_1" Name="sqlceca40.dll" Source="$(var.ProductionDir)x86\sqlceca40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlcecompact40.dll_1" Guid="6afe32a3-fb41-4e12-82e6-7873e8c423f0" Win64="$(var.Win64)">
+                <File Id="File_sqlcecompact40.dll_1" Name="sqlcecompact40.dll" Source="$(var.ProductionDir)x86\sqlcecompact40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlceer40EN.dll_1" Guid="1da58978-a542-4d04-81e8-936f4ffbdbcd" Win64="$(var.Win64)">
+                <File Id="File_sqlceer40EN.dll_1" Name="sqlceer40EN.dll" Source="$(var.ProductionDir)x86\sqlceer40EN.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlceme40.dll_1" Guid="2c142a68-1141-4ae2-a526-b5efa7562390" Win64="$(var.Win64)">
+                <File Id="File_sqlceme40.dll_1" Name="sqlceme40.dll" Source="$(var.ProductionDir)x86\sqlceme40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlceqp40.dll_1" Guid="02291df2-1148-4470-bb8e-dfdc5aa400fe" Win64="$(var.Win64)">
+                <File Id="File_sqlceqp40.dll_1" Name="sqlceqp40.dll" Source="$(var.ProductionDir)x86\sqlceqp40.dll" KeyPath="yes" />
+              </Component>
+              <Component Id="Component_sqlcese40.dll_1" Guid="7ca66b74-2fff-431f-ab52-c7b8acd02a2f" Win64="$(var.Win64)">
+                <File Id="File_sqlcese40.dll_1" Name="sqlcese40.dll" Source="$(var.ProductionDir)x86\sqlcese40.dll" KeyPath="yes" />
+              </Component>
+            </Directory>
+            <Component Id="Component_AutoMapper.dll" Guid="bf9cfc29-689e-48c3-8f75-a1c0a08b22f4" Win64="$(var.Win64)">
+              <File Id="File_AutoMapper.dll" Name="AutoMapper.dll" Source="$(var.ProductionDir)AutoMapper.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_ClosedXML.dll" Guid="b46d2f3d-ab8b-4efa-9868-04e3163e11c6" Win64="$(var.Win64)">
+              <File Id="File_ClosedXML.dll" Name="ClosedXML.dll" Source="$(var.ProductionDir)ClosedXML.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_CommonServiceLocator.dll" Guid="15ccbb48-faa2-4844-9804-9f3d4cb3e441" Win64="$(var.Win64)">
+              <File Id="File_CommonServiceLocator.dll" Name="CommonServiceLocator.dll" Source="$(var.ProductionDir)CommonServiceLocator.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_DocumentFormat.OpenXml.dll" Guid="1033f38c-16cb-4c79-b5f2-23e5bdfd3f3d" Win64="$(var.Win64)">
+              <File Id="File_DocumentFormat.OpenXml.dll" Name="DocumentFormat.OpenXml.dll" Source="$(var.ProductionDir)DocumentFormat.OpenXml.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_EntityFramework.dll" Guid="64694773-2c13-4da6-9df3-3130a838e3ca" Win64="$(var.Win64)">
+              <File Id="File_EntityFramework.dll" Name="EntityFramework.dll" Source="$(var.ProductionDir)EntityFramework.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_EntityFramework.SqlServer.dll" Guid="83431a5e-579f-4add-b47c-cc696e78aa19" Win64="$(var.Win64)">
+              <File Id="File_EntityFramework.SqlServer.dll" Name="EntityFramework.SqlServer.dll" Source="$(var.ProductionDir)EntityFramework.SqlServer.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_EntityFramework.SqlServerCompact.dll" Guid="fd3241f9-72de-4533-9538-9ce9dc96126b" Win64="$(var.Win64)">
+              <File Id="File_EntityFramework.SqlServerCompact.dll" Name="EntityFramework.SqlServerCompact.dll" Source="$(var.ProductionDir)EntityFramework.SqlServerCompact.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_EntityFramework6.Npgsql.dll" Guid="d553a937-3475-4d29-b8e5-70be629a8618" Win64="$(var.Win64)">
+              <File Id="File_EntityFramework6.Npgsql.dll" Name="EntityFramework6.Npgsql.dll" Source="$(var.ProductionDir)EntityFramework6.Npgsql.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_ExcelNumberFormat.dll" Guid="ae4187af-ab2b-4b76-a1ec-3e4418e11439" Win64="$(var.Win64)">
+              <File Id="File_ExcelNumberFormat.dll" Name="ExcelNumberFormat.dll" Source="$(var.ProductionDir)ExcelNumberFormat.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_ExtensibilityAssistant.dll" Guid="d463154a-5905-4d05-bd1c-cec9a41c06a0" Win64="$(var.Win64)">
+              <File Id="File_ExtensibilityAssistant.dll" Name="ExtensibilityAssistant.dll" Source="$(var.ProductionDir)ExtensibilityAssistant.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_FastMember.Signed.dll" Guid="d1d51179-138c-471f-8ffe-2de405eef54a" Win64="$(var.Win64)">
+              <File Id="File_FastMember.Signed.dll" Name="FastMember.Signed.dll" Source="$(var.ProductionDir)FastMember.Signed.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_LocalizationAssistant.dll" Guid="2438027b-d8b2-4215-8d29-a533fd7034e3" Win64="$(var.Win64)">
+              <File Id="File_LocalizationAssistant.dll" Name="LocalizationAssistant.dll" Source="$(var.ProductionDir)LocalizationAssistant.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Log4Net.config" Guid="5eaef972-24cc-4bfc-93fb-6d80f522732f" Win64="$(var.Win64)">
+              <File Id="File_Log4Net.config" Name="Log4Net.config" Source="$(var.ProductionDir)Log4Net.config" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_log4net.dll" Guid="ba4443fc-77ed-458d-9c52-469f3a17e77b" Win64="$(var.Win64)">
+              <File Id="File_log4net.dll" Name="log4net.dll" Source="$(var.ProductionDir)log4net.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Microsoft.Azure.KeyVault.Core.dll" Guid="d3e70977-f35e-4637-a9e3-32bf251a2dc1" Win64="$(var.Win64)">
+              <File Id="File_Microsoft.Azure.KeyVault.Core.dll" Name="Microsoft.Azure.KeyVault.Core.dll" Source="$(var.ProductionDir)Microsoft.Azure.KeyVault.Core.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Microsoft.WindowsAzure.Storage.dll" Guid="b0c9dffa-9a64-408b-8714-d98c4146815b" Win64="$(var.Win64)">
+              <File Id="File_Microsoft.WindowsAzure.Storage.dll" Name="Microsoft.WindowsAzure.Storage.dll" Source="$(var.ProductionDir)Microsoft.WindowsAzure.Storage.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_MySql.Data.dll" Guid="290667ac-55f1-42ae-b31a-4431439fb0d9" Win64="$(var.Win64)">
+              <File Id="File_MySql.Data.dll" Name="MySql.Data.dll" Source="$(var.ProductionDir)MySql.Data.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_MySql.Data.Entity.EF6.dll" Guid="f6b2cf42-f933-42a6-b7d5-9d6ce29bf4f4" Win64="$(var.Win64)">
+              <File Id="File_MySql.Data.Entity.EF6.dll" Name="MySql.Data.Entity.EF6.dll" Source="$(var.ProductionDir)MySql.Data.Entity.EF6.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Newtonsoft.Json.dll" Guid="157285a3-ff1b-4252-b38a-ff2a195e876f" Win64="$(var.Win64)">
+              <File Id="File_Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.ProductionDir)Newtonsoft.Json.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Npgsql.dll" Guid="39c431b9-9827-4bcb-b75b-bc144a480c49" Win64="$(var.Win64)">
+              <File Id="File_Npgsql.dll" Name="Npgsql.dll" Source="$(var.ProductionDir)Npgsql.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Oracle.ManagedDataAccess.dll" Guid="ab240855-2eaf-453b-9b14-3e0f8972ba23" Win64="$(var.Win64)">
+              <File Id="File_Oracle.ManagedDataAccess.dll" Name="Oracle.ManagedDataAccess.dll" Source="$(var.ProductionDir)Oracle.ManagedDataAccess.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Oracle.ManagedDataAccess.EntityFramework.dll" Guid="8ec408f9-2f53-4c94-8658-fca3906b28fe" Win64="$(var.Win64)">
+              <File Id="File_Oracle.ManagedDataAccess.EntityFramework.dll" Name="Oracle.ManagedDataAccess.EntityFramework.dll" Source="$(var.ProductionDir)Oracle.ManagedDataAccess.EntityFramework.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_SupportAssistant.dll" Guid="03604527-70bf-419f-8dbf-4108c124ebdb" Win64="$(var.Win64)">
+              <File Id="File_SupportAssistant.dll" Name="SupportAssistant.dll" Source="$(var.ProductionDir)SupportAssistant.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_SupportAssistant.dll.config" Guid="dac5c25e-bc97-43d0-bef7-0492d40155a0" Win64="$(var.Win64)">
+              <File Id="File_SupportAssistant.dll.config" Name="SupportAssistant.dll.config" Source="$(var.ProductionDir)SupportAssistant.dll.config" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_System.Data.SqlServerCe.dll" Guid="247c32a0-f543-4ce3-99a0-f1544aba99da" Win64="$(var.Win64)">
+              <File Id="File_System.Data.SqlServerCe.dll" Name="System.Data.SqlServerCe.dll" Source="$(var.ProductionDir)System.Data.SqlServerCe.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_System.Runtime.CompilerServices.Unsafe.dll" Guid="7e8f044e-6fca-4f41-b71c-50074077e787" Win64="$(var.Win64)">
+              <File Id="File_System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" Source="$(var.ProductionDir)System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_System.Threading.Tasks.Extensions.dll" Guid="65ead1e8-2165-454c-a78d-6a44073e723b" Win64="$(var.Win64)">
+              <File Id="File_System.Threading.Tasks.Extensions.dll" Name="System.Threading.Tasks.Extensions.dll" Source="$(var.ProductionDir)System.Threading.Tasks.Extensions.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_System.ValueTuple.dll" Guid="c8b0b7b4-5b50-4579-8be2-7fff0e9471cd" Win64="$(var.Win64)">
+              <File Id="File_System.ValueTuple.dll" Name="System.ValueTuple.dll" Source="$(var.ProductionDir)System.ValueTuple.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Unity.Abstractions.dll" Guid="b752c3f6-2271-427d-81e2-0af26ec16242" Win64="$(var.Win64)">
+              <File Id="File_Unity.Abstractions.dll" Name="Unity.Abstractions.dll" Source="$(var.ProductionDir)Unity.Abstractions.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Unity.Configuration.dll" Guid="4395f431-d998-47c5-9cd1-685c009a28fa" Win64="$(var.Win64)">
+              <File Id="File_Unity.Configuration.dll" Name="Unity.Configuration.dll" Source="$(var.ProductionDir)Unity.Configuration.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Unity.Container.dll" Guid="f68a2210-c1a9-45ef-bb48-090cf5011d98" Win64="$(var.Win64)">
+              <File Id="File_Unity.Container.dll" Name="Unity.Container.dll" Source="$(var.ProductionDir)Unity.Container.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Unity.Interception.Configuration.dll" Guid="b691e3a3-2502-45d1-825f-737c5f398328" Win64="$(var.Win64)">
+              <File Id="File_Unity.Interception.Configuration.dll" Name="Unity.Interception.Configuration.dll" Source="$(var.ProductionDir)Unity.Interception.Configuration.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Unity.Interception.dll" Guid="9c01a20c-4e9e-4354-b40b-a9ba747166ad" Win64="$(var.Win64)">
+              <File Id="File_Unity.Interception.dll" Name="Unity.Interception.dll" Source="$(var.ProductionDir)Unity.Interception.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Unity.RegistrationByConvention.dll" Guid="e815a941-e3f5-4ab9-8109-5cadb3c7240c" Win64="$(var.Win64)">
+              <File Id="File_Unity.RegistrationByConvention.dll" Name="Unity.RegistrationByConvention.dll" Source="$(var.ProductionDir)Unity.RegistrationByConvention.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Unity.ServiceLocation.dll" Guid="38c23e8f-edc6-4941-a7af-88de16c62ee0" Win64="$(var.Win64)">
+              <File Id="File_Unity.ServiceLocation.dll" Name="Unity.ServiceLocation.dll" Source="$(var.ProductionDir)Unity.ServiceLocation.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WebMoney.Cryptography.dll" Guid="3d3a574d-36bd-4f6d-a31b-f3d4a0034554" Win64="$(var.Win64)">
+              <File Id="File_WebMoney.Cryptography.dll" Name="WebMoney.Cryptography.dll" Source="$(var.ProductionDir)WebMoney.Cryptography.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WebMoney.Services.Contracts.dll" Guid="a1a12104-ab07-4f4c-9098-e5c0eb4aa457" Win64="$(var.Win64)">
+              <File Id="File_WebMoney.Services.Contracts.dll" Name="WebMoney.Services.Contracts.dll" Source="$(var.ProductionDir)WebMoney.Services.Contracts.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WebMoney.Services.Contracts.dll.config" Guid="a146a8bf-65b1-4934-b8dd-5c8b4b88179a" Win64="$(var.Win64)">
+              <File Id="File_WebMoney.Services.Contracts.dll.config" Name="WebMoney.Services.Contracts.dll.config" Source="$(var.ProductionDir)WebMoney.Services.Contracts.dll.config" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WebMoney.Services.dll" Guid="819abd73-a845-4b95-8d38-a4fc74a968ad" Win64="$(var.Win64)">
+              <File Id="File_WebMoney.Services.dll" Name="WebMoney.Services.dll" Source="$(var.ProductionDir)WebMoney.Services.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WebMoney.Services.dll.config" Guid="3f6c520f-8399-4438-aa96-37fcc4fbb782" Win64="$(var.Win64)">
+              <File Id="File_WebMoney.Services.dll.config" Name="WebMoney.Services.dll.config" Source="$(var.ProductionDir)WebMoney.Services.dll.config" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WebMoney.XmlInterfaces.dll" Guid="a20ea68c-d6bc-4355-a6d9-a89861259e08" Win64="$(var.Win64)">
+              <File Id="File_WebMoney.XmlInterfaces.dll" Name="WebMoney.XmlInterfaces.dll" Source="$(var.ProductionDir)WebMoney.XmlInterfaces.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WMBusinessTools.exe" Guid="3e56d770-a0ed-4d12-a99d-f2b267ca6bac" Win64="$(var.Win64)">
+              <File Id="File_WMBusinessTools.exe" Name="WMBusinessTools.exe" Source="$(var.ProductionDir)WMBusinessTools.exe" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WMBusinessTools.exe.config" Guid="c4e9d988-560c-4fe1-8be0-91671cfb890a" Win64="$(var.Win64)">
+              <File Id="File_WMBusinessTools.exe.config" Name="WMBusinessTools.exe.config" Source="$(var.ProductionDir)WMBusinessTools.exe.config" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WMBusinessTools.Extensions.Contracts.dll" Guid="eb46822a-9229-46d5-a773-2765d753a655" Win64="$(var.Win64)">
+              <File Id="File_WMBusinessTools.Extensions.Contracts.dll" Name="WMBusinessTools.Extensions.Contracts.dll" Source="$(var.ProductionDir)WMBusinessTools.Extensions.Contracts.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WMBusinessTools.Extensions.Contracts.dll.config" Guid="f75631ef-0924-4396-8fe9-473c0128439a" Win64="$(var.Win64)">
+              <File Id="File_WMBusinessTools.Extensions.Contracts.dll.config" Name="WMBusinessTools.Extensions.Contracts.dll.config" Source="$(var.ProductionDir)WMBusinessTools.Extensions.Contracts.dll.config" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WMBusinessTools.Extensions.dll" Guid="d186e693-82d6-4f6d-8214-ed7a7285f29d" Win64="$(var.Win64)">
+              <File Id="File_WMBusinessTools.Extensions.dll" Name="WMBusinessTools.Extensions.dll" Source="$(var.ProductionDir)WMBusinessTools.Extensions.dll" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_WMBusinessTools.Extensions.dll.config" Guid="98fd78e5-a0ca-43f2-9ae8-85f6dc4ea45d" Win64="$(var.Win64)">
+              <File Id="File_WMBusinessTools.Extensions.dll.config" Name="WMBusinessTools.Extensions.dll.config" Source="$(var.ProductionDir)WMBusinessTools.Extensions.dll.config" KeyPath="yes" />
+            </Component>
+            <Component Id="Component_Xml2WinForms.dll" Guid="171d7816-eb94-4d2e-9eb1-819a88c28fd8" Win64="$(var.Win64)">
+              <File Id="File_Xml2WinForms.dll" Name="Xml2WinForms.dll" Source="$(var.ProductionDir)Xml2WinForms.dll" KeyPath="yes" />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Component Id="ProgramMenuShortcut" Guid="aa865563-ec13-4504-b571-cdeb54f58aa6" Win64="$(var.Win64)">
+          <Shortcut Id="ProgramMenuShortcut" Name="$(var.ProductName)" Target="[INSTALLFOLDER]WMBusinessTools.exe" WorkingDirectory="INSTALLFOLDER" />
+          <RegistryValue Root="HKCU" Key="SOFTWARE\$(var.Manufacturer)\$(var.ProductName)" Type="string" Value="" KeyPath="yes" />
+        </Component>
+      </Directory>
+      <Directory Id="DesktopFolder">
+        <Component Id="DesktopShortcut" Guid="1bf4e34f-766f-4b17-a6fd-f72ebf812cc5" Win64="$(var.Win64)">
+          <Shortcut Id="DesktopShortcut" Name="$(var.ProductName)" Target="[INSTALLFOLDER]WMBusinessTools.exe" WorkingDirectory="INSTALLFOLDER" />
+          <RegistryValue Root="HKCU" Key="SOFTWARE\$(var.Manufacturer)\$(var.ProductName)" Type="string" Value="" KeyPath="yes" />
+        </Component>
+      </Directory>
+    </Directory>
+  </Fragment>
+</Wix>

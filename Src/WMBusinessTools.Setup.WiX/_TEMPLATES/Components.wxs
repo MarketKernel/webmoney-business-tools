@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include variables.wxi?>
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <Directory Id="ManufacturerFolder" Name="$(var.Manufacturer)">
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductName)">
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Component Id="ProgramMenuShortcut" Guid="aa865563-ec13-4504-b571-cdeb54f58aa6" Win64="$(var.Win64)">
+          <Shortcut Id="ProgramMenuShortcut" Name="$(var.ProductName)" Target="[INSTALLFOLDER]WMBusinessTools.exe"
+                    WorkingDirectory="INSTALLFOLDER" />
+          <RegistryValue Root="HKCU" Key="SOFTWARE\$(var.Manufacturer)\$(var.ProductName)" Type="string" Value=""
+                         KeyPath="yes" />
+        </Component>
+      </Directory>
+      <Directory Id="DesktopFolder">
+        <Component Id="DesktopShortcut" Guid="1bf4e34f-766f-4b17-a6fd-f72ebf812cc5" Win64="$(var.Win64)">
+          <Shortcut Id="DesktopShortcut" Name="$(var.ProductName)" Target="[INSTALLFOLDER]WMBusinessTools.exe"
+                    WorkingDirectory="INSTALLFOLDER" />
+          <RegistryValue Root="HKCU" Key="SOFTWARE\$(var.Manufacturer)\$(var.ProductName)" Type="string" Value=""
+                         KeyPath="yes" />
+        </Component>
+      </Directory>
+    </Directory>
+  </Fragment>
+</Wix>
