@@ -1,0 +1,5 @@
+rundll32 dfshim CleanOnlineAppCache
+rundll32 dfshim CleanOnlineAppCache
+rundll32 dfshim CleanOnlineAppCache
+rundll32 dfshim CleanOnlineAppCache
+rundll32 dfshim CleanOnlineAppCache

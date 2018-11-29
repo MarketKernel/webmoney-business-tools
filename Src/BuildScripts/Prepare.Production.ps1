@@ -1,14 +1,8 @@
 Add-Type -Assembly "System.IO.Compression.FileSystem";
 
-$DEV_PKT = "236f20e4200c621f"
-$PROD_PKT = "d1bcab3940c39a1a"
 $BIN_FOLDER = ".\..\WMBusinessTools\bin"
 
 cmd.exe /c ".\Build.Production.cmd"
-
-(Get-Content $BIN_FOLDER\Production\SupportAssistant\Extensions.json) | ForEach-Object { $_ -replace $DEV_PKT, $PROD_PKT } | Set-Content $BIN_FOLDER\Production\SupportAssistant\Extensions.json
-(Get-Content $BIN_FOLDER\Production\BasicExtensions\Extensions.json) | ForEach-Object { $_ -replace $DEV_PKT, $PROD_PKT } | Set-Content $BIN_FOLDER\Production\BasicExtensions\Extensions.json
-(Get-Content $BIN_FOLDER\Production\WebMoney.Services\Extensions.json) | ForEach-Object { $_ -replace $DEV_PKT, $PROD_PKT } | Set-Content $BIN_FOLDER\Production\WebMoney.Services\Extensions.json
 
 # App.config
 [xml]$configDocument = Get-Content -Path "$BIN_FOLDER\Production\WMBusinessTools.exe.config"
