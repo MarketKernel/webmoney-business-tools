@@ -33,5 +33,3 @@ light.exe %OUT_FOLDER%\Components.wixobj %OUT_FOLDER%\Product.wixobj -cultures:r
 signtool.exe sign /sha1 %CertThumbprint% /t %TimeStampingServer% /d "WMBusinessTools" /du "https://www.webmoney-business-tools.com/" %OUT_FILE_PATH%
 
 popd
-
-pause

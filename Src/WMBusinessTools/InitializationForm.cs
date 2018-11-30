@@ -166,6 +166,8 @@ namespace WMBusinessTools
                 MessageBox.Show(this, message, Resources.InitializationForm_mBackgroundWorker_RunWorkerCompleted_Error, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 backButton_Click(this, null);
+
+                notPrecompileRadioButton.Checked = true;
                 return;
             }
 

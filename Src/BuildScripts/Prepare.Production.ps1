@@ -1,5 +1,7 @@
 Add-Type -Assembly "System.IO.Compression.FileSystem";
 
+cmd.exe /c ".\ClearAll.cmd"
+
 $BIN_FOLDER = ".\..\WMBusinessTools\bin"
 
 cmd.exe /c ".\Build.Production.cmd"
@@ -29,9 +31,11 @@ $archiveFilePath = "$BIN_FOLDER\WMBusinessTools-v$version.zip";
 [System.IO.Compression.ZipFile]::CreateFromDirectory("$BIN_FOLDER\Production", $archiveFilePath)
 
 # Подготовка App.config для MSI
-[xml]$configDocument = Get-Content -Path "$BIN_FOLDER\Production\WMBusinessTools.exe.config"
-$configDocument.SelectSingleNode("configuration/appSettings/add[@key='OmitPrecompilation']").Attributes["value"].Value = "True"
-$configDocument.Save("$BIN_FOLDER\Production\WMBusinessTools.exe.config")
+#[xml]$configDocument = Get-Content -Path "$BIN_FOLDER\Production\WMBusinessTools.exe.config"
+#$configDocument.SelectSingleNode("configuration/appSettings/add[@key='OmitPrecompilation']").Attributes["value"].Value = "True"
+#$configDocument.Save("$BIN_FOLDER\Production\WMBusinessTools.exe.config")
+
+cmd.exe /c ".\Build-MSI.cmd"
 
 # Подготовка манифеста
 $archiveHash = (Get-FileHash -Path $archiveFilePath -Algorithm SHA256).Hash
@@ -45,5 +49,7 @@ $packageElement.Attributes["ReleaseDate"].Value = $releaseDate
 $packageElement.Attributes["Digest"].Value = $archiveHash
 $packageElement.InnerText = "http://www.webmoney-business-tools.com/dist/$publicationFolder/WMBusinessTools-v$version.zip"
 $manifestDocument.Save(".\..\..\Tools\ManifestSigner\Manifest.xml")
+
+cmd.exe /c ".\..\..\Tools\ManifestSigner\Sign.cmd"
 
 pause
