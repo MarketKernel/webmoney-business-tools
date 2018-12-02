@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UninstallAssistant", "UninstallAssistant\UninstallAssistant.csproj", "{2FF0C27F-DF0C-4CBD-8DE7-093C999785ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FF0C27F-DF0C-4CBD-8DE7-093C999785ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF0C27F-DF0C-4CBD-8DE7-093C999785ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF0C27F-DF0C-4CBD-8DE7-093C999785ED}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{2FF0C27F-DF0C-4CBD-8DE7-093C999785ED}.Production|Any CPU.Build.0 = Production|Any CPU
+		{2FF0C27F-DF0C-4CBD-8DE7-093C999785ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF0C27F-DF0C-4CBD-8DE7-093C999785ED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {579ED99E-1096-4863-89E9-98C384989E0E}
+	EndGlobalSection
+EndGlobal

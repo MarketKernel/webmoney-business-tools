@@ -258,5 +258,25 @@ namespace PartialTrustInstaller.Properties {
                 return ResourceManager.GetString("MainWindow_Title", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Uninstall {
+            get {
+                object obj = ResourceManager.GetObject("Uninstall", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Uninstall_resources {
+            get {
+                object obj = ResourceManager.GetObject("Uninstall_resources", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

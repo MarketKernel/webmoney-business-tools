@@ -119,7 +119,7 @@ namespace PartialTrustInstaller
                 string.Format(CultureInfo.CurrentCulture,
                     AppResources.MainWindow_MainWindowOnLoaded_Download_version__0__of__1,
                     signedManifest.Version,
-                    signedManifest.Date.ToLocalTime().ToString("d"));
+                    signedManifest.Date.ToLocalTime().ToString("D"));
             SetPercentage(0);
 
             _tempFilePath = Path.GetTempFileName();
@@ -168,11 +168,24 @@ namespace PartialTrustInstaller
                 ExtractToDirectory(_tempFilePath, SetupConsts.AppDirectory);
                 File.Delete(_tempFilePath);
 
-                ShortcutUtility.CreateShortcut(Path.Combine(SetupConsts.AppDirectory, SetupConsts.AppStartupFile),
-                    Environment.GetFolderPath(Environment.SpecialFolder.StartMenu));
+                File.WriteAllBytes(Path.Combine(SetupConsts.AppDirectory, SetupConsts.UninstallAssistantFile), AppResources.Uninstall);
 
-                ShortcutUtility.CreateShortcut(Path.Combine(SetupConsts.AppDirectory, SetupConsts.AppStartupFile),
-                    Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+                var ruDirectory = Path.Combine(SetupConsts.AppDirectory, "ru");
+
+                if (!Directory.Exists(ruDirectory))
+                    Directory.CreateDirectory(ruDirectory);
+
+                File.WriteAllBytes(Path.Combine(ruDirectory, SetupConsts.UninstallAssistantResourcesFile),
+                    AppResources.Uninstall_resources);
+
+                var exePath = Path.Combine(SetupConsts.AppDirectory, SetupConsts.AppStartupFile);
+
+                ShortcutUtility.CreateShortcut(exePath, Environment.GetFolderPath(Environment.SpecialFolder.StartMenu));
+                ShortcutUtility.CreateShortcut(exePath, Environment.GetFolderPath(Environment.SpecialFolder.Desktop));
+
+                var size = CalculateDirectorySize(new DirectoryInfo(SetupConsts.AppDirectory));
+                RegistryUtility.AddUninstallRegistryKey(size / 1024, signedManifest.Version);
+
             }, _unzipCancellationToken);
 
             try
@@ -291,6 +304,8 @@ namespace PartialTrustInstaller
                 text = $"{text} {errorMessage}";
 
             InfoLabel.Text = text;
+            ProgressBar.IsIndeterminate = false;
+            ProgressBar.Value = 100;
             ProgressBar.Foreground = Brushes.Red;
             CancelButton.Content = AppResources.MainWindow_Cancel_Close;
         }
@@ -331,6 +346,23 @@ namespace PartialTrustInstaller
             }
         }
 
+        public static int CalculateDirectorySize(DirectoryInfo directoryInfo)
+        {
+            int size = 0;
+
+            foreach (var fileInfo in directoryInfo.GetFiles())
+            {
+                size += (int) fileInfo.Length;
+            }
+
+            foreach (var subDirectoryInfo in directoryInfo.GetDirectories())
+            {
+                size += CalculateDirectorySize(subDirectoryInfo);
+            }
+
+            return size;
+        }
+
         private void TryDeleteAllFiles()
         {
             try
@@ -360,6 +392,8 @@ namespace PartialTrustInstaller
             ShortcutUtility.TryDeleteShortcut(
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop)),
                 SetupConsts.AppStartupFile);
+
+            RegistryUtility.RemoveUninstallRegistryKey();
         }
     }
 }

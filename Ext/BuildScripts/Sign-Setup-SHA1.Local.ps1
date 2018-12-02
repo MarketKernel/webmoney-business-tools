@@ -64,10 +64,10 @@ $xmlDocument.Save("$TargetPath\$ProjectName.exe.manifest")
 Start-Process ".\mage2008sha1\mage.exe" -ArgumentList "-update `"$TargetPath\$ProjectName.exe.manifest`" -if `"App.ico`" -ch $CertThumbprint -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
 Start-Process ".\mage2008\mage.exe" -ArgumentList "-Sign `"$TargetPath\$ProjectName.exe.manifest`" -ch $CertThumbprint -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
 
-Start-Process ".\mage2008\mage.exe" -ArgumentList "-update `"$TargetPath\$ProjectName.application`" -IncludeProviderURL true -ProviderURL `"http://www.webmoney-business-tools.com/dist/clickonce/$ProjectName.application`" -ch $CertThumbprint -appManifest `"$TargetPath\$ProjectName.exe.manifest`" -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
+Start-Process ".\mage2008\mage.exe" -ArgumentList "-update `"$TargetPath\$ProjectName.application`" -ch $CertThumbprint -appManifest `"$TargetPath\$ProjectName.exe.manifest`" -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
 Start-Process ".\mage2008\mage.exe" -ArgumentList "-Sign `"$TargetPath\$ProjectName.application`" -ch $CertThumbprint -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
 
-Start-Process ".\mage2008\mage.exe" -ArgumentList "-update `"$PublishPath\$ProjectName.application`" -IncludeProviderURL true -ProviderURL `"http://www.webmoney-business-tools.com/dist/clickonce/$ProjectName.application`" -ch $CertThumbprint -appManifest `"$TargetPath\$ProjectName.exe.manifest`" -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
+Start-Process ".\mage2008\mage.exe" -ArgumentList "-update `"$PublishPath\$ProjectName.application`" -ch $CertThumbprint -appManifest `"$TargetPath\$ProjectName.exe.manifest`" -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
 Start-Process ".\mage2008\mage.exe" -ArgumentList "-Sign `"$PublishPath\$ProjectName.application`"  -ch $CertThumbprint -ti `"$TimeStampingServer`"" -Wait -NoNewWindow
 
 Get-ChildItem -Path "$TargetPath\*"  -Recurse | Where-Object {!$_.PSIsContainer -and $_.Name -notlike "*.manifest" -and $_.Name -notlike "*.application"} | Rename-Item -NewName {$_.Name + ".deploy"}

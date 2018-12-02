@@ -35,7 +35,7 @@
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>Setup.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.2.0.0</ApplicationVersion>
+    <ApplicationVersion>1.4.2.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -148,6 +148,7 @@
     <Compile Include="Utils\TaskSupport\TaskAwaiterOfT.cs" />
     <Compile Include="Utils\TaskSupport\TaskExtensions.cs" />
     <Compile Include="Utils\TaskSupport\WebClientExtensions.cs" />
+    <Compile Include="Utils\RegistryUtility.cs" />
     <Compile Include="Utils\Unzip.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +193,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Uninstall.resources.dll" />
+    <None Include="Resources\Uninstall.exe" />
     <Resource Include="App.ico" />
     <Content Include="Resources\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

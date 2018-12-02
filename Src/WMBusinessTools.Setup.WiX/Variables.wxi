@@ -2,7 +2,7 @@
 
 <Include>
   <?define ProductName="WMBusinessTools-3.1" ?>
-  <?define ProductVersion="3.1.3.0" ?>
+  <?define ProductVersion="3.1.4.0" ?>
   <?define Manufacturer="MarketKernel" ?>
   <?define ProductionDir=".\..\WMBusinessTools\bin\Production\" ?>
   <?define AboutUrl="https://www.webmoney-business-tools.com/" ?>
@@ -11,12 +11,12 @@
   <?define Phone="+380443622053" ?>
   <?define ExecTarget="File_WMBusinessTools.exe" ?>
   <?if $(var.Platform) = x64 ?>
-  <?define ProductCode = "8671ea88-5543-48ea-b1d9-9de418405324" ?>
+  <?define ProductCode = "9671ea88-5543-48ea-b1d9-9de418405324" ?>
   <?define UpgradeCode = "DF447063-C9B6-46D2-8760-31A106547FF1" ?>
   <?define Win64 = "yes" ?>
   <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
   <?else ?>
-  <?define ProductCode = "11768769-e538-423f-bc85-141545bc69f0" ?>
+  <?define ProductCode = "21768769-e538-423f-bc85-141545bc69f0" ?>
   <?define UpgradeCode = "DF447063-C9B6-46D2-8760-31A106547FF1" ?>
   <?define Win64 = "no" ?>
   <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
